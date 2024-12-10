@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://c2bc1dl8lycqq"]
+
+[ext_resource type="Script" path="res://character_body_2d.gd" id="1_5yl5g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qmiwt"]
+size = Vector2(45, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bnurh"]
+size = Vector2(45, 63)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lgy0r"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_idp3l"]
+
+[node name="fruit_boy" type="CharacterBody2D"]
+script = ExtResource("1_5yl5g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(12.5, 21.5)
+shape = SubResource("RectangleShape2D_qmiwt")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(12.5, 21.5)
+shape = SubResource("RectangleShape2D_bnurh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lgy0r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(12.5, 21.5)
+scale = Vector2(45, 63)
+texture = SubResource("PlaceholderTexture2D_idp3l")
+
+[node name="Camera2D" type="Camera2D" parent="."]
