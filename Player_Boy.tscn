@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://woh424u7fefa"]
 
 [ext_resource type="Script" path="res://test.gd" id="1_ykemg"]
-[ext_resource type="Texture2D" path="res://sprite-B-sheet-idle.png" id="2_1pxy8"]
+[ext_resource type="Texture2D" uid="uid://dutf6cfqgcidn" path="res://sprites/sprite-B-sheet-idle.png" id="2_1pxy8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fl22a"]
 atlas = ExtResource("2_1pxy8")
@@ -51,7 +51,7 @@ script = ExtResource("1_ykemg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_d0p5s")
-animation = &"idle_up"
+animation = &"idle_down"
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 
