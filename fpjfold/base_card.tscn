@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvcprskpnbhxi"]
+
+[ext_resource type="Script" path="res://fpjfold/base_card.gd" id="1_ud1hi"]
+[ext_resource type="Texture2D" uid="uid://cu6wbc84x2k71" path="res://fpjfold/fpjsprites/misc/New Icons(1.0).png" id="2_rrstj"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_by52l"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lra1o"]
+
+[node name="BaseCard" type="Node2D"]
+script = ExtResource("1_ud1hi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.592711, 0.457114, 0.0490577, 1)
+self_modulate = Color(0.592711, 0.457114, 0.0490577, 1)
+position = Vector2(8, 0)
+scale = Vector2(111, 165)
+texture = SubResource("PlaceholderTexture2D_by52l")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 21.0
+offset_top = 69.0
+offset_right = 105.0
+offset_bottom = 146.0
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(14, 7)
+scale = Vector2(7, 149)
+texture = SubResource("PlaceholderTexture2D_lra1o")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(105, 8)
+scale = Vector2(7, 149)
+texture = SubResource("PlaceholderTexture2D_lra1o")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(14, 148)
+scale = Vector2(98, 11)
+texture = SubResource("PlaceholderTexture2D_lra1o")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(14, 6)
+scale = Vector2(98, 11)
+texture = SubResource("PlaceholderTexture2D_lra1o")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(62, 42)
+scale = Vector2(0.676469, 0.693996)
+texture = ExtResource("2_rrstj")
+hframes = 14
+vframes = 8
+
+[node name="Button" type="Button" parent="."]
+offset_left = 6.0
+offset_right = 117.0
+offset_bottom = 164.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
