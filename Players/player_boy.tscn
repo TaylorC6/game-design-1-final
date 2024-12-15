@@ -64,7 +64,15 @@ animations = [{
 "texture": SubResource("AtlasTexture_q36yy")
 }],
 "loop": true,
-"name": &"idle_side",
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q36yy")
+}],
+"loop": true,
+"name": &"idle_right",
 "speed": 5.0
 }, {
 "frames": [{
@@ -106,8 +114,25 @@ animations = [{
 "texture": SubResource("AtlasTexture_wppyx")
 }],
 "loop": true,
-"name": &"walk_side",
+"name": &"walk_left",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73xxf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wppyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c23rq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wppyx")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -127,8 +152,7 @@ script = ExtResource("1_8q00g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_eem4s")
-animation = &"walk_side"
-frame_progress = 0.891652
+animation = &"walk_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 9)
