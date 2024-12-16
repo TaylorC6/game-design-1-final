@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://regfenq1aeot"
-path="res://.godot/imported/sprite-B-sheet-idle.png-8c60ef7a8d845e3c1bf1696f0e03c508.ctex"
+uid="uid://d0enpfwqdb61g"
+path="res://.godot/imported/AnimDownBoy.png-fc463f09b799aae6a4238d24dc26174d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/sprite-B-sheet-idle.png"
-dest_files=["res://.godot/imported/sprite-B-sheet-idle.png-8c60ef7a8d845e3c1bf1696f0e03c508.ctex"]
+source_file="res://sprites/AnimDownBoy.png"
+dest_files=["res://.godot/imported/AnimDownBoy.png-fc463f09b799aae6a4238d24dc26174d.ctex"]
 
 [params]
 
