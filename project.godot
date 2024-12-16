@@ -18,6 +18,10 @@ config/icon="res://icon.svg"
 
 Fpjglobal="*res://fpjglobal.gd"
 
+[global_group]
+
+Player=""
+
 [input]
 
 ui_left={

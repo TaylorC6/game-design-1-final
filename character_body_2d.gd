@@ -170,7 +170,10 @@ func _physics_process(delta: float) -> void:
 			charged_attack()
 			charge_start = 0.0
 			data.state = STATES.CHARGING
-		
+		#if Input.is_action_just_pressed("ui_end"):
+			#var p = get_tree().get_nodes_in_group("Player")
+			#if p[0] == self:
+				#
 		charge_start += delta
 		#if (charge_start >= charge_time && data.state == STATES.CHARGING):
 			#aud.stream = attack_sound
