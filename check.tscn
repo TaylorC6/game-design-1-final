@@ -4,7 +4,7 @@
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qj58w"]
 
-[node name="check" type="Node2D"]
+[node name="check" type="Node2D" groups=["Player"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(492.25, 321.25)
