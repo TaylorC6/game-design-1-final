@@ -87,4 +87,4 @@ texture = SubResource("PlaceholderTexture2D_0af5e")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_p0ex2")
 animation = &"Pinapple_Explosion"
-frame_progress = 0.534891
+frame_progress = 0.841601
