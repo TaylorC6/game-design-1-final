@@ -73,14 +73,13 @@ animations = [{
 }]
 
 [node name="pineapple" type="Area2D"]
+position = Vector2(93, 52)
 script = ExtResource("1_1pbls")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(72, 43)
 shape = SubResource("RectangleShape2D_usfo3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(72, 43)
 scale = Vector2(24, 22)
 texture = SubResource("PlaceholderTexture2D_0af5e")
 
