@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://b0112xavwf20a"]
 
 [ext_resource type="Script" path="res://pineapple.gd" id="1_1pbls"]
-[ext_resource type="Texture2D" uid="uid://sqijt7k5nl6k" path="res://sprites/PinappleSprites.png" id="2_hmtyq"]
+[ext_resource type="Texture2D" uid="uid://ws6hh4bqm57o" path="res://sprites/PinappleSprites.png" id="2_hmtyq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_usfo3"]
 size = Vector2(22, 21)
@@ -73,17 +73,18 @@ animations = [{
 }]
 
 [node name="pineapple" type="Area2D"]
-position = Vector2(93, 52)
 script = ExtResource("1_1pbls")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(72, 43)
 shape = SubResource("RectangleShape2D_usfo3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(72, 43)
 scale = Vector2(24, 22)
 texture = SubResource("PlaceholderTexture2D_0af5e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_p0ex2")
 animation = &"Pinapple_Explosion"
-frame_progress = 0.951552
+frame_progress = 0.534891

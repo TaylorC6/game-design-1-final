@@ -1,9 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://1mobpdtgslyq"]
+[gd_scene load_steps=8 format=3 uid="uid://1mobpdtgslyq"]
 
 [ext_resource type="Script" path="res://fpjfold/fpj_hud.gd" id="1_s62ag"]
 [ext_resource type="Texture2D" uid="uid://cicbfdjfjptp7" path="res://fpjfold/fpjsprites/misc/hud-pieces.png" id="2_lf5gu"]
+[ext_resource type="Texture2D" uid="uid://ws6hh4bqm57o" path="res://sprites/PinappleSprites.png" id="3_f7ha2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yaulj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptidr"]
+atlas = ExtResource("3_f7ha2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43ao7"]
+atlas = ExtResource("3_f7ha2")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3m62j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptidr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43ao7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
 
 [node name="fpj_hud" type="CanvasLayer" groups=["HUD"]]
 script = ExtResource("1_s62ag")
@@ -249,3 +272,15 @@ offset_bottom = 126.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Money"]
 sprite_frames = SubResource("SpriteFrames_yaulj")
+
+[node name="GrenadeAbility" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GrenadeAbility"]
+position = Vector2(1100.25, 48.75)
+scale = Vector2(4.60156, 4.60156)
+sprite_frames = SubResource("SpriteFrames_3m62j")
+frame_progress = 0.0702071
