@@ -194,7 +194,9 @@ script = ExtResource("1_8q00g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_eem4s")
-animation = &"idle_left"
+animation = &"walk_right"
+frame = 1
+frame_progress = 0.151987
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 9)
