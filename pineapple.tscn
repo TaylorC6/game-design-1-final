@@ -72,7 +72,7 @@ animations = [{
 
 [node name="pineapple" type="Area2D"]
 position = Vector2(619, 322)
-scale = Vector2(5, 5)
+scale = Vector2(10, 10)
 script = ExtResource("1_1pbls")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

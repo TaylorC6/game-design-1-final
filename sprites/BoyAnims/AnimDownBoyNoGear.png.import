@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx0mnkkf0roj4"
-path="res://.godot/imported/AnimUpBoyGeared.png-2ce297ffc21597db9c64db56b43b5cf3.ctex"
+uid="uid://tn3w5esgqlpn"
+path="res://.godot/imported/AnimDownBoyNoGear.png-5a49e8be79b8d31e8459629ffd4ba752.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/AnimUpBoyGeared.png"
-dest_files=["res://.godot/imported/AnimUpBoyGeared.png-2ce297ffc21597db9c64db56b43b5cf3.ctex"]
+source_file="res://sprites/BoyAnims/AnimDownBoyNoGear.png"
+dest_files=["res://.godot/imported/AnimDownBoyNoGear.png-5a49e8be79b8d31e8459629ffd4ba752.ctex"]
 
 [params]
 

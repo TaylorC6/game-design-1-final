@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tjiv4uplej2e"
-path="res://.godot/imported/AnimLeftBoy.png-6aebebf58123544fcaed6f2a92f1eb10.ctex"
+uid="uid://dpw8pf4wnayfn"
+path="res://.godot/imported/AnimDownBoyNoWeapons.png-bb1ba5425384ddcb12e802d5138cf7ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/AnimLeftBoy.png"
-dest_files=["res://.godot/imported/AnimLeftBoy.png-6aebebf58123544fcaed6f2a92f1eb10.ctex"]
+source_file="res://sprites/BoyAnims/AnimDownBoyNoWeapons.png"
+dest_files=["res://.godot/imported/AnimDownBoyNoWeapons.png-bb1ba5425384ddcb12e802d5138cf7ea.ctex"]
 
 [params]
 

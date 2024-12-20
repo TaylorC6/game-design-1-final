@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djshldj80gycx"
-path="res://.godot/imported/AnimRightBoyNoGear.png-b9655f8219ff2bd3c3ae3f096e1e074f.ctex"
+uid="uid://dxor628xqmuib"
+path="res://.godot/imported/AnimRightBoyNoWeapons.png-4b5f66cbf356b2415f0a9a66281dff8e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/AnimRightBoyNoGear.png"
-dest_files=["res://.godot/imported/AnimRightBoyNoGear.png-b9655f8219ff2bd3c3ae3f096e1e074f.ctex"]
+source_file="res://sprites/BoyAnims/AnimRightBoyNoWeapons.png"
+dest_files=["res://.godot/imported/AnimRightBoyNoWeapons.png-4b5f66cbf356b2415f0a9a66281dff8e.ctex"]
 
 [params]
 

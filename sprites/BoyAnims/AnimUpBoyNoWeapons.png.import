@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ss15mnqo55cl"
-path="res://.godot/imported/AnimUpBoyNoWeapons.png-3314371ad56b935504b1e4eeca7ead2b.ctex"
+path="res://.godot/imported/AnimUpBoyNoWeapons.png-af18e3f04764d5f0cbe94c1cd7c3622c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/AnimUpBoyNoWeapons.png"
-dest_files=["res://.godot/imported/AnimUpBoyNoWeapons.png-3314371ad56b935504b1e4eeca7ead2b.ctex"]
+source_file="res://sprites/BoyAnims/AnimUpBoyNoWeapons.png"
+dest_files=["res://.godot/imported/AnimUpBoyNoWeapons.png-af18e3f04764d5f0cbe94c1cd7c3622c.ctex"]
 
 [params]
 
