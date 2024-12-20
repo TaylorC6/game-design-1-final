@@ -22,7 +22,8 @@ var charge_time = 1.25
 var charge_duration = 0.0
 var gear = false
 var nogear = false
-#
+
+var pine_scene = preload("res://pineapple.tscn")
 #var slash_scene  = preload("res://enitities/attacks/slash.tscn")
 #var damage_shader = preload("res://assets/shaders/take_damage.tres")
 #var attack_sound = preload("res://Sounds/slash.wav")
@@ -41,8 +42,12 @@ func get_direction_name():
 	]
 
 func attack():
-	var pine = load("res://pineapple.tscn")
-	#pine.global_position = (dir * (self.global_position + Vector2(10, 10)))
+	var pi = pine_scene.instantiate()
+	pi.global_position = self.global_position + attack_direction * 50
+	pi.rotation = Vector2().angle_to_point(-attack_direction)
+	self.get_parent().add_child(pi)]
+	self.get_parent().add_child(pi)
+	self.get_parent().add_child(pi)
 	#data.state = STATES.ATTACKING
 	#var dir_name = get_direction_name()
 	#if dir_name == "left":
@@ -156,14 +161,14 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, SPEED)
 		velocity += inertia
-		update_animation(direction)
-		move_and_slide()
-		inertia = inertia.move_toward(Vector2.ZERO, delta * 1000.0)
+	update_animation(direction)
+	move_and_slide()
+	inertia = inertia.move_toward(Vector2.ZERO, delta * 1000.0)
 	if data.state != STATES.DEAD:
 		if Input.is_action_just_pressed("ui_accept"):
 			attack()
-			charge_duration = 0.0
-			data.state = STATES.CHARGING
+			#charge_duration = 0.0
+			#data.state = STATES.CHARGING
 		#
 		#charge_duration += delta
 		#if Input.is_action_just_released("ui_accept"):

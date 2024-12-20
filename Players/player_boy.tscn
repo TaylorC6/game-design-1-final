@@ -410,6 +410,7 @@ height = 24.0
 
 [node name="Player_Boy" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_8q00g")
+data = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_eem4s")
