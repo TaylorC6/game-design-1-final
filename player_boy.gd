@@ -156,9 +156,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, SPEED)
 		velocity += inertia
-		update_animation(direction)
-		move_and_slide()
-		inertia = inertia.move_toward(Vector2.ZERO, delta * 1000.0)
+	update_animation(direction)
+	move_and_slide()
+	inertia = inertia.move_toward(Vector2.ZERO, delta * 1000.0)
 	if data.state != STATES.DEAD:
 		if Input.is_action_just_pressed("ui_accept"):
 			attack()
@@ -196,13 +196,15 @@ func update_animation(direction):
 			a_name += "up"
 		elif look_direction.y > 0:
 			a_name += "down"
-		if a_name == "walk_left" or a_name == "walk_down" or a_name == "walk_right":
-			if nogear:
-				a_name += "_nogear"
-			elif gear:
-				a_name += "_noweapons"
-			else:
-				a_name = a_name
+ 
+		var _wak = a_name.substr(0, 5)
+		
+		if nogear:
+			a_name += "_nogear"
+		elif gear:
+			a_name += "_noweapons"
+		else:
+			a_name = a_name
 
 		$AnimatedSprite2D.animation = a_name
 		$AnimatedSprite2D.play()

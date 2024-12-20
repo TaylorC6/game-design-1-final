@@ -65,7 +65,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bxou4")
 }],
-"loop": false,
+"loop": true,
 "name": &"Pinapple_Explosion",
 "speed": 12.0
 }]
@@ -83,3 +83,4 @@ shape = SubResource("CircleShape2D_xc7pc")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_p0ex2")
 animation = &"Pinapple_Explosion"
+frame_progress = 0.952968

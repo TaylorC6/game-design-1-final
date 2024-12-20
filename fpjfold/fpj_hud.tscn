@@ -280,7 +280,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GrenadeAbility"]
-position = Vector2(1100.25, 48.75)
-scale = Vector2(4.60156, 4.60156)
+position = Vector2(1106, 45)
+scale = Vector2(4.85156, 4.91406)
 sprite_frames = SubResource("SpriteFrames_3m62j")
-frame_progress = 0.0702071
+frame_progress = 0.395689
