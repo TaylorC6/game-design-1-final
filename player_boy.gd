@@ -20,6 +20,8 @@ var animation_lock = 0.0  # Lock player while playing attack animation
 var damage_lock = 0.0
 var charge_time = 1.25
 var charge_duration = 0.0
+var gear = false
+var nogear = false
 #
 #var slash_scene  = preload("res://enitities/attacks/slash.tscn")
 #var damage_shader = preload("res://assets/shaders/take_damage.tres")
@@ -175,7 +177,10 @@ func _physics_process(delta: float) -> void:
 		#get_tree().paused = true
 	#pass
 	#
-	#
+		if Input.is_action_just_pressed("ui_interact"):
+			gear = not gear
+		if Input.is_action_just_pressed("ui_ability"):
+			nogear = not nogear
 #
 func update_animation(direction):
 	if data.state == STATES.IDLE:
@@ -190,6 +195,13 @@ func update_animation(direction):
 			a_name += "up"
 		elif look_direction.y > 0:
 			a_name += "down"
+		if a_name == "walk_left" or a_name == "walk_down" or a_name == "walk_right":
+			if nogear:
+				a_name += "_nogear"
+			elif gear:
+				a_name += "_noweapons"
+			else:
+				a_name = a_name
 
 		$AnimatedSprite2D.animation = a_name
 		$AnimatedSprite2D.play()

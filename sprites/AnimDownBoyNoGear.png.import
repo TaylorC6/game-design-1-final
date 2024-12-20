@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://khdasf11mq5l"
-path="res://.godot/imported/AnimLeftBoyNoGear - Copy.png-8b6da270f1ab5da3e4a93156bc829d49.ctex"
+uid="uid://tn3w5esgqlpn"
+path="res://.godot/imported/AnimDownBoyNoGear.png-240b68a99d00dae3959ba2524d602718.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/AnimLeftBoyNoGear - Copy.png"
-dest_files=["res://.godot/imported/AnimLeftBoyNoGear - Copy.png-8b6da270f1ab5da3e4a93156bc829d49.ctex"]
+source_file="res://sprites/AnimDownBoyNoGear.png"
+dest_files=["res://.godot/imported/AnimDownBoyNoGear.png-240b68a99d00dae3959ba2524d602718.ctex"]
 
 [params]
 
