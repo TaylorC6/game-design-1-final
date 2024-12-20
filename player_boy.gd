@@ -40,7 +40,9 @@ func get_direction_name():
 		int(round(look_direction.angle() * 2 / PI)) % 4
 	]
 
-#func attack():
+func attack():
+	var pine = load("res://pineapple.tscn")
+	#pine.global_position = (dir * (self.global_position + Vector2(10, 10)))
 	#data.state = STATES.ATTACKING
 	#var dir_name = get_direction_name()
 	#if dir_name == "left":
@@ -142,27 +144,26 @@ func _physics_process(delta: float) -> void:
 		#if data.state != STATES.CHARGING:
 			#data.state = STATES.IDLE
 	#
-		var direction = Vector2(
-			Input.get_axis("ui_left", "ui_right"),
-			Input.get_axis("ui_up", "ui_down")
-		)
-		if direction.length() > 0:
-			look_direction = direction
-			# Scale to 1 to prevent speed boost from diagonals
-			direction = direction.normalized()
-			velocity  = direction * SPEED
-		else:
-			velocity = velocity.move_toward(Vector2.ZERO, SPEED)
+	var direction = Vector2(
+		Input.get_axis("ui_left", "ui_right"),
+		Input.get_axis("ui_up", "ui_down")
+	)
+	if direction.length() > 0:
+		look_direction = direction
+		# Scale to 1 to prevent speed boost from diagonals
+		direction = direction.normalized()
+		velocity  = direction * SPEED
+	else:
+		velocity = velocity.move_toward(Vector2.ZERO, SPEED)
 		velocity += inertia
 		update_animation(direction)
 		move_and_slide()
 		inertia = inertia.move_toward(Vector2.ZERO, delta * 1000.0)
-	#
-	#if data.state != STATES.DEAD:
-		#if Input.is_action_just_pressed("ui_accept"):
-			#attack()
-			#charge_duration = 0.0
-			#data.state = STATES.CHARGING
+	if data.state != STATES.DEAD:
+		if Input.is_action_just_pressed("ui_accept"):
+			attack()
+			charge_duration = 0.0
+			data.state = STATES.CHARGING
 		#
 		#charge_duration += delta
 		#if Input.is_action_just_released("ui_accept"):
