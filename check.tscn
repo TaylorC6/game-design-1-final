@@ -1,14 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://bpujhorbt7sqd"]
 
-[ext_resource type="PackedScene" uid="uid://c2bc1dl8lycqq" path="res://fruit_boy.tscn" id="1_i550k"]
+[ext_resource type="PackedScene" uid="uid://bln8texdoab4d" path="res://Players/player_boy.tscn" id="1_1nhd8"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qj58w"]
 
 [node name="check" type="Node2D" groups=["Player"]]
+position = Vector2(2, -7)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(492.25, 321.25)
 scale = Vector2(985.5, 643.5)
 texture = SubResource("PlaceholderTexture2D_qj58w")
 
-[node name="fruit_boy" parent="." instance=ExtResource("1_i550k")]
+[node name="Player_Boy" parent="." instance=ExtResource("1_1nhd8")]
+position = Vector2(176, -55)
+data = null
