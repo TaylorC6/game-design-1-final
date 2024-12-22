@@ -558,19 +558,22 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ti6rq"]
-radius = 9.0
-height = 24.0
+radius = 3.0
+height = 14.0
 
 [node name="Player_Boy" type="CharacterBody2D" groups=["Player"]]
+y_sort_enabled = true
 script = ExtResource("1_8q00g")
-data = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_eem4s")
 animation = &"idle_down_noweapons"
+offset = Vector2(0, -18)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 9)
+z_index = 1000
+z_as_relative = false
+rotation = 1.57079
 shape = SubResource("CapsuleShape2D_ti6rq")
 
 [node name="Camera2D" type="Camera2D" parent="."]

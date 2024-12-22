@@ -45,7 +45,7 @@ func attack():
 	var pi = pine_scene.instantiate()
 	pi.global_position = self.global_position + attack_direction * 50
 	pi.rotation = Vector2().angle_to_point(-attack_direction)
-	self.get_parent().add_child(pi)]
+	self.get_parent().add_child(pi)
 	self.get_parent().add_child(pi)
 	self.get_parent().add_child(pi)
 	#data.state = STATES.ATTACKING
