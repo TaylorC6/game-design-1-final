@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b56y61yh78olb"
-path="res://.godot/imported/midi-bn.png-bb60e2090e1957ad81706dd991f01faf.ctex"
+path="res://.godot/imported/midi-bn.png-66b3cadfa121f0db74d6e8214435c392.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fpjfold/fpjsprites/player/midi-bn.png"
-dest_files=["res://.godot/imported/midi-bn.png-bb60e2090e1957ad81706dd991f01faf.ctex"]
+source_file="res://sprites/fpjfold/fpjsprites/player/midi-bn.png"
+dest_files=["res://.godot/imported/midi-bn.png-66b3cadfa121f0db74d6e8214435c392.ctex"]
 
 [params]
 

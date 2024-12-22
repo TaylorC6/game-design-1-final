@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bji4v48rv7a2y"
-path="res://.godot/imported/32x32_ortho_dungeon_tile_Denzi100418-3.PNG-22986c48c11189d0ef7216373d25c1d1.ctex"
+path="res://.godot/imported/32x32_ortho_dungeon_tile_Denzi100418-3.PNG-4d795ff9d64b1101eeea4b28a89dd910.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fpjfold/fpjsprites/DENZI_CC0/Good/32x32_ortho_dungeon_tile_Denzi100418-3.PNG"
-dest_files=["res://.godot/imported/32x32_ortho_dungeon_tile_Denzi100418-3.PNG-22986c48c11189d0ef7216373d25c1d1.ctex"]
+source_file="res://fpjfold/fpjsprites/Good/32x32_ortho_dungeon_tile_Denzi100418-3.PNG"
+dest_files=["res://.godot/imported/32x32_ortho_dungeon_tile_Denzi100418-3.PNG-4d795ff9d64b1101eeea4b28a89dd910.ctex"]
 
 [params]
 

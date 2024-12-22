@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c5npfxtenqmm8"
-path="res://.godot/imported/andromalius-57x88.png-686edb3559e72d651467023ce8346bb6.ctex"
+path="res://.godot/imported/andromalius-57x88.png-5cc6fb6af20477d13b65de26772f10d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fpjfold/fpjsprites/spritesheets/andromalius-57x88.png"
-dest_files=["res://.godot/imported/andromalius-57x88.png-686edb3559e72d651467023ce8346bb6.ctex"]
+source_file="res://sprites/fpjfold/fpjsprites/spritesheets/andromalius-57x88.png"
+dest_files=["res://.godot/imported/andromalius-57x88.png-5cc6fb6af20477d13b65de26772f10d9.ctex"]
 
 [params]
 

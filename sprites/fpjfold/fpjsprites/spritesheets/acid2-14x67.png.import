@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bfk3xb0c6y8fd"
-path="res://.godot/imported/acid2-14x67.png-fd0cb236fff386c901ee99d8f167426e.ctex"
+path="res://.godot/imported/acid2-14x67.png-1d564e66ab521bd60ec8814f0ba79c2e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fpjfold/fpjsprites/spritesheets/acid2-14x67.png"
-dest_files=["res://.godot/imported/acid2-14x67.png-fd0cb236fff386c901ee99d8f167426e.ctex"]
+source_file="res://sprites/fpjfold/fpjsprites/spritesheets/acid2-14x67.png"
+dest_files=["res://.godot/imported/acid2-14x67.png-1d564e66ab521bd60ec8814f0ba79c2e.ctex"]
 
 [params]
 

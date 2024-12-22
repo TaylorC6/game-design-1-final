@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://8vojqk7unuc2"
-path="res://.godot/imported/wyrm_red_scales.png-e5bf3f754b0711e562605a47ea47ee4b.ctex"
+path="res://.godot/imported/wyrm_red_scales.png-83ec23b1ca4b5e983b8c8396348559e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fpjfold/fpjsprites/enemies/wyrm_red_scales.png"
-dest_files=["res://.godot/imported/wyrm_red_scales.png-e5bf3f754b0711e562605a47ea47ee4b.ctex"]
+source_file="res://sprites/fpjfold/fpjsprites/enemies/wyrm_red_scales.png"
+dest_files=["res://.godot/imported/wyrm_red_scales.png-83ec23b1ca4b5e983b8c8396348559e5.ctex"]
 
 [params]
 

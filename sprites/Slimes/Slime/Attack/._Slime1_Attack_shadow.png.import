@@ -7,7 +7,7 @@ valid=false
 
 [deps]
 
-source_file="res://sprites/Slime/Attack/._Slime1_Attack_shadow.png"
+source_file="res://sprites/Slimes/Slime/Attack/._Slime1_Attack_shadow.png"
 
 [params]
 

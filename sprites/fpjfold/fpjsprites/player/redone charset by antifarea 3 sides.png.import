@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dx2pmmhgko5pw"
-path="res://.godot/imported/redone charset by antifarea 3 sides.png-9569f37e78453c76e6cb67def82844e5.ctex"
+path="res://.godot/imported/redone charset by antifarea 3 sides.png-29cb0bd020420cf74c5dfa259a14fe9f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fpjfold/fpjsprites/player/redone charset by antifarea 3 sides.png"
-dest_files=["res://.godot/imported/redone charset by antifarea 3 sides.png-9569f37e78453c76e6cb67def82844e5.ctex"]
+source_file="res://sprites/fpjfold/fpjsprites/player/redone charset by antifarea 3 sides.png"
+dest_files=["res://.godot/imported/redone charset by antifarea 3 sides.png-29cb0bd020420cf74c5dfa259a14fe9f.ctex"]
 
 [params]
 

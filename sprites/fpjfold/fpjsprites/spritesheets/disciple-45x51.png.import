@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://60057kjtsubs"
-path="res://.godot/imported/disciple-45x51.png-233ed45c42a4c6ff72d16536219f4cb1.ctex"
+path="res://.godot/imported/disciple-45x51.png-8d988215ced4e1c54f7d80769dfbd1ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fpjfold/fpjsprites/spritesheets/disciple-45x51.png"
-dest_files=["res://.godot/imported/disciple-45x51.png-233ed45c42a4c6ff72d16536219f4cb1.ctex"]
+source_file="res://sprites/fpjfold/fpjsprites/spritesheets/disciple-45x51.png"
+dest_files=["res://.godot/imported/disciple-45x51.png-8d988215ced4e1c54f7d80769dfbd1ba.ctex"]
 
 [params]
 

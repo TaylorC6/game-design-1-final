@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c8uxmrnrnnsrq"
-path="res://.godot/imported/minion-45x66.png-a7ea49dbce20944909754a297e4dc4bc.ctex"
+path="res://.godot/imported/minion-45x66.png-b963ea964f89ee1fdc9963042ac1d451.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fpjfold/fpjsprites/spritesheets/minion-45x66.png"
-dest_files=["res://.godot/imported/minion-45x66.png-a7ea49dbce20944909754a297e4dc4bc.ctex"]
+source_file="res://sprites/fpjfold/fpjsprites/spritesheets/minion-45x66.png"
+dest_files=["res://.godot/imported/minion-45x66.png-b963ea964f89ee1fdc9963042ac1d451.ctex"]
 
 [params]
 

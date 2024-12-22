@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2mulcppth3nj"
-path="res://.godot/imported/32x32_ortho_ability_icon_Denzi120902-1.png-d8ecf2333b8708a7187d000e0d858198.ctex"
+path="res://.godot/imported/32x32_ortho_ability_icon_Denzi120902-1.png-38da078105ac4f23efddd827db9059ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fpjfold/fpjsprites/DENZI_CC0/32x32_ortho_ability_icon_Denzi120902-1.png"
-dest_files=["res://.godot/imported/32x32_ortho_ability_icon_Denzi120902-1.png-d8ecf2333b8708a7187d000e0d858198.ctex"]
+source_file="res://sprites/fpjfold/fpjsprites/DENZI_CC0/32x32_ortho_ability_icon_Denzi120902-1.png"
+dest_files=["res://.godot/imported/32x32_ortho_ability_icon_Denzi120902-1.png-38da078105ac4f23efddd827db9059ee.ctex"]
 
 [params]
 

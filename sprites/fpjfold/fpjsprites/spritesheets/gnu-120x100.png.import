@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bo6njthn73q2w"
-path="res://.godot/imported/gnu-120x100.png-e98115820bc4bc023e409760a5d5567a.ctex"
+path="res://.godot/imported/gnu-120x100.png-6126ffd8c8c9aac5a5735ad5e6fab4bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fpjfold/fpjsprites/spritesheets/gnu-120x100.png"
-dest_files=["res://.godot/imported/gnu-120x100.png-e98115820bc4bc023e409760a5d5567a.ctex"]
+source_file="res://sprites/fpjfold/fpjsprites/spritesheets/gnu-120x100.png"
+dest_files=["res://.godot/imported/gnu-120x100.png-6126ffd8c8c9aac5a5735ad5e6fab4bb.ctex"]
 
 [params]
 

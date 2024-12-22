@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2dk7146vycx1"
-path="res://.godot/imported/32x32_ortho_various_tile_Denzi110619-4.png-bedb9ec1ade30c696ed4bf3a5d7d13a9.ctex"
+path="res://.godot/imported/32x32_ortho_various_tile_Denzi110619-4.png-57c0986d13102397f053a15a209d58ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fpjfold/fpjsprites/DENZI_CC0/Good/32x32_ortho_various_tile_Denzi110619-4.png"
-dest_files=["res://.godot/imported/32x32_ortho_various_tile_Denzi110619-4.png-bedb9ec1ade30c696ed4bf3a5d7d13a9.ctex"]
+source_file="res://sprites/fpjfold/fpjsprites/Good/32x32_ortho_various_tile_Denzi110619-4.png"
+dest_files=["res://.godot/imported/32x32_ortho_various_tile_Denzi110619-4.png-57c0986d13102397f053a15a209d58ab.ctex"]
 
 [params]
 

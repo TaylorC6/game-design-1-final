@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bvcprskpnbhxi"]
 
 [ext_resource type="Script" path="res://fpjfold/base_card.gd" id="1_ud1hi"]
-[ext_resource type="Texture2D" uid="uid://cu6wbc84x2k71" path="res://fpjfold/fpjsprites/misc/New Icons(1.0).png" id="2_rrstj"]
+[ext_resource type="Texture2D" uid="uid://cu6wbc84x2k71" path="res://sprites/fpjfold/fpjsprites/misc/New Icons(1.0).png" id="2_rrstj"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_by52l"]
 

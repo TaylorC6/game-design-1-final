@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cicbfdjfjptp7"
-path="res://.godot/imported/hud-pieces.png-d059ce325d1460c54a30886dffc5df0b.ctex"
+path="res://.godot/imported/hud-pieces.png-366a5898bf3217571a456022d3e3fbf0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fpjfold/fpjsprites/misc/hud-pieces.png"
-dest_files=["res://.godot/imported/hud-pieces.png-d059ce325d1460c54a30886dffc5df0b.ctex"]
+source_file="res://sprites/fpjfold/fpjsprites/misc/hud-pieces.png"
+dest_files=["res://.godot/imported/hud-pieces.png-366a5898bf3217571a456022d3e3fbf0.ctex"]
 
 [params]
 

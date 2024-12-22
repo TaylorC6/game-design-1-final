@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bbvihlq8mc51s"
-path="res://.godot/imported/mage-2-122x110.png-9892b7d6eb2de23cbe62c2f28ddcaa3e.ctex"
+path="res://.godot/imported/mage-2-122x110.png-f4c5582314efec21270ce43a35163bec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fpjfold/fpjsprites/spritesheets/mage-2-122x110.png"
-dest_files=["res://.godot/imported/mage-2-122x110.png-9892b7d6eb2de23cbe62c2f28ddcaa3e.ctex"]
+source_file="res://sprites/fpjfold/fpjsprites/spritesheets/mage-2-122x110.png"
+dest_files=["res://.godot/imported/mage-2-122x110.png-f4c5582314efec21270ce43a35163bec.ctex"]
 
 [params]
 

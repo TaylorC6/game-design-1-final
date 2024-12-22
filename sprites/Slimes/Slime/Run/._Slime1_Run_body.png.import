@@ -7,7 +7,7 @@ valid=false
 
 [deps]
 
-source_file="res://sprites/Slime/Run/._Slime1_Run_body.png"
+source_file="res://sprites/Slimes/Slime/Run/._Slime1_Run_body.png"
 
 [params]
 

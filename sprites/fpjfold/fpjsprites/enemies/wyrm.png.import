@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cq5og10c86c5i"
-path="res://.godot/imported/wyrm.png-b89ef3d3a7e324ec4b54a383b51d84ac.ctex"
+path="res://.godot/imported/wyrm.png-5b2057774f688666a1fb8aeff55429a1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fpjfold/fpjsprites/enemies/wyrm.png"
-dest_files=["res://.godot/imported/wyrm.png-b89ef3d3a7e324ec4b54a383b51d84ac.ctex"]
+source_file="res://sprites/fpjfold/fpjsprites/enemies/wyrm.png"
+dest_files=["res://.godot/imported/wyrm.png-5b2057774f688666a1fb8aeff55429a1.ctex"]
 
 [params]
 

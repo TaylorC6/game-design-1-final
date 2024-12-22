@@ -7,7 +7,7 @@ valid=false
 
 [deps]
 
-source_file="res://sprites/Slime/Death/._Slime1_Death_full.png"
+source_file="res://sprites/Slimes/Slime/Death/._Slime1_Death_full.png"
 
 [params]
 
