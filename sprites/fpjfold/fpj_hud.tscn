@@ -1,0 +1,286 @@
+[gd_scene load_steps=8 format=3 uid="uid://1mobpdtgslyq"]
+
+[ext_resource type="Script" path="res://fpjfold/fpj_hud.gd" id="1_s62ag"]
+[ext_resource type="Texture2D" uid="uid://cicbfdjfjptp7" path="res://fpjfold/fpjsprites/misc/hud-pieces.png" id="2_lf5gu"]
+[ext_resource type="Texture2D" uid="uid://ws6hh4bqm57o" path="res://sprites/PinappleSprites.png" id="3_f7ha2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yaulj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptidr"]
+atlas = ExtResource("3_f7ha2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_43ao7"]
+atlas = ExtResource("3_f7ha2")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3m62j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptidr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_43ao7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="fpj_hud" type="CanvasLayer" groups=["HUD"]]
+script = ExtResource("1_s62ag")
+
+[node name="Health" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 7.0
+offset_top = 4.0
+offset_right = 241.0
+offset_bottom = 47.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Health"]
+position = Vector2(27, 10)
+scale = Vector2(1.25, 1)
+texture = ExtResource("2_lf5gu")
+offset = Vector2(0, 5)
+hframes = 19
+vframes = 8
+frame = 51
+
+[node name="Sprite2D11" type="Sprite2D" parent="Health"]
+position = Vector2(17, 10)
+scale = Vector2(1.25, 1)
+texture = ExtResource("2_lf5gu")
+offset = Vector2(0, 5)
+hframes = 19
+vframes = 8
+frame = 50
+
+[node name="Sprite2D2" type="Sprite2D" parent="Health"]
+position = Vector2(37, 10)
+scale = Vector2(1.25, 1)
+texture = ExtResource("2_lf5gu")
+offset = Vector2(0, 5)
+hframes = 19
+vframes = 8
+frame = 51
+
+[node name="Sprite2D3" type="Sprite2D" parent="Health"]
+position = Vector2(47, 10)
+scale = Vector2(1.25, 1)
+texture = ExtResource("2_lf5gu")
+offset = Vector2(0, 5)
+hframes = 19
+vframes = 8
+frame = 51
+
+[node name="Sprite2D4" type="Sprite2D" parent="Health"]
+position = Vector2(57, 10)
+scale = Vector2(1.25, 1)
+texture = ExtResource("2_lf5gu")
+offset = Vector2(0, 5)
+hframes = 19
+vframes = 8
+frame = 51
+
+[node name="Sprite2D5" type="Sprite2D" parent="Health"]
+position = Vector2(67, 10)
+scale = Vector2(1.25, 1)
+texture = ExtResource("2_lf5gu")
+offset = Vector2(0, 5)
+hframes = 19
+vframes = 8
+frame = 51
+
+[node name="Sprite2D6" type="Sprite2D" parent="Health"]
+position = Vector2(77, 10)
+scale = Vector2(1.25, 1)
+texture = ExtResource("2_lf5gu")
+offset = Vector2(0, 5)
+hframes = 19
+vframes = 8
+frame = 51
+
+[node name="Sprite2D7" type="Sprite2D" parent="Health"]
+position = Vector2(87, 10)
+scale = Vector2(1.25, 1)
+texture = ExtResource("2_lf5gu")
+offset = Vector2(0, 5)
+hframes = 19
+vframes = 8
+frame = 51
+
+[node name="Sprite2D8" type="Sprite2D" parent="Health"]
+position = Vector2(97, 10)
+scale = Vector2(1.25, 1)
+texture = ExtResource("2_lf5gu")
+offset = Vector2(0, 5)
+hframes = 19
+vframes = 8
+frame = 51
+
+[node name="Sprite2D9" type="Sprite2D" parent="Health"]
+position = Vector2(107, 10)
+scale = Vector2(1.25, 1)
+texture = ExtResource("2_lf5gu")
+offset = Vector2(0, 5)
+hframes = 19
+vframes = 8
+frame = 51
+
+[node name="Sprite2D10" type="Sprite2D" parent="Health"]
+position = Vector2(117, 10)
+scale = Vector2(1.25, 1)
+texture = ExtResource("2_lf5gu")
+offset = Vector2(0, 5)
+hframes = 19
+vframes = 8
+frame = 51
+
+[node name="Sprite2D12" type="Sprite2D" parent="Health"]
+position = Vector2(127, 10)
+scale = Vector2(1.25, 1)
+texture = ExtResource("2_lf5gu")
+offset = Vector2(0, 5)
+hframes = 19
+vframes = 8
+frame = 52
+
+[node name="SP" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 19.0
+offset_right = 233.0
+offset_bottom = 59.0
+
+[node name="Sprite2D11" type="Sprite2D" parent="SP"]
+position = Vector2(34, 13)
+scale = Vector2(1.25, 1)
+texture = ExtResource("2_lf5gu")
+offset = Vector2(0, 5)
+hframes = 19
+vframes = 7
+frame = 89
+
+[node name="Sprite2D21" type="Sprite2D" parent="SP"]
+position = Vector2(24, 13)
+scale = Vector2(1.25, 1)
+texture = ExtResource("2_lf5gu")
+offset = Vector2(0, 5)
+hframes = 19
+vframes = 7
+frame = 88
+
+[node name="Sprite2D12" type="Sprite2D" parent="SP"]
+position = Vector2(44, 13)
+scale = Vector2(1.25, 1)
+texture = ExtResource("2_lf5gu")
+offset = Vector2(0, 5)
+hframes = 19
+vframes = 7
+frame = 89
+
+[node name="Sprite2D13" type="Sprite2D" parent="SP"]
+position = Vector2(54, 13)
+scale = Vector2(1.25, 1)
+texture = ExtResource("2_lf5gu")
+offset = Vector2(0, 5)
+hframes = 19
+vframes = 7
+frame = 89
+
+[node name="Sprite2D14" type="Sprite2D" parent="SP"]
+position = Vector2(64, 13)
+scale = Vector2(1.25, 1)
+texture = ExtResource("2_lf5gu")
+offset = Vector2(0, 5)
+hframes = 19
+vframes = 7
+frame = 89
+
+[node name="Sprite2D15" type="Sprite2D" parent="SP"]
+position = Vector2(74, 13)
+scale = Vector2(1.25, 1)
+texture = ExtResource("2_lf5gu")
+offset = Vector2(0, 5)
+hframes = 19
+vframes = 7
+frame = 89
+
+[node name="Sprite2D16" type="Sprite2D" parent="SP"]
+position = Vector2(84, 13)
+scale = Vector2(1.25, 1)
+texture = ExtResource("2_lf5gu")
+offset = Vector2(0, 5)
+hframes = 19
+vframes = 7
+frame = 89
+
+[node name="Sprite2D17" type="Sprite2D" parent="SP"]
+position = Vector2(94, 13)
+scale = Vector2(1.25, 1)
+texture = ExtResource("2_lf5gu")
+offset = Vector2(0, 5)
+hframes = 19
+vframes = 7
+frame = 89
+
+[node name="Sprite2D18" type="Sprite2D" parent="SP"]
+position = Vector2(104, 13)
+scale = Vector2(1.25, 1)
+texture = ExtResource("2_lf5gu")
+offset = Vector2(0, 5)
+hframes = 19
+vframes = 7
+frame = 89
+
+[node name="Sprite2D19" type="Sprite2D" parent="SP"]
+position = Vector2(114, 13)
+scale = Vector2(1.25, 1)
+texture = ExtResource("2_lf5gu")
+offset = Vector2(0, 5)
+hframes = 19
+vframes = 7
+frame = 89
+
+[node name="Sprite2D20" type="Sprite2D" parent="SP"]
+position = Vector2(124, 13)
+scale = Vector2(1.25, 1)
+texture = ExtResource("2_lf5gu")
+offset = Vector2(0, 5)
+hframes = 19
+vframes = 7
+frame = 89
+
+[node name="Sprite2D22" type="Sprite2D" parent="SP"]
+position = Vector2(134, 13)
+scale = Vector2(1.25, 1)
+texture = ExtResource("2_lf5gu")
+offset = Vector2(0, 5)
+hframes = 19
+vframes = 7
+frame = 90
+
+[node name="Money" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2.0
+offset_top = 86.0
+offset_right = 234.0
+offset_bottom = 126.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Money"]
+sprite_frames = SubResource("SpriteFrames_yaulj")
+
+[node name="GrenadeAbility" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GrenadeAbility"]
+position = Vector2(1106, 45)
+scale = Vector2(4.85156, 4.91406)
+sprite_frames = SubResource("SpriteFrames_3m62j")
+frame_progress = 0.395689
