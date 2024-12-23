@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://band7onwt1ey4"]
+
+[ext_resource type="Texture2D" uid="uid://7ww3ss2pkqgr" path="res://assets/Sprites/objects.png" id="1_3urw0"]
+[ext_resource type="Script" path="res://enitities/objects/small_chest.gd" id="1_56tmp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sa8mf"]
+radius = 18.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ptr4v"]
+size = Vector2(16, 16)
+
+[node name="SmallChest" type="Node2D" groups=["Interactables"]]
+script = ExtResource("1_56tmp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3urw0")
+hframes = 35
+vframes = 20
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
+shape = SubResource("CircleShape2D_sa8mf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_ptr4v")

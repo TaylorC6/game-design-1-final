@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=4 uid="uid://cs3dn85o3q8wf"]
+[gd_scene load_steps=9 format=4 uid="uid://cs3dn85o3q8wf"]
 
 [ext_resource type="Texture2D" uid="uid://rr7bd0fpj1v8" path="res://sprites/Inner.png" id="1_8hg5n"]
 [ext_resource type="Script" path="res://levels/level_1_tutorial_1.gd" id="1_u3ova"]
 [ext_resource type="Texture2D" uid="uid://bst44rslu20rb" path="res://sprites/objects.png" id="2_5plx8"]
 [ext_resource type="PackedScene" uid="uid://bln8texdoab4d" path="res://Players/player_boy.tscn" id="3_nm4m0"]
+[ext_resource type="PackedScene" uid="uid://becb7yvflvbxp" path="res://Interactables/shelf.tscn" id="4_ko1k0"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_52mny"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4eygn"]
 texture = ExtResource("1_8hg5n")
 0:0/0 = 0
 1:0/0 = 0
@@ -286,7 +287,7 @@ texture = ExtResource("1_8hg5n")
 6:12/size_in_atlas = Vector2i(1, 4)
 6:12/0 = 0
 6:12/0/texture_origin = Vector2i(0, 24)
-6:12/0/y_sort_origin = -12
+6:12/0/y_sort_origin = -36
 6:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.13543, -39.9827, 7.99754, -39.8474, 8, 2.33861, -8, 2.25)
 7:12/size_in_atlas = Vector2i(1, 4)
 7:12/0 = 0
@@ -294,7 +295,7 @@ texture = ExtResource("1_8hg5n")
 8:12/size_in_atlas = Vector2i(1, 2)
 8:12/0 = 0
 8:12/0/texture_origin = Vector2i(0, 8)
-8:12/0/y_sort_origin = 10
+8:12/0/y_sort_origin = 2
 8:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.77297, 1.23744, 4.86136, 1.23744, 4.86136, 6.45235, -4.86136, 6.36396)
 12:10/size_in_atlas = Vector2i(2, 3)
 12:10/0 = 0
@@ -346,7 +347,7 @@ texture = ExtResource("1_8hg5n")
 10:3/0/y_sort_origin = -24
 10:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 6, -8, 6)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aic8p"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gy55u"]
 texture = ExtResource("2_5plx8")
 0:0/0 = 0
 1:0/0 = 0
@@ -683,13 +684,8 @@ texture = ExtResource("2_5plx8")
 
 [sub_resource type="TileSet" id="TileSet_3ab51"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_52mny")
-sources/1 = SubResource("TileSetAtlasSource_aic8p")
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qrxdu"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm3fi"]
-size = Vector2(16, 55)
+sources/0 = SubResource("TileSetAtlasSource_4eygn")
+sources/1 = SubResource("TileSetAtlasSource_gy55u")
 
 [node name="level_1_tutorial_1" type="Node2D"]
 script = ExtResource("1_u3ova")
@@ -728,19 +724,9 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAD7/wIAAAAIAAwAAAAJAP//AQATAAAAAFAKAP7/AQARAAMAAAAKAP3/AQARAAIAAAA=")
 tile_set = SubResource("TileSet_3ab51")
 
-[node name="Shelf_Glow" type="TileMapLayer" parent="y-sort"]
-modulate = Color(20, 20, 20, 0.2)
-y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD7/wEAAAAGAAwAAAA=")
-tile_set = SubResource("TileSet_3ab51")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="y-sort/Shelf_Glow" groups=["Interactables"]]
-physics_material_override = SubResource("PhysicsMaterial_qrxdu")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="y-sort/Shelf_Glow/StaticBody2D"]
-position = Vector2(-72, -1.5)
-shape = SubResource("RectangleShape2D_rm3fi")
-debug_color = Color(0.702516, 0.080267, 0.481988, 1)
-
 [node name="Player_Boy" parent="y-sort" instance=ExtResource("3_nm4m0")]
 position = Vector2(48, -27)
+
+[node name="Shelf" parent="." instance=ExtResource("4_ko1k0")]
+visible = false
+position = Vector2(-57, 6)

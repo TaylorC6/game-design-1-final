@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cry0ha0eog5yg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sa8mf"]
+radius = 18.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ptr4v"]
+size = Vector2(16, 16)
+
+[node name="SmallChest" type="Node2D" groups=["Interactables"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+hframes = 35
+vframes = 20
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
+shape = SubResource("CircleShape2D_sa8mf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_ptr4v")

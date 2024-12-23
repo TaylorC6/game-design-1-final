@@ -1,29 +1,25 @@
-extends CharacterBody2D
-
-const SPEED = 100.0
-const MAXIMUM_OBTAINABLE_HEALTH = 400.0
-enum  STATES { IDLE=0, DEAD, DAMAGED, ATTACKING, CHARGING }
-
-@export var data = {
-	"max_health": 100.0,  # 20hp per heart, 5 per fraction
-	"health": 100.0,      # Min 60 Max 400
-	"money": 0,
-	"state": STATES.IDLE,
-	"secondaries": [],
-	}
-
-var glow = false
-var inertia = Vector2()
-var look_direction = Vector2.DOWN  # Vector2(0,1)
-var attack_direction = look_direction
-var animation_lock = 0.0  # Lock player while playing attack animation
-var damage_lock = 0.0
-var charge_time = 1.25
-var charge_duration = 0.0
-var nogear = true
-var noweapons = true
-
-var pine_scene = preload("res://pineapple.tscn")
+#extends CharacterBody2D
+#
+#const SPEED = 100.0
+#const MAXIMUM_OBTAINABLE_HEALTH = 400.0
+#enum  STATES { IDLE=0, DEAD, DAMAGED, ATTACKING, CHARGING }
+#
+#@export var data = {
+	#"max_health": 100.0,  # 20hp per heart, 5 per fraction
+	#"health": 100.0,      # Min 60 Max 400
+	#"money": 0,
+	#"state": STATES.IDLE,
+	#"secondaries": [],
+#}
+#
+#var inertia = Vector2()
+#var look_direction = Vector2.DOWN  # Vector2(0,1)
+#var attack_direction = look_direction
+#var animation_lock = 0.0  # Lock player while playing attack animation
+#var damage_lock = 0.0
+#var charge_time = 1.25
+#var charge_duration = 0.0
+#
 #var slash_scene  = preload("res://enitities/attacks/slash.tscn")
 #var damage_shader = preload("res://assets/shaders/take_damage.tres")
 #var attack_sound = preload("res://Sounds/slash.wav")
@@ -36,18 +32,12 @@ var pine_scene = preload("res://pineapple.tscn")
 #@onready var aud_player = $AudioStreamPlayer2D
 #@onready var p_HUD = get_tree().get_first_node_in_group("HUD")
 #
-func get_direction_name():
-	return ["right", "down", "left", "up"][
-		int(round(look_direction.angle() * 2 / PI)) % 4
-	]
-
-func attack():
-	var pi = pine_scene.instantiate()
-	pi.global_position = self.global_position + attack_direction * 50
-	pi.rotation = Vector2().angle_to_point(-attack_direction)
-	self.get_parent().add_child(pi)
-	self.get_parent().add_child(pi)
-	self.get_parent().add_child(pi)
+#func get_direction_name():
+	#return ["right", "down", "left", "up"][
+		#int(round(look_direction.angle() * 2 / PI)) % 4
+	#]
+#
+#func attack():
 	#data.state = STATES.ATTACKING
 	#var dir_name = get_direction_name()
 	#if dir_name == "left":
@@ -132,18 +122,16 @@ func attack():
 			#health_depleted.emit()
 	#pass
 #
-func _physics_process(delta: float) -> void:
+#func _physics_process(delta: float) -> void:
 	#animation_lock = max(animation_lock-delta, 0.0)
 	#damage_lock = max(damage_lock-delta, 0.0)
-	for entity in get_tree().get_nodes_in_group("Interactables"):
-		if entity.in_range(self):
-			Fpjglobal.glow = true
-		else:
-			Fpjglobal.glow = false
-	if Input.is_action_just_pressed("ui_interact"):
-		for entity in get_tree().get_nodes_in_group("Interactables"):
-			if entity.in_range(self):
-				noweapons = not noweapons
+	#
+	#if Input.is_action_just_pressed("ui_select"):
+		#for entity in get_tree().get_nodes_in_group("Interactables"):
+			#if entity.in_range(self):
+				#entity.interact(self)
+				#data.state = STATES.IDLE
+				#return
 	#
 	#if animation_lock == 0.0 and data.state != STATES.DEAD:
 		#if data.state == STATES.DAMAGED and max(damage_lock-delta, 0.0):
@@ -151,24 +139,25 @@ func _physics_process(delta: float) -> void:
 		#if data.state != STATES.CHARGING:
 			#data.state = STATES.IDLE
 	#
-	var direction = Vector2(
-		Input.get_axis("ui_left", "ui_right"),
-		Input.get_axis("ui_up", "ui_down")
-	)
-	if direction.length() > 0:
-		look_direction = direction
-		# Scale to 1 to prevent speed boost from diagonals
-		direction = direction.normalized()
-		velocity  = direction * SPEED
-	else:
-		velocity = velocity.move_toward(Vector2.ZERO, SPEED)
-		velocity += inertia
-	update_animation(direction)
-	move_and_slide()
-	inertia = inertia.move_toward(Vector2.ZERO, delta * 1000.0)
-	if data.state != STATES.DEAD:
-		if Input.is_action_just_pressed("ui_accept"):
-			attack()
+		#var direction = Vector2(
+			#Input.get_axis("ui_left", "ui_right"),
+			#Input.get_axis("ui_up", "ui_down")
+		#)
+		#if direction.length() > 0:
+			#look_direction = direction
+			## Scale to 1 to prevent speed boost from diagonals
+			#direction = direction.normalized()
+			#velocity  = direction * SPEED
+		#else:
+			#velocity = velocity.move_toward(Vector2.ZERO, SPEED)
+		#velocity += inertia
+		#update_animation(direction)
+		#move_and_slide()
+		#inertia = inertia.move_toward(Vector2.ZERO, delta * 1000.0)
+	#
+	#if data.state != STATES.DEAD:
+		#if Input.is_action_just_pressed("ui_accept"):
+			#attack()
 			#charge_duration = 0.0
 			#data.state = STATES.CHARGING
 		#
@@ -185,45 +174,20 @@ func _physics_process(delta: float) -> void:
 		#get_tree().paused = true
 	#pass
 	#
-		if Input.is_action_just_pressed("ui_interact"):
-			pass
-		if Input.is_action_just_pressed("ui_ability"):
-			pass
-		
-	#TODO: if Input.is_action_just_pressed("ui_interact"):
-		# if looking at gear item/clothes:
-			# gear = false
-	#TODO: if Input.is_action_just_pressed("ui_interact"):
-		# if looking at fridge:
-			# noweapons = false
+	#
 #
-func update_animation(direction):
-	if data.state == STATES.IDLE:
-		var a_name = "idle_"
-		if direction.length() > 0:
-			a_name = "walk_"
-		if look_direction.x < 0:
-			a_name += "left"
-		elif look_direction.x > 0:
-			a_name += "right"
-		elif look_direction.y < 0:
-			a_name += "up"
-		elif look_direction.y > 0:
-			a_name += "down"
- 
-		var _wak = a_name.substr(0, 5)
-		
-		if nogear == false:
-			a_name += "_nogear"
-		elif noweapons == false:
-			a_name += "_noweapons"
-		elif noweapons == false and nogear == false:
-			a_name = a_name
-		else:
-			a_name += "_nogear"
-
-		$AnimatedSprite2D.animation = a_name
-		$AnimatedSprite2D.play()
-		
-
-	pass
+#func update_animation(direction):
+	#if data.state == STATES.IDLE:
+		#var a_name = "idle_"
+		#if direction.length() > 0:
+			#a_name = "walk_"
+		#if look_direction.x != 0:
+			#a_name += "side"
+			#$AnimatedSprite2D.flip_h = look_direction.x < 0
+		#elif look_direction.y < 0:
+			#a_name += "up"
+		#elif look_direction.y > 0:
+			#a_name += "down"
+		#$AnimatedSprite2D.animation = a_name
+		#$AnimatedSprite2D.play()
+	#pass

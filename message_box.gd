@@ -10,8 +10,6 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	
-	var next = 0
-	
 	if Input.is_action_just_pressed("ui_interact"):
 		messagebox_visible = not messagebox_visible
 	if messagebox_visible == true:
