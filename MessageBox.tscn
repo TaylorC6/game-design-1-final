@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://cmqb6g14hdare"]
+
+[ext_resource type="Script" path="res://message_box.gd" id="1_ldd6l"]
+[ext_resource type="Texture2D" uid="uid://vb7046fyujh1" path="res://sprites/font.png" id="2_k6s7u"]
+[ext_resource type="FontFile" uid="uid://dlapjoxacixby" path="res://Fonts/vp-pixel/VP Pixel Simplified - Font by VP Pixel/VPPixel-Simplified.otf" id="3_ec00t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtmhx"]
+atlas = ExtResource("2_k6s7u")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ubvr"]
+atlas = ExtResource("2_k6s7u")
+region = Rect2(0, 47, 240, 74)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p6u5t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtmhx")
+}],
+"loop": true,
+"name": &"A",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ubvr")
+}],
+"loop": true,
+"name": &"Box",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7icyy"]
+line_spacing = 0.0
+font = ExtResource("3_ec00t")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_ldd6l")
+
+[node name="Box" type="AnimatedSprite2D" parent="."]
+position = Vector2(562.423, 549)
+scale = Vector2(3.06314, 2.13514)
+sprite_frames = SubResource("SpriteFrames_p6u5t")
+animation = &"Box"
+
+[node name="Letters" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(243, 513)
+scale = Vector2(3.19295, 3.06757)
+sprite_frames = SubResource("SpriteFrames_p6u5t")
+animation = &"A"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 253.0
+offset_top = 499.0
+offset_right = 958.0
+offset_bottom = 623.0
+label_settings = SubResource("LabelSettings_7icyy")

@@ -21,6 +21,7 @@ Fpjglobal="*res://fpjglobal.gd"
 [global_group]
 
 Player=""
+Interactables=""
 
 [input]
 

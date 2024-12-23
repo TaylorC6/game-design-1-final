@@ -136,7 +136,7 @@ func _physics_process(delta: float) -> void:
 	#animation_lock = max(animation_lock-delta, 0.0)
 	#damage_lock = max(damage_lock-delta, 0.0)
 	#
-	#if Input.is_action_just_pressed("ui_select"):
+	#if Input.is_action_just_pressed("ui_interact"):
 		#for entity in get_tree().get_nodes_in_group("Interactables"):
 			#if entity.in_range(self):
 				#entity.interact(self)
