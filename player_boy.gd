@@ -20,8 +20,8 @@ var animation_lock = 0.0  # Lock player while playing attack animation
 var damage_lock = 0.0
 var charge_time = 1.25
 var charge_duration = 0.0
-var gear = false
-var nogear = false
+var nogear = true
+var noweapons = true
 
 var pine_scene = preload("res://pineapple.tscn")
 #var slash_scene  = preload("res://enitities/attacks/slash.tscn")
@@ -184,9 +184,16 @@ func _physics_process(delta: float) -> void:
 	#pass
 	#
 		if Input.is_action_just_pressed("ui_interact"):
-			gear = not gear
+			pass
 		if Input.is_action_just_pressed("ui_ability"):
-			nogear = not nogear
+			pass
+		
+	#TODO: if Input.is_action_just_pressed("ui_interact"):
+		# if looking at gear item/clothes:
+			# gear = false
+	#TODO: if Input.is_action_just_pressed("ui_interact"):
+		# if looking at fridge:
+			# noweapons = false
 #
 func update_animation(direction):
 	if data.state == STATES.IDLE:
@@ -204,9 +211,9 @@ func update_animation(direction):
  
 		var _wak = a_name.substr(0, 5)
 		
-		if nogear:
+		if nogear == false:
 			a_name += "_nogear"
-		elif gear:
+		elif noweapons == false:
 			a_name += "_noweapons"
 		else:
 			a_name = a_name
