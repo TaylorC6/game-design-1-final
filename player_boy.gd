@@ -135,6 +135,7 @@ func attack():
 func _physics_process(delta: float) -> void:
 	#animation_lock = max(animation_lock-delta, 0.0)
 	#damage_lock = max(damage_lock-delta, 0.0)
+	
 	for entity in get_tree().get_nodes_in_group("Interactables"):
 		if entity.in_range(self):
 			Fpjglobal.glow = true
@@ -142,9 +143,9 @@ func _physics_process(delta: float) -> void:
 			Fpjglobal.glow = false
 	if Input.is_action_just_pressed("ui_interact"):
 		for entity in get_tree().get_nodes_in_group("Interactables"):
-			if entity.in_range(self):
-				noweapons = false
-				Fpjglobal.stairsOpen = true
+				if entity.in_range(self):
+					noweapons = false
+					Fpjglobal.stairsOpen = true
 				
 	#
 	#if animation_lock == 0.0 and data.state != STATES.DEAD:

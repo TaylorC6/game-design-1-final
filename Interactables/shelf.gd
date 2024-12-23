@@ -5,40 +5,42 @@ extends Node2D
 #var OPEN_STATE = false
 #var regex = RegEx.new()
 
-var firstframe = 1
-
-var b = false
+#var firstframe = 1
+#var b = false
 
 func in_range(player) -> bool:
 	return $StaticBody2D/Area2D.overlaps_body(player)
 
+
+
 func _physics_process(_delta: float):
-
-	if Fpjglobal.glow:
-		set_visible(true)
-		if firstframe == 1:
-			glowpulse()
-			firstframe = 0
-	else:
-		set_visible(false)
-		firstframe = 1
-
-
-func glowpulse():
-	var brightness = 0.15
-	while Fpjglobal.glow:
-		for num in range(10):
-			brightness -= 0.01
-			await get_tree().create_timer(0.08).timeout
-			$Glow.modulate.a = brightness
-			print(brightness)
-		for num in range(10):
-			brightness += 0.01
-			await get_tree().create_timer(0.08).timeout
-			$Glow.modulate.a = brightness
-			print(brightness)
-			
+	Fpjglobal.process(_delta)
 	pass
+	#if Fpjglobal.glow:
+		#set_visible(true)
+		#if firstframe == 1:
+			#glowpulse()
+			#firstframe = 0
+	#else:
+		#set_visible(false)
+		#firstframe = 1
+
+
+#func glowpulse():
+	#var brightness = 0.15
+	#while Fpjglobal.glow:
+		#for num in range(10):
+			#brightness -= 0.01
+			#await get_tree().create_timer(0.08).timeout
+			#$Glow.modulate.a = brightness
+			#print(brightness)
+		#for num in range(10):
+			#brightness += 0.01
+			#await get_tree().create_timer(0.08).timeout
+			#$Glow.modulate.a = brightness
+			#print(brightness)
+			#
+	#pass
 	
 #func interact(player):
 	#if not OPEN_STATE:
