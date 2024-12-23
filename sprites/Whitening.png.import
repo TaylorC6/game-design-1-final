@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mrunw12ngcm0"
-path="res://.godot/imported/AnimDownBoyNoWeapons.png-bb1ba5425384ddcb12e802d5138cf7ea.ctex"
+uid="uid://cv78xn0rkae3s"
+path="res://.godot/imported/Whitening.png-5d9533a30d4e877e370445ab1f601911.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/BoyAnims/AnimDownBoyNoWeapons.png"
-dest_files=["res://.godot/imported/AnimDownBoyNoWeapons.png-bb1ba5425384ddcb12e802d5138cf7ea.ctex"]
+source_file="res://sprites/Whitening.png"
+dest_files=["res://.godot/imported/Whitening.png-5d9533a30d4e877e370445ab1f601911.ctex"]
 
 [params]
 

@@ -1090,10 +1090,3 @@ tile_map_data = PackedByteArray("AAD+/wAAAAAHAAkAAAD+/wEAAAAHAAoAAAD//wAAAAAIAAk
 tile_set = SubResource("TileSet_55apc")
 
 [node name="Player_Boy" parent="." instance=ExtResource("2_3s3hi")]
-data = {
-"health": 100.0,
-"max_health": 100.0,
-"money": 0,
-"secondaries": [],
-"state": 0
-}
