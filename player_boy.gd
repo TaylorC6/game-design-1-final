@@ -143,7 +143,9 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_interact"):
 		for entity in get_tree().get_nodes_in_group("Interactables"):
 			if entity.in_range(self):
-				noweapons = not noweapons
+				noweapons = false
+				Fpjglobal.stairsOpen = true
+				
 	#
 	#if animation_lock == 0.0 and data.state != STATES.DEAD:
 		#if data.state == STATES.DAMAGED and max(damage_lock-delta, 0.0):

@@ -8,5 +8,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-
+	if Fpjglobal.stairsOpen == true:
+		$StaticBody2D/CollisionShape2D.disabled = true
 	pass
