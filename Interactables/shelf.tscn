@@ -688,7 +688,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ucehn")
 sources/1 = SubResource("TileSetAtlasSource_ho5gf")
 
-[node name="Shelf" type="Node2D" groups=["Interactables"]]
+[node name="shelf" type="Node2D" groups=["Interactables"]]
 script = ExtResource("1_1q1ns")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

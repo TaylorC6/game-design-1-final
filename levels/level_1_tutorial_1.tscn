@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=4 uid="uid://cs3dn85o3q8wf"]
+[gd_scene load_steps=14 format=4 uid="uid://cs3dn85o3q8wf"]
 
 [ext_resource type="Texture2D" uid="uid://rr7bd0fpj1v8" path="res://sprites/Inner.png" id="1_8hg5n"]
 [ext_resource type="Script" path="res://levels/level_1_tutorial_1.gd" id="1_u3ova"]
 [ext_resource type="Texture2D" uid="uid://bst44rslu20rb" path="res://sprites/objects.png" id="2_5plx8"]
 [ext_resource type="PackedScene" uid="uid://bln8texdoab4d" path="res://Players/player_boy.tscn" id="3_nm4m0"]
+[ext_resource type="PackedScene" uid="uid://bab70dni0qry8" path="res://Interactables/sign_1.tscn" id="3_vmwa8"]
 [ext_resource type="PackedScene" uid="uid://becb7yvflvbxp" path="res://Interactables/shelf.tscn" id="4_ko1k0"]
 [ext_resource type="Script" path="res://change_lvl.gd" id="6_7luu7"]
 
@@ -702,6 +703,9 @@ script = ExtResource("1_u3ova")
 [node name="Shelf" parent="." instance=ExtResource("4_ko1k0")]
 visible = false
 position = Vector2(-57, 6)
+
+[node name="sign1" parent="." instance=ExtResource("3_vmwa8")]
+position = Vector2(-67, -2)
 
 [node name="BackroundRoom" type="TileMapLayer" parent="."]
 z_as_relative = false
