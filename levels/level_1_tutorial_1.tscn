@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://cs3dn85o3q8wf"]
+[gd_scene load_steps=16 format=4 uid="uid://cs3dn85o3q8wf"]
 
 [ext_resource type="Texture2D" uid="uid://rr7bd0fpj1v8" path="res://sprites/Inner.png" id="1_8hg5n"]
 [ext_resource type="Script" path="res://levels/level_1_tutorial_1.gd" id="1_u3ova"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bab70dni0qry8" path="res://Interactables/sign_1.tscn" id="3_vmwa8"]
 [ext_resource type="PackedScene" uid="uid://becb7yvflvbxp" path="res://Interactables/shelf.tscn" id="4_ko1k0"]
 [ext_resource type="Script" path="res://change_lvl.gd" id="6_7luu7"]
+[ext_resource type="PackedScene" uid="uid://tj5s6ie0eyio" path="res://Interactables/glow.tscn" id="8_bgcg1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4eygn"]
 texture = ExtResource("1_8hg5n")
@@ -697,15 +698,11 @@ size = Vector2(26, 30)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w30l7"]
 size = Vector2(34, 34)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_gay88"]
+radius = 22.0227
+
 [node name="level_1_tutorial_1" type="Node2D"]
 script = ExtResource("1_u3ova")
-
-[node name="Shelf" parent="." instance=ExtResource("4_ko1k0")]
-visible = false
-position = Vector2(-57, 6)
-
-[node name="sign1" parent="." instance=ExtResource("3_vmwa8")]
-position = Vector2(-67, -2)
 
 [node name="BackroundRoom" type="TileMapLayer" parent="."]
 z_as_relative = false
@@ -744,26 +741,47 @@ tile_set = SubResource("TileSet_3ab51")
 [node name="Player_Boy" parent="y-sort" instance=ExtResource("3_nm4m0")]
 position = Vector2(48, -27)
 
-[node name="Change_lvl" type="Area2D" parent="."]
+[node name="Stairs" type="Node" parent="."]
+
+[node name="Change_lvl" type="Area2D" parent="Stairs"]
 visible = false
 position = Vector2(-55, -14)
 script = ExtResource("6_7luu7")
 next_level = "level_1_tutorial_2"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Change_lvl"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stairs/Change_lvl"]
 position = Vector2(-12, -35)
 shape = SubResource("RectangleShape2D_t4lut")
 
-[node name="Sprite2D" type="Sprite2D" parent="Change_lvl"]
+[node name="Sprite2D" type="Sprite2D" parent="Stairs/Change_lvl"]
 modulate = Color(0.32683, 0.000330177, 0.986005, 1)
 position = Vector2(-12, -35)
 scale = Vector2(26, 30)
 texture = SubResource("PlaceholderTexture2D_1cq6s")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StairsBarrier" type="StaticBody2D" parent="Stairs"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stairs/StairsBarrier"]
 position = Vector2(-64, -48)
 shape = SubResource("RectangleShape2D_w30l7")
 
-[connection signal="body_entered" from="Change_lvl" to="Change_lvl" method="_on_body_entered"]
+[node name="glow" parent="." instance=ExtResource("8_bgcg1")]
+position = Vector2(-66, 6)
+
+[node name="shelf" type="CollisionShape2D" parent="glow"]
+shape = SubResource("CircleShape2D_gay88")
+
+[node name="Shelf" parent="glow/shelf" instance=ExtResource("4_ko1k0")]
+visible = false
+position = Vector2(2, -6)
+
+[node name="sign1" type="CollisionShape2D" parent="glow"]
+position = Vector2(157, 0)
+shape = SubResource("CircleShape2D_gay88")
+
+[node name="sign1" parent="glow/sign1" instance=ExtResource("3_vmwa8")]
+visible = false
+
+[node name="Interactables" type="Node" parent="glow"]
+
+[connection signal="body_entered" from="Stairs/Change_lvl" to="Stairs/Change_lvl" method="_on_body_entered"]

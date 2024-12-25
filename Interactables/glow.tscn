@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://tj5s6ie0eyio"]
+
+[sub_resource type="GDScript" id="GDScript_oama0"]
+script/source = "extends Node2D
+
+@onready var shelfcollision: CollisionShape2D = $shelf
+@onready var shelf: Node2D = $shelf/Shelf
+@onready var player_boy: CharacterBody2D = $\"../y-sort/Player_Boy\"
+@onready var sign1: Node2D = $sign1/sign1
+
+var interactables = [shelf, sign1]
+
+func _on_body_entered(body: Node2D) -> void:
+	for entity in get_tree().get_nodes_in_group(\"Interactables\"):
+		#if entity.in_range(player_boy):
+			#print(entity)
+		if entity == interactables[0]:
+			if body == player_boy:
+				shelf.glowshelf = true
+			else:
+				shelf.glowshelf = false
+		if entity == interactables[1]:
+			if body == player_boy:
+				sign1.glowsign = true
+			else:
+				sign1.glowsign = false
+"
+
+[node name="glow" type="Area2D"]
+script = SubResource("GDScript_oama0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
