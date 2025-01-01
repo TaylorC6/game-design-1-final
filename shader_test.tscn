@@ -1,3 +1,166 @@
-[gd_scene format=3 uid="uid://nea38pvbn2ug"]
+[gd_scene load_steps=15 format=3 uid="uid://nea38pvbn2ug"]
+
+[ext_resource type="Texture2D" uid="uid://cu03r1vbcnuuu" path="res://sprites/Slimes/Idle/Slime1_Idle_body.png" id="1_211x6"]
+[ext_resource type="Shader" path="res://test1.gdshader" id="2_0wb75"]
+[ext_resource type="Shader" path="res://test2.gdshader" id="3_prgc2"]
+[ext_resource type="Shader" path="res://test3.gdshader" id="4_m3710"]
+[ext_resource type="Shader" path="res://test4.gdshader" id="5_154na"]
+[ext_resource type="Material" uid="uid://ccnmvjte1lxfw" path="res://Shaders/Glow.tres" id="6_pbufk"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_les2y"]
+texture = ExtResource("1_211x6")
+1:1/size_in_atlas = Vector2i(2, 2)
+1:1/0 = 0
+1:1/0/texture_origin = Vector2i(-8, 8)
+
+[sub_resource type="TileSet" id="TileSet_c58q1"]
+sources/0 = SubResource("TileSetAtlasSource_les2y")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ww7o"]
+shader = ExtResource("2_0wb75")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lrw64"]
+shader = ExtResource("3_prgc2")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s81ib"]
+texture = ExtResource("1_211x6")
+5:1/0 = 0
+6:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+17:1/0 = 0
+18:1/0 = 0
+21:1/0 = 0
+22:1/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+17:2/0 = 0
+18:2/0 = 0
+21:2/0 = 0
+22:2/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+17:5/0 = 0
+18:5/0 = 0
+21:5/0 = 0
+22:5/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+17:6/0 = 0
+18:6/0 = 0
+21:6/0 = 0
+22:6/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+17:9/0 = 0
+18:9/0 = 0
+21:9/0 = 0
+22:9/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+9:10/0 = 0
+10:10/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+17:10/0 = 0
+18:10/0 = 0
+21:10/0 = 0
+22:10/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+5:13/0 = 0
+6:13/0 = 0
+9:13/0 = 0
+10:13/0 = 0
+13:13/0 = 0
+14:13/0 = 0
+17:13/0 = 0
+18:13/0 = 0
+21:13/0 = 0
+22:13/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+5:14/0 = 0
+6:14/0 = 0
+9:14/0 = 0
+10:14/0 = 0
+13:14/0 = 0
+14:14/0 = 0
+17:14/0 = 0
+18:14/0 = 0
+21:14/0 = 0
+22:14/0 = 0
+1:1/size_in_atlas = Vector2i(2, 2)
+1:1/0 = 0
+1:1/0/texture_origin = Vector2i(-8, 8)
+
+[sub_resource type="TileSet" id="TileSet_qfc0p"]
+sources/0 = SubResource("TileSetAtlasSource_s81ib")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qjir0"]
+shader = ExtResource("4_m3710")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kuhk4"]
+shader = ExtResource("5_154na")
 
 [node name="shader_test" type="Node2D"]
+
+[node name="control" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray(0, 0, 255, 255, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0)
+tile_set = SubResource("TileSet_c58q1")
+
+[node name="test1" type="TileMapLayer" parent="."]
+material = SubResource("ShaderMaterial_0ww7o")
+position = Vector2(32, 0)
+tile_map_data = PackedByteArray(0, 0, 255, 255, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0)
+tile_set = SubResource("TileSet_c58q1")
+
+[node name="test2" type="TileMapLayer" parent="."]
+material = SubResource("ShaderMaterial_lrw64")
+position = Vector2(32, 0)
+tile_map_data = PackedByteArray(0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0)
+tile_set = SubResource("TileSet_qfc0p")
+
+[node name="test3" type="TileMapLayer" parent="."]
+material = SubResource("ShaderMaterial_qjir0")
+position = Vector2(64, 0)
+tile_map_data = PackedByteArray(0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0)
+tile_set = SubResource("TileSet_qfc0p")
+
+[node name="test4" type="TileMapLayer" parent="."]
+material = SubResource("ShaderMaterial_kuhk4")
+position = Vector2(96, 0)
+tile_map_data = PackedByteArray(0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0)
+tile_set = SubResource("TileSet_qfc0p")
+
+[node name="testGlow" type="TileMapLayer" parent="."]
+material = ExtResource("6_pbufk")
+position = Vector2(128, 0)
+tile_map_data = PackedByteArray(0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0)
+tile_set = SubResource("TileSet_qfc0p")

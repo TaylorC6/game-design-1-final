@@ -12,7 +12,6 @@ enum  STATES { IDLE=0, DEAD, DAMAGED, ATTACKING, CHARGING }
 	"secondaries": [],
 	}
 
-var glow = false
 var inertia = Vector2()
 var look_direction = Vector2.DOWN  # Vector2(0,1)
 var attack_direction = look_direction
@@ -22,8 +21,14 @@ var charge_time = 1.25
 var charge_duration = 0.0
 var nogear = true
 var noweapons = true
-
 var pine_scene = preload("res://pineapple.tscn")
+var test = "test1"
+@onready var player_boy: CharacterBody2D = $"."
+#@onready var glow_range: Area2D = $"../Interactables/GearShelf/Area2D"
+#@onready var gear_shelf: TileMapLayer = $"../Interactables/GearShelf"
+#@onready var glow_range2: Area2D = $"../Interactables/range2"
+
+
 #var slash_scene  = preload("res://enitities/attacks/slash.tscn")
 #var damage_shader = preload("res://assets/shaders/take_damage.tres")
 #var attack_sound = preload("res://Sounds/slash.wav")
@@ -131,29 +136,45 @@ func attack():
 			#await get_tree().create_timer(0.5).timeout
 			#health_depleted.emit()
 	#pass
-#
+#func glow_area(use_area: Area2D, player: CollisionShape2D):
+	#return use_area.overlaps_body(player)
+func in_range(player) -> bool:
+	return get_tree().get_current_scene().get_node(test).get_node("StaticBody2D").get_node("Area2D").overlaps_body(player)
+	#get_tree().get_current_scene().get_node("StaticBody2D").get_node("Area2D").overlaps_body(player)
+#var glow_ranges = {glow_range: gear_shelf, "glow_range2": "sign1"}
+
 func _physics_process(delta: float) -> void:
-	#animation_lock = max(animation_lock-delta, 0.0)
-	#damage_lock = max(damage_lock-delta, 0.0)
+	for t in get_tree().get_nodes_in_group("testgroup"):
+		test = str(t)
+		if player_boy.in_range(self):
+			t.material = Fpjglobal.glow_shader.duplicate()
+			t.material.set_shader(Fpjglobal.glow_shader)
+			print(t)
+			#if t == get_tree().get_current_scene().get_node("test1"):
+				
+			#if t == get_tree().get_current_scene().get_node("test2"):
+				
+			
+	#$AnimatedSprite2D.material = damage_shader.duplicate()
+	#$AnimatedSprite2D.material.set_shader_parameter("intensity", 0.5)
+	#for areas in get_tree().get_nodes_in_group("Glows"):
+		##var result = Fpjglobal.glow_area(entity)
+		#if areas.in_range(self):
+			#glow_ranges[areas].material = Fpjglobal.glow_shader.duplicate()
 	
-	for entity in get_tree().get_nodes_in_group("Interactables"):
-		if entity.in_range(self):
-			Fpjglobal.glow = true
-		else:
-			Fpjglobal.glow = false
+
 	if Input.is_action_just_pressed("ui_interact"):
 		for entity in get_tree().get_nodes_in_group("Interactables"):
 				if entity.in_range(self):
 					noweapons = false
 					Fpjglobal.stairsOpen = true
-				
-	#
+
 	#if animation_lock == 0.0 and data.state != STATES.DEAD:
 		#if data.state == STATES.DAMAGED and max(damage_lock-delta, 0.0):
 			#$AnimatedSprite2D.material = null;
 		#if data.state != STATES.CHARGING:
 			#data.state = STATES.IDLE
-	#
+
 	var direction = Vector2(
 		Input.get_axis("ui_left", "ui_right"),
 		Input.get_axis("ui_up", "ui_down")

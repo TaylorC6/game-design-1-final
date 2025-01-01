@@ -1,13 +1,10 @@
-[gd_scene load_steps=16 format=4 uid="uid://cs3dn85o3q8wf"]
+[gd_scene load_steps=13 format=4 uid="uid://cs3dn85o3q8wf"]
 
 [ext_resource type="Texture2D" uid="uid://rr7bd0fpj1v8" path="res://sprites/Inner.png" id="1_8hg5n"]
 [ext_resource type="Script" path="res://levels/level_1_tutorial_1.gd" id="1_u3ova"]
 [ext_resource type="Texture2D" uid="uid://bst44rslu20rb" path="res://sprites/objects.png" id="2_5plx8"]
 [ext_resource type="PackedScene" uid="uid://bln8texdoab4d" path="res://Players/player_boy.tscn" id="3_nm4m0"]
-[ext_resource type="PackedScene" uid="uid://bab70dni0qry8" path="res://Interactables/sign_1.tscn" id="3_vmwa8"]
-[ext_resource type="PackedScene" uid="uid://becb7yvflvbxp" path="res://Interactables/shelf.tscn" id="4_ko1k0"]
 [ext_resource type="Script" path="res://change_lvl.gd" id="6_7luu7"]
-[ext_resource type="PackedScene" uid="uid://tj5s6ie0eyio" path="res://Interactables/glow.tscn" id="8_bgcg1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4eygn"]
 texture = ExtResource("1_8hg5n")
@@ -288,10 +285,12 @@ texture = ExtResource("1_8hg5n")
 3:17/0 = 0
 1:6/0 = 0
 6:12/size_in_atlas = Vector2i(1, 4)
+6:12/next_alternative_id = 2
 6:12/0 = 0
 6:12/0/texture_origin = Vector2i(0, 24)
 6:12/0/y_sort_origin = -36
 6:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.13543, -39.9827, 7.99754, -39.8474, 8, 2.33861, -8, 2.25)
+6:12/1 = 1
 7:12/size_in_atlas = Vector2i(1, 4)
 7:12/0 = 0
 7:12/0/y_sort_origin = -12
@@ -690,6 +689,9 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_4eygn")
 sources/1 = SubResource("TileSetAtlasSource_gy55u")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2hjd8"]
+radius = 28.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t4lut"]
 size = Vector2(26, 30)
 
@@ -697,9 +699,6 @@ size = Vector2(26, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w30l7"]
 size = Vector2(34, 34)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_gay88"]
-radius = 22.0227
 
 [node name="level_1_tutorial_1" type="Node2D"]
 script = ExtResource("1_u3ova")
@@ -725,7 +724,7 @@ tile_set = SubResource("TileSet_3ab51")
 
 [node name="RoomDecor2" type="TileMapLayer" parent="y-sort"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAKAP3/AAALAAoAAAAKAAAAAAAJAAwAAAAKAP7/AAAEAA8AAAAKAP//AAAEABAAAAAFAPv/AAADAAwAAAAFAPz/AAADAA0AAAAGAPv/AAAFAAwAAAAGAPz/AAAFAA0AAAAFAPr/AAAGAAkAAAAGAPr/AAAIAAkAAAAAAPv/AAAKAAYAAAD///v/AAAJAAoAAAD7/wEAAAAGAAwAAAAKAAIAAAAIAAwAAAAKAPz/AAAIAAwAAAA=")
+tile_map_data = PackedByteArray("AAAKAP3/AAALAAoAAAAKAAAAAAAJAAwAAAAKAP7/AAAEAA8AAAAKAP//AAAEABAAAAAFAPv/AAADAAwAAAAFAPz/AAADAA0AAAAGAPv/AAAFAAwAAAAGAPz/AAAFAA0AAAAFAPr/AAAGAAkAAAAGAPr/AAAIAAkAAAAAAPv/AAAKAAYAAAD///v/AAAJAAoAAAAKAAIAAAAIAAwAAAAKAPz/AAAIAAwAAAA=")
 tile_set = SubResource("TileSet_3ab51")
 
 [node name="RoomDecor3" type="TileMapLayer" parent="y-sort"]
@@ -733,10 +732,19 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAD7/wIAAAAIAAwAAAAJAP//AQATAAAAAFA=")
 tile_set = SubResource("TileSet_3ab51")
 
-[node name="RoomDecor4" type="TileMapLayer" parent="y-sort"]
+[node name="Interactables" type="Node2D" parent="y-sort"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD7/wIAAAAIAAwAAAAJAP//AQATAAAAAFA=")
+
+[node name="GearShelf" type="TileMapLayer" parent="y-sort/Interactables" groups=["Interactables"]]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD7/wEAAAAGAAwAAAA=")
 tile_set = SubResource("TileSet_3ab51")
+
+[node name="Area2D" type="Area2D" parent="y-sort/Interactables/GearShelf" groups=["Glows"]]
+position = Vector2(-70, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="y-sort/Interactables/GearShelf/Area2D"]
+shape = SubResource("CircleShape2D_2hjd8")
 
 [node name="Player_Boy" parent="y-sort" instance=ExtResource("3_nm4m0")]
 position = Vector2(48, -27)
@@ -764,24 +772,5 @@ texture = SubResource("PlaceholderTexture2D_1cq6s")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stairs/StairsBarrier"]
 position = Vector2(-64, -48)
 shape = SubResource("RectangleShape2D_w30l7")
-
-[node name="glow" parent="." instance=ExtResource("8_bgcg1")]
-position = Vector2(-66, 6)
-
-[node name="shelf" type="CollisionShape2D" parent="glow"]
-shape = SubResource("CircleShape2D_gay88")
-
-[node name="Shelf" parent="glow/shelf" instance=ExtResource("4_ko1k0")]
-visible = false
-position = Vector2(2, -6)
-
-[node name="sign1" type="CollisionShape2D" parent="glow"]
-position = Vector2(157, 0)
-shape = SubResource("CircleShape2D_gay88")
-
-[node name="sign1" parent="glow/sign1" instance=ExtResource("3_vmwa8")]
-visible = false
-
-[node name="Interactables" type="Node" parent="glow"]
 
 [connection signal="body_entered" from="Stairs/Change_lvl" to="Stairs/Change_lvl" method="_on_body_entered"]
