@@ -149,15 +149,8 @@ func _physics_process(delta: float) -> void:
 		test = str(t)
 		print(test)
 		if player_boy.in_range(self):
-			#t.material = Fpjglobal.glow_shader.duplicate()
 			t.material = Fpjglobal.glow_shader.duplicate()
-			#t.material.set_shader_parameter("intensity", 0.5)
-			#t.material.set_shader_parameter()
-			print(t)
 			#if t == get_tree().get_current_scene().get_node("test1"):
-				
-			#if t == get_tree().get_current_scene().get_node("test2"):
-				
 		else:
 			t.material = Material.new()
 	#$AnimatedSprite2D.material = damage_shader.duplicate()
@@ -173,6 +166,7 @@ func _physics_process(delta: float) -> void:
 				if player_boy.in_range(self):
 					noweapons = false
 					Fpjglobal.stairsOpen = true
+				
 
 	if animation_lock == 0.0 and data.state != STATES.DEAD:
 		if data.state == STATES.DAMAGED and max(damage_lock-delta, 0.0):

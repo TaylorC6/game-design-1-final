@@ -724,16 +724,22 @@ tile_set = SubResource("TileSet_3ab51")
 
 [node name="RoomDecor2" type="TileMapLayer" parent="y-sort"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAKAP3/AAALAAoAAAAKAAAAAAAJAAwAAAAKAP7/AAAEAA8AAAAKAP//AAAEABAAAAAFAPv/AAADAAwAAAAFAPz/AAADAA0AAAAGAPv/AAAFAAwAAAAGAPz/AAAFAA0AAAAFAPr/AAAGAAkAAAAGAPr/AAAIAAkAAAAAAPv/AAAKAAYAAAD///v/AAAJAAoAAAAKAAIAAAAIAAwAAAAKAPz/AAAIAAwAAAA=")
-tile_set = SubResource("TileSet_3ab51")
-
-[node name="RoomDecor3" type="TileMapLayer" parent="y-sort"]
-y_sort_enabled = true
-tile_map_data = PackedByteArray("AAD7/wIAAAAIAAwAAAAJAP//AQATAAAAAFA=")
+tile_map_data = PackedByteArray("AAAKAP3/AAALAAoAAAAKAAAAAAAJAAwAAAAKAP7/AAAEAA8AAAAKAP//AAAEABAAAAAFAPv/AAADAAwAAAAFAPz/AAADAA0AAAAGAPv/AAAFAAwAAAAGAPz/AAAFAA0AAAAFAPr/AAAGAAkAAAAGAPr/AAAIAAkAAAAAAPv/AAAKAAYAAAD///v/AAAJAAoAAAAKAAIAAAAIAAwAAAAKAPz/AAAIAAwAAAD7/wIAAAAIAAwAAAA=")
 tile_set = SubResource("TileSet_3ab51")
 
 [node name="Interactables" type="Node2D" parent="y-sort"]
 y_sort_enabled = true
+
+[node name="BookGuide" type="TileMapLayer" parent="y-sort/Interactables"]
+y_sort_enabled = true
+tile_map_data = PackedByteArray("AAAJAP//AQATAAAAAFA=")
+tile_set = SubResource("TileSet_3ab51")
+
+[node name="Area2D" type="Area2D" parent="y-sort/Interactables/BookGuide"]
+position = Vector2(-70, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="y-sort/Interactables/BookGuide/Area2D"]
+shape = SubResource("CircleShape2D_2hjd8")
 
 [node name="GearShelf" type="TileMapLayer" parent="y-sort/Interactables" groups=["Glows", "Interactables"]]
 y_sort_enabled = true
