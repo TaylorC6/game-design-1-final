@@ -28,7 +28,7 @@ var test = "test1"
 #@onready var glow_range: Area2D = $"../Interactables/GearShelf/Area2D"
 #@onready var gear_shelf: TileMapLayer = $"../Interactables/GearShelf"
 #@onready var glow_range2: Area2D = $"../Interactables/range2"
-@onready var fridge = preload("res://Interactables/shelf.tscn")
+@onready var shelf = preload("res://Interactables/shelf.tscn")
 
 #var slash_scene  = preload("res://enitities/attacks/slash.tscn")
 #var damage_shader = preload("res://assets/shaders/take_damage.tres")
@@ -162,11 +162,11 @@ func _physics_process(delta: float) -> void:
 			#glow_ranges[areas].material = Fpjglobal.glow_shader.duplicate()
 	
 
-	if Input.is_action_just_pressed("ui_interact"):
-		for entity in get_tree().get_nodes_in_group("Interactables"):
-				if player_boy.in_range(self):
-					noweapons = false
-					Fpjglobal.stairsOpen = true
+	#if Input.is_action_just_pressed("ui_interact"):
+		#for entity in get_tree().get_nodes_in_group("Interactables"):
+				#if player_boy.in_range(self):
+					#noweapons = false
+					#Fpjglobal.stairsOpen = true
 				
 
 	if animation_lock == 0.0 and data.state != STATES.DEAD:
@@ -220,8 +220,9 @@ func _physics_process(delta: float) -> void:
 		# if looking at gear item/clothes:
 			# gear = false
 	if Input.is_action_just_pressed("ui_interact"):
-		if self.in_range_interactables(fridge, self):
+		if self.in_range_interactables(shelf, self):
 			noweapons = false
+			Fpjglobal.stairsOpen = true
 
 
 func update_animation(direction):
