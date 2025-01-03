@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=4 uid="uid://cs3dn85o3q8wf"]
+[gd_scene load_steps=14 format=4 uid="uid://cs3dn85o3q8wf"]
 
 [ext_resource type="Texture2D" uid="uid://rr7bd0fpj1v8" path="res://sprites/Inner.png" id="1_8hg5n"]
 [ext_resource type="Script" path="res://levels/level_1_tutorial_1.gd" id="1_u3ova"]
 [ext_resource type="Texture2D" uid="uid://bst44rslu20rb" path="res://sprites/objects.png" id="2_5plx8"]
 [ext_resource type="PackedScene" uid="uid://bln8texdoab4d" path="res://Players/player_boy.tscn" id="3_nm4m0"]
 [ext_resource type="Script" path="res://change_lvl.gd" id="6_7luu7"]
+[ext_resource type="AudioStream" uid="uid://ccrq26jc77ib1" path="res://Sounds/Suspense_1.mp3" id="6_fosnn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4eygn"]
 texture = ExtResource("1_8hg5n")
@@ -772,5 +773,11 @@ texture = SubResource("PlaceholderTexture2D_1cq6s")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stairs/StairsBarrier"]
 position = Vector2(-64, -48)
 shape = SubResource("RectangleShape2D_w30l7")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node2D"]
+stream = ExtResource("6_fosnn")
+volume_db = -20.0
 
 [connection signal="body_entered" from="Stairs/Change_lvl" to="Stairs/Change_lvl" method="_on_body_entered"]
