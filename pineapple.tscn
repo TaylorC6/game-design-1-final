@@ -72,7 +72,7 @@ animations = [{
 
 [node name="pineapple" type="Area2D"]
 position = Vector2(619, 322)
-scale = Vector2(10, 10)
+scale = Vector2(2, 2)
 script = ExtResource("1_1pbls")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -83,5 +83,3 @@ shape = SubResource("CircleShape2D_xc7pc")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_p0ex2")
 animation = &"Pinapple_Explosion"
-frame = 7
-frame_progress = 1.0
