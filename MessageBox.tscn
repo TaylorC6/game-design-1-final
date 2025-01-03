@@ -34,7 +34,7 @@ animations = [{
 [sub_resource type="LabelSettings" id="LabelSettings_7icyy"]
 line_spacing = 0.0
 font = ExtResource("3_ec00t")
-font_size = 32
+font_size = 36
 font_color = Color(0, 0, 0, 1)
 
 [node name="CanvasLayer" type="CanvasLayer"]
@@ -54,8 +54,10 @@ sprite_frames = SubResource("SpriteFrames_p6u5t")
 animation = &"A"
 
 [node name="Label" type="Label" parent="."]
-offset_left = 253.0
+offset_left = 256.0
 offset_top = 499.0
-offset_right = 958.0
+offset_right = 961.0
 offset_bottom = 623.0
+scale = Vector2(0.879233, 0.803183)
 label_settings = SubResource("LabelSettings_7icyy")
+autowrap_mode = 2

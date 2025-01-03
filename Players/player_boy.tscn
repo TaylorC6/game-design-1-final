@@ -563,6 +563,7 @@ height = 14.0
 
 [node name="Player_Boy" type="CharacterBody2D" groups=["Player"]]
 y_sort_enabled = true
+scale = Vector2(0.869922, 0.869922)
 script = ExtResource("1_8q00g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
