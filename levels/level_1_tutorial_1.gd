@@ -9,5 +9,5 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if Fpjglobal.stairsOpen == true:
-		$Stairs/StairsBarrier/CollisionShape2D.disabled = true
+		$StairsBarrier/CollisionShape2D.queue_free()
 	pass

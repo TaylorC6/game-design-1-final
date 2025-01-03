@@ -27,7 +27,7 @@ var test = "test1"
 #@onready var glow_range: Area2D = $"../Interactables/GearShelf/Area2D"
 #@onready var gear_shelf: TileMapLayer = $"../Interactables/GearShelf"
 #@onready var glow_range2: Area2D = $"../Interactables/range2"
-
+@onready var fridge = preload("res://Interactables/shelf.tscn")
 
 #var slash_scene  = preload("res://enitities/attacks/slash.tscn")
 #var damage_shader = preload("res://assets/shaders/take_damage.tres")
@@ -53,89 +53,89 @@ func attack():
 	self.get_parent().add_child(pi)
 	self.get_parent().add_child(pi)
 	self.get_parent().add_child(pi)
-	#data.state = STATES.ATTACKING
-	#var dir_name = get_direction_name()
-	#if dir_name == "left":
-		#$AnimatedSprite2D.flip_h = 0
-	#$AnimatedSprite2D.play("swipe_" + dir_name)
-	#attack_direction = look_direction
+	data.state = STATES.ATTACKING
+	var dir_name = get_direction_name()
+	if dir_name == "left":
+		$AnimatedSprite2D.flip_h = 0
+	$AnimatedSprite2D.play("swipe_" + dir_name)
+	attack_direction = look_direction
 	#var slash = slash_scene.instantiate()
 	#slash.position = attack_direction * 20.0
 	#slash.rotation = Vector2().angle_to_point(-attack_direction)
 	#add_child(slash)
 	#aud_player.stream = attack_sound
 	#aud_player.play()
-	#animation_lock = 0.2
-	#
-#func charged_attack():
-	#data.state = STATES.ATTACKING
-	#$AnimatedSprite2D.play("swipe_charge")
+	animation_lock = 0.2
+	
+func charged_attack():
+	data.state = STATES.ATTACKING
+	$AnimatedSprite2D.play("swipe_charge")
 	#aud_player.stream = charge_sound
 	#aud_player.play()
-	#attack_direction = -look_direction
-	#damage_lock = 0.3
-	#for i in range(9):
-		## Offset by (i-4) * 45 degrees; [-4,4]
-		#var angle = attack_direction.angle() + (i-4) * PI/4
-		#var dir   = Vector2(cos(angle), sin(angle))
+	attack_direction = -look_direction
+	damage_lock = 0.3
+	for i in range(9):
+		# Offset by (i-4) * 45 degrees; [-4,4]
+		var angle = attack_direction.angle() + (i-4) * PI/4
+		var dir   = Vector2(cos(angle), sin(angle))
 		#var slash = slash_scene.instantiate()
 		#slash.position = dir * 20
 		#slash.rotation = Vector2().angle_to_point(-dir)
 		#slash.damage  *= 1.5
 		#add_child(slash)
-		#await get_tree().create_timer(0.03).timeout
-	#animation_lock = 0.2
-	#await $AnimatedSprite2D.animation_finished
-	#data.state = STATES.IDLE
-#
+		await get_tree().create_timer(0.03).timeout
+	animation_lock = 0.2
+	await $AnimatedSprite2D.animation_finished
+	data.state = STATES.IDLE
+
 #func _ready() -> void:
 	#p_HUD.show()
-#
-#func pickup_health(value):
-	#data.health += value
-	#data.health = clamp(data.health, 0, data.max_health)
+
+func pickup_health(value):
+	data.health += value
+	data.health = clamp(data.health, 0, data.max_health)
 	#aud_player.stream = heart_sound
 	#aud_player.play()
-#
-#
-#func pickup_heart(value):
-	#data.health += value
-	#data.max_health += value
+
+
+func pickup_heart(value):
+	data.health += value
+	data.max_health += value
 	#p_HUD.draw_hearts()
-	#data.health = clamp(data.health, 0, data.max_health)
+	data.health = clamp(data.health, 0, data.max_health)
 	#aud_player.stream = heart_sound
 	#aud_player.play()
-#
-#func pickup_money(value):
-	#data.money += value
+
+func pickup_money(value):
+	data.money += value
 	#aud_player.stream = coin_sound
 	#aud_player.play()
-#
-#signal health_depleted
-#
-#func take_damage(dmg):
-	#if damage_lock == 0.0 and data.state != STATES.DEAD:
-		#data.health -= dmg
-		#data.state = STATES.DAMAGED
-		#damage_lock = 0.5
-		#animation_lock = dmg * 0.005
+
+signal health_depleted
+
+func take_damage(dmg):
+	if damage_lock == 0.0 and data.state != STATES.DEAD:
+		data.health -= dmg
+		data.state = STATES.DAMAGED
+		damage_lock = 0.5
+		animation_lock = dmg * 0.005
 		#$AnimatedSprite2D.material = damage_shader.duplicate()
-		#$AnimatedSprite2D.material.set_shader_parameter("intensity", 0.5)
-		#if data.health > 0:
+		$AnimatedSprite2D.material.set_shader_parameter("intensity", 0.5)
+		if data.health > 0:
 			#aud_player.stream = hurt_sound #take damage func
 			#aud_player.play()
-			#pass
-		#else:
-			#data.state = STATES.DEAD
+			pass
+		else:
+			data.state = STATES.DEAD
 			#aud_player.stream = death_sound
 			#aud_player.play()
-			#for i in range(15):
-					#var angle = PI/180 * 6
-					#self.rotate(angle)
-					#await get_tree().create_timer(0.01).timeout
-			#await get_tree().create_timer(0.5).timeout
-			#health_depleted.emit()
-	#pass
+			for i in range(15):
+					var angle = PI/180 * 6
+					self.rotate(angle)
+					await get_tree().create_timer(0.01).timeout
+			await get_tree().create_timer(0.5).timeout
+			health_depleted.emit()
+	pass
 #func glow_area(use_area: Area2D, player: CollisionShape2D):
 	#return use_area.overlaps_body(player)
 func in_range(player) -> bool:
@@ -174,11 +174,11 @@ func _physics_process(delta: float) -> void:
 					noweapons = false
 					Fpjglobal.stairsOpen = true
 
-	#if animation_lock == 0.0 and data.state != STATES.DEAD:
-		#if data.state == STATES.DAMAGED and max(damage_lock-delta, 0.0):
-			#$AnimatedSprite2D.material = null;
-		#if data.state != STATES.CHARGING:
-			#data.state = STATES.IDLE
+	if animation_lock == 0.0 and data.state != STATES.DEAD:
+		if data.state == STATES.DAMAGED and max(damage_lock-delta, 0.0):
+			$AnimatedSprite2D.material = null;
+		if data.state != STATES.CHARGING:
+			data.state = STATES.IDLE
 
 	var direction = Vector2(
 		Input.get_axis("ui_left", "ui_right"),
@@ -198,34 +198,35 @@ func _physics_process(delta: float) -> void:
 	if data.state != STATES.DEAD:
 		if Input.is_action_just_pressed("ui_accept"):
 			attack()
-			#charge_duration = 0.0
-			#data.state = STATES.CHARGING
-		#
-		#charge_duration += delta
-		#if Input.is_action_just_released("ui_accept"):
-			#if charge_duration >= charge_time and \
-			   #data.state == STATES.CHARGING:
-				#charged_attack()
-			#else:
-				#data.state = STATES.IDLE
-			#
-	#if Input.is_action_just_pressed("ui_cancel"):
-		#$Camera2D/pause_menu.show()
-		#get_tree().paused = true
-	#pass
+			charge_duration = 0.0
+			data.state = STATES.CHARGING
+		
+		charge_duration += delta
+		if Input.is_action_just_released("ui_accept"):
+			if charge_duration >= charge_time and \
+			   data.state == STATES.CHARGING:
+				charged_attack()
+			else:
+				data.state = STATES.IDLE
+			
+	if Input.is_action_just_pressed("ui_cancel"):
+		$Camera2D/pause_menu.show()
+		get_tree().paused = true
+	pass
 	#
-		if Input.is_action_just_pressed("ui_interact"):
-			pass
-		if Input.is_action_just_pressed("ui_ability"):
-			pass
+		#if Input.is_action_just_pressed("ui_interact"):
+			#pass
+		#if Input.is_action_just_pressed("ui_ability"):
+			#pass
 		
 	#TODO: if Input.is_action_just_pressed("ui_interact"):
 		# if looking at gear item/clothes:
 			# gear = false
-	#TODO: if Input.is_action_just_pressed("ui_interact"):
-		# if looking at fridge:
-			# noweapons = false
-#
+	if Input.is_action_just_pressed("ui_interact"):
+		if self.in_range_interactables(fridge):
+			noweapons = false
+
+
 func update_animation(direction):
 	if data.state == STATES.IDLE:
 		var a_name = "idle_"
@@ -256,3 +257,10 @@ func update_animation(direction):
 		
 
 	pass
+
+
+func in_range_interactables(inter):
+	for i in get_tree().get_nodes_in_group("Interactables"):
+		if i == inter:
+			return true
+	return false

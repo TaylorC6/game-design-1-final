@@ -14,4 +14,3 @@ texture = SubResource("PlaceholderTexture2D_qj58w")
 
 [node name="Player_Boy" parent="." instance=ExtResource("1_1nhd8")]
 position = Vector2(176, -55)
-data = null
