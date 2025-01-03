@@ -58,4 +58,6 @@ offset_left = 253.0
 offset_top = 499.0
 offset_right = 958.0
 offset_bottom = 623.0
+scale = Vector2(0.879233, 0.803183)
 label_settings = SubResource("LabelSettings_7icyy")
+autowrap_mode = 2

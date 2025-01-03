@@ -2,8 +2,7 @@ extends CanvasLayer
 
 @onready var messagebox_visible = false
 var firstframe = 1
-var strings = ["Grab your gear to prepare for the challenges 
-ahead!", "Randy do be kinda sus!"]
+var strings = ["Grab your gear to prepare for the challenges ahead!", "Randy do be kinda sus!"]
 
 func _ready() -> void:
 	set_visible(false)
