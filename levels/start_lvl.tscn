@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=4 uid="uid://bs7w4pxwn6x6s"]
+[gd_scene load_steps=9 format=4 uid="uid://bs7w4pxwn6x6s"]
 
 [ext_resource type="Texture2D" uid="uid://nmbild6cyklj" path="res://sprites/Overworld.png" id="1_ce30d"]
 [ext_resource type="PackedScene" uid="uid://bln8texdoab4d" path="res://Players/player_boy.tscn" id="2_3s3hi"]
-[ext_resource type="Shader" path="res://shaders/glow_start.gdshader" id="3_b20gh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_auv22"]
 texture = ExtResource("1_ce30d")
@@ -1083,9 +1082,6 @@ texture = ExtResource("1_ce30d")
 [sub_resource type="TileSet" id="TileSet_55apc"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_auv22")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_41yi6"]
-shader = ExtResource("3_b20gh")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o0c8x"]
 texture = ExtResource("1_ce30d")
@@ -2181,7 +2177,6 @@ tile_set = SubResource("TileSet_55apc")
 [node name="Player_Boy" parent="." instance=ExtResource("2_3s3hi")]
 
 [node name="test1" type="TileMapLayer" parent="." groups=["testgroup"]]
-material = SubResource("ShaderMaterial_41yi6")
 tile_map_data = PackedByteArray("AAD8//z/AAAMABIAAAD8//v/AAAMABIAAAD8//r/AAAMABIAAAD9//r/AAAMABIAAAD9//v/AAAMABIAAAD9//z/AAAMABIAAAD+//z/AAAMABIAAAD+//v/AAAMABIAAAD+//r/AAAMABIAAAA=")
 tile_set = SubResource("TileSet_72xd6")
 
@@ -2193,10 +2188,6 @@ position = Vector2(-92, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="test1/StaticBody2D/Area2D"]
 shape = SubResource("CircleShape2D_f4to1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="test1/StaticBody2D"]
-position = Vector2(-92, 0)
-shape = SubResource("CircleShape2D_nqy3s")
 
 [node name="test2" type="TileMapLayer" parent="." groups=["testgroup"]]
 position = Vector2(179, 1)

@@ -139,22 +139,27 @@ func attack():
 #func glow_area(use_area: Area2D, player: CollisionShape2D):
 	#return use_area.overlaps_body(player)
 func in_range(player) -> bool:
-	return get_tree().get_current_scene().get_node(test).get_node("StaticBody2D").get_node("Area2D").overlaps_body(player)
+	return get_tree().get_current_scene().get_node("y-sort").get_node("Interactables").get_node(test).get_node("Area2D").overlaps_body(player)
+	#return get_tree().get_current_scene().get_node(test).get_node("StaticBody2D").get_node("Area2D").overlaps_body(player)
 	#get_tree().get_current_scene().get_node("StaticBody2D").get_node("Area2D").overlaps_body(player)
 #var glow_ranges = {glow_range: gear_shelf, "glow_range2": "sign1"}
 
 func _physics_process(delta: float) -> void:
-	for t in get_tree().get_nodes_in_group("testgroup"):
+	for t in get_tree().get_nodes_in_group("Glows"):
 		test = str(t)
+		print(test)
 		if player_boy.in_range(self):
+			#t.material = Fpjglobal.glow_shader.duplicate()
 			t.material = Fpjglobal.glow_shader.duplicate()
-			t.material.set_shader(Fpjglobal.glow_shader)
+			#t.material.set_shader_parameter("intensity", 0.5)
+			#t.material.set_shader_parameter()
 			print(t)
 			#if t == get_tree().get_current_scene().get_node("test1"):
 				
 			#if t == get_tree().get_current_scene().get_node("test2"):
 				
-			
+		else:
+			t.material = Material.new()
 	#$AnimatedSprite2D.material = damage_shader.duplicate()
 	#$AnimatedSprite2D.material.set_shader_parameter("intensity", 0.5)
 	#for areas in get_tree().get_nodes_in_group("Glows"):
@@ -165,7 +170,7 @@ func _physics_process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("ui_interact"):
 		for entity in get_tree().get_nodes_in_group("Interactables"):
-				if entity.in_range(self):
+				if player_boy.in_range(self):
 					noweapons = false
 					Fpjglobal.stairsOpen = true
 

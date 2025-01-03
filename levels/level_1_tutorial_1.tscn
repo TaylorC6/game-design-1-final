@@ -735,12 +735,12 @@ tile_set = SubResource("TileSet_3ab51")
 [node name="Interactables" type="Node2D" parent="y-sort"]
 y_sort_enabled = true
 
-[node name="GearShelf" type="TileMapLayer" parent="y-sort/Interactables" groups=["Interactables"]]
+[node name="GearShelf" type="TileMapLayer" parent="y-sort/Interactables" groups=["Glows", "Interactables"]]
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAD7/wEAAAAGAAwAAAA=")
 tile_set = SubResource("TileSet_3ab51")
 
-[node name="Area2D" type="Area2D" parent="y-sort/Interactables/GearShelf" groups=["Glows"]]
+[node name="Area2D" type="Area2D" parent="y-sort/Interactables/GearShelf"]
 position = Vector2(-70, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="y-sort/Interactables/GearShelf/Area2D"]
