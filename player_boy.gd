@@ -19,6 +19,7 @@ var animation_lock = 0.0  # Lock player while playing attack animation
 var damage_lock = 0.0
 var charge_time = 1.25
 var charge_duration = 0.0
+var attack_wait = 0.0
 var nogear = true
 var noweapons = true
 var pine_scene = preload("res://pineapple.tscn")
@@ -47,18 +48,18 @@ func get_direction_name():
 	]
 
 func attack():
-	var pi = pine_scene.instantiate()
-	pi.global_position = self.global_position + attack_direction * 50
-	pi.rotation = Vector2().angle_to_point(-attack_direction)
-	self.get_parent().add_child(pi)
-	self.get_parent().add_child(pi)
-	self.get_parent().add_child(pi)
 	data.state = STATES.ATTACKING
 	var dir_name = get_direction_name()
 	if dir_name == "left":
 		$AnimatedSprite2D.flip_h = 0
 	$AnimatedSprite2D.play("swipe_" + dir_name)
 	attack_direction = look_direction
+	var pi = pine_scene.instantiate()
+	pi.global_position = self.global_position + attack_direction * 50
+	pi.rotation = Vector2().angle_to_point(-attack_direction)
+	self.get_parent().add_child(pi)
+	self.get_parent().add_child(pi)
+	self.get_parent().add_child(pi)
 	#var slash = slash_scene.instantiate()
 	#slash.position = attack_direction * 20.0
 	#slash.rotation = Vector2().angle_to_point(-attack_direction)
@@ -196,8 +197,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	inertia = inertia.move_toward(Vector2.ZERO, delta * 1000.0)
 	if data.state != STATES.DEAD:
-		if Input.is_action_just_pressed("ui_accept"):
+		if Input.is_action_just_pressed("ui_accept") && attack_wait <= 0.0:
 			attack()
+			attack_wait = 5.0
 			charge_duration = 0.0
 			data.state = STATES.CHARGING
 		
@@ -214,6 +216,7 @@ func _physics_process(delta: float) -> void:
 		get_tree().paused = true
 	pass
 	#
+	attack_wait -= delta
 		#if Input.is_action_just_pressed("ui_interact"):
 			#pass
 		#if Input.is_action_just_pressed("ui_ability"):
@@ -223,7 +226,7 @@ func _physics_process(delta: float) -> void:
 		# if looking at gear item/clothes:
 			# gear = false
 	if Input.is_action_just_pressed("ui_interact"):
-		if self.in_range_interactables(fridge):
+		if self.in_range_interactables(fridge, self):
 			noweapons = false
 
 
@@ -259,8 +262,12 @@ func update_animation(direction):
 	pass
 
 
-func in_range_interactables(inter):
+func in_range_interactables(inter, player):
 	for i in get_tree().get_nodes_in_group("Interactables"):
-		if i == inter:
-			return true
+		for it in i.get_children():
+			if it == CollisionShape2D:
+				if it.overlaps_body(self) && i == inter:
+					return true
+		#if i == inter && i.get_children().find(CollisionShape2D):
+			#return true
 	return false
