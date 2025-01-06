@@ -152,12 +152,18 @@ func in_range(player) -> bool:
 func _physics_process(delta: float) -> void:
 	for t in get_tree().get_nodes_in_group("Glows"):
 		test = str(t)
+<<<<<<< HEAD
 		#print(test)
+=======
+>>>>>>> 47f3899d21d20fd5bf412304f95664a3caa97782
 		if player_boy.in_range(self):
 			t.material = Fpjglobal.glow_shader.duplicate()
 			#t.material.set_shader_parameter("intensity", 0.5)
 			#t.material.set_shader_parameter()
+<<<<<<< HEAD
 			#print(t)
+=======
+>>>>>>> 47f3899d21d20fd5bf412304f95664a3caa97782
 			#if t == get_tree().get_current_scene().get_node("test1"):
 				
 			#if t == get_tree().get_current_scene().get_node("test2"):
@@ -172,13 +178,17 @@ func _physics_process(delta: float) -> void:
 			#glow_ranges[areas].material = Fpjglobal.glow_shader.duplicate()
 	
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 47f3899d21d20fd5bf412304f95664a3caa97782
 	#if Input.is_action_just_pressed("ui_interact"):
 		#for entity in get_tree().get_nodes_in_group("Interactables"):
 				#if player_boy.in_range(self):
 					#noweapons = false
 					#Fpjglobal.stairsOpen = true
 				
+<<<<<<< HEAD
 
 	if Input.is_action_just_pressed("ui_interact"):
 		for entity in get_tree().get_nodes_in_group("Interactables"):
@@ -192,6 +202,13 @@ func _physics_process(delta: float) -> void:
 					else:
 						Fpjglobal.message_box_visible = false
 
+=======
+	if Input.is_action_just_pressed("ui_interact"):
+		for entity in get_tree().get_nodes_in_group("Interactables"):
+				if player_boy.in_range(self):
+					noweapons = false
+					Fpjglobal.stairsOpen = true
+>>>>>>> 47f3899d21d20fd5bf412304f95664a3caa97782
 
 	if animation_lock == 0.0 and data.state != STATES.DEAD:
 		if data.state == STATES.DAMAGED and max(damage_lock-delta, 0.0):
@@ -244,6 +261,10 @@ func _physics_process(delta: float) -> void:
 		# if looking at gear item/clothes:
 			# gear = false
 	#if Input.is_action_just_pressed("ui_interact"):
+<<<<<<< HEAD
+=======
+		#print(self.in_range_interactables(shelf, self))
+>>>>>>> 47f3899d21d20fd5bf412304f95664a3caa97782
 		#if self.in_range_interactables(shelf, self):
 			#print("hi")
 			#noweapons = false
@@ -285,8 +306,14 @@ func update_animation(direction):
 func in_range_interactables(inter, player):
 	for i in get_tree().get_nodes_in_group("Interactables"):
 		for it in i.get_children():
-			if it == CollisionShape2D:
+			print("hill")
+			if it.get_class() == "Area2D":
+				print("hi")
+				print(i)
+				var t = inter.instantiate()
+				print(t)
 				if it.overlaps_body(self) && i == inter:
+					print("no")
 					return true
 		#if i == inter && i.get_children().find(CollisionShape2D):
 			#return true
