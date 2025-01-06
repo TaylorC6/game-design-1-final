@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c75cka7vrpsdh"]
+
+[ext_resource type="Script" path="res://banana.gd" id="1_lh78g"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_biooh"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_86nns"]
+
+[node name="banana" type="Node2D"]
+position = Vector2(436, 222)
+script = ExtResource("1_lh78g")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_biooh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.38419e-07, -0.5)
+scale = Vector2(8, 31)
+texture = SubResource("PlaceholderTexture2D_86nns")
