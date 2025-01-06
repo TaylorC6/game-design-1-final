@@ -1,10 +1,13 @@
 extends Node
 
+var player_names = {"Girl": "","Boy": "Jimmy"}
 var glow = false
 var stairsOpen = false
 var firstframe = 1
 var e = ""
 var glow_shader = preload("res://Shaders/Glow.tres")
+var message_box_visible = false
+var message = ""
 @export var area = ""
 
 ##get_tree().get_current_scene().get_node("y-sort").get_node("Player_Boy").get("entity").set_visible(true)

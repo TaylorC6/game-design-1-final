@@ -25,10 +25,14 @@ var noweapons = true
 var pine_scene = preload("res://pineapple.tscn")
 var test = "test1"
 @onready var player_boy: CharacterBody2D = $"."
+@onready var gear_shelf: TileMapLayer = $"../Interactables/GearShelf"
+@onready var sign1: TileMapLayer = $"../../Interactables/sign1"
+
+
 #@onready var glow_range: Area2D = $"../Interactables/GearShelf/Area2D"
 #@onready var gear_shelf: TileMapLayer = $"../Interactables/GearShelf"
 #@onready var glow_range2: Area2D = $"../Interactables/range2"
-@onready var shelf = preload("res://Interactables/shelf.tscn")
+
 
 #var slash_scene  = preload("res://enitities/attacks/slash.tscn")
 #var damage_shader = preload("res://assets/shaders/take_damage.tres")
@@ -148,13 +152,12 @@ func in_range(player) -> bool:
 func _physics_process(delta: float) -> void:
 	for t in get_tree().get_nodes_in_group("Glows"):
 		test = str(t)
-		print(test)
+		#print(test)
 		if player_boy.in_range(self):
-			#t.material = Fpjglobal.glow_shader.duplicate()
 			t.material = Fpjglobal.glow_shader.duplicate()
 			#t.material.set_shader_parameter("intensity", 0.5)
 			#t.material.set_shader_parameter()
-			print(t)
+			#print(t)
 			#if t == get_tree().get_current_scene().get_node("test1"):
 				
 			#if t == get_tree().get_current_scene().get_node("test2"):
@@ -169,20 +172,26 @@ func _physics_process(delta: float) -> void:
 			#glow_ranges[areas].material = Fpjglobal.glow_shader.duplicate()
 	
 
-<<<<<<< HEAD
+
 	#if Input.is_action_just_pressed("ui_interact"):
 		#for entity in get_tree().get_nodes_in_group("Interactables"):
 				#if player_boy.in_range(self):
 					#noweapons = false
 					#Fpjglobal.stairsOpen = true
 				
-=======
+
 	if Input.is_action_just_pressed("ui_interact"):
 		for entity in get_tree().get_nodes_in_group("Interactables"):
 				if player_boy.in_range(self):
-					noweapons = false
-					Fpjglobal.stairsOpen = true
->>>>>>> 7fa77777e305d84d197a8ee8baf5b6b292722cd4
+					if entity == gear_shelf:
+						noweapons = false
+						Fpjglobal.stairsOpen = true
+					if entity == sign1:
+						Fpjglobal.message_box_visible = true
+						Fpjglobal.message = Fpjglobal.player_names["Boy"]
+					else:
+						Fpjglobal.message_box_visible = false
+
 
 	if animation_lock == 0.0 and data.state != STATES.DEAD:
 		if data.state == STATES.DAMAGED and max(damage_lock-delta, 0.0):
@@ -234,10 +243,11 @@ func _physics_process(delta: float) -> void:
 	#TODO: if Input.is_action_just_pressed("ui_interact"):
 		# if looking at gear item/clothes:
 			# gear = false
-	if Input.is_action_just_pressed("ui_interact"):
-		if self.in_range_interactables(shelf, self):
-			noweapons = false
-			Fpjglobal.stairsOpen = true
+	#if Input.is_action_just_pressed("ui_interact"):
+		#if self.in_range_interactables(shelf, self):
+			#print("hi")
+			#noweapons = false
+			#Fpjglobal.stairsOpen = true
 
 
 func update_animation(direction):
