@@ -76,16 +76,19 @@ position = Vector2(0, -5)
 script = ExtResource("1_lh78g")
 
 [node name="Area2D" type="Area2D" parent="."]
-position = Vector2(626, 326.5)
+position = Vector2(315, 361.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_biooh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(626, 325.5)
 scale = Vector2(8, 31)
 texture = SubResource("PlaceholderTexture2D_86nns")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(313, 361)
+scale = Vector2(1.1875, 1.09375)
 sprite_frames = SubResource("SpriteFrames_vtd3o")
-frame_progress = 0.471487
+frame_progress = 0.929894

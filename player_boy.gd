@@ -181,6 +181,7 @@ func _physics_process(delta: float) -> void:
 					#Fpjglobal.stairsOpen = true
 				
 
+
 	if Input.is_action_just_pressed("ui_interact"):
 		for entity in get_tree().get_nodes_in_group("Interactables"):
 				if player_boy.in_range(self):
@@ -193,6 +194,7 @@ func _physics_process(delta: float) -> void:
 						print("hi")
 					else:
 						Fpjglobal.message_box_visible = false
+
 
 	if Input.is_action_just_pressed("ui_interact"):
 		for entity in get_tree().get_nodes_in_group("Interactables"):
