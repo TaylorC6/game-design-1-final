@@ -25,10 +25,14 @@ var noweapons = true
 var pine_scene = preload("res://pineapple.tscn")
 var test = "test1"
 @onready var player_boy: CharacterBody2D = $"."
+@onready var gear_shelf: TileMapLayer = $"../Interactables/GearShelf"
+@onready var sign1: TileMapLayer = $"../../Interactables/sign1"
+
+
 #@onready var glow_range: Area2D = $"../Interactables/GearShelf/Area2D"
 #@onready var gear_shelf: TileMapLayer = $"../Interactables/GearShelf"
 #@onready var glow_range2: Area2D = $"../Interactables/range2"
-@onready var shelf = preload("res://Interactables/shelf.tscn")
+
 
 #var slash_scene  = preload("res://enitities/attacks/slash.tscn")
 #var damage_shader = preload("res://assets/shaders/take_damage.tres")
@@ -78,7 +82,7 @@ func charged_attack():
 	for i in range(9):
 		# Offset by (i-4) * 45 degrees; [-4,4]
 		var angle = attack_direction.angle() + (i-4) * PI/4
-		var dir   = Vector2(cos(angle), sin(angle))
+		var _dir   = Vector2(cos(angle), sin(angle))
 		#var slash = slash_scene.instantiate()
 		#slash.position = dir * 20
 		#slash.rotation = Vector2().angle_to_point(-dir)
@@ -148,13 +152,15 @@ func in_range(player) -> bool:
 func _physics_process(delta: float) -> void:
 	for t in get_tree().get_nodes_in_group("Glows"):
 		test = str(t)
-		print(test)
+
+		#print(test)
+
 		if player_boy.in_range(self):
-			#t.material = Fpjglobal.glow_shader.duplicate()
 			t.material = Fpjglobal.glow_shader.duplicate()
 			#t.material.set_shader_parameter("intensity", 0.5)
 			#t.material.set_shader_parameter()
-			print(t)
+			#print(t)
+
 			#if t == get_tree().get_current_scene().get_node("test1"):
 				
 			#if t == get_tree().get_current_scene().get_node("test2"):
@@ -167,9 +173,11 @@ func _physics_process(delta: float) -> void:
 		##var result = Fpjglobal.glow_area(entity)
 		#if areas.in_range(self):
 			#glow_ranges[areas].material = Fpjglobal.glow_shader.duplicate()
-	
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 401916752be1fbcbd0495eec940d68ac69c400a3
 	#if Input.is_action_just_pressed("ui_interact"):
 		#for entity in get_tree().get_nodes_in_group("Interactables"):
 				#if player_boy.in_range(self):
@@ -177,11 +185,30 @@ func _physics_process(delta: float) -> void:
 					#Fpjglobal.stairsOpen = true
 				
 
+<<<<<<< HEAD
+=======
+	if Input.is_action_just_pressed("ui_interact"):
+		for entity in get_tree().get_nodes_in_group("Interactables"):
+				if player_boy.in_range(self):
+					if entity == gear_shelf:
+						noweapons = false
+						Fpjglobal.stairsOpen = true
+					if entity == sign1:
+						Fpjglobal.message_box_visible = true
+						Fpjglobal.message = Fpjglobal.player_names["Boy"]
+					else:
+						Fpjglobal.message_box_visible = false
+
+>>>>>>> 401916752be1fbcbd0495eec940d68ac69c400a3
 	if Input.is_action_just_pressed("ui_interact"):
 		for entity in get_tree().get_nodes_in_group("Interactables"):
 				if player_boy.in_range(self):
 					noweapons = false
 					Fpjglobal.stairsOpen = true
+<<<<<<< HEAD
+=======
+
+>>>>>>> 401916752be1fbcbd0495eec940d68ac69c400a3
 
 	if animation_lock == 0.0 and data.state != STATES.DEAD:
 		if data.state == STATES.DAMAGED and max(damage_lock-delta, 0.0):
@@ -230,13 +257,10 @@ func _physics_process(delta: float) -> void:
 		#if Input.is_action_just_pressed("ui_ability"):
 			#pass
 		
-	#TODO: if Input.is_action_just_pressed("ui_interact"):
-		# if looking at gear item/clothes:
-			# gear = false
-	if Input.is_action_just_pressed("ui_interact"):
-		if self.in_range_interactables(shelf, self):
-			noweapons = false
-			Fpjglobal.stairsOpen = true
+		#if self.in_range_interactables(shelf, self):
+			#print("hi")
+			#noweapons = false
+			#Fpjglobal.stairsOpen = true
 
 
 func update_animation(direction):
@@ -271,11 +295,17 @@ func update_animation(direction):
 	pass
 
 
-func in_range_interactables(inter, player):
+func in_range_interactables(inter, _player):
 	for i in get_tree().get_nodes_in_group("Interactables"):
 		for it in i.get_children():
-			if it == CollisionShape2D:
+			print("hill")
+			if it.get_class() == "Area2D":
+				print("hi")
+				print(i)
+				var t = inter.instantiate()
+				print(t)
 				if it.overlaps_body(self) && i == inter:
+					print("no")
 					return true
 		#if i == inter && i.get_children().find(CollisionShape2D):
 			#return true
