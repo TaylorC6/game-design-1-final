@@ -44,7 +44,7 @@ var test = "test1"
 #var charge_sound = preload("res://Sounds/powerUp.wav")
 #
 #@onready var aud_player = $AudioStreamPlayer2D
-#@onready var p_HUD = get_tree().get_first_node_in_group("HUD")
+@onready var p_HUD = get_tree().get_first_node_in_group("HUD")
 #
 func get_direction_name():
 	return ["right", "down", "left", "up"][
@@ -93,8 +93,8 @@ func charged_attack():
 	await $AnimatedSprite2D.animation_finished
 	data.state = STATES.IDLE
 
-#func _ready() -> void:
-	#p_HUD.show()
+func _ready() -> void:
+	p_HUD.show()
 
 func pickup_health(value):
 	data.health += value
@@ -106,7 +106,7 @@ func pickup_health(value):
 func pickup_heart(value):
 	data.health += value
 	data.max_health += value
-	#p_HUD.draw_hearts()
+	p_HUD.draw_hearts()
 	data.health = clamp(data.health, 0, data.max_health)
 	#aud_player.stream = heart_sound
 	#aud_player.play()
@@ -189,7 +189,8 @@ func _physics_process(delta: float) -> void:
 						Fpjglobal.stairsOpen = true
 					if entity == sign1:
 						Fpjglobal.message_box_visible = true
-						Fpjglobal.message = Fpjglobal.player_names["Boy"]
+						Fpjglobal.message += Fpjglobal.player_names["Boy"] + " " + Fpjglobal.strings[1]
+						print("hi")
 					else:
 						Fpjglobal.message_box_visible = false
 
