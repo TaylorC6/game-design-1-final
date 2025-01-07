@@ -7,15 +7,16 @@
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_86nns"]
 
 [node name="banana" type="Node2D"]
-position = Vector2(436, 222)
+position = Vector2(0, -5)
 script = ExtResource("1_lh78g")
 
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2(626, 326.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_biooh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-2.38419e-07, -0.5)
+position = Vector2(626, 325.5)
 scale = Vector2(8, 31)
 texture = SubResource("PlaceholderTexture2D_86nns")
