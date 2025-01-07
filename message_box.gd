@@ -9,8 +9,10 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	
-	if Input.is_action_just_pressed("ui_interact"):
-		messagebox_visible = not messagebox_visible
+	if Fpjglobal.message_box_visible:
+		messagebox_visible = true
+	else:
+		messagebox_visible = false
 	if messagebox_visible == true:
 		set_visible(true)
 		if firstframe == 1:
@@ -26,14 +28,13 @@ func _process(_delta: float) -> void:
 
 func message_make(sentence):
 	
-	var printy = ""
 	var textspeed = 0.005
 	var change = 0
 	var letter = 0
 
 	for i in range(len(sentence)):
-		printy += (sentence[i])
-		$Label.text = "" + str(printy)
+		Fpjglobal.message += (sentence[i])
+		$Label.text = "" + str(Fpjglobal.message)
 		change = (0.025 / (len(sentence) / 2.0))
 		letter += 1
 		if letter >= len(sentence) / 2.0:

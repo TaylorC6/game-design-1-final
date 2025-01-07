@@ -1,0 +1,91 @@
+[gd_scene load_steps=14 format=3 uid="uid://c75cka7vrpsdh"]
+
+[ext_resource type="Script" path="res://banana.gd" id="1_lh78g"]
+[ext_resource type="Texture2D" uid="uid://f7s0hrvbgbsa" path="res://sprites/BoyAnims/Bananarang.png" id="2_kiw3j"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_biooh"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_86nns"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kj0b"]
+atlas = ExtResource("2_kiw3j")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7xma"]
+atlas = ExtResource("2_kiw3j")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esvn4"]
+atlas = ExtResource("2_kiw3j")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dkcl"]
+atlas = ExtResource("2_kiw3j")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oppqq"]
+atlas = ExtResource("2_kiw3j")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qf7rm"]
+atlas = ExtResource("2_kiw3j")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oguu1"]
+atlas = ExtResource("2_kiw3j")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ntxaq"]
+atlas = ExtResource("2_kiw3j")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vtd3o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kj0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7xma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esvn4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dkcl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oppqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qf7rm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oguu1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntxaq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 25.0
+}]
+
+[node name="banana" type="Node2D"]
+position = Vector2(0, -5)
+script = ExtResource("1_lh78g")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(626, 326.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_biooh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(626, 325.5)
+scale = Vector2(8, 31)
+texture = SubResource("PlaceholderTexture2D_86nns")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vtd3o")
+frame_progress = 0.471487

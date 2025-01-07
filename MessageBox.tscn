@@ -38,6 +38,7 @@ font_size = 36
 font_color = Color(0, 0, 0, 1)
 
 [node name="CanvasLayer" type="CanvasLayer"]
+layer = 128
 script = ExtResource("1_ldd6l")
 
 [node name="Box" type="AnimatedSprite2D" parent="."]
@@ -61,3 +62,4 @@ offset_bottom = 623.0
 scale = Vector2(0.879233, 0.803183)
 label_settings = SubResource("LabelSettings_7icyy")
 autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
