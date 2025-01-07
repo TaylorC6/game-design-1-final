@@ -174,10 +174,6 @@ func _physics_process(delta: float) -> void:
 		#if areas.in_range(self):
 			#glow_ranges[areas].material = Fpjglobal.glow_shader.duplicate()
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 401916752be1fbcbd0495eec940d68ac69c400a3
 	#if Input.is_action_just_pressed("ui_interact"):
 		#for entity in get_tree().get_nodes_in_group("Interactables"):
 				#if player_boy.in_range(self):
@@ -185,8 +181,7 @@ func _physics_process(delta: float) -> void:
 					#Fpjglobal.stairsOpen = true
 				
 
-<<<<<<< HEAD
-=======
+
 	if Input.is_action_just_pressed("ui_interact"):
 		for entity in get_tree().get_nodes_in_group("Interactables"):
 				if player_boy.in_range(self):
@@ -199,16 +194,13 @@ func _physics_process(delta: float) -> void:
 					else:
 						Fpjglobal.message_box_visible = false
 
->>>>>>> 401916752be1fbcbd0495eec940d68ac69c400a3
+
 	if Input.is_action_just_pressed("ui_interact"):
 		for entity in get_tree().get_nodes_in_group("Interactables"):
 				if player_boy.in_range(self):
 					noweapons = false
 					Fpjglobal.stairsOpen = true
-<<<<<<< HEAD
-=======
 
->>>>>>> 401916752be1fbcbd0495eec940d68ac69c400a3
 
 	if animation_lock == 0.0 and data.state != STATES.DEAD:
 		if data.state == STATES.DAMAGED and max(damage_lock-delta, 0.0):
