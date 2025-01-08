@@ -23,6 +23,7 @@ var attack_wait = 0.0
 var nogear = true
 var noweapons = true
 var pine_scene = preload("res://pineapple.tscn")
+var ba_scene = preload("res://banana.tscn")
 var test = "test1"
 @onready var player_boy: CharacterBody2D = $"."
 @onready var gear_shelf: TileMapLayer = $"../Interactables/GearShelf"
@@ -50,6 +51,27 @@ func get_direction_name():
 	return ["right", "down", "left", "up"][
 		int(round(look_direction.angle() * 2 / PI)) % 4
 	]
+
+func banana_attack():
+	data.state = STATES.ATTACKING
+	var dir_name = get_direction_name()
+	if dir_name == "left":
+		$AnimatedSprite2D.flip_h = 0
+	$AnimatedSprite2D.play("swipe_" + dir_name)
+	attack_direction = look_direction
+	var ban = ba_scene.instantiate()
+	ban.global_position = self.global_position
+	ban.rotation = Vector2().angle_to_point(-attack_direction)
+	self.get_parent().add_child(ban)
+	self.get_parent().add_child(ban)
+	self.get_parent().add_child(ban)
+	#var slash = slash_scene.instantiate()
+	#slash.position = attack_direction * 20.0
+	#slash.rotation = Vector2().angle_to_point(-attack_direction)
+	#add_child(slash)
+	#aud_player.stream = attack_sound
+	#aud_player.play()
+	animation_lock = 0.1
 
 func attack():
 	data.state = STATES.ATTACKING
@@ -150,6 +172,7 @@ func in_range(player) -> bool:
 #var glow_ranges = {glow_range: gear_shelf, "glow_range2": "sign1"}
 
 func _physics_process(delta: float) -> void:
+	Fpjglobal.player_position = self.global_position
 	for t in get_tree().get_nodes_in_group("Glows"):
 		test = str(t)
 
@@ -225,6 +248,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	inertia = inertia.move_toward(Vector2.ZERO, delta * 1000.0)
 	if data.state != STATES.DEAD:
+		if Input.is_action_just_pressed("ui_end"):
+			banana_attack()
+			attack_wait = 5.0
+			charge_duration = 0.0
+			data.state = STATES.CHARGING
 		if Input.is_action_just_pressed("ui_accept") && attack_wait <= 0.0:
 			attack()
 			attack_wait = 5.0
