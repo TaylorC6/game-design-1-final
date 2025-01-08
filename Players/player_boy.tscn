@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dxor628xqmuib" path="res://sprites/BoyAnims/AnimRightBoyNoWeapons.png" id="13_ldrwk"]
 [ext_resource type="Texture2D" uid="uid://dbxgx8ssv7rwo" path="res://sprites/BoyAnims/AnimUpBoyNoGear.png" id="13_o5h04"]
 [ext_resource type="Texture2D" uid="uid://ss15mnqo55cl" path="res://sprites/BoyAnims/AnimUpBoyNoWeapons.png" id="14_blhe4"]
-[ext_resource type="PackedScene" uid="uid://1mobpdtgslyq" path="res://fpjfold/fpj_hud.tscn" id="14_p22q4"]
+[ext_resource type="PackedScene" uid="uid://1mobpdtgslyq" path="res://sprites/fpjfold/fpj_hud.tscn" id="14_p22q4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xnb1a"]
 atlas = ExtResource("6_h0o7v")
