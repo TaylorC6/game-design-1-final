@@ -1,6 +1,7 @@
 extends Node
 
 var player_names = {"Girl": "","Boy": "Jimmy"}
+var player_position = Vector2(0, 0)
 var glow = false
 var stairsOpen = false
 var firstframe = 1
