@@ -291,7 +291,7 @@ y_sort_enabled = true
 [node name="sign1" type="TileMapLayer" parent="y-sort/Interactables" groups=["Glows", "Interactables"]]
 y_sort_enabled = true
 position = Vector2(482, -65)
-tile_map_data = PackedByteArray("AAAAAP//AQALAAsAAAD2//7/AQALAAsAAAA=")
+tile_map_data = PackedByteArray("AAAAAP//AQALAAsAAAA=")
 tile_set = SubResource("TileSet_j3eyy")
 
 [node name="Area2D" type="Area2D" parent="y-sort/Interactables/sign1"]
@@ -317,6 +317,9 @@ tile_set = SubResource("TileSet_j3eyy")
 [node name="Player_Boy" parent="y-sort/Boy" instance=ExtResource("4_2vhtr")]
 position = Vector2(512, -71)
 
+[node name="AnimatedSprite2D" parent="y-sort/Boy/Player_Boy" index="0"]
+animation = &"idle_down"
+
 [node name="Girl" type="Node2D" parent="y-sort"]
 y_sort_enabled = true
 position = Vector2(-576, 0)
@@ -339,3 +342,5 @@ tile_set = SubResource("TileSet_j3eyy")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node2D"]
 stream = ExtResource("6_d1b00")
+
+[editable path="y-sort/Boy/Player_Boy"]
