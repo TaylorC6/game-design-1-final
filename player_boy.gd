@@ -173,6 +173,7 @@ func in_range(player) -> bool:
 
 func _physics_process(delta: float) -> void:
 	Fpjglobal.player_position = self.global_position
+	Fpjglobal.player_direction = attack_direction
 	for t in get_tree().get_nodes_in_group("Glows"):
 		test = str(t)
 

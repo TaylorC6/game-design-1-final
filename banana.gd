@@ -6,7 +6,7 @@ var circle = Vector2(10, -10)
 var start = Fpjglobal.player_position
 var radius = 5
 var circumference = radius*PI*2
-var direction = 0
+var direction = Fpjglobal.player_direction
 var angle = direction
 var dir = Vector2(0, 0)
 
@@ -23,9 +23,15 @@ var str = start.x # + 60
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	angle = 180/PI * abs(direction * 2)
-	dir = Vector2(cos(angle), sin(angle))
-	print(dir)
+	if (direction > -PI && direction < 0) : direction -= PI
+	#angle = abs(round(180/PI * (direction)))
+	dir = Vector2(cos(direction), sin(direction))
+	if (abs(dir.x) < 0.001) :
+		dir.x = 0
+	elif (abs(dir.y) < 0.001) :
+		dir.y = 0
+	#print(dir.x, " ", dir.y)
+	#print(cos(direction))
 	if (dir.x == 0 && dir.y > 0):
 		var temp = projectile_a
 		projectile_a = projectile_b
@@ -39,7 +45,7 @@ func _ready() -> void:
 		var temp = st
 		st = str
 		str = temp
-	
+	self.rotate(direction)
 	$AnimatedSprite2D.play_backwards()
 
 
@@ -59,22 +65,43 @@ func _process(delta: float) -> void:
 	
 	if !second && first:
 		if !s1:
-			if (st < self.position.y):
+			#if (st-30 < self.position.y):
 				#self.position.x += 5
 				#self.position.y -= pow((self.position.x), 2) / 8000.0
 				#self.position.x += pow((num), 2) / 1000.0
 #could try velocity
+			print(start.y-30 < self.position.y, " ", dir.x, " ", dir.y)
+			if (dir == Vector2(-1,0) && st- 30 < self.position.y):
+				print("hi")
 				self.position += Vector2(num * circumference / 10, -(1-num) * circumference  / 10)
+			elif (dir == Vector2(0, 1) && st-30 < self.position.y) :
+				self.position += Vector2(-(1-num) * circumference / 10, num * circumference  / 10)
+			elif (dir == Vector2(0, -1) && st-30 < self.position.y):
+				self.position += Vector2((1-num) * circumference / 10, num * circumference  / 10)
+			elif (dir == Vector2(1, 0) && str-60 < self.position.x):
+				print("hi", self.position.y)
+				self.position += Vector2(-num * circumference / 10, (1-num) * circumference  / 10)
+				
 			else: 
 				s1 = true
 				rn = true
 			num -= delta 
 			if (num < 0): num = 0
 		if !s2 && s1:
-			if (str < self.position.x):
-				#self.position.x -= 5
+			#if (str+60 < self.position.x):
+				#self.position.x -= 
 				#self.position.y -= pow((self.position.x), 1.5) / 500.0
-				self.position += Vector2(-(num) * circumference / 5, -(1-num) * circumference / 5)
+			if (dir == Vector2(-1,0) && str+60 < self.position.x):
+				self.position += Vector2(-num * circumference / 10, -(1-num) * circumference  / 10)
+			elif (dir == Vector2(0, 1) && st-30 < self.position.y) :
+				print("hi", self.position.y)
+				self.position += Vector2(-(1-num) * circumference / 10, -num * circumference  / 10)
+			elif (dir == Vector2(0, -1) && st-30 < self.position.y):
+				print("hi", self.position.y)
+				self.position += Vector2((1-num) * circumference / 10, -num * circumference  / 10)
+			elif (dir == Vector2(1, 0) && st + 60 > self.position.y):
+				print("hi", self.position.y)
+				self.position += Vector2(-(1-num) * circumference / 10, (num) * circumference  / 10)
 			else:
 				s2 = true
 				second = true
