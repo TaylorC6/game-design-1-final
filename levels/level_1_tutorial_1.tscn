@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://d2i1u3jwyylgo" path="res://Sounds/Suspense_3.mp3" id="6_3fj27"]
 [ext_resource type="Script" path="res://change_lvl.gd" id="6_7luu7"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lvvci"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nncds"]
 texture = ExtResource("1_8hg5n")
 0:0/0 = 0
 1:0/0 = 0
@@ -346,7 +346,7 @@ texture = ExtResource("1_8hg5n")
 10:3/0/y_sort_origin = -24
 10:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 6, -8, 6)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vgk1t"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pojx1"]
 texture = ExtResource("2_5plx8")
 0:0/0 = 0
 1:0/0 = 0
@@ -683,8 +683,8 @@ texture = ExtResource("2_5plx8")
 
 [sub_resource type="TileSet" id="TileSet_3ab51"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_lvvci")
-sources/1 = SubResource("TileSetAtlasSource_vgk1t")
+sources/0 = SubResource("TileSetAtlasSource_nncds")
+sources/1 = SubResource("TileSetAtlasSource_pojx1")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2hjd8"]
 radius = 28.0
