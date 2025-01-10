@@ -60,10 +60,10 @@ func banana_attack():
 	$AnimatedSprite2D.play("swipe_" + dir_name)
 	attack_direction = look_direction
 	var ban = ba_scene.instantiate()
-	ban.global_position = self.global_position
+	ban.global_position = self.global_position + attack_direction * 10
 	ban.rotation = Vector2().angle_to_point(-attack_direction)
-	self.get_parent().add_child(ban)
-	self.get_parent().add_child(ban)
+	ban.direction = Vector2().angle_to_point(-attack_direction)
+	print(Vector2().angle_to_point(-attack_direction))
 	self.get_parent().add_child(ban)
 	#var slash = slash_scene.instantiate()
 	#slash.position = attack_direction * 20.0
@@ -71,7 +71,7 @@ func banana_attack():
 	#add_child(slash)
 	#aud_player.stream = attack_sound
 	#aud_player.play()
-	animation_lock = 0.1
+	#animation_lock = 0.1
 
 func attack():
 	data.state = STATES.ATTACKING
@@ -173,6 +173,7 @@ func in_range(player) -> bool:
 
 func _physics_process(delta: float) -> void:
 	Fpjglobal.player_position = self.global_position
+	Fpjglobal.player_direction = attack_direction
 	for t in get_tree().get_nodes_in_group("Glows"):
 		test = str(t)
 
@@ -250,9 +251,9 @@ func _physics_process(delta: float) -> void:
 	if data.state != STATES.DEAD:
 		if Input.is_action_just_pressed("ui_end"):
 			banana_attack()
-			attack_wait = 5.0
-			charge_duration = 0.0
-			data.state = STATES.CHARGING
+			#attack_wait = 5.0
+			#charge_duration = 0.0
+			#data.state = STATES.CHARGING
 		if Input.is_action_just_pressed("ui_accept") && attack_wait <= 0.0:
 			attack()
 			attack_wait = 5.0
