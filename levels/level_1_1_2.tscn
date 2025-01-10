@@ -1,11 +1,13 @@
-[gd_scene load_steps=17 format=4 uid="uid://dspt1gud8vr4"]
+[gd_scene load_steps=19 format=4 uid="uid://dspt1gud8vr4"]
 
+[ext_resource type="Script" path="res://levels/level_1_1_2.gd" id="1_ha25j"]
 [ext_resource type="Texture2D" uid="uid://nmbild6cyklj" path="res://sprites/Overworld.png" id="1_thg7b"]
 [ext_resource type="Texture2D" uid="uid://rr7bd0fpj1v8" path="res://sprites/Inner.png" id="2_gjdyo"]
 [ext_resource type="Texture2D" uid="uid://bst44rslu20rb" path="res://sprites/objects.png" id="2_voujb"]
 [ext_resource type="PackedScene" uid="uid://bln8texdoab4d" path="res://Players/player_boy.tscn" id="3_116w2"]
 [ext_resource type="Texture2D" uid="uid://c0t6xtf1x5wrs" path="res://sprites/New Piskel (2).png" id="4_sfa52"]
 [ext_resource type="Script" path="res://change_lvl.gd" id="6_4t661"]
+[ext_resource type="AudioStream" uid="uid://d2i1u3jwyylgo" path="res://Sounds/Suspense_3.mp3" id="8_rnceb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_30nx3"]
 texture = ExtResource("2_gjdyo")
@@ -2145,6 +2147,7 @@ size = Vector2(26, 30)
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_vmxs1"]
 
 [node name="level_1_1-2" type="Node2D"]
+script = ExtResource("1_ha25j")
 
 [node name="Black" type="TileMapLayer" parent="."]
 modulate = Color(0, 0, 0, 1)
@@ -2236,6 +2239,11 @@ modulate = Color(0.32683, 0.000330177, 0.986005, 1)
 position = Vector2(26, -8.8667)
 scale = Vector2(26, 30)
 texture = SubResource("PlaceholderTexture2D_vmxs1")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node2D"]
+stream = ExtResource("8_rnceb")
 
 [connection signal="body_entered" from="Stairs/Change_lvl" to="Stairs/Change_lvl" method="_on_body_entered"]
 [connection signal="body_entered" from="Door/Change_lvl_Door" to="Door/Change_lvl_Door" method="_on_body_entered"]
