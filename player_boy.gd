@@ -60,7 +60,7 @@ func banana_attack():
 	$AnimatedSprite2D.play("swipe_" + dir_name)
 	attack_direction = look_direction
 	var ban = ba_scene.instantiate()
-	ban.global_position = self.global_position
+	ban.global_position = self.global_position + attack_direction * 10
 	ban.rotation = Vector2().angle_to_point(-attack_direction)
 	ban.direction = Vector2().angle_to_point(-attack_direction)
 	print(Vector2().angle_to_point(-attack_direction))

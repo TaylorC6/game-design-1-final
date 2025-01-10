@@ -23,14 +23,27 @@ var str = start.x # + 60
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if (direction > -PI && direction < 0) : direction -= PI
+	#if (direction > -PI && direction < 0) : direction -= PI
 	#angle = abs(round(180/PI * (direction)))
+	
 	dir = Vector2(cos(direction), sin(direction))
+	if (abs(dir.x) > 0.1 && abs(dir.y) > 0.1):
+		if (abs(dir.x) > abs(dir.y)) :
+			dir.y = 0
+			if (dir.x > 0):
+				dir.x = 1
+			else:
+				dir.x = -1
+		else:
+			dir.y = 0
+			if (dir.x > 0):
+				dir.x = 1
+			else:
+				dir.x = -1
 	if (abs(dir.x) < 0.001) :
 		dir.x = 0
 	elif (abs(dir.y) < 0.001) :
 		dir.y = 0
-	#print(dir.x, " ", dir.y)
 	#print(cos(direction))
 	if (dir.x == 0 && dir.y > 0):
 		var temp = projectile_a
@@ -40,11 +53,11 @@ func _ready() -> void:
 		var temp = projectile_a
 		projectile_a = projectile_b
 		projectile_b = -temp
-	elif (dir.x < 0 && dir.y == 0) :
-		projectile_a *= -1
-		var temp = st
-		st = str
-		str = temp
+	#elif (dir.x < 0 && dir.y == 0) :
+		#projectile_a *= -1
+		#var temp = st
+		#st = str
+		#str = temp
 	self.rotate(direction)
 	$AnimatedSprite2D.play_backwards()
 
@@ -70,16 +83,13 @@ func _process(delta: float) -> void:
 				#self.position.y -= pow((self.position.x), 2) / 8000.0
 				#self.position.x += pow((num), 2) / 1000.0
 #could try velocity
-			print(start.y-30 < self.position.y, " ", dir.x, " ", dir.y)
 			if (dir == Vector2(-1,0) && st- 30 < self.position.y):
-				print("hi")
 				self.position += Vector2(num * circumference / 10, -(1-num) * circumference  / 10)
-			elif (dir == Vector2(0, 1) && st-30 < self.position.y) :
-				self.position += Vector2(-(1-num) * circumference / 10, num * circumference  / 10)
-			elif (dir == Vector2(0, -1) && st-30 < self.position.y):
+			elif (dir == Vector2(0, -1) && st+70 > self.position.y) :
 				self.position += Vector2((1-num) * circumference / 10, num * circumference  / 10)
+			elif (dir == Vector2(0, 1) && st-75 < self.position.y):
+				self.position += Vector2(-(1-num) * circumference / 10, -num * circumference  / 10)
 			elif (dir == Vector2(1, 0) && str-60 < self.position.x):
-				print("hi", self.position.y)
 				self.position += Vector2(-num * circumference / 10, (1-num) * circumference  / 10)
 				
 			else: 
@@ -93,21 +103,18 @@ func _process(delta: float) -> void:
 				#self.position.y -= pow((self.position.x), 1.5) / 500.0
 			if (dir == Vector2(-1,0) && str+60 < self.position.x):
 				self.position += Vector2(-num * circumference / 10, -(1-num) * circumference  / 10)
-			elif (dir == Vector2(0, 1) && st-30 < self.position.y) :
-				print("hi", self.position.y)
-				self.position += Vector2(-(1-num) * circumference / 10, -num * circumference  / 10)
-			elif (dir == Vector2(0, -1) && st-30 < self.position.y):
-				print("hi", self.position.y)
-				self.position += Vector2((1-num) * circumference / 10, -num * circumference  / 10)
+			elif (dir == Vector2(0, -1) && str+60 > self.position.x) :
+				self.position += Vector2((1.5-num) * circumference / 10, -num * circumference  / 10)
+			elif (dir == Vector2(0, 1) && str-50 < self.position.x):
+				self.position += Vector2(-(1.5-num) * circumference / 10, num * circumference  / 10)
 			elif (dir == Vector2(1, 0) && st + 60 > self.position.y):
-				print("hi", self.position.y)
 				self.position += Vector2(-(1-num) * circumference / 10, (num) * circumference  / 10)
 			else:
 				s2 = true
 				second = true
 			num += delta 
-			if (num > 1): 
-				num = 1
+			if (num > 0.9): 
+				num = 0.9
 	
 	if second && first && !third:
 		if self.position.x != start.x && self.position.y != start.y && !t1:
