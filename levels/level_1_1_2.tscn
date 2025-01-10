@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=4 uid="uid://dspt1gud8vr4"]
+[gd_scene load_steps=17 format=4 uid="uid://dspt1gud8vr4"]
 
 [ext_resource type="Texture2D" uid="uid://nmbild6cyklj" path="res://sprites/Overworld.png" id="1_thg7b"]
 [ext_resource type="Texture2D" uid="uid://rr7bd0fpj1v8" path="res://sprites/Inner.png" id="2_gjdyo"]
 [ext_resource type="Texture2D" uid="uid://bst44rslu20rb" path="res://sprites/objects.png" id="2_voujb"]
 [ext_resource type="PackedScene" uid="uid://bln8texdoab4d" path="res://Players/player_boy.tscn" id="3_116w2"]
+[ext_resource type="Texture2D" uid="uid://c0t6xtf1x5wrs" path="res://sprites/New Piskel (2).png" id="4_sfa52"]
+[ext_resource type="Script" path="res://change_lvl.gd" id="6_4t661"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_30nx3"]
 texture = ExtResource("2_gjdyo")
@@ -2033,6 +2035,8 @@ texture = ExtResource("2_gjdyo")
 7:12/0 = 0
 7:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:12/0 = 0
+8:12/0/texture_origin = Vector2i(0, 2)
+8:12/0/y_sort_origin = 17
 9:12/0 = 0
 9:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2.52554, 1.96431, 2.45539, 1.96431, 2.45539, 4.48985, -2.52554, 4.48985)
 10:12/0 = 0
@@ -2050,6 +2054,8 @@ texture = ExtResource("2_gjdyo")
 7:13/0 = 0
 7:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:13/0 = 0
+8:13/0/texture_origin = Vector2i(0, 2)
+8:13/0/y_sort_origin = 1
 8:13/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.3125, 0.875, 5.25, 0.8125, 5.3125, 6.5625, -5.3125, 6.5625)
 0:14/0 = 0
 1:14/0 = 0
@@ -2112,18 +2118,15 @@ texture = ExtResource("2_gjdyo")
 4:15/0 = 0
 4:15/0/texture_origin = Vector2i(-8, 16)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kfsip"]
-load_path = "res://.godot/imported/New Piskel (1).png-b2d13f1f679b6656a3a3fd0260412ec4.ctex"
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q2shi"]
-texture = SubResource("CompressedTexture2D_kfsip")
+texture = ExtResource("4_sfa52")
 0:0/0 = 0
-0:0/0/texture_origin = Vector2i(0, -4)
+0:0/0/texture_origin = Vector2i(0, -3)
 1:0/0 = 0
 1:0/0/texture_origin = Vector2i(0, -2)
 1:0/0/y_sort_origin = 8
 0:1/0 = 0
-0:1/0/texture_origin = Vector2i(0, -4)
+0:1/0/texture_origin = Vector2i(0, -3)
 1:1/0 = 0
 1:1/0/texture_origin = Vector2i(0, -2)
 
@@ -2132,6 +2135,14 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_irojf")
 sources/1 = SubResource("TileSetAtlasSource_3m41t")
 sources/2 = SubResource("TileSetAtlasSource_q2shi")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oqdxe"]
+radius = 17.0294
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bks8n"]
+size = Vector2(26, 30)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_vmxs1"]
 
 [node name="level_1_1-2" type="Node2D"]
 
@@ -2151,19 +2162,13 @@ y_sort_enabled = true
 
 [node name="RoomDecor" type="TileMapLayer" parent="y-sort"]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAAAAP3/AQAMAAkAAAD8//3/AQALAAkAAAD9//3/AQALAAkAAAD+//3/AQALAAkAAAD///3/AQALAAkAAAD+//z/AQALAAcAAAD///z/AQALAAcAAAAAAPz/AQAMAAcAAAD8//z/AQALAAcAAAD7//3/AQAKAAkAAAD7//z/AQAKAAcAAAD8//r/AQACAAoAAAD8//v/AQACAAsAAAD+//r/AQAPAAcAAAD+//v/AQAPAAgAAAAAAPr/AQAEAAoAAAAAAPv/AQAEAAsAAAACAPr/AQAJAAAAAAACAPv/AQAJAAEAAAAEAPr/AQALAAQAAAAEAPv/AQALAAUAAAD+////AQANAAEAAAD+/wAAAQANAAIAAAD+/wEAAQANAAMAAAD/////AQAOAAEAAAD//wAAAQAOAAIAAAD//wEAAQAOAAMAAAAAAP//AQAOAAEAAAAAAAAAAQAOAAIAAAAAAAEAAQAOAAMAAAABAP//AQAPAAEAAAABAAAAAQAPAAIAAAABAAEAAQAPAAMAAAD9//r/AQAOAAcAAAD9//v/AQAOAAgAAAD///r/AQAQAAcAAAD///v/AQAQAAgAAAA=")
+tile_map_data = PackedByteArray("AAAAAP3/AQAMAAkAAAD8//3/AQALAAkAAAD9//3/AQALAAkAAAD+//3/AQALAAkAAAD///3/AQALAAkAAAD+//z/AQALAAcAAAD///z/AQALAAcAAAAAAPz/AQAMAAcAAAD8//z/AQALAAcAAAD7//3/AQAKAAkAAAD7//z/AQAKAAcAAAD8//r/AQACAAoAAAD8//v/AQACAAsAAAD+//r/AQAPAAcAAAD+//v/AQAPAAgAAAAAAPr/AQAEAAoAAAAAAPv/AQAEAAsAAAACAPr/AQAJAAAAAAACAPv/AQAJAAEAAAAEAPr/AQALAAQAAAAEAPv/AQALAAUAAAD+////AQANAAEAAAD+/wAAAQANAAIAAAD+/wEAAQANAAMAAAD/////AQAOAAEAAAD//wAAAQAOAAIAAAD//wEAAQAOAAMAAAAAAP//AQAOAAEAAAAAAAAAAQAOAAIAAAAAAAEAAQAOAAMAAAABAP//AQAPAAEAAAABAAAAAQAPAAIAAAABAAEAAQAPAAMAAAD9//r/AQAOAAcAAAD9//v/AQAOAAgAAAD///r/AQAQAAcAAAD///v/AQAQAAgAAAAGAPz/AQAIAAwAAAAGAP3/AQAIAA0AAAAGAAAAAQAIAAwAAAAGAAEAAQAIAA0AAAA=")
 tile_set = SubResource("TileSet_36kj8")
 
 [node name="RoomDecor2" type="TileMapLayer" parent="y-sort"]
 y_sort_enabled = true
 position = Vector2(0, 8)
-tile_map_data = PackedByteArray("AAD//wEAAQARAAQAAAAAAAEAAQARAAQAAAACAP//AQASAAQAAAD9////AQAQAAQAAAD///3/AQAPAAQAAAAAAP3/AQAPAAQAAAAAAP7/AQAPAAUAAAD///7/AQAPAAUAAAD//wAAAQAEAA8AAAAGAPv/AQAIAAwAAAAGAPz/AQAIAA0AAAAGAP//AQAIAAwAAAAGAAAAAQAIAA0AAAD+////AQAMAAYAAAABAP//AQANAAYAAAD9//v/AgAAAAAAAAD9//z/AgAAAAEAAAD+//v/AgABAAAAAAD+//z/AgABAAEAAAA=")
-tile_set = SubResource("TileSet_36kj8")
-
-[node name="Fridge" type="TileMapLayer" parent="y-sort"]
-y_sort_enabled = true
-position = Vector2(0, 8)
-tile_map_data = PackedByteArray("AAD//wEAAQARAAQAAAAAAAEAAQARAAQAAAACAP//AQASAAQAAAD9////AQAQAAQAAAD///3/AQAPAAQAAAAAAP3/AQAPAAQAAAAAAP7/AQAPAAUAAAD///7/AQAPAAUAAAD//wAAAQAEAA8AAAAGAPv/AQAIAAwAAAAGAPz/AQAIAA0AAAAGAP//AQAIAAwAAAAGAAAAAQAIAA0AAAD+////AQAMAAYAAAABAP//AQANAAYAAAA=")
+tile_map_data = PackedByteArray("AAD//wEAAQARAAQAAAAAAAEAAQARAAQAAAACAP//AQASAAQAAAD9////AQAQAAQAAAD///3/AQAPAAQAAAAAAP3/AQAPAAQAAAAAAP7/AQAPAAUAAAD///7/AQAPAAUAAAD//wAAAQAEAA8AAAD+////AQAMAAYAAAABAP//AQANAAYAAAD+//v/AgABAAAAAAD+//z/AgABAAEAAAA=")
 tile_set = SubResource("TileSet_36kj8")
 
 [node name="RoomDecor3" type="TileMapLayer" parent="y-sort"]
@@ -2171,13 +2176,68 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAD///z/AQAJAAgAAAD8//z/AQAIAAgAAAAAAPz/AQALAAoAAAD7//z/AQAJAAwAAAD+//r/AQALAAsAAAD///r/AQAJAAoAAAD9//r/AQAKAAYAAAA=")
 tile_set = SubResource("TileSet_36kj8")
 
+[node name="Interactables" type="Node2D" parent="y-sort"]
+y_sort_enabled = true
+
+[node name="Fridge" type="TileMapLayer" parent="y-sort/Interactables" groups=["Glows", "Interactables"]]
+y_sort_enabled = true
+position = Vector2(0, 8)
+tile_map_data = PackedByteArray("AAD9//v/AgAAAAAAAAD9//z/AgAAAAEAAAA=")
+tile_set = SubResource("TileSet_36kj8")
+
+[node name="Area2D" type="Area2D" parent="y-sort/Interactables/Fridge"]
+position = Vector2(-40, -48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="y-sort/Interactables/Fridge/Area2D"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_oqdxe")
+
 [node name="Player_Boy" parent="y-sort" instance=ExtResource("3_116w2")]
-position = Vector2(65, -11)
+position = Vector2(77, -11)
 
 [node name="AnimatedSprite2D" parent="y-sort/Player_Boy" index="0"]
 animation = &"idle_left_noweapons"
 
 [node name="fpj_hud" parent="y-sort/Player_Boy" index="3"]
 visible = false
+
+[node name="Stairs" type="Node" parent="."]
+
+[node name="Change_lvl" type="Area2D" parent="Stairs"]
+visible = false
+position = Vector2(-55, -14)
+script = ExtResource("6_4t661")
+next_level = "level_1_tutorial_1"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stairs/Change_lvl"]
+position = Vector2(154, -2)
+shape = SubResource("RectangleShape2D_bks8n")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stairs/Change_lvl"]
+modulate = Color(0.32683, 0.000330177, 0.986005, 1)
+position = Vector2(154, -2)
+scale = Vector2(26, 30)
+texture = SubResource("PlaceholderTexture2D_vmxs1")
+
+[node name="Door" type="Node" parent="."]
+
+[node name="Change_lvl_Door" type="Area2D" parent="Door"]
+position = Vector2(-39, 121)
+rotation = -1.57079
+script = ExtResource("6_4t661")
+next_level = "level_1_tutorial_2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Change_lvl_Door"]
+position = Vector2(26, -9.00003)
+shape = SubResource("RectangleShape2D_bks8n")
+
+[node name="Sprite2D" type="Sprite2D" parent="Door/Change_lvl_Door"]
+modulate = Color(0.32683, 0.000330177, 0.986005, 1)
+position = Vector2(26, -8.8667)
+scale = Vector2(26, 30)
+texture = SubResource("PlaceholderTexture2D_vmxs1")
+
+[connection signal="body_entered" from="Stairs/Change_lvl" to="Stairs/Change_lvl" method="_on_body_entered"]
+[connection signal="body_entered" from="Door/Change_lvl_Door" to="Door/Change_lvl_Door" method="_on_body_entered"]
 
 [editable path="y-sort/Player_Boy"]

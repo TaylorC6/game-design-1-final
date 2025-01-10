@@ -28,6 +28,7 @@ var test = "test1"
 @onready var player_boy: CharacterBody2D = $"."
 @onready var gear_shelf: TileMapLayer = $"../Interactables/GearShelf"
 @onready var sign1: TileMapLayer = $"../../Interactables/sign1"
+@onready var fridge: TileMapLayer = $"../Interactables/Fridge"
 
 
 #@onready var glow_range: Area2D = $"../Interactables/GearShelf/Area2D"
@@ -207,6 +208,7 @@ func _physics_process(delta: float) -> void:
 
 
 	if Input.is_action_just_pressed("ui_interact"):
+		var dooroff = true
 		for entity in get_tree().get_nodes_in_group("Interactables"):
 				if player_boy.in_range(self):
 					if entity == gear_shelf:
@@ -218,6 +220,12 @@ func _physics_process(delta: float) -> void:
 						print("hi")
 					else:
 						Fpjglobal.message_box_visible = false
+					if entity == fridge:
+						nogear = false
+						noweapons = false
+						if dooroff == true:
+							$"../../Door/Change_lvl_Door".position.y -= 4
+							dooroff = false
 
 
 	if Input.is_action_just_pressed("ui_interact"):
@@ -306,7 +314,7 @@ func update_animation(direction):
 		elif noweapons == false:
 			a_name += "_noweapons"
 		elif noweapons == false and nogear == false:
-			a_name = a_name
+			a_name = ""
 		else:
 			a_name += "_nogear"
 

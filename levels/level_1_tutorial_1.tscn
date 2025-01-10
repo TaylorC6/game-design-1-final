@@ -752,7 +752,7 @@ position = Vector2(72, -47)
 visible = false
 position = Vector2(-55, -14)
 script = ExtResource("6_7luu7")
-next_level = "level_1_tutorial_2"
+next_level = "level_1_1_2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stairs/Change_lvl"]
 position = Vector2(-12, -35)

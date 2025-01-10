@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bln8texdoab4d" path="res://Players/player_boy.tscn" id="4_2vhtr"]
 [ext_resource type="AudioStream" uid="uid://dfkd7k7dhq0uj" path="res://Sounds/Inspirational_1.mp3" id="6_d1b00"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rjwlv"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ffqq"]
 texture = ExtResource("1_6776e")
 0:0/0 = 0
 1:0/0 = 0
@@ -26,7 +26,7 @@ texture = ExtResource("1_6776e")
 2:3/0 = 0
 3:3/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hyrdk"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b42sy"]
 texture = ExtResource("2_to3w3")
 11:7/size_in_atlas = Vector2i(1, 2)
 11:7/0 = 0
@@ -227,7 +227,7 @@ texture = ExtResource("2_to3w3")
 1:1/0/y_sort_origin = -78
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 3.71231, 8, 3.8007, 8, 6.89429, -8, 6.89429)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rwhh6"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rumhw"]
 texture = ExtResource("3_gofva")
 8:2/size_in_atlas = Vector2i(4, 5)
 8:2/0 = 0
@@ -241,9 +241,9 @@ texture = ExtResource("3_gofva")
 
 [sub_resource type="TileSet" id="TileSet_j3eyy"]
 physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_hyrdk")
-sources/0 = SubResource("TileSetAtlasSource_rjwlv")
-sources/2 = SubResource("TileSetAtlasSource_rwhh6")
+sources/1 = SubResource("TileSetAtlasSource_b42sy")
+sources/0 = SubResource("TileSetAtlasSource_8ffqq")
+sources/2 = SubResource("TileSetAtlasSource_rumhw")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tq7gm"]
 radius = 14.0
@@ -316,9 +316,6 @@ tile_set = SubResource("TileSet_j3eyy")
 
 [node name="Player_Boy" parent="y-sort/Boy" instance=ExtResource("4_2vhtr")]
 position = Vector2(512, -71)
-
-[node name="AnimatedSprite2D" parent="y-sort/Boy/Player_Boy" index="0"]
-animation = &"idle_down"
 
 [node name="Girl" type="Node2D" parent="y-sort"]
 y_sort_enabled = true
