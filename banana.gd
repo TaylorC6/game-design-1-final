@@ -10,6 +10,11 @@ var direction = Fpjglobal.player_direction
 var angle = direction
 var dir = Vector2(0, 0)
 
+var damage    = 10
+var knockback = 64.0
+var anim_life = 1.0
+var expl_time = 1.0
+
 var first = false
 var second = false
 var s1 = false
@@ -72,7 +77,13 @@ func _process(delta: float) -> void:
 			self.position.x = clamp(self.position.x+(delta*200), 0, projectile_a)
 		else:
 			first = true
-	
+	for enemy in get_tree().get_nodes_in_group("Enemy"):
+			if $Area2D.overlaps_body(enemy):
+				enemy.take_damage(damage, self)
+				var dist = (enemy.global_position-self.global_position)
+				enemy.inertia = dist.normalized() * knockback
+				await get_tree().create_timer(.9).timeout
+				queue_free()
 	#if rn :
 		#num = 
 	
@@ -85,7 +96,7 @@ func _process(delta: float) -> void:
 #could try velocity
 			if (dir == Vector2(-1,0) && st- 30 < self.position.y):
 				self.position += Vector2(num * circumference / 10, -(1-num) * circumference  / 10)
-			elif (dir == Vector2(0, -1) && st+70 > self.position.y) :
+			elif (dir == Vector2(0, -1) && st+50 > self.position.y) :
 				self.position += Vector2((1-num) * circumference / 10, num * circumference  / 10)
 			elif (dir == Vector2(0, 1) && st-75 < self.position.y):
 				self.position += Vector2(-(1-num) * circumference / 10, -num * circumference  / 10)
@@ -117,14 +128,15 @@ func _process(delta: float) -> void:
 				num = 0.9
 	
 	if second && first && !third:
-		if self.position.x != start.x && self.position.y != start.y && !t1:
-			self.position = Vector2(move_toward(self.position.x, start.x, 3), move_toward(self.position.y, start.y, 3))
+		if self.position.x != start.x && self.position.y - 20 != start.y && !t1:
+			self.position = Vector2(move_toward(self.position.x, start.x, 3), move_toward(self.position.y, start.y - 20, 3))
 			
 		else :
 			t1 = true
 			#print(Fpjglobal.player_position)
-			self.position = Vector2(move_toward(self.position.x, Fpjglobal.player_position.x, 10), move_toward(self.position.y, Fpjglobal.player_position.y, 10))
-			if self.position == Fpjglobal.player_position:
+			if (dir == Vector2(0, 1)) : self.position = Vector2(move_toward(self.position.x, Fpjglobal.player_position.x, 5), move_toward(self.position.y, Fpjglobal.player_position.y -20, 10))
+			else : self.position = Vector2(move_toward(self.position.x, Fpjglobal.player_position.x, 5), move_toward(self.position.y, Fpjglobal.player_position.y - 20, 10))
+			if self.position == Fpjglobal.player_position + Vector2(0, -20):
 				queue_free()
 		#if (self.position >= Vector2(0, 0)):
 			#self.position = Vector2(0,0)

@@ -1,12 +1,16 @@
 extends Area2D
 
-var damage    = 10
+var damage    = 50
 var knockback = 64.0
 var anim_life = 1.0
 var expl_time = 1.0
-
+var velocity = 2
+var player_direction = Fpjglobal.player_direction
+var start = Vector2(0, 0)
 
 var chunk = preload("res://chunk.tscn")
+func _ready() -> void:
+	start = self.global_position
 
 func explode():
 	#for i in range(16):
@@ -19,7 +23,10 @@ func explode():
 	pass
 
 func _process(delta: float) -> void:
+	print(player_direction)
 	expl_time -= delta
+	print(self.position)
+	self.position = Vector2(move_toward(self.position.x, start.x + (50 * player_direction.x), velocity), move_toward(self.position.y, start.y + (30 * player_direction.y), velocity))
 	if expl_time <= 0.0:
 		$AnimatedSprite2D.play("Pinapple_Explosion")
 		#await $AnimatedSprite2D.animation_finished
