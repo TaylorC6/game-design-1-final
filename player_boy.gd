@@ -60,7 +60,8 @@ func banana_attack():
 	$AnimatedSprite2D.play("swipe_" + dir_name)
 	attack_direction = look_direction
 	var ban = ba_scene.instantiate()
-	ban.global_position = self.global_position + attack_direction * 10
+	ban.global_position = self.global_position + attack_direction * 10 + Vector2(0, -10)
+	if (attack_direction == Vector2(0, 1)) : ban.global_position += Vector2(0, -20)
 	ban.rotation = Vector2().angle_to_point(-attack_direction)
 	ban.direction = Vector2().angle_to_point(-attack_direction)
 	print(Vector2().angle_to_point(-attack_direction))
@@ -81,11 +82,11 @@ func attack():
 	$AnimatedSprite2D.play("swipe_" + dir_name)
 	attack_direction = look_direction
 	var pi = pine_scene.instantiate()
-	pi.global_position = self.global_position + attack_direction * 50
+	pi.global_position = self.global_position + attack_direction * 10
 	pi.rotation = Vector2().angle_to_point(-attack_direction)
 	self.get_parent().add_child(pi)
-	self.get_parent().add_child(pi)
-	self.get_parent().add_child(pi)
+	#self.get_parent().add_child(pi)
+	#self.get_parent().add_child(pi)
 	#var slash = slash_scene.instantiate()
 	#slash.position = attack_direction * 20.0
 	#slash.rotation = Vector2().angle_to_point(-attack_direction)
@@ -105,11 +106,13 @@ func charged_attack():
 		# Offset by (i-4) * 45 degrees; [-4,4]
 		var angle = attack_direction.angle() + (i-4) * PI/4
 		var _dir   = Vector2(cos(angle), sin(angle))
-		#var slash = slash_scene.instantiate()
-		#slash.position = dir * 20
-		#slash.rotation = Vector2().angle_to_point(-dir)
-		#slash.damage  *= 1.5
-		#add_child(slash)
+		var ban = ba_scene.instantiate()
+		ban.global_position = self.global_position + attack_direction * 10 + Vector2(0, -10)
+		if (attack_direction == Vector2(0, 1)) : ban.global_position += Vector2(0, -20)
+		ban.rotation = Vector2().angle_to_point(-attack_direction)
+		ban.direction = Vector2().angle_to_point(-attack_direction)
+		print(Vector2().angle_to_point(-attack_direction))
+		self.get_parent().add_child(ban)
 		await get_tree().create_timer(0.03).timeout
 	animation_lock = 0.2
 	await $AnimatedSprite2D.animation_finished
@@ -174,6 +177,7 @@ func in_range(player) -> bool:
 func _physics_process(delta: float) -> void:
 	Fpjglobal.player_position = self.global_position
 	Fpjglobal.player_direction = attack_direction
+	#Fpjglobal.player = self
 	for t in get_tree().get_nodes_in_group("Glows"):
 		test = str(t)
 
@@ -249,9 +253,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	inertia = inertia.move_toward(Vector2.ZERO, delta * 1000.0)
 	if data.state != STATES.DEAD:
-		if Input.is_action_just_pressed("ui_end"):
+		if Input.is_action_just_pressed("ui_end") && attack_wait <= 0.0:
 			banana_attack()
-			#attack_wait = 5.0
+			attack_wait = 2.0
 			#charge_duration = 0.0
 			#data.state = STATES.CHARGING
 		if Input.is_action_just_pressed("ui_accept") && attack_wait <= 0.0:
