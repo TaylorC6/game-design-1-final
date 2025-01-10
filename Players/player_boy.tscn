@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://bln8texdoab4d"]
+[gd_scene load_steps=78 format=3 uid="uid://bln8texdoab4d"]
 
 [ext_resource type="Script" path="res://player_boy.gd" id="1_8q00g"]
 [ext_resource type="Texture2D" uid="uid://dhs7ub706idtx" path="res://sprites/BoyAnims/AnimLeftBoyGeared.png" id="4_trwvd"]
@@ -562,6 +562,9 @@ animations = [{
 radius = 3.0
 height = 14.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dtgh3"]
+height = 43.9667
+
 [node name="Player_Boy" type="CharacterBody2D" groups=["Player"]]
 y_sort_enabled = true
 scale = Vector2(0.818801, 0.818801)
@@ -569,7 +572,7 @@ script = ExtResource("1_8q00g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_eem4s")
-animation = &"walk_down_nogear"
+animation = &"idle_down"
 offset = Vector2(0, -18)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -582,3 +585,9 @@ shape = SubResource("CapsuleShape2D_ti6rq")
 zoom = Vector2(4, 4)
 
 [node name="fpj_hud" parent="." instance=ExtResource("14_p22q4")]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="attack_shape" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -18.3195)
+shape = SubResource("CapsuleShape2D_dtgh3")
