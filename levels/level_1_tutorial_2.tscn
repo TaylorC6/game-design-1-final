@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://c66hbhi128sjl"]
+[gd_scene load_steps=13 format=4 uid="uid://c66hbhi128sjl"]
 
 [ext_resource type="Texture2D" uid="uid://cv78xn0rkae3s" path="res://sprites/Whitening.png" id="1_6776e"]
 [ext_resource type="Script" path="res://levels/level_1_tutorial_2.gd" id="1_mmsga"]
@@ -6,8 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://daxqvyarxy02x" path="res://fpjfold/fpjsprites/outdoor_tiles.png" id="3_gofva"]
 [ext_resource type="PackedScene" uid="uid://bln8texdoab4d" path="res://Players/player_boy.tscn" id="4_2vhtr"]
 [ext_resource type="AudioStream" uid="uid://dfkd7k7dhq0uj" path="res://Sounds/Inspirational_1.mp3" id="6_d1b00"]
-[ext_resource type="PackedScene" uid="uid://bcvi4j7mfmuyo" path="res://Players/td_player.tscn" id="6_hdeys"]
-[ext_resource type="Script" path="res://change_lvl.gd" id="8_wry7l"]
+[ext_resource type="PackedScene" uid="uid://bonutmhnr5c87" path="res://Players/player_girl.tscn" id="7_evrh6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ffqq"]
 texture = ExtResource("1_6776e")
@@ -250,11 +249,6 @@ sources/2 = SubResource("TileSetAtlasSource_rumhw")
 [sub_resource type="CircleShape2D" id="CircleShape2D_tq7gm"]
 radius = 14.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4lut"]
-size = Vector2(26, 15)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1cq6s"]
-
 [node name="level_1_tutorial_2" type="Node2D"]
 script = ExtResource("1_mmsga")
 
@@ -342,29 +336,12 @@ scale = Vector2(-1, 1)
 tile_map_data = PackedByteArray("AAAeAP3/AQAPAAkAAAAdAP3/AQAOAAkAAAAcAP3/AQAOAAkAAAAbAP3/AQAOAAkAAAAhAP3/AQANAAkAAAAiAP3/AQAPAAkAAAAaAPz/AQANAAgAAAAaAPv/AQANAAgAAAAaAPr/AQANAAgAAAAaAPn/AQANAAgAAAAaAPj/AQANAAgAAAAaAPf/AQANAAgAAAAaAPb/AQANAAcAAAAbAPb/AQAOAAcAAAAcAPb/AQAOAAcAAAAdAPb/AQAOAAcAAAAeAPb/AQAOAAcAAAAfAPb/AQAOAAcAAAAgAPb/AQAOAAcAAAAhAPb/AQAOAAcAAAAiAPb/AQAPAAcAAAAiAPz/AQAPAAgAAAAiAPv/AQAPAAgAAAAiAPr/AQAPAAgAAAAiAPn/AQAPAAgAAAAiAPj/AQAPAAgAAAAiAPf/AQAPAAgAAAAaAP3/AQANAAkAAAAeAPv/AQALAAsAAAAhAP7/AQALAAcAAAAWAPz/AQAIAAsAAAAVAPz/AQAHAAsAAAAPAPz/AQACAAsAAAAPAAUAAQANAAkAAAAQAAUAAQAOAAkAAAARAAUAAQAOAAkAAAASAAUAAQAOAAkAAAATAAUAAQAOAAkAAAAUAAUAAQAOAAkAAAAVAAUAAQAOAAkAAAAWAAUAAQAPAAkAAAAGAPv/AQAPAAgAAAAGAPz/AQAPAAgAAAAGAP3/AQAPAAgAAAAGAP7/AQAPAAgAAAAGAP//AQANAAkAAAAHAP//AQAOAAcAAAAIAP//AQAOAAcAAAAJAP//AQAPAAkAAAAJAAIAAQAPAAkAAAAIAAIAAQAOAAkAAAAHAAIAAQAOAAkAAAAGAAIAAQAOAAkAAAAFAAIAAQAOAAkAAAAEAAIAAQAOAAkAAAADAAIAAQANAAkAAAADAAEAAQANAAgAAAADAAAAAQANAAgAAAADAP//AQANAAgAAAADAP7/AQANAAgAAAADAP3/AQANAAgAAAADAPz/AQANAAgAAAADAPv/AQANAAgAAAAKAP//AQALAAsAAAAQAPz/AQADAAsAAAAOAPb/AQABAAcAAAAOAPf/AQABAAgAAAAOAPj/AQABAAgAAAAOAPn/AQABAAgAAAAOAPr/AQABAAkAAAAOAPv/AQABAAoAAAAPAPv/AQACAAoAAAAQAPv/AQADAAoAAAAVAPv/AQAHAAoAAAAWAPv/AQAIAAoAAAAXAPb/AQAJAAcAAAAXAPf/AQAJAAgAAAAXAPj/AQAJAAkAAAAXAPn/AQAJAAgAAAAXAPr/AQAJAAkAAAAXAPv/AQAJAAoAAAAOAPz/AQABAAsAAAAXAPz/AQAJAAsAAAASAAIAAQAMAAsAAAATAAIAAQAMAAsAAAA=")
 tile_set = SubResource("TileSet_j3eyy")
 
-[node name="td_player" parent="y-sort/Girl" instance=ExtResource("6_hdeys")]
-position = Vector2(64, -62)
+[node name="Player_Girl" parent="y-sort/Girl" instance=ExtResource("7_evrh6")]
+position = Vector2(66, -61)
 
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node2D"]
 stream = ExtResource("6_d1b00")
-
-[node name="Change_lvl" type="Area2D" parent="Node2D"]
-position = Vector2(512, -92)
-script = ExtResource("8_wry7l")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Change_lvl"]
-position = Vector2(0, 7.5)
-shape = SubResource("RectangleShape2D_t4lut")
-
-[node name="Sprite2D" type="Sprite2D" parent="Node2D/Change_lvl"]
-visible = false
-modulate = Color(0.32683, 0.000330177, 0.986005, 1)
-position = Vector2(1.90735e-06, 7.57662)
-scale = Vector2(-25.9613, 14.6404)
-texture = SubResource("PlaceholderTexture2D_1cq6s")
-
-[connection signal="body_entered" from="Node2D/Change_lvl" to="Node2D/Change_lvl" method="_on_body_entered"]
 
 [editable path="y-sort/Boy/Player_Boy"]

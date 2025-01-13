@@ -3,6 +3,7 @@ extends Node
 var player_names = {"Girl": "","Boy": "Jimmy"}
 var player_position = Vector2(0, 0)
 var player_direction = 0
+var camera = preload("res://Players/player_boy.tscn").instantiate().get_child(2)
 #var player = load("res://Players/player_boy.tscn")
 var current = player_names.get("Boy")
 var glow = false
@@ -24,7 +25,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func process(_delta: float) -> void:
-	pass
+	print(camera)
 
 func glow_area(use_area: Area2D):
 	return use_area.overlaps_body(get_tree().get_current_scene().get_node("y-sort").get_node("Player_Boy"))
@@ -35,3 +36,15 @@ func switch():
 		current = player_names.get("Boy")
 	if (current == player_names.get("Boy")) :
 		current = player_names.get("Girl")
+	
+
+
+func switchop(dif):
+	
+	dif.set_enabled(true)
+	print(dif)
+	camera.set_enabled(false)
+	print(camera)
+	
+	camera = dif
+	print(current)

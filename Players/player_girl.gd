@@ -12,7 +12,7 @@ enum  STATES { IDLE=0, DEAD, DAMAGED, ATTACKING, CHARGING }
 	"secondaries": [],
 	}
 
-var current = true
+var current = false
 var lpos = self.position
 var inertia = Vector2()
 var look_direction = Vector2.DOWN  # Vector2(0,1)
@@ -181,7 +181,7 @@ func in_range(player) -> bool:
 
 func _physics_process(delta: float) -> void:
 	if current != true:
-		if (Fpjglobal.current == Fpjglobal.player_names.get("Boy")) :
+		if (Fpjglobal.current == Fpjglobal.player_names.get("Girl")) :
 			current = true
 			Fpjglobal.switchop(self.get_child(2))
 	else:
@@ -298,12 +298,6 @@ func _physics_process(delta: float) -> void:
 		if (Input.is_action_just_pressed("switch")):
 			Fpjglobal.switch()
 			current = false
-			#var t = get_tree().get_nodes_in_group("Player")
-			#for y in range(t.size()):
-				#var node = t[y]
-				#if (node != self) :
-					#
-				
 			#if Input.is_action_just_pressed("ui_interact"):
 				#pass
 			#if Input.is_action_just_pressed("ui_ability"):
