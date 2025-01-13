@@ -12,7 +12,7 @@ enum  STATES { IDLE=0, DEAD, DAMAGED, ATTACKING, CHARGING }
 	"secondaries": [],
 	}
 
-var current = true
+var current = false
 var lpos = self.position
 var inertia = Vector2()
 var look_direction = Vector2.DOWN  # Vector2(0,1)
@@ -27,8 +27,6 @@ var noweapons = true
 var pine_scene = preload("res://pineapple.tscn")
 var ba_scene = preload("res://banana.tscn")
 var test = "test1"
-var dooroff = true
-var testvar = ""
 @onready var player_boy: CharacterBody2D = $"."
 @onready var gear_shelf: TileMapLayer = $"../Interactables/GearShelf"
 @onready var sign1: TileMapLayer = $"../../Interactables/sign1"
@@ -183,7 +181,7 @@ func in_range(player) -> bool:
 
 func _physics_process(delta: float) -> void:
 	if current != true:
-		if (Fpjglobal.current == Fpjglobal.player_names.get("Boy")) :
+		if (Fpjglobal.current == Fpjglobal.player_names.get("Girl")) :
 			current = true
 			Fpjglobal.switchop(self.get_child(2))
 	else:
@@ -223,6 +221,7 @@ func _physics_process(delta: float) -> void:
 
 
 		if Input.is_action_just_pressed("ui_interact"):
+			var dooroff = true
 			for entity in get_tree().get_nodes_in_group("Interactables"):
 					if player_boy.in_range(self):
 						if entity == gear_shelf:
@@ -234,12 +233,9 @@ func _physics_process(delta: float) -> void:
 							print("hi")
 						else:
 							Fpjglobal.message_box_visible = false
-						if entity == fridge and noweapons == false:
-							noweapons = false
+						if entity == fridge:
 							nogear = false
-							print(nogear)
-							print(noweapons)
-							print(testvar)
+							noweapons = false
 							if dooroff == true:
 								$"../../Door/Change_lvl_Door".position.y -= 4
 								dooroff = false
@@ -302,12 +298,6 @@ func _physics_process(delta: float) -> void:
 		if (Input.is_action_just_pressed("switch")):
 			Fpjglobal.switch()
 			current = false
-			#var t = get_tree().get_nodes_in_group("Player")
-			#for y in range(t.size()):
-				#var node = t[y]
-				#if (node != self) :
-					#
-				
 			#if Input.is_action_just_pressed("ui_interact"):
 				#pass
 			#if Input.is_action_just_pressed("ui_ability"):
@@ -341,18 +331,15 @@ func update_animation(direction):
 		elif noweapons == false:
 			a_name += "_noweapons"
 		elif noweapons == false and nogear == false:
-			if (a_name.slice(-7:) == "_nogear") or (a_name.slice(-10:)) == "noweapons":
-				a_name = ""
+			a_name = ""
 		else:
 			a_name += "_nogear"
-		
-		testvar = a_name
-		
+
 		$AnimatedSprite2D.animation = a_name
 		$AnimatedSprite2D.play()
 		
 
-	pas
+	pass
 
 
 func in_range_interactables(inter, _player):
