@@ -569,10 +569,11 @@ height = 43.9667
 y_sort_enabled = true
 scale = Vector2(0.818801, 0.818801)
 script = ExtResource("1_8q00g")
+data = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_eem4s")
-animation = &"idle_down"
+animation = &"idle_left"
 offset = Vector2(0, -18)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

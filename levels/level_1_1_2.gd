@@ -7,6 +7,7 @@ extends Node2D
 func _ready() -> void:
 	aud_player.stream = sus
 	aud_player.play()
+	$"y-sort/Player_Boy".noweapons = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

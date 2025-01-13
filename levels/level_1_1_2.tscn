@@ -2197,12 +2197,7 @@ shape = SubResource("CircleShape2D_oqdxe")
 
 [node name="Player_Boy" parent="y-sort" instance=ExtResource("3_116w2")]
 position = Vector2(77, -11)
-
-[node name="AnimatedSprite2D" parent="y-sort/Player_Boy" index="0"]
-animation = &"idle_left_noweapons"
-
-[node name="fpj_hud" parent="y-sort/Player_Boy" index="3"]
-visible = false
+data = null
 
 [node name="Stairs" type="Node" parent="."]
 
@@ -2247,5 +2242,3 @@ stream = ExtResource("8_rnceb")
 
 [connection signal="body_entered" from="Stairs/Change_lvl" to="Stairs/Change_lvl" method="_on_body_entered"]
 [connection signal="body_entered" from="Door/Change_lvl_Door" to="Door/Change_lvl_Door" method="_on_body_entered"]
-
-[editable path="y-sort/Player_Boy"]

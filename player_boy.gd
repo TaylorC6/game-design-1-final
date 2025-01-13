@@ -27,6 +27,8 @@ var noweapons = true
 var pine_scene = preload("res://pineapple.tscn")
 var ba_scene = preload("res://banana.tscn")
 var test = "test1"
+var dooroff = true
+var testvar = ""
 @onready var player_boy: CharacterBody2D = $"."
 @onready var gear_shelf: TileMapLayer = $"../Interactables/GearShelf"
 @onready var sign1: TileMapLayer = $"../../Interactables/sign1"
@@ -220,7 +222,6 @@ func _physics_process(delta: float) -> void:
 
 
 		if Input.is_action_just_pressed("ui_interact"):
-			var dooroff = true
 			for entity in get_tree().get_nodes_in_group("Interactables"):
 					if player_boy.in_range(self):
 						if entity == gear_shelf:
@@ -232,9 +233,12 @@ func _physics_process(delta: float) -> void:
 							print("hi")
 						else:
 							Fpjglobal.message_box_visible = false
-						if entity == fridge:
-							nogear = false
+						if entity == fridge and noweapons == false:
 							noweapons = false
+							nogear = false
+							print(nogear)
+							print(noweapons)
+							print(testvar)
 							if dooroff == true:
 								$"../../Door/Change_lvl_Door".position.y -= 4
 								dooroff = false
@@ -331,15 +335,18 @@ func update_animation(direction):
 		elif noweapons == false:
 			a_name += "_noweapons"
 		elif noweapons == false and nogear == false:
-			a_name = ""
+			if (a_name.slice(-7:) == "_nogear") or (a_name.slice(-10:)) == "noweapons":
+				a_name = ""
 		else:
 			a_name += "_nogear"
-
+		
+		testvar = a_name
+		
 		$AnimatedSprite2D.animation = a_name
 		$AnimatedSprite2D.play()
 		
 
-	pass
+	pas
 
 
 func in_range_interactables(inter, _player):

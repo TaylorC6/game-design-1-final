@@ -323,6 +323,7 @@ tile_set = SubResource("TileSet_j3eyy")
 
 [node name="Player_Boy" parent="y-sort/Boy" instance=ExtResource("4_2vhtr")]
 position = Vector2(512, -71)
+data = null
 
 [node name="Girl" type="Node2D" parent="y-sort"]
 y_sort_enabled = true
@@ -353,6 +354,7 @@ stream = ExtResource("6_d1b00")
 [node name="Change_lvl" type="Area2D" parent="Node2D"]
 position = Vector2(512, -92)
 script = ExtResource("8_wry7l")
+next_level = "level_1_1_2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Change_lvl"]
 position = Vector2(0, 7.5)
