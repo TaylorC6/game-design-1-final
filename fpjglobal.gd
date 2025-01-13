@@ -4,6 +4,7 @@ var player_names = {"Girl": "","Boy": "Jimmy"}
 var player_position = Vector2(0, 0)
 var player_direction = 0
 #var player = load("res://Players/player_boy.tscn")
+var current = player_names.get("Boy")
 var glow = false
 var stairsOpen = false
 var firstframe = 1
@@ -27,3 +28,10 @@ func process(_delta: float) -> void:
 
 func glow_area(use_area: Area2D):
 	return use_area.overlaps_body(get_tree().get_current_scene().get_node("y-sort").get_node("Player_Boy"))
+
+
+func switch():
+	if (current == player_names.get("Girl")):
+		current = player_names.get("Boy")
+	if (current == player_names.get("Boy")) :
+		current = player_names.get("Girl")

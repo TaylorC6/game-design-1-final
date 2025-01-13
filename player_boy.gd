@@ -12,6 +12,8 @@ enum  STATES { IDLE=0, DEAD, DAMAGED, ATTACKING, CHARGING }
 	"secondaries": [],
 	}
 
+var current = true
+var lpos = self.position
 var inertia = Vector2()
 var look_direction = Vector2.DOWN  # Vector2(0,1)
 var attack_direction = look_direction
@@ -62,6 +64,8 @@ func banana_attack():
 	attack_direction = look_direction
 	var ban = ba_scene.instantiate()
 	ban.global_position = self.global_position + attack_direction * 10 + Vector2(0, -10)
+	#if (self.position != lpos) :
+		#ban.global_position = self.global_position + attack_direction * 30 + Vector2(0, -10)
 	if (attack_direction == Vector2(0, 1)) : ban.global_position += Vector2(0, -20)
 	ban.rotation = Vector2().angle_to_point(-attack_direction)
 	ban.direction = Vector2().angle_to_point(-attack_direction)
@@ -176,125 +180,134 @@ func in_range(player) -> bool:
 #var glow_ranges = {glow_range: gear_shelf, "glow_range2": "sign1"}
 
 func _physics_process(delta: float) -> void:
-	Fpjglobal.player_position = self.global_position
-	Fpjglobal.player_direction = attack_direction
-	#Fpjglobal.player = self
-	for t in get_tree().get_nodes_in_group("Glows"):
-		test = str(t)
+	if current != true:
+		if (Fpjglobal.current == Fpjglobal.player_names.get("Boy")) :
+			current = true
+	else:
+		Fpjglobal.player_position = self.global_position
+		Fpjglobal.player_direction = attack_direction
+		#Fpjglobal.player = self
+		for t in get_tree().get_nodes_in_group("Glows"):
+			test = str(t)
 
-		#print(test)
+			#print(test)
 
-		if player_boy.in_range(self):
-			t.material = Fpjglobal.glow_shader.duplicate()
-			#t.material.set_shader_parameter("intensity", 0.5)
-			#t.material.set_shader_parameter()
-			#print(t)
+			if player_boy.in_range(self):
+				t.material = Fpjglobal.glow_shader.duplicate()
+				#t.material.set_shader_parameter("intensity", 0.5)
+				#t.material.set_shader_parameter()
+				#print(t)
 
-			#if t == get_tree().get_current_scene().get_node("test1"):
-				
-			#if t == get_tree().get_current_scene().get_node("test2"):
-				
-		else:
-			t.material = Material.new()
-	#$AnimatedSprite2D.material = damage_shader.duplicate()
-	#$AnimatedSprite2D.material.set_shader_parameter("intensity", 0.5)
-	#for areas in get_tree().get_nodes_in_group("Glows"):
-		##var result = Fpjglobal.glow_area(entity)
-		#if areas.in_range(self):
-			#glow_ranges[areas].material = Fpjglobal.glow_shader.duplicate()
+				#if t == get_tree().get_current_scene().get_node("test1"):
+					
+				#if t == get_tree().get_current_scene().get_node("test2"):
+					
+			else:
+				t.material = Material.new()
+		#$AnimatedSprite2D.material = damage_shader.duplicate()
+		#$AnimatedSprite2D.material.set_shader_parameter("intensity", 0.5)
+		#for areas in get_tree().get_nodes_in_group("Glows"):
+			##var result = Fpjglobal.glow_area(entity)
+			#if areas.in_range(self):
+				#glow_ranges[areas].material = Fpjglobal.glow_shader.duplicate()
 
-	#if Input.is_action_just_pressed("ui_interact"):
-		#for entity in get_tree().get_nodes_in_group("Interactables"):
-				#if player_boy.in_range(self):
-					#noweapons = false
-					#Fpjglobal.stairsOpen = true
-				
+		#if Input.is_action_just_pressed("ui_interact"):
+			#for entity in get_tree().get_nodes_in_group("Interactables"):
+					#if player_boy.in_range(self):
+						#noweapons = false
+						#Fpjglobal.stairsOpen = true
+					
 
 
-	if Input.is_action_just_pressed("ui_interact"):
-		var dooroff = true
-		for entity in get_tree().get_nodes_in_group("Interactables"):
-				if player_boy.in_range(self):
-					if entity == gear_shelf:
+		if Input.is_action_just_pressed("ui_interact"):
+			var dooroff = true
+			for entity in get_tree().get_nodes_in_group("Interactables"):
+					if player_boy.in_range(self):
+						if entity == gear_shelf:
+							noweapons = false
+							Fpjglobal.stairsOpen = true
+						if entity == sign1:
+							Fpjglobal.message_box_visible = true
+							Fpjglobal.message += Fpjglobal.player_names["Boy"] + " " + Fpjglobal.strings[1]
+							print("hi")
+						else:
+							Fpjglobal.message_box_visible = false
+						if entity == fridge:
+							nogear = false
+							noweapons = false
+							if dooroff == true:
+								$"../../Door/Change_lvl_Door".position.y -= 4
+								dooroff = false
+
+
+		if Input.is_action_just_pressed("ui_interact"):
+			for entity in get_tree().get_nodes_in_group("Interactables"):
+					if player_boy.in_range(self):
 						noweapons = false
 						Fpjglobal.stairsOpen = true
-					if entity == sign1:
-						Fpjglobal.message_box_visible = true
-						Fpjglobal.message += Fpjglobal.player_names["Boy"] + " " + Fpjglobal.strings[1]
-						print("hi")
-					else:
-						Fpjglobal.message_box_visible = false
-					if entity == fridge:
-						nogear = false
-						noweapons = false
-						if dooroff == true:
-							$"../../Door/Change_lvl_Door".position.y -= 4
-							dooroff = false
 
 
-	if Input.is_action_just_pressed("ui_interact"):
-		for entity in get_tree().get_nodes_in_group("Interactables"):
-				if player_boy.in_range(self):
-					noweapons = false
-					Fpjglobal.stairsOpen = true
-
-
-	if animation_lock == 0.0 and data.state != STATES.DEAD:
-		if data.state == STATES.DAMAGED and max(damage_lock-delta, 0.0):
-			$AnimatedSprite2D.material = null;
-		if data.state != STATES.CHARGING:
-			data.state = STATES.IDLE
-
-	var direction = Vector2(
-		Input.get_axis("ui_left", "ui_right"),
-		Input.get_axis("ui_up", "ui_down")
-	)
-	if direction.length() > 0:
-		look_direction = direction
-		# Scale to 1 to prevent speed boost from diagonals
-		direction = direction.normalized()
-		velocity  = direction * SPEED
-	else:
-		velocity = velocity.move_toward(Vector2.ZERO, SPEED)
-		velocity += inertia
-	update_animation(direction)
-	move_and_slide()
-	inertia = inertia.move_toward(Vector2.ZERO, delta * 1000.0)
-	if data.state != STATES.DEAD:
-		if Input.is_action_just_pressed("ui_end") && attack_wait <= 0.0:
-			banana_attack()
-			attack_wait = 2.0
-			#charge_duration = 0.0
-			#data.state = STATES.CHARGING
-		if Input.is_action_just_pressed("ui_accept") && attack_wait <= 0.0:
-			attack()
-			attack_wait = 5.0
-			charge_duration = 0.0
-			data.state = STATES.CHARGING
-		
-		charge_duration += delta
-		if Input.is_action_just_released("ui_accept"):
-			if charge_duration >= charge_time and \
-			   data.state == STATES.CHARGING:
-				charged_attack()
-			else:
+		if animation_lock == 0.0 and data.state != STATES.DEAD:
+			if data.state == STATES.DAMAGED and max(damage_lock-delta, 0.0):
+				$AnimatedSprite2D.material = null;
+			if data.state != STATES.CHARGING:
 				data.state = STATES.IDLE
+
+		var direction = Vector2(
+			Input.get_axis("ui_left", "ui_right"),
+			Input.get_axis("ui_up", "ui_down")
+		)
+		if direction.length() > 0:
+			look_direction = direction
+			# Scale to 1 to prevent speed boost from diagonals
+			direction = direction.normalized()
+			velocity  = direction * SPEED
+		else:
+			velocity = velocity.move_toward(Vector2.ZERO, SPEED)
+			velocity += inertia
+		update_animation(direction)
+		move_and_slide()
+		inertia = inertia.move_toward(Vector2.ZERO, delta * 1000.0)
+		if data.state != STATES.DEAD:
+			if Input.is_action_just_pressed("ui_end") && attack_wait <= 0.0:
+				banana_attack()
+				attack_wait = 2.0
+				#charge_duration = 0.0
+				#data.state = STATES.CHARGING
+			if Input.is_action_just_pressed("ui_accept") && attack_wait <= 0.0:
+				attack()
+				attack_wait = 5.0
+				charge_duration = 0.0
+				data.state = STATES.CHARGING
 			
-	if Input.is_action_just_pressed("ui_cancel"):
-		$Camera2D/pause_menu.show()
-		get_tree().paused = true
-	pass
-	#
-	attack_wait -= delta
-		#if Input.is_action_just_pressed("ui_interact"):
-			#pass
-		#if Input.is_action_just_pressed("ui_ability"):
-			#pass
-		
-		#if self.in_range_interactables(shelf, self):
-			#print("hi")
-			#noweapons = false
-			#Fpjglobal.stairsOpen = true
+			charge_duration += delta
+			if Input.is_action_just_released("ui_accept"):
+				if charge_duration >= charge_time and \
+				   data.state == STATES.CHARGING:
+					charged_attack()
+				else:
+					data.state = STATES.IDLE
+				
+		if Input.is_action_just_pressed("ui_cancel"):
+			$Camera2D/pause_menu.show()
+			get_tree().paused = true
+		pass
+		#
+		attack_wait -= delta
+		if (Input.is_action_just_pressed("switch")):
+			print("hi")
+			Fpjglobal.switch()
+			current = false
+			#if Input.is_action_just_pressed("ui_interact"):
+				#pass
+			#if Input.is_action_just_pressed("ui_ability"):
+				#pass
+			
+			#if self.in_range_interactables(shelf, self):
+				#print("hi")
+				#noweapons = false
+				#Fpjglobal.stairsOpen = true
+		lpos = self.position
 
 
 func update_animation(direction):
