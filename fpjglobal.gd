@@ -1,5 +1,7 @@
 extends Node
 
+var coorx = 0
+var coory = 0
 var player_names = {"Girl": "","Boy": "Jimmy"}
 var player_position = Vector2(0, 0)
 var player_direction = 0
@@ -15,7 +17,14 @@ var message_box_visible = false
 var message = ""
 var strings = ["Grab your gear to prepare for the challenges ahead!", "lives here!"]
 @export var area = ""
-
+enum  STATES { IDLE=0, DEAD, DAMAGED, ATTACKING, CHARGING }
+var data = {
+	"max_health": 100.0,  # 20hp per heart, 5 per fraction
+	"health": 100.0,      # Min 60 Max 400
+	"money": 0,
+	"state": STATES.IDLE,
+	"secondaries": [],
+	}
 ##get_tree().get_current_scene().get_node("y-sort").get_node("Player_Boy").get("entity").set_visible(true)
 
 # Called when the node enters the scene tree for the first time.
@@ -48,3 +57,18 @@ func switchop(dif):
 	
 	camera = dif
 	print(current)
+
+func set_cords(coorx, coory):
+	self.coorx = coorx
+	self.coory = coory
+
+func get_cords():
+	var corx = coorx
+	var cory = coory
+	coorx = 0
+	coory = 0
+	return Vector2(corx, cory)
+
+func set_player(body):
+	data = body
+	

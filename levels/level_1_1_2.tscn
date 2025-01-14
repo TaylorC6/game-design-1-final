@@ -2197,7 +2197,6 @@ shape = SubResource("CircleShape2D_oqdxe")
 
 [node name="Player_Boy" parent="y-sort" instance=ExtResource("3_116w2")]
 position = Vector2(77, -11)
-data = null
 
 [node name="Stairs" type="Node" parent="."]
 
@@ -2206,6 +2205,7 @@ visible = false
 position = Vector2(-55, -14)
 script = ExtResource("6_4t661")
 next_level = "level_1_tutorial_1"
+coorx = -112
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stairs/Change_lvl"]
 position = Vector2(154, -2)

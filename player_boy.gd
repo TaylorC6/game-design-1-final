@@ -126,6 +126,8 @@ func charged_attack():
 	data.state = STATES.IDLE
 
 func _ready() -> void:
+	self.global_position += Fpjglobal.get_cords()
+	data = Fpjglobal.data
 	p_HUD.show()
 
 func pickup_health(value):
