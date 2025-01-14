@@ -182,6 +182,7 @@ func in_range(player) -> bool:
 #var glow_ranges = {glow_range: gear_shelf, "glow_range2": "sign1"}
 
 func _physics_process(delta: float) -> void:
+	print(data.state)
 	if current != true:
 		if (Fpjglobal.current == Fpjglobal.player_names.get("Boy")) :
 			current = true
@@ -341,7 +342,7 @@ func update_animation(direction):
 		elif noweapons == false:
 			a_name += "_noweapons"
 		elif noweapons == false and nogear == false:
-			if (a_name.slice(-7:) == "_nogear") or (a_name.slice(-10:)) == "noweapons":
+			if ((a_name.slice(-7) == "_nogear") or (a_name.slice(-10)) == "noweapons"):
 				a_name = ""
 		else:
 			a_name += "_nogear"
@@ -351,8 +352,7 @@ func update_animation(direction):
 		$AnimatedSprite2D.animation = a_name
 		$AnimatedSprite2D.play()
 		
-
-	pas
+	pass
 
 
 func in_range_interactables(inter, _player):

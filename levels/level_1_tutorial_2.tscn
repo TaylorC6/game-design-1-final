@@ -323,7 +323,6 @@ tile_set = SubResource("TileSet_j3eyy")
 
 [node name="Player_Boy" parent="y-sort/Boy" instance=ExtResource("4_2vhtr")]
 position = Vector2(512, -71)
-data = null
 
 [node name="Girl" type="Node2D" parent="y-sort"]
 y_sort_enabled = true

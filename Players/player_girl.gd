@@ -183,6 +183,7 @@ func _physics_process(delta: float) -> void:
 	if current != true:
 		if (Fpjglobal.current == Fpjglobal.player_names.get("Girl")) :
 			current = true
+			print(current)
 			Fpjglobal.switchop(self.get_child(2))
 	else:
 		Fpjglobal.player_position = self.global_position
