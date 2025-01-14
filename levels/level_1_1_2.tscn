@@ -2198,12 +2198,6 @@ shape = SubResource("CircleShape2D_oqdxe")
 [node name="Player_Boy" parent="y-sort" instance=ExtResource("3_116w2")]
 position = Vector2(77, -11)
 
-[node name="AnimatedSprite2D" parent="y-sort/Player_Boy" index="0"]
-animation = &"idle_left_noweapons"
-
-[node name="fpj_hud" parent="y-sort/Player_Boy" index="3"]
-visible = false
-
 [node name="Stairs" type="Node" parent="."]
 
 [node name="Change_lvl" type="Area2D" parent="Stairs"]
@@ -2211,6 +2205,7 @@ visible = false
 position = Vector2(-55, -14)
 script = ExtResource("6_4t661")
 next_level = "level_1_tutorial_1"
+coorx = -112
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Stairs/Change_lvl"]
 position = Vector2(154, -2)
@@ -2247,5 +2242,3 @@ stream = ExtResource("8_rnceb")
 
 [connection signal="body_entered" from="Stairs/Change_lvl" to="Stairs/Change_lvl" method="_on_body_entered"]
 [connection signal="body_entered" from="Door/Change_lvl_Door" to="Door/Change_lvl_Door" method="_on_body_entered"]
-
-[editable path="y-sort/Player_Boy"]

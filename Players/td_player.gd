@@ -75,6 +75,9 @@ func charged_attack():
 	data.state = STATES.IDLE
 
 func _ready() -> void:
+	self.global_position += Fpjglobal.get_cords()
+	if Fpjglobal.data != {}:
+		self.data = Fpjglobal.data
 	p_HUD.show()
 
 func pickup_health(value):
@@ -124,10 +127,13 @@ func take_damage(dmg):
 	pass
 
 func _physics_process(delta: float) -> void:
+	print("hi")
 	if current != true:
 		if (Fpjglobal.current == Fpjglobal.player_names.get("Girl")) :
 			current = true
+			print("plaplaplapl")
 	else:
+		print(current)
 		animation_lock = max(animation_lock-delta, 0.0)
 		damage_lock = max(damage_lock-delta, 0.0)
 		
