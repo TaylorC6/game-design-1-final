@@ -354,6 +354,8 @@ stream = ExtResource("6_d1b00")
 position = Vector2(512, -92)
 script = ExtResource("8_wry7l")
 next_level = "level_1_1_2"
+coorx = -130
+coory = 70
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Change_lvl"]
 position = Vector2(0, 7.5)
