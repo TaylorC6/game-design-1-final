@@ -182,7 +182,7 @@ func in_range(player) -> bool:
 #var glow_ranges = {glow_range: gear_shelf, "glow_range2": "sign1"}
 
 func _physics_process(delta: float) -> void:
-	print(data.state)
+	#print(data.state)
 	if current != true:
 		if (Fpjglobal.current == Fpjglobal.player_names.get("Boy")) :
 			current = true
@@ -242,7 +242,7 @@ func _physics_process(delta: float) -> void:
 							print(noweapons)
 							print(testvar)
 							if dooroff == true:
-								$"../../Door/Change_lvl_Door".position.y -= 4
+								$"../../Door/Change_lvl".position.y -= 4
 								dooroff = false
 
 
@@ -341,11 +341,19 @@ func update_animation(direction):
 			a_name += "_nogear"
 		elif noweapons == false:
 			a_name += "_noweapons"
-		elif noweapons == false and nogear == false:
-			if ((a_name.slice(-7) == "_nogear") or (a_name.slice(-10)) == "noweapons"):
-				a_name = ""
 		else:
 			a_name += "_nogear"
+		if noweapons == false and nogear == false:
+			if (a_name.substr(a_name.length()-7, a_name.length()-1)) == "_nogear":
+				a_name -= "_nogear"
+			elif (a_name.substr(a_name.length()-10, a_name.length()-1)) == "_noweapons":
+				a_name -= "_noweapons"
+			#print("hello")
+			#if ((a_name.slice(-7) == "_nogear") or (a_name.slice(-10)) == "noweapons"):
+				##a_name = ""
+				#print(a_name.slice(-7)) 
+				#print("hi")
+
 		
 		testvar = a_name
 		

@@ -2175,7 +2175,6 @@ tile_map_data = PackedByteArray("AAD+/wAAAAAHAAkAAAD+/wEAAAAHAAoAAAD//wAAAAAIAAk
 tile_set = SubResource("TileSet_55apc")
 
 [node name="Player_Boy" parent="." instance=ExtResource("2_3s3hi")]
-data = null
 
 [node name="test1" type="TileMapLayer" parent="." groups=["testgroup"]]
 tile_map_data = PackedByteArray("AAD8//z/AAAMABIAAAD8//v/AAAMABIAAAD8//r/AAAMABIAAAD9//r/AAAMABIAAAD9//v/AAAMABIAAAD9//z/AAAMABIAAAD+//z/AAAMABIAAAD+//v/AAAMABIAAAD+//r/AAAMABIAAAA=")

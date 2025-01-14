@@ -2197,7 +2197,6 @@ shape = SubResource("CircleShape2D_oqdxe")
 
 [node name="Player_Boy" parent="y-sort" instance=ExtResource("3_116w2")]
 position = Vector2(77, -11)
-data = null
 
 [node name="Stairs" type="Node" parent="."]
 
@@ -2219,17 +2218,17 @@ texture = SubResource("PlaceholderTexture2D_vmxs1")
 
 [node name="Door" type="Node" parent="."]
 
-[node name="Change_lvl_Door" type="Area2D" parent="Door"]
+[node name="Change_lvl" type="Area2D" parent="Door"]
 position = Vector2(-39, 121)
 rotation = -1.57079
 script = ExtResource("6_4t661")
 next_level = "level_1_tutorial_2"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Change_lvl_Door"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Change_lvl"]
 position = Vector2(26, -9.00003)
 shape = SubResource("RectangleShape2D_bks8n")
 
-[node name="Sprite2D" type="Sprite2D" parent="Door/Change_lvl_Door"]
+[node name="Sprite2D" type="Sprite2D" parent="Door/Change_lvl"]
 modulate = Color(0.32683, 0.000330177, 0.986005, 1)
 position = Vector2(26, -8.8667)
 scale = Vector2(26, 30)
@@ -2241,4 +2240,4 @@ texture = SubResource("PlaceholderTexture2D_vmxs1")
 stream = ExtResource("8_rnceb")
 
 [connection signal="body_entered" from="Stairs/Change_lvl" to="Stairs/Change_lvl" method="_on_body_entered"]
-[connection signal="body_entered" from="Door/Change_lvl_Door" to="Door/Change_lvl_Door" method="_on_body_entered"]
+[connection signal="body_entered" from="Door/Change_lvl" to="Door/Change_lvl" method="_on_body_entered"]
