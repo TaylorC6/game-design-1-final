@@ -240,6 +240,7 @@ func _physics_process(delta: float) -> void:
 						if entity == fridge and noweapons == false:
 							noweapons = false
 							nogear = false
+							Fpjglobal.doorOpen = true
 							print(nogear)
 							print(noweapons)
 							print(testvar)
