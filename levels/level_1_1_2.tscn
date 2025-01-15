@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://dspt1gud8vr4"]
+[gd_scene load_steps=20 format=4 uid="uid://dspt1gud8vr4"]
 
 [ext_resource type="Script" path="res://levels/level_1_1_2.gd" id="1_ha25j"]
 [ext_resource type="Texture2D" uid="uid://nmbild6cyklj" path="res://sprites/Overworld.png" id="1_thg7b"]
@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://change_lvl.gd" id="6_4t661"]
 [ext_resource type="AudioStream" uid="uid://d2i1u3jwyylgo" path="res://Sounds/Suspense_3.mp3" id="8_rnceb"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_30nx3"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ghhvy"]
 texture = ExtResource("2_gjdyo")
 0:0/0 = 0
 1:0/0 = 0
@@ -348,7 +348,7 @@ texture = ExtResource("2_gjdyo")
 10:3/0/y_sort_origin = -24
 10:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 6, -8, 6)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6brdm"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_33pvq"]
 texture = ExtResource("2_voujb")
 0:0/0 = 0
 1:0/0 = 0
@@ -685,8 +685,8 @@ texture = ExtResource("2_voujb")
 
 [sub_resource type="TileSet" id="TileSet_25k1j"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_30nx3")
-sources/1 = SubResource("TileSetAtlasSource_6brdm")
+sources/0 = SubResource("TileSetAtlasSource_ghhvy")
+sources/1 = SubResource("TileSetAtlasSource_33pvq")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_irojf"]
 texture = ExtResource("1_thg7b")
@@ -2146,6 +2146,9 @@ size = Vector2(26, 30)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_vmxs1"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8hx3"]
+size = Vector2(34, 34)
+
 [node name="level_1_1-2" type="Node2D"]
 script = ExtResource("1_ha25j")
 
@@ -2226,14 +2229,22 @@ script = ExtResource("6_4t661")
 next_level = "level_1_tutorial_2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Change_lvl"]
-position = Vector2(26, -9.00003)
+position = Vector2(29.9999, -9.00019)
 shape = SubResource("RectangleShape2D_bks8n")
 
 [node name="Sprite2D" type="Sprite2D" parent="Door/Change_lvl"]
 modulate = Color(0.32683, 0.000330177, 0.986005, 1)
-position = Vector2(26, -8.8667)
+position = Vector2(29.9999, -9.00019)
 scale = Vector2(26, 30)
 texture = SubResource("PlaceholderTexture2D_vmxs1")
+
+[node name="StairsBarrier" type="StaticBody2D" parent="Door"]
+position = Vector2(-39, 121)
+rotation = -1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/StairsBarrier"]
+position = Vector2(-64, -48)
+shape = SubResource("RectangleShape2D_w8hx3")
 
 [node name="Node2D" type="Node2D" parent="."]
 

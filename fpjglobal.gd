@@ -10,6 +10,7 @@ var camera = preload("res://Players/player_boy.tscn").instantiate().get_child(2)
 var current = player_names.get("Boy")
 var glow = false
 var stairsOpen = false
+var doorOpen = false
 var firstframe = 1
 var e = ""
 var glow_shader = preload("res://Shaders/Glow.tres")
