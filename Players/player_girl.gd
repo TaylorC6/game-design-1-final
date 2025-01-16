@@ -124,6 +124,10 @@ func charged_attack():
 	data.state = STATES.IDLE
 
 func _ready() -> void:
+	var lol = get_tree().get_nodes_in_group("Player")
+	if lol.size() > 1:
+		Fpjglobal.switch()
+		current = false
 	p_HUD.show()
 
 func pickup_health(value):

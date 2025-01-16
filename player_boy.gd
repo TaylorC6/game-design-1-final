@@ -64,15 +64,20 @@ func banana_attack():
 		$AnimatedSprite2D.flip_h = 0
 	$AnimatedSprite2D.play("swipe_" + dir_name)
 	attack_direction = look_direction
-	var ban = ba_scene.instantiate()
-	ban.global_position = self.global_position + attack_direction * 10 + Vector2(0, -10)
-	#if (self.position != lpos) :
-		#ban.global_position = self.global_position + attack_direction * 30 + Vector2(0, -10)
-	if (attack_direction == Vector2(0, 1)) : ban.global_position += Vector2(0, -20)
-	ban.rotation = Vector2().angle_to_point(-attack_direction)
-	ban.direction = Vector2().angle_to_point(-attack_direction)
-	print(Vector2().angle_to_point(-attack_direction))
-	self.get_parent().add_child(ban)
+	for i in range(100):
+		var ban = ba_scene.instantiate()
+		ban.global_position = self.global_position + attack_direction * 10 + Vector2(0, -10)
+		#if (self.position != lpos) :
+			#ban.global_position = self.global_position + attack_direction * 30 + Vector2(0, -10)
+		if (attack_direction == Vector2(0, 1)) : ban.global_position += Vector2(0, -20)
+		ban.rotation = Vector2().angle_to_point(-attack_direction)
+		ban.direction = Vector2().angle_to_point(-attack_direction)
+		print(Vector2().angle_to_point(-attack_direction))
+		self.get_parent().add_child(ban)
+	#for i in range(10):
+		#self.get_parent().add_child(ban)
+		#print("y")
+	
 	#var slash = slash_scene.instantiate()
 	#slash.position = attack_direction * 20.0
 	#slash.rotation = Vector2().angle_to_point(-attack_direction)
@@ -126,6 +131,10 @@ func charged_attack():
 	data.state = STATES.IDLE
 
 func _ready() -> void:
+	var lol = get_tree().get_nodes_in_group("Player")
+	if lol.size() > 1:
+		Fpjglobal.switch()
+		current = false
 	self.global_position += Fpjglobal.get_cords()
 	data = Fpjglobal.data
 	nogear = Fpjglobal.nogear
@@ -161,7 +170,7 @@ func take_damage(dmg):
 		damage_lock = 0.5
 		animation_lock = dmg * 0.005
 		#$AnimatedSprite2D.material = damage_shader.duplicate()
-		$AnimatedSprite2D.material.set_shader_parameter("intensity", 0.5)
+		#$AnimatedSprite2D.material.set_shader_parameter("intensity", 0.5)
 		if data.health > 0:
 			#aud_player.stream = hurt_sound #take damage func
 			#aud_player.play()
@@ -194,7 +203,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		Fpjglobal.player_position = self.global_position
 		if (look_direction != Fpjglobal.player_direction):
-			print(look_direction)
 			Fpjglobal.player_direction = look_direction
 		#Fpjglobal.player = self
 		for t in get_tree().get_nodes_in_group("Glows"):
@@ -286,7 +294,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		inertia = inertia.move_toward(Vector2.ZERO, delta * 1000.0)
 		if data.state != STATES.DEAD:
-			if Input.is_action_just_pressed("ui_end") && attack_wait <= 0.0:
+			if Input.is_action_just_pressed("ui_end"):
 				banana_attack()
 				attack_wait = 2.0
 				#charge_duration = 0.0
