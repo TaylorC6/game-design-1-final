@@ -183,7 +183,6 @@ func _physics_process(delta: float) -> void:
 	if current != true:
 		if (Fpjglobal.current == Fpjglobal.player_names.get("Girl")) :
 			current = true
-			print(current)
 			Fpjglobal.switchop(self.get_child(2))
 	else:
 		Fpjglobal.player_position = self.global_position
@@ -297,8 +296,10 @@ func _physics_process(delta: float) -> void:
 		#
 		attack_wait -= delta
 		if (Input.is_action_just_pressed("switch")):
-			Fpjglobal.switch()
-			current = false
+			var lol = get_tree().get_nodes_in_group("Player")
+			if lol.size() > 1:
+				Fpjglobal.switch()
+				current = false
 			#if Input.is_action_just_pressed("ui_interact"):
 				#pass
 			#if Input.is_action_just_pressed("ui_ability"):

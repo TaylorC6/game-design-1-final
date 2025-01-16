@@ -128,6 +128,8 @@ func charged_attack():
 func _ready() -> void:
 	self.global_position += Fpjglobal.get_cords()
 	data = Fpjglobal.data
+	nogear = Fpjglobal.nogear
+	noweapons = Fpjglobal.noweapons
 	p_HUD.show()
 
 func pickup_health(value):
@@ -191,7 +193,9 @@ func _physics_process(delta: float) -> void:
 			Fpjglobal.switchop(self.get_child(2))
 	else:
 		Fpjglobal.player_position = self.global_position
-		Fpjglobal.player_direction = attack_direction
+		if (look_direction != Fpjglobal.player_direction):
+			print(look_direction)
+			Fpjglobal.player_direction = look_direction
 		#Fpjglobal.player = self
 		for t in get_tree().get_nodes_in_group("Glows"):
 			test = str(t)
@@ -230,6 +234,7 @@ func _physics_process(delta: float) -> void:
 					if player_boy.in_range(self):
 						if entity == gear_shelf:
 							noweapons = false
+							Fpjglobal.nowep()
 							Fpjglobal.stairsOpen = true
 						if entity == sign1:
 							Fpjglobal.message_box_visible = true
@@ -240,6 +245,8 @@ func _physics_process(delta: float) -> void:
 						if entity == fridge and noweapons == false:
 							noweapons = false
 							nogear = false
+							Fpjglobal.noger()
+							Fpjglobal.nowep()
 							Fpjglobal.doorOpen = true
 							print(nogear)
 							print(noweapons)
@@ -253,6 +260,7 @@ func _physics_process(delta: float) -> void:
 			for entity in get_tree().get_nodes_in_group("Interactables"):
 					if player_boy.in_range(self):
 						noweapons = false
+						Fpjglobal.nowep()
 						Fpjglobal.stairsOpen = true
 
 
@@ -304,8 +312,10 @@ func _physics_process(delta: float) -> void:
 		#
 		attack_wait -= delta
 		if (Input.is_action_just_pressed("switch")):
-			Fpjglobal.switch()
-			current = false
+			var lol = get_tree().get_nodes_in_group("Player")
+			if lol.size() > 1:
+				Fpjglobal.switch()
+				current = false
 			#var t = get_tree().get_nodes_in_group("Player")
 			#for y in range(t.size()):
 				#var node = t[y]
@@ -348,9 +358,11 @@ func update_animation(direction):
 			a_name += "_nogear"
 		if noweapons == false and nogear == false:
 			if (a_name.substr(a_name.length()-7, a_name.length()-1)) == "_nogear":
-				a_name -= "_nogear"
+				#a_name -= "_nogear"
+				a_name = a_name.substr(0, a_name.length()-7)
 			elif (a_name.substr(a_name.length()-10, a_name.length()-1)) == "_noweapons":
-				a_name -= "_noweapons"
+				#a_name -= "_noweapons"
+				a_name = a_name.substr(0, a_name.length()-10)
 			#print("hello")
 			#if ((a_name.slice(-7) == "_nogear") or (a_name.slice(-10)) == "noweapons"):
 				##a_name = ""
@@ -359,7 +371,6 @@ func update_animation(direction):
 
 		
 		testvar = a_name
-		
 		$AnimatedSprite2D.animation = a_name
 		$AnimatedSprite2D.play()
 		
