@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=4 uid="uid://buvn8hfig2kq"]
+[gd_scene load_steps=22 format=4 uid="uid://d1fcgpgl772j2"]
 
+[ext_resource type="Script" path="res://levels/level_3.gd" id="1_0e60a"]
 [ext_resource type="Texture2D" uid="uid://rr7bd0fpj1v8" path="res://sprites/Inner.png" id="1_onk1f"]
 [ext_resource type="Texture2D" uid="uid://bnny8whrxj7he" path="res://sprites/cave.png" id="2_1vxt8"]
 [ext_resource type="Texture2D" uid="uid://dpyykm083nr4b" path="res://sprites/fpjfold/fpjsprites/Good/cave.png" id="3_lrgty"]
@@ -9,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bnebd6ewf8fi1" path="res://fpjfold/fpjsprites/Good/outdoor_tiles.png" id="7_88i1m"]
 [ext_resource type="Texture2D" uid="uid://daxqvyarxy02x" path="res://fpjfold/fpjsprites/outdoor_tiles.png" id="8_7e27o"]
 [ext_resource type="PackedScene" uid="uid://bln8texdoab4d" path="res://Players/player_boy.tscn" id="9_too1e"]
+[ext_resource type="AudioStream" uid="uid://cdgpsxg4vtwd2" path="res://Sounds/Desert_1.mp3" id="11_hc1ve"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_71acj"]
 texture = ExtResource("1_onk1f")
@@ -1621,6 +1623,7 @@ sources/0 = SubResource("TileSetAtlasSource_ogpiw")
 sources/2 = SubResource("TileSetAtlasSource_w5wv4")
 
 [node name="level_3" type="Node2D"]
+script = ExtResource("1_0e60a")
 
 [node name="Black" type="TileMapLayer" parent="."]
 modulate = Color(0, 0, 0, 1)
@@ -1665,5 +1668,10 @@ position = Vector2(247, 257)
 
 [node name="fpj_hud" parent="y-sort/Player_Boy" index="3"]
 visible = false
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node2D"]
+stream = ExtResource("11_hc1ve")
 
 [editable path="y-sort/Player_Boy"]
