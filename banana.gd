@@ -82,8 +82,9 @@ func _process(delta: float) -> void:
 				enemy.take_damage(damage, self)
 				var dist = (enemy.global_position-self.global_position)
 				enemy.inertia = dist.normalized() * knockback
-				await get_tree().create_timer(.9).timeout
 				queue_free()
+				await get_tree().create_timer(.9).timeout
+				#queue_free()
 	#if rn :
 		#num = 
 	

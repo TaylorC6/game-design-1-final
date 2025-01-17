@@ -26,6 +26,14 @@ func _process(delta: float) -> void:
 	print(player_direction)
 	expl_time -= delta
 	print(self.position)
+	for enemy in get_tree().get_nodes_in_group("Enemy"):
+		if self.overlaps_body(enemy):
+			$AnimatedSprite2D.play("Pinapple_Explosion")
+			enemy.take_damage(damage, self)
+			var dist = (enemy.global_position-self.global_position)
+			enemy.inertia = dist.normalized() * knockback
+			await get_tree().create_timer(.9).timeout
+			queue_free()
 	self.position = Vector2(move_toward(self.position.x, start.x + (50 * player_direction.x), velocity), move_toward(self.position.y, start.y + (30 * player_direction.y), velocity))
 	if expl_time <= 0.0:
 		$AnimatedSprite2D.play("Pinapple_Explosion")

@@ -36,8 +36,8 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func process(_delta: float) -> void:
-	print(camera)
+#func process(_delta: float) -> void:
+	#print(camera)
 
 func glow_area(use_area: Area2D):
 	return use_area.overlaps_body(get_tree().get_current_scene().get_node("y-sort").get_node("Player_Boy"))

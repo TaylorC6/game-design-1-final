@@ -69,7 +69,7 @@ func banana_attack():
 	if (attack_direction == Vector2(0, 1)) : ban.global_position += Vector2(0, -20)
 	ban.rotation = Vector2().angle_to_point(-attack_direction)
 	ban.direction = Vector2().angle_to_point(-attack_direction)
-	print(Vector2().angle_to_point(-attack_direction))
+	#print(Vector2().angle_to_point(-attack_direction))
 	self.get_parent().add_child(ban)
 	#var slash = slash_scene.instantiate()
 	#slash.position = attack_direction * 20.0
@@ -116,7 +116,7 @@ func charged_attack():
 		if (attack_direction == Vector2(0, 1)) : ban.global_position += Vector2(0, -20)
 		ban.rotation = Vector2().angle_to_point(-attack_direction)
 		ban.direction = Vector2().angle_to_point(-attack_direction)
-		print(Vector2().angle_to_point(-attack_direction))
+		#print(Vector2().angle_to_point(-attack_direction))
 		self.get_parent().add_child(ban)
 		await get_tree().create_timer(0.03).timeout
 	animation_lock = 0.2
@@ -124,6 +124,10 @@ func charged_attack():
 	data.state = STATES.IDLE
 
 func _ready() -> void:
+	var lol = get_tree().get_nodes_in_group("Player")
+	if lol.size() > 1:
+		Fpjglobal.switch()
+		current = false
 	p_HUD.show()
 
 func pickup_health(value):
@@ -155,7 +159,7 @@ func take_damage(dmg):
 		damage_lock = 0.5
 		animation_lock = dmg * 0.005
 		#$AnimatedSprite2D.material = damage_shader.duplicate()
-		$AnimatedSprite2D.material.set_shader_parameter("intensity", 0.5)
+		#$AnimatedSprite2D.material.set_shader_parameter("intensity", 0.5)
 		if data.health > 0:
 			#aud_player.stream = hurt_sound #take damage func
 			#aud_player.play()
