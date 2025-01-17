@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
 var speed = 60.0
-var max_health = 2000000000
+var max_health = 20000000
 @export var health = max_health
 @export var size = self.scale
-var damage = 0
+var damage = 100
 var AI_STATE = STATES.IDLE
 
 enum STATES {
@@ -109,16 +109,17 @@ func take_damage(dmg, attacker = null):
 		var damage_intensity = clamp(1.0 - ((health + 0.01)/ max_health), 0.1, 0.8)
 		#$AnimatedSprite2D.material = shader.duplicate()
 		#$AnimatedSprite2D.material.set_shader_parameter("intensity", damage_intensity)
-		await get_tree().create_timer(3).timeout
+		#await get_tree().create_timer(0.5).timeout
 		if damage_time <= 0:
 			$Label.text = ""
 		damage_time = 5.0
 		
 		if health <= 0:
-			drop_items()
+			print("hi")
+			#drop_items()
 			#audio_player.stream = death_sound
-			audio_player.play()
-			await audio_player.finished
+			#audio_player.play()
+			#await audio_player.finished
 			#Test.collectstd[self.name] = true
 			queue_free()
 		else:
@@ -150,6 +151,7 @@ func _physics_process(delta: float) -> void:
 					var inertia = abs(player.global_position - self.global_position)
 					player.inertia = (inertia.normalized() * Vector2(1, 1)) * knockback
 					player.take_damage(damage)
+					print("hiihihihihihihiihihihihihihiihihihihih")
 				else:
 					continue
 			if player.data.state != player.STATES.DEAD:
@@ -176,9 +178,9 @@ func _physics_process(delta: float) -> void:
 		#if AI_STATE == STATES.IDLE and anim_player.is_playing():
 			#anim_player.stop()
 		
-		#velocity += inertia
-		#move_and_slide()
-		#inertia = inertia.move_toward(Vector2(), delta * 1000.0)
+		velocity += inertia
+		move_and_slide()
+		inertia = inertia.move_toward(Vector2(), delta * 1000.0)
 	
 	
 	

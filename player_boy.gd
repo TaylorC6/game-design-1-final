@@ -72,7 +72,7 @@ func banana_attack():
 		if (attack_direction == Vector2(0, 1)) : ban.global_position += Vector2(0, -20)
 		ban.rotation = Vector2().angle_to_point(-attack_direction)
 		ban.direction = Vector2().angle_to_point(-attack_direction)
-		print(Vector2().angle_to_point(-attack_direction))
+		#print(Vector2().angle_to_point(-attack_direction))
 		self.get_parent().add_child(ban)
 	#for i in range(10):
 		#self.get_parent().add_child(ban)
@@ -123,7 +123,7 @@ func charged_attack():
 		if (attack_direction == Vector2(0, 1)) : ban.global_position += Vector2(0, -20)
 		ban.rotation = Vector2().angle_to_point(-attack_direction)
 		ban.direction = Vector2().angle_to_point(-attack_direction)
-		print(Vector2().angle_to_point(-attack_direction))
+		#print(Vector2().angle_to_point(-attack_direction))
 		self.get_parent().add_child(ban)
 		await get_tree().create_timer(0.03).timeout
 	animation_lock = 0.2
@@ -174,13 +174,15 @@ func take_damage(dmg):
 		if data.health > 0:
 			#aud_player.stream = hurt_sound #take damage func
 			#aud_player.play()
+			print("plplplplplplppl")
 			pass
 		else:
+			
 			data.state = STATES.DEAD
 			#aud_player.stream = death_sound
 			#aud_player.play()
-			for i in range(15):
-					var angle = PI/180 * 6
+			for i in range(15000):
+					var angle = PI/4
 					self.rotate(angle)
 					await get_tree().create_timer(0.01).timeout
 			await get_tree().create_timer(0.5).timeout
@@ -247,7 +249,7 @@ func _physics_process(delta: float) -> void:
 						if entity == sign1:
 							Fpjglobal.message_box_visible = true
 							Fpjglobal.message += Fpjglobal.player_names["Boy"] + " " + Fpjglobal.strings[1]
-							print("hi")
+							#print("hi")
 						else:
 							Fpjglobal.message_box_visible = false
 						if entity == fridge and noweapons == false:
@@ -256,9 +258,9 @@ func _physics_process(delta: float) -> void:
 							Fpjglobal.noger()
 							Fpjglobal.nowep()
 							Fpjglobal.doorOpen = true
-							print(nogear)
-							print(noweapons)
-							print(testvar)
+							#print(nogear)
+							#print(noweapons)
+							#print(testvar)
 							if dooroff == true:
 								$"../../Door/Change_lvl".position.y -= 4
 								dooroff = false
@@ -282,7 +284,7 @@ func _physics_process(delta: float) -> void:
 			Input.get_axis("ui_left", "ui_right"),
 			Input.get_axis("ui_up", "ui_down")
 		)
-		if direction.length() > 0:
+		if direction.length() > 0 && data.state != STATES.DEAD:
 			look_direction = direction
 			# Scale to 1 to prevent speed boost from diagonals
 			direction = direction.normalized()
@@ -388,14 +390,14 @@ func update_animation(direction):
 func in_range_interactables(inter, _player):
 	for i in get_tree().get_nodes_in_group("Interactables"):
 		for it in i.get_children():
-			print("hill")
+			#print("hill")
 			if it.get_class() == "Area2D":
-				print("hi")
-				print(i)
+				#print("hi")
+				#print(i)
 				var t = inter.instantiate()
-				print(t)
+				#print(t)
 				if it.overlaps_body(self) && i == inter:
-					print("no")
+					#print("no")
 					return true
 		#if i == inter && i.get_children().find(CollisionShape2D):
 			#return true
