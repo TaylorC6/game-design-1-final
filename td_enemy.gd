@@ -4,8 +4,12 @@ var speed = 60.0
 var max_health = 20000000
 @export var health = max_health
 @export var size = self.scale
-var damage = 100
+var damage = 0
 var AI_STATE = STATES.IDLE
+var player_seen = false
+var play = CharacterBody2D
+var interacted = false
+var wait = 0.0
 
 enum STATES {
 	IDLE = 0, UP, DOWN, LEFT, RIGHT, UP_L, UP_R, DOWN_L, DOWN_R, DAMAGED
@@ -100,11 +104,11 @@ func turn_toward_player(location: Vector2):
 
 
 func take_damage(dmg, attacker = null):
-	if damage_lock >= 0.0 :
+	if damage_lock <= 0.0 :
 		$Label.text = str(int($Label.text) + dmg)
 		AI_STATE = STATES.DAMAGED
 		health -= dmg
-		damage_lock = 0.2
+		damage_lock = 2
 		animation_lock = 0.2
 		var damage_intensity = clamp(1.0 - ((health + 0.01)/ max_health), 0.1, 0.8)
 		#$AnimatedSprite2D.material = shader.duplicate()
@@ -135,6 +139,7 @@ func _physics_process(delta: float) -> void:
 	animation_lock = max(animation_lock - delta, 0.0)
 	damage_lock = max(damage_lock - delta, 0.0)
 	damage_time -= delta
+	wait -= delta
 	if int(AI_STATE) >= 1 and int(AI_STATE) <= 8:
 		var raydir = statedirs[int(AI_STATE)]
 		rcM.target_position = raydir * vision_distance
@@ -146,19 +151,26 @@ func _physics_process(delta: float) -> void:
 			AI_STATE = STATES.IDLE
 			recovered.emit()
 		for player in get_tree().get_nodes_in_group("Player"):
+			
 			if $attack_box.overlaps_body(player):
 				if player.damage_lock == 0.0:
 					var inertia = abs(player.global_position - self.global_position)
 					player.inertia = (inertia.normalized() * Vector2(1, 1)) * knockback
 					player.take_damage(damage)
+					interacted = true
+					wait = 5.0
 					print("hiihihihihihihiihihihihihihiihihihihih")
 				else:
 					continue
 			if player.data.state != player.STATES.DEAD:
-				if (rcM.is_colliding() and rcM.get_collider() == player) or \
+				if ((rcM.is_colliding() and rcM.get_collider() == player) or \
 				   (rcL.is_colliding() and rcL.get_collider() == player) or \
-				   (rcR.is_colliding() and rcR.get_collider() == player):
+				   (rcR.is_colliding() and rcR.get_collider() == player)):
 					turn_toward_player(player.global_position)
+					play = player
+					player_seen = true
+				#if player_seen == true:
+					#turn_toward_player(-player.global_position)
 			pass
 		
 		ai_timer = clamp(ai_timer - delta, 0.0, ai_timer_max)
@@ -178,10 +190,17 @@ func _physics_process(delta: float) -> void:
 		#if AI_STATE == STATES.IDLE and anim_player.is_playing():
 			#anim_player.stop()
 		
-		velocity += inertia
-		move_and_slide()
-		inertia = inertia.move_toward(Vector2(), delta * 1000.0)
-	
+		#velocity += inertia
+		#move_and_slide()
+		#inertia = inertia.move_toward(Vector2(), delta * 1000.0)
+		if !interacted && player_seen && ((self.global_position.x-1 >= play.global_position.x or self.global_position.x+1 <= play.global_position.x) and (self.global_position.y-1 >= play.global_position.y or self.global_position.y+1 <= play.global_position.y)):
+			self.global_position = Vector2(move_toward(self.global_position.x, play.global_position.x, 1), move_toward(self.global_position.y, play.global_position.y, 1)) 
+		else: 
+			velocity += inertia
+			move_and_slide()
+			inertia = inertia.move_toward(Vector2(), delta * 1000.0)
+		if (wait <= 0.0):
+			interacted = false
 	
 	
 
