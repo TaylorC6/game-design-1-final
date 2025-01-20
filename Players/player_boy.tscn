@@ -583,6 +583,8 @@ shape = SubResource("CapsuleShape2D_ti6rq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [node name="fpj_hud" parent="." instance=ExtResource("14_p22q4")]
 

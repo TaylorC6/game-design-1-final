@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://c66hbhi128sjl"]
+[gd_scene load_steps=21 format=4 uid="uid://c66hbhi128sjl"]
 
 [ext_resource type="Texture2D" uid="uid://cv78xn0rkae3s" path="res://sprites/Whitening.png" id="1_6776e"]
 [ext_resource type="Script" path="res://levels/level_1_tutorial_2.gd" id="1_mmsga"]
@@ -6,7 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://daxqvyarxy02x" path="res://fpjfold/fpjsprites/outdoor_tiles.png" id="3_gofva"]
 [ext_resource type="PackedScene" uid="uid://bln8texdoab4d" path="res://Players/player_boy.tscn" id="4_2vhtr"]
 [ext_resource type="AudioStream" uid="uid://dfkd7k7dhq0uj" path="res://Sounds/Inspirational_1.mp3" id="6_d1b00"]
-[ext_resource type="PackedScene" uid="uid://bcvi4j7mfmuyo" path="res://Players/td_player.tscn" id="6_hdeys"]
+[ext_resource type="PackedScene" uid="uid://bonutmhnr5c87" path="res://Players/player_girl.tscn" id="6_nk2s8"]
+[ext_resource type="PackedScene" path="res://td_enemy.tscn" id="7_rbp0e"]
 [ext_resource type="Script" path="res://change_lvl.gd" id="8_wry7l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8w5s"]
@@ -573,8 +574,14 @@ scale = Vector2(-1, 1)
 tile_map_data = PackedByteArray("AAAeAP3/AQAPAAkAAAAdAP3/AQAOAAkAAAAcAP3/AQAOAAkAAAAbAP3/AQAOAAkAAAAhAP3/AQANAAkAAAAiAP3/AQAPAAkAAAAaAPz/AQANAAgAAAAaAPv/AQANAAgAAAAaAPr/AQANAAgAAAAaAPn/AQANAAgAAAAaAPj/AQANAAgAAAAaAPf/AQANAAgAAAAaAPb/AQANAAcAAAAbAPb/AQAOAAcAAAAcAPb/AQAOAAcAAAAdAPb/AQAOAAcAAAAeAPb/AQAOAAcAAAAfAPb/AQAOAAcAAAAgAPb/AQAOAAcAAAAhAPb/AQAOAAcAAAAiAPb/AQAPAAcAAAAiAPz/AQAPAAgAAAAiAPv/AQAPAAgAAAAiAPr/AQAPAAgAAAAiAPn/AQAPAAgAAAAiAPj/AQAPAAgAAAAiAPf/AQAPAAgAAAAaAP3/AQANAAkAAAAeAPv/AQALAAsAAAAhAP7/AQALAAcAAAAWAPz/AQAIAAsAAAAVAPz/AQAHAAsAAAAPAPz/AQACAAsAAAAPAAUAAQANAAkAAAAQAAUAAQAOAAkAAAARAAUAAQAOAAkAAAASAAUAAQAOAAkAAAATAAUAAQAOAAkAAAAUAAUAAQAOAAkAAAAVAAUAAQAOAAkAAAAWAAUAAQAPAAkAAAAGAPv/AQAPAAgAAAAGAPz/AQAPAAgAAAAGAP3/AQAPAAgAAAAGAP7/AQAPAAgAAAAGAP//AQANAAkAAAAHAP//AQAOAAcAAAAIAP//AQAOAAcAAAAJAP//AQAPAAkAAAAJAAIAAQAPAAkAAAAIAAIAAQAOAAkAAAAHAAIAAQAOAAkAAAAGAAIAAQAOAAkAAAAFAAIAAQAOAAkAAAAEAAIAAQAOAAkAAAADAAIAAQANAAkAAAADAAEAAQANAAgAAAADAAAAAQANAAgAAAADAP//AQANAAgAAAADAP7/AQANAAgAAAADAP3/AQANAAgAAAADAPz/AQANAAgAAAADAPv/AQANAAgAAAAKAP//AQALAAsAAAAQAPz/AQADAAsAAAAOAPb/AQABAAcAAAAOAPf/AQABAAgAAAAOAPj/AQABAAgAAAAOAPn/AQABAAgAAAAOAPr/AQABAAkAAAAOAPv/AQABAAoAAAAPAPv/AQACAAoAAAAQAPv/AQADAAoAAAAVAPv/AQAHAAoAAAAWAPv/AQAIAAoAAAAXAPb/AQAJAAcAAAAXAPf/AQAJAAgAAAAXAPj/AQAJAAkAAAAXAPn/AQAJAAgAAAAXAPr/AQAJAAkAAAAXAPv/AQAJAAoAAAAOAPz/AQABAAsAAAAXAPz/AQAJAAsAAAASAAIAAQAMAAsAAAATAAIAAQAMAAsAAAA=")
 tile_set = SubResource("TileSet_j3eyy")
 
-[node name="td_player" parent="y-sort/Girl" instance=ExtResource("6_hdeys")]
-position = Vector2(64, -62)
+[node name="Player_Girl" parent="y-sort/Girl" instance=ExtResource("6_nk2s8")]
+position = Vector2(65, -40)
+
+[node name="td_enemy" parent="y-sort/Girl" instance=ExtResource("7_rbp0e")]
+position = Vector2(272, -109)
+
+[node name="td_enemy2" parent="y-sort/Girl" instance=ExtResource("7_rbp0e")]
+position = Vector2(881, -108)
 
 [node name="Node2D" type="Node2D" parent="."]
 

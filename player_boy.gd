@@ -64,15 +64,20 @@ func banana_attack():
 		$AnimatedSprite2D.flip_h = 0
 	$AnimatedSprite2D.play("swipe_" + dir_name)
 	attack_direction = look_direction
-	var ban = ba_scene.instantiate()
-	ban.global_position = self.global_position + attack_direction * 10 + Vector2(0, -10)
-	#if (self.position != lpos) :
-		#ban.global_position = self.global_position + attack_direction * 30 + Vector2(0, -10)
-	if (attack_direction == Vector2(0, 1)) : ban.global_position += Vector2(0, -20)
-	ban.rotation = Vector2().angle_to_point(-attack_direction)
-	ban.direction = Vector2().angle_to_point(-attack_direction)
-	print(Vector2().angle_to_point(-attack_direction))
-	self.get_parent().add_child(ban)
+	for i in range(100):
+		var ban = ba_scene.instantiate()
+		ban.global_position = self.global_position + attack_direction * 10 + Vector2(0, -10)
+		#if (self.position != lpos) :
+			#ban.global_position = self.global_position + attack_direction * 30 + Vector2(0, -10)
+		if (attack_direction == Vector2(0, 1)) : ban.global_position += Vector2(0, -20)
+		ban.rotation = Vector2().angle_to_point(-attack_direction)
+		ban.direction = Vector2().angle_to_point(-attack_direction)
+		#print(Vector2().angle_to_point(-attack_direction))
+		self.get_parent().add_child(ban)
+	#for i in range(10):
+		#self.get_parent().add_child(ban)
+		#print("y")
+	
 	#var slash = slash_scene.instantiate()
 	#slash.position = attack_direction * 20.0
 	#slash.rotation = Vector2().angle_to_point(-attack_direction)
@@ -118,7 +123,7 @@ func charged_attack():
 		if (attack_direction == Vector2(0, 1)) : ban.global_position += Vector2(0, -20)
 		ban.rotation = Vector2().angle_to_point(-attack_direction)
 		ban.direction = Vector2().angle_to_point(-attack_direction)
-		print(Vector2().angle_to_point(-attack_direction))
+		#print(Vector2().angle_to_point(-attack_direction))
 		self.get_parent().add_child(ban)
 		await get_tree().create_timer(0.03).timeout
 	animation_lock = 0.2
@@ -126,8 +131,14 @@ func charged_attack():
 	data.state = STATES.IDLE
 
 func _ready() -> void:
+	var lol = get_tree().get_nodes_in_group("Player")
+	if lol.size() > 1:
+		Fpjglobal.switch()
+		current = false
 	self.global_position += Fpjglobal.get_cords()
 	data = Fpjglobal.data
+	nogear = Fpjglobal.nogear
+	noweapons = Fpjglobal.noweapons
 	p_HUD.show()
 
 func pickup_health(value):
@@ -159,17 +170,19 @@ func take_damage(dmg):
 		damage_lock = 0.5
 		animation_lock = dmg * 0.005
 		#$AnimatedSprite2D.material = damage_shader.duplicate()
-		$AnimatedSprite2D.material.set_shader_parameter("intensity", 0.5)
+		#$AnimatedSprite2D.material.set_shader_parameter("intensity", 0.5)
 		if data.health > 0:
 			#aud_player.stream = hurt_sound #take damage func
 			#aud_player.play()
+			print("plplplplplplppl")
 			pass
 		else:
+			
 			data.state = STATES.DEAD
 			#aud_player.stream = death_sound
 			#aud_player.play()
-			for i in range(15):
-					var angle = PI/180 * 6
+			for i in range(15000):
+					var angle = PI/4
 					self.rotate(angle)
 					await get_tree().create_timer(0.01).timeout
 			await get_tree().create_timer(0.5).timeout
@@ -191,7 +204,8 @@ func _physics_process(delta: float) -> void:
 			Fpjglobal.switchop(self.get_child(2))
 	else:
 		Fpjglobal.player_position = self.global_position
-		Fpjglobal.player_direction = attack_direction
+		if (look_direction != Fpjglobal.player_direction):
+			Fpjglobal.player_direction = look_direction
 		#Fpjglobal.player = self
 		for t in get_tree().get_nodes_in_group("Glows"):
 			test = str(t)
@@ -230,20 +244,23 @@ func _physics_process(delta: float) -> void:
 					if player_boy.in_range(self):
 						if entity == gear_shelf:
 							noweapons = false
+							Fpjglobal.nowep()
 							Fpjglobal.stairsOpen = true
 						if entity == sign1:
 							Fpjglobal.message_box_visible = true
 							Fpjglobal.message += Fpjglobal.player_names["Boy"] + " " + Fpjglobal.strings[1]
-							print("hi")
+							#print("hi")
 						else:
 							Fpjglobal.message_box_visible = false
 						if entity == fridge and noweapons == false:
 							noweapons = false
 							nogear = false
+							Fpjglobal.noger()
+							Fpjglobal.nowep()
 							Fpjglobal.doorOpen = true
-							print(nogear)
-							print(noweapons)
-							print(testvar)
+							#print(nogear)
+							#print(noweapons)
+							#print(testvar)
 							if dooroff == true:
 								$"../../Door/Change_lvl".position.y -= 4
 								dooroff = false
@@ -253,6 +270,7 @@ func _physics_process(delta: float) -> void:
 			for entity in get_tree().get_nodes_in_group("Interactables"):
 					if player_boy.in_range(self):
 						noweapons = false
+						Fpjglobal.nowep()
 						Fpjglobal.stairsOpen = true
 
 
@@ -266,7 +284,7 @@ func _physics_process(delta: float) -> void:
 			Input.get_axis("ui_left", "ui_right"),
 			Input.get_axis("ui_up", "ui_down")
 		)
-		if direction.length() > 0:
+		if direction.length() > 0 && data.state != STATES.DEAD:
 			look_direction = direction
 			# Scale to 1 to prevent speed boost from diagonals
 			direction = direction.normalized()
@@ -278,7 +296,7 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		inertia = inertia.move_toward(Vector2.ZERO, delta * 1000.0)
 		if data.state != STATES.DEAD:
-			if Input.is_action_just_pressed("ui_end") && attack_wait <= 0.0:
+			if Input.is_action_just_pressed("ui_end"):
 				banana_attack()
 				attack_wait = 2.0
 				#charge_duration = 0.0
@@ -304,8 +322,10 @@ func _physics_process(delta: float) -> void:
 		#
 		attack_wait -= delta
 		if (Input.is_action_just_pressed("switch")):
-			Fpjglobal.switch()
-			current = false
+			var lol = get_tree().get_nodes_in_group("Player")
+			if lol.size() > 1:
+				Fpjglobal.switch()
+				current = false
 			#var t = get_tree().get_nodes_in_group("Player")
 			#for y in range(t.size()):
 				#var node = t[y]
@@ -348,9 +368,11 @@ func update_animation(direction):
 			a_name += "_nogear"
 		if noweapons == false and nogear == false:
 			if (a_name.substr(a_name.length()-7, a_name.length()-1)) == "_nogear":
-				a_name -= "_nogear"
+				#a_name -= "_nogear"
+				a_name = a_name.substr(0, a_name.length()-7)
 			elif (a_name.substr(a_name.length()-10, a_name.length()-1)) == "_noweapons":
-				a_name -= "_noweapons"
+				#a_name -= "_noweapons"
+				a_name = a_name.substr(0, a_name.length()-10)
 			#print("hello")
 			#if ((a_name.slice(-7) == "_nogear") or (a_name.slice(-10)) == "noweapons"):
 				##a_name = ""
@@ -359,7 +381,6 @@ func update_animation(direction):
 
 		
 		testvar = a_name
-		
 		$AnimatedSprite2D.animation = a_name
 		$AnimatedSprite2D.play()
 		
@@ -369,14 +390,14 @@ func update_animation(direction):
 func in_range_interactables(inter, _player):
 	for i in get_tree().get_nodes_in_group("Interactables"):
 		for it in i.get_children():
-			print("hill")
+			#print("hill")
 			if it.get_class() == "Area2D":
-				print("hi")
-				print(i)
+				#print("hi")
+				#print(i)
 				var t = inter.instantiate()
-				print(t)
+				#print(t)
 				if it.overlaps_body(self) && i == inter:
-					print("no")
+					#print("no")
 					return true
 		#if i == inter && i.get_children().find(CollisionShape2D):
 			#return true
