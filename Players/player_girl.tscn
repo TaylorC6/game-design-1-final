@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://bonutmhnr5c87"]
+[gd_scene load_steps=84 format=3 uid="uid://bonutmhnr5c87"]
 
 [ext_resource type="Script" path="res://Players/player_girl.gd" id="1_o7pha"]
 [ext_resource type="Texture2D" uid="uid://dler30vcqmiku" path="res://sprites/BoyAnims/AnimDownBoyGeared.png" id="2_tb8mc"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dbxgx8ssv7rwo" path="res://sprites/BoyAnims/AnimUpBoyNoGear.png" id="12_w4i5j"]
 [ext_resource type="Texture2D" uid="uid://ss15mnqo55cl" path="res://sprites/BoyAnims/AnimUpBoyNoWeapons.png" id="13_wmq4r"]
 [ext_resource type="PackedScene" uid="uid://1mobpdtgslyq" path="res://sprites/fpjfold/fpj_hud.tscn" id="14_xyr7d"]
+[ext_resource type="Texture2D" uid="uid://dfakf74pxlesq" path="res://sprites/GirlAnims/Girl.png" id="15_yugin"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xnb1a"]
 atlas = ExtResource("2_tb8mc")
@@ -565,12 +566,49 @@ height = 14.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dtgh3"]
 height = 43.9667
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_droip"]
+atlas = ExtResource("15_yugin")
+region = Rect2(6, 7, 25, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ax4oj"]
+atlas = ExtResource("15_yugin")
+region = Rect2(31, 7, 25, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0y5o"]
+atlas = ExtResource("15_yugin")
+region = Rect2(56, 7, 25, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cl6j"]
+atlas = ExtResource("15_yugin")
+region = Rect2(31, 7, 25, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r0lv1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_droip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ax4oj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0y5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7cl6j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
 [node name="Player_Girl" type="CharacterBody2D" groups=["Player"]]
 y_sort_enabled = true
 scale = Vector2(0.818801, 0.818801)
 script = ExtResource("1_o7pha")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_eem4s")
 animation = &"walk_down_noweapons"
 offset = Vector2(0, -18)
@@ -591,3 +629,8 @@ zoom = Vector2(4, 4)
 [node name="attack_shape" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, -18.3195)
 shape = SubResource("CapsuleShape2D_dtgh3")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_r0lv1")
+frame = 2
+frame_progress = 0.713929
