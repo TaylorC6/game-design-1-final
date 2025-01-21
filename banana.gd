@@ -9,6 +9,7 @@ var circumference = radius*PI*2
 var direction = Fpjglobal.player_direction
 var angle = direction
 var dir = Vector2(0, 0)
+var despawn = 5.0
 
 var damage    = 10
 var knockback = 64.0
@@ -70,6 +71,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#$Sprite2D.rotate($Sprite2D.rotation + delta)
+	despawn -= delta
 	var x = dir.x
 	var y = dir.y
 	if !first:
@@ -142,4 +144,5 @@ func _process(delta: float) -> void:
 		#if (self.position >= Vector2(0, 0)):
 			#self.position = Vector2(0,0)
 		#print(self.position)
-	
+	if (despawn <= 0.0):
+		queue_free()

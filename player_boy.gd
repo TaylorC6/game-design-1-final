@@ -12,6 +12,7 @@ enum  STATES { IDLE=0, DEAD, DAMAGED, ATTACKING, CHARGING }
 	"secondaries": [],
 	}
 
+var ban_wait = 1.0
 var current = true
 var lpos = self.position
 var inertia = Vector2()
@@ -64,7 +65,7 @@ func banana_attack():
 		$AnimatedSprite2D.flip_h = 0
 	$AnimatedSprite2D.play("swipe_" + dir_name)
 	attack_direction = look_direction
-	for i in range(100):
+	for i in range(1):
 		var ban = ba_scene.instantiate()
 		ban.global_position = self.global_position + attack_direction * 10 + Vector2(0, -10)
 		#if (self.position != lpos) :
@@ -203,9 +204,12 @@ func _physics_process(delta: float) -> void:
 			current = true
 			Fpjglobal.switchop(self.get_child(2))
 	else:
+		animation_lock -= delta
 		Fpjglobal.player_position = self.global_position
 		if (look_direction != Fpjglobal.player_direction):
 			Fpjglobal.player_direction = look_direction
+		if animation_lock <= 0.0:
+			data.state = STATES.IDLE
 		#Fpjglobal.player = self
 		for t in get_tree().get_nodes_in_group("Glows"):
 			test = str(t)
@@ -296,24 +300,23 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		inertia = inertia.move_toward(Vector2.ZERO, delta * 1000.0)
 		if data.state != STATES.DEAD:
-			if Input.is_action_just_pressed("ui_end"):
+			if Input.is_action_just_pressed("ui_end") && ban_wait <= 0.0:
 				banana_attack()
-				attack_wait = 2.0
+				ban_wait = 2.0
 				#charge_duration = 0.0
 				#data.state = STATES.CHARGING
 			if Input.is_action_just_pressed("ui_accept") && attack_wait <= 0.0:
 				attack()
 				attack_wait = 5.0
-				charge_duration = 0.0
-				data.state = STATES.CHARGING
+				#data.state = STATES.CHARGING
 			
-			charge_duration += delta
-			if Input.is_action_just_released("ui_accept"):
-				if charge_duration >= charge_time and \
-				   data.state == STATES.CHARGING:
-					charged_attack()
-				else:
-					data.state = STATES.IDLE
+			#charge_duration += delta
+			#if Input.is_action_just_released("ui_accept"):
+				#if charge_duration >= charge_time and \
+				   #data.state == STATES.CHARGING:
+					#charged_attack()
+				#else:
+					#data.state = STATES.IDLE
 				
 		if Input.is_action_just_pressed("ui_cancel"):
 			$Camera2D/pause_menu.show()
@@ -321,6 +324,7 @@ func _physics_process(delta: float) -> void:
 		pass
 		#
 		attack_wait -= delta
+		ban_wait -= delta
 		if (Input.is_action_just_pressed("switch")):
 			var lol = get_tree().get_nodes_in_group("Player")
 			if lol.size() > 1:

@@ -23,11 +23,11 @@ func explode():
 	pass
 
 func _process(delta: float) -> void:
-	print(player_direction)
 	expl_time -= delta
-	print(self.position)
 	for enemy in get_tree().get_nodes_in_group("Enemy"):
 		if self.overlaps_body(enemy):
+			$CollisionShape2D.disabled = true
+			self.position = Vector2(move_toward(self.position.x, start.x + (50 * player_direction.x), velocity), move_toward(self.position.y, start.y + (30 * player_direction.y), velocity))
 			$AnimatedSprite2D.play("Pinapple_Explosion")
 			enemy.take_damage(damage, self)
 			var dist = (enemy.global_position-self.global_position)
