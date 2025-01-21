@@ -587,6 +587,7 @@ position = Vector2(881, -108)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node2D"]
 stream = ExtResource("6_d1b00")
+volume_db = -30.499
 
 [node name="Change_lvl" type="Area2D" parent="Node2D"]
 position = Vector2(512, -92)
