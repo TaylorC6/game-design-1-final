@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var speed = 20
-var max_health = 20000000
+var max_health = 200
 @export var health = max_health
 @export var size = self.scale
 var damage = 200
