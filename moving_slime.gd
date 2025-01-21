@@ -1,10 +1,10 @@
-class_name td_enemy extends CharacterBody2D
+extends CharacterBody2D
 
-var speed
+var speed = 20
 var max_health = 20000000
 @export var health = max_health
 @export var size = self.scale
-var damage
+var damage = 200
 var AI_STATE = STATES.IDLE
 var player_seen = false
 var play = CharacterBody2D
@@ -64,10 +64,10 @@ var drops = ["drop_coin", "drop_heart"]
 #var heart_sc = preload("res://entities/items/mini_heart.tscn")
 #var shader = preload("res://assests/shaders/take_damage.tres")
 #var death_sound = preload("res://assests/sounds/enemydeath.wav")
-
-func _init(default_value: int = 0, default_damage: int = 0):
-	speed = default_value
-	damage = default_damage
+#
+#func _init(default_value: int = 0, default_damage: int = 0):
+	#speed = default_value
+	#damage = default_damage
 
 func vec2_offset():
 	return Vector2(randf_range(-10.0, 10.0), randf_range(-10.0, 10.0))
@@ -109,7 +109,6 @@ func turn_toward_player(location: Vector2):
 
 func take_damage(dmg, attacker = null):
 	if damage_lock <= 0.0 :
-		print("hi")
 		$Label.text = str(int($Label.text) + dmg)
 		AI_STATE = STATES.DAMAGED
 		health -= dmg
@@ -119,7 +118,6 @@ func take_damage(dmg, attacker = null):
 		#$AnimatedSprite2D.material = shader.duplicate()
 		#$AnimatedSprite2D.material.set_shader_parameter("intensity", damage_intensity)
 		#await get_tree().create_timer(0.5).timeout
-		
 		damage_time = 5.0
 		
 		if health <= 0:
