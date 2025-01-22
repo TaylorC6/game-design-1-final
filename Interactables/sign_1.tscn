@@ -882,11 +882,9 @@ script = ExtResource("1_tcxtg")
 hframes = 35
 vframes = 20
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="Area2D" type="Area2D" parent="StaticBody2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_sao5a")
 
 [node name="Glow" type="TileMapLayer" parent="."]

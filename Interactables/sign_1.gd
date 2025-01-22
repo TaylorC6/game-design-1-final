@@ -2,14 +2,24 @@ extends Node2D
 
 var glowsign = false
 var firstframe = 1
-
+var play
+var first = true
 
 func in_range(player) -> bool:
-	return $StaticBody2D/Area2D.overlaps_body(player)
+	return $Area2D.overlaps_body(player)
 
 func _physics_process(_delta: float):
 	#Fpjglobal.process(_delta)
-	
+	for player in get_tree().get_nodes_in_group("Player") :
+		if first && in_range(player):
+			first = false
+			play = player
+			glowsign = true
+		if play == player:
+			if in_range(player):
+				glowsign = true
+			else:
+				glowsign = false
 	if glowsign:
 		set_visible(true)
 		if firstframe == 1:
