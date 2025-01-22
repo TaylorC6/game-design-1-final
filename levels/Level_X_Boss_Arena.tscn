@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://fcx6h1nu6d1f"]
+[gd_scene load_steps=22 format=4 uid="uid://fcx6h1nu6d1f"]
 
 [ext_resource type="Texture2D" uid="uid://rr7bd0fpj1v8" path="res://sprites/Inner.png" id="1_i0g5y"]
 [ext_resource type="Texture2D" uid="uid://dpyykm083nr4b" path="res://sprites/fpjfold/fpjsprites/Good/cave.png" id="2_00uwy"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bnebd6ewf8fi1" path="res://fpjfold/fpjsprites/Good/outdoor_tiles.png" id="6_lhgln"]
 [ext_resource type="Texture2D" uid="uid://daxqvyarxy02x" path="res://fpjfold/fpjsprites/outdoor_tiles.png" id="7_5xtly"]
 [ext_resource type="PackedScene" uid="uid://bln8texdoab4d" path="res://Players/player_boy.tscn" id="8_os84o"]
+[ext_resource type="PackedScene" uid="uid://bonutmhnr5c87" path="res://Players/player_girl.tscn" id="9_idgmf"]
 [ext_resource type="AudioStream" uid="uid://dt3itah8t4ts0" path="res://Sounds/Boss_1.mp3" id="10_kwdab"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p6ar1"]
@@ -391,7 +392,7 @@ texture = ExtResource("2_xn0mj")
 6:3/0 = 0
 7:3/0 = 0
 0:4/0 = 0
-0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.19139, -4.77046, 5.75262, -5.05108, 5.89293, 5.89293, -5.3317, 5.75262)
 1:4/0 = 0
 2:4/0 = 0
 3:4/0 = 0
@@ -1689,6 +1690,9 @@ y_sort_enabled = true
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAIAAgAAQAAAAQAAAD3//n/AQAAAAQAAAA=")
 tile_set = SubResource("TileSet_aiv1g")
+
+[node name="Player_Girl" parent="y-sort" instance=ExtResource("9_idgmf")]
+position = Vector2(-248, -186)
 
 [node name="Player_Boy" parent="y-sort" instance=ExtResource("8_os84o")]
 position = Vector2(247, 257)

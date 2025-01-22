@@ -24,6 +24,8 @@ var charge_duration = 0.0
 var attack_wait = 0.0
 var nogear = true
 var noweapons = true
+var weaponOut = false
+var weaponSheethed = false
 var pine_scene = preload("res://pineapple.tscn")
 var ba_scene = preload("res://banana.tscn")
 var test = "test1"
@@ -189,12 +191,12 @@ func _physics_process(delta: float) -> void:
 			current = true
 			Fpjglobal.switchop(self.get_child(2))
 	else:
+		print("hi")
 		Fpjglobal.player_position = self.global_position
 		Fpjglobal.player_direction = attack_direction
 		#Fpjglobal.player = self
 		for t in get_tree().get_nodes_in_group("Glows"):
 			test = str(t)
-
 			#print(test)
 
 			if player_boy.in_range(self):
@@ -221,8 +223,6 @@ func _physics_process(delta: float) -> void:
 					#if player_boy.in_range(self):
 						#noweapons = false
 						#Fpjglobal.stairsOpen = true
-					
-
 
 		if Input.is_action_just_pressed("ui_interact"):
 			var dooroff = true
@@ -333,16 +333,21 @@ func update_animation(direction):
 		var _wak = a_name.substr(0, 5)
 		
 		if nogear == false:
-			a_name += "_nogear"
+			a_name += "_no_gear"
 		elif noweapons == false:
-			a_name += "_noweapons"
-		elif noweapons == false and nogear == false:
-			a_name = ""
+			a_name += "_no_weapons"
+		elif weaponOut == true:
+			a_name += "_weapon_out"
+		elif weaponSheethed == true:
+			a_name += "weaponSheethed"
 		else:
-			a_name += "_nogear"
+			a_name += "_no_gear"
 
 		$AnimatedSprite2D.animation = a_name
 		$AnimatedSprite2D.play()
+		print(data.state)
+		print(a_name)
+		print(look_direction)
 		
 
 	pass
