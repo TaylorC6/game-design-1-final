@@ -206,6 +206,17 @@ func in_range(player) -> bool:
 func _physics_process(delta: float) -> void:
 	#print(data.state)
 	if current != true:
+		for entity in get_tree().get_nodes_in_group("Interactables"):
+			test = str(entity)
+			if entity == sign1 && e1:
+				Fpjglobal.message_box_visible = false
+				e1 = false
+			if entity == sign5 && e5:
+				Fpjglobal.message_box_visible = false
+				e5 = false
+			if entity == sign6 && e6:
+				Fpjglobal.message_box_visible = false
+				e6 = false
 		if (Fpjglobal.current == Fpjglobal.player_names.get("Boy")) :
 			current = true
 			Fpjglobal.switchop(self.get_child(2))
