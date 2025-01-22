@@ -33,6 +33,7 @@ var testvar = ""
 @onready var player_boy: CharacterBody2D = $"."
 @onready var gear_shelf: TileMapLayer = $"../Interactables/GearShelf"
 @onready var sign1: TileMapLayer = $"../../Interactables/sign1"
+var ps1 = false
 @onready var fridge: TileMapLayer = $"../Interactables/Fridge"
 
 
@@ -253,10 +254,11 @@ func _physics_process(delta: float) -> void:
 							Fpjglobal.stairsOpen = true
 						if entity == sign1:
 							Fpjglobal.message_box_visible = true
-							Fpjglobal.message += Fpjglobal.player_names["Boy"] + " " + Fpjglobal.strings[1]
-							print("hi")
+							Fpjglobal.message = Fpjglobal.player_names["Boy"] + " " + Fpjglobal.strings[1]
+							ps1 = true
 						else:
 							Fpjglobal.message_box_visible = false
+							ps1 = false
 						if entity == fridge and noweapons == false:
 							noweapons = false
 							nogear = false
@@ -269,6 +271,14 @@ func _physics_process(delta: float) -> void:
 							if dooroff == true:
 								$"../../Door/Change_lvl".position.y -= 4
 								dooroff = false
+		for entity in get_tree().get_nodes_in_group("Interactables"):
+			if entity == sign1:
+				if player_boy.in_range(self):
+					pass
+				else:
+					Fpjglobal.message_box_visible = false
+					
+					ps1 = false
 
 
 		if Input.is_action_just_pressed("ui_interact") && data.state != STATES.DEAD:

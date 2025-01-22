@@ -198,15 +198,15 @@ func _physics_process(delta: float) -> void:
 		#velocity += inertia
 		#move_and_slide()
 		#inertia = inertia.move_toward(Vector2(), delta * 1000.0)
-		if !interacted && player_seen && \
-		((self.global_position.x-1 >= play.global_position.x or self.global_position.x+1 <= play.global_position.x) \
-		and (self.global_position.y-1 >= play.global_position.y or self.global_position.y+1 <= play.global_position.y)):
-			self.global_position = Vector2(move_toward(self.global_position.x, play.global_position.x, speed/60), move_toward(self.global_position.y, play.global_position.y, speed/60)) 
-		else: 
-			velocity += inertia
-			move_and_slide()
-			inertia = inertia.move_toward(Vector2(), delta * 1000.0)
-			await get_tree().create_timer(1).timeout
+		#if !interacted && player_seen && \
+		#((self.global_position.x-1 >= play.global_position.x or self.global_position.x+1 <= play.global_position.x) \
+		#and (self.global_position.y-1 >= play.global_position.y or self.global_position.y+1 <= play.global_position.y)):
+			#self.global_position = Vector2(move_toward(self.global_position.x, play.global_position.x, speed/60), move_toward(self.global_position.y, play.global_position.y, speed/60)) 
+		#else: 
+			#velocity += inertia
+			#move_and_slide()
+			#inertia = inertia.move_toward(Vector2(), delta * 1000.0)
+			#await get_tree().create_timer(1).timeout
 		if (wait <= 0.0):
 			interacted = false
 	
