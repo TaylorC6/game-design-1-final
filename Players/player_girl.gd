@@ -29,9 +29,11 @@ var weaponSheethed = false
 var pine_scene = preload("res://pineapple.tscn")
 var ba_scene = preload("res://banana.tscn")
 var test = "test1"
-@onready var player_boy: CharacterBody2D = $"."
+@onready var player_girl: CharacterBody2D = $"."
 @onready var gear_shelf: TileMapLayer = $"../Interactables/GearShelf"
-@onready var sign1: TileMapLayer = $"../../Interactables/sign1"
+@onready var sign2: TileMapLayer = $"../../Interactables/sign2"
+@onready var sign3: TileMapLayer = $"../../Interactables/sign3"
+@onready var sign4: TileMapLayer = $"../../Interactables/sign4"
 @onready var fridge: TileMapLayer = $"../Interactables/Fridge"
 
 
@@ -191,7 +193,7 @@ func _physics_process(delta: float) -> void:
 			current = true
 			Fpjglobal.switchop(self.get_child(2))
 	else:
-		print("hi")
+		#print("hi")
 		Fpjglobal.player_position = self.global_position
 		Fpjglobal.player_direction = attack_direction
 		#Fpjglobal.player = self
@@ -199,7 +201,7 @@ func _physics_process(delta: float) -> void:
 			test = str(t)
 			#print(test)
 
-			if player_boy.in_range(self):
+			if player_girl.in_range(self) && data.state != STATES.DEAD:
 				t.material = Fpjglobal.glow_shader.duplicate()
 				#t.material.set_shader_parameter("intensity", 0.5)
 				#t.material.set_shader_parameter()
@@ -227,29 +229,50 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("ui_interact"):
 			var dooroff = true
 			for entity in get_tree().get_nodes_in_group("Interactables"):
-					if player_boy.in_range(self):
+					if player_girl.in_range(self):
 						if entity == gear_shelf:
 							noweapons = false
 							Fpjglobal.stairsOpen = true
-						if entity == sign1:
+						if entity == sign2:
 							Fpjglobal.message_box_visible = true
-							Fpjglobal.message += Fpjglobal.player_names["Boy"] + " " + Fpjglobal.strings[1]
-							print("hi")
-						else:
-							Fpjglobal.message_box_visible = false
+							Fpjglobal.message += Fpjglobal.player_names["Girl"] + " " + Fpjglobal.strings[1]
+							#print("hi")
+						if entity == sign3:
+							Fpjglobal.message_box_visible = true
+							Fpjglobal.message += Fpjglobal.player_names["Girl"] + " " + Fpjglobal.strings[1]
+						if entity == sign4:
+							Fpjglobal.message_box_visible = true
+							Fpjglobal.message += Fpjglobal.player_names["Girl"] + " " + Fpjglobal.strings[1]
 						if entity == fridge:
 							nogear = false
 							noweapons = false
 							if dooroff == true:
 								$"../../Door/Change_lvl_Door".position.y -= 4
 								dooroff = false
+		for entity in get_tree().get_nodes_in_group("Interactables"):
+			if entity == sign2:
+				if player_girl.in_range(self):
+					pass
+				else:
+					Fpjglobal.message_box_visible = false
+			if entity == sign3:
+				if player_girl.in_range(self):
+					pass
+				else:
+					Fpjglobal.message_box_visible = false
+			if entity == sign4:
+				if player_girl.in_range(self):
+					pass
+				else:
+					Fpjglobal.message_box_visible = false
+					
 
 
 		if Input.is_action_just_pressed("ui_interact"):
 			for entity in get_tree().get_nodes_in_group("Interactables"):
-					if player_boy.in_range(self):
-						noweapons = false
-						Fpjglobal.stairsOpen = true
+				if player_girl.in_range(self):
+					noweapons = false
+					Fpjglobal.stairsOpen = true
 
 
 		if animation_lock == 0.0 and data.state != STATES.DEAD:
@@ -345,9 +368,9 @@ func update_animation(direction):
 
 		$AnimatedSprite2D.animation = a_name
 		$AnimatedSprite2D.play()
-		print(data.state)
-		print(a_name)
-		print(look_direction)
+		#print(data.state)
+		#print(a_name)
+		#print(look_direction)
 		
 
 	pass
@@ -356,14 +379,14 @@ func update_animation(direction):
 func in_range_interactables(inter, _player):
 	for i in get_tree().get_nodes_in_group("Interactables"):
 		for it in i.get_children():
-			print("hill")
+			#print("hill")
 			if it.get_class() == "Area2D":
-				print("hi")
-				print(i)
+				#print("hi")
+				#print(i)
 				var t = inter.instantiate()
-				print(t)
+				#print(t)
 				if it.overlaps_body(self) && i == inter:
-					print("no")
+					#print("no")
 					return true
 		#if i == inter && i.get_children().find(CollisionShape2D):
 			#return true

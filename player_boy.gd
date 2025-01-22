@@ -33,6 +33,8 @@ var testvar = ""
 @onready var player_boy: CharacterBody2D = $"."
 @onready var gear_shelf: TileMapLayer = $"../Interactables/GearShelf"
 @onready var sign1: TileMapLayer = $"../../Interactables/sign1"
+@onready var sign5: TileMapLayer = $"../../Interactables/sign5"
+@onready var sign6: TileMapLayer = $"../../Interactables/sign6"
 var ps1 = false
 @onready var fridge: TileMapLayer = $"../Interactables/Fridge"
 
@@ -256,9 +258,12 @@ func _physics_process(delta: float) -> void:
 							Fpjglobal.message_box_visible = true
 							Fpjglobal.message = Fpjglobal.player_names["Boy"] + " " + Fpjglobal.strings[1]
 							ps1 = true
-						else:
-							Fpjglobal.message_box_visible = false
-							ps1 = false
+						if entity == sign5:
+							Fpjglobal.message_box_visible = true
+							Fpjglobal.message += Fpjglobal.player_names["Girl"] + " " + Fpjglobal.strings[1]
+						if entity == sign6:
+							Fpjglobal.message_box_visible = true
+							Fpjglobal.message += Fpjglobal.player_names["Girl"] + " " + Fpjglobal.strings[1]
 						if entity == fridge and noweapons == false:
 							noweapons = false
 							nogear = false
@@ -279,6 +284,17 @@ func _physics_process(delta: float) -> void:
 					Fpjglobal.message_box_visible = false
 					
 					ps1 = false
+			if entity == sign5:
+				if player_boy.in_range(self):
+					pass
+				else:
+					Fpjglobal.message_box_visible = false
+			if entity == sign6:
+				if player_boy.in_range(self):
+					pass
+				else:
+					Fpjglobal.message_box_visible = false
+					
 
 
 		if Input.is_action_just_pressed("ui_interact") && data.state != STATES.DEAD:
