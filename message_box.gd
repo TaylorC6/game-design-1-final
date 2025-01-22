@@ -8,7 +8,6 @@ func _ready() -> void:
 	set_visible(false)
 
 func _process(_delta: float) -> void:
-	
 	if Fpjglobal.message_box_visible:
 		messagebox_visible = true
 	else:

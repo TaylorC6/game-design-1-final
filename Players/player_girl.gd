@@ -32,8 +32,11 @@ var test = "test1"
 @onready var player_girl: CharacterBody2D = $"."
 @onready var gear_shelf: TileMapLayer = $"../Interactables/GearShelf"
 @onready var sign2: TileMapLayer = $"../../Interactables/sign2"
+var e2 = false
 @onready var sign3: TileMapLayer = $"../../Interactables/sign3"
+var e3 = false
 @onready var sign4: TileMapLayer = $"../../Interactables/sign4"
+var e4 = false
 @onready var fridge: TileMapLayer = $"../Interactables/Fridge"
 
 
@@ -229,20 +232,23 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("ui_interact"):
 			var dooroff = true
 			for entity in get_tree().get_nodes_in_group("Interactables"):
+					test = str(entity)
 					if player_girl.in_range(self):
 						if entity == gear_shelf:
 							noweapons = false
 							Fpjglobal.stairsOpen = true
 						if entity == sign2:
 							Fpjglobal.message_box_visible = true
-							Fpjglobal.message += Fpjglobal.player_names["Girl"] + " " + Fpjglobal.strings[1]
-							#print("hi")
-						if entity == sign3:
+							Fpjglobal.message = Fpjglobal.player_names["Girl"] + " " + Fpjglobal.strings[1]
+							e2 = true
+						elif entity == sign3:
 							Fpjglobal.message_box_visible = true
-							Fpjglobal.message += Fpjglobal.player_names["Girl"] + " " + Fpjglobal.strings[1]
-						if entity == sign4:
+							Fpjglobal.message = Fpjglobal.strings[2]
+							e3 = true
+						elif entity == sign4:
 							Fpjglobal.message_box_visible = true
-							Fpjglobal.message += Fpjglobal.player_names["Girl"] + " " + Fpjglobal.strings[1]
+							Fpjglobal.message = Fpjglobal.strings[4]
+							e4 = true
 						if entity == fridge:
 							nogear = false
 							noweapons = false
@@ -250,22 +256,25 @@ func _physics_process(delta: float) -> void:
 								$"../../Door/Change_lvl_Door".position.y -= 4
 								dooroff = false
 		for entity in get_tree().get_nodes_in_group("Interactables"):
-			if entity == sign2:
+			test = str(entity)
+			if entity == sign2 && e2:
 				if player_girl.in_range(self):
 					pass
 				else:
 					Fpjglobal.message_box_visible = false
-			if entity == sign3:
+					e2 = false
+			if entity == sign3 && e3:
 				if player_girl.in_range(self):
 					pass
 				else:
 					Fpjglobal.message_box_visible = false
-			if entity == sign4:
+					e3 = false
+			if entity == sign4 && e4:
 				if player_girl.in_range(self):
 					pass
 				else:
 					Fpjglobal.message_box_visible = false
-					
+					e4 = false
 
 
 		if Input.is_action_just_pressed("ui_interact"):
