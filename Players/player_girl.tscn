@@ -1,4 +1,4 @@
-[gd_scene load_steps=137 format=3 uid="uid://bonutmhnr5c87"]
+[gd_scene load_steps=154 format=3 uid="uid://bonutmhnr5c87"]
 
 [ext_resource type="Script" path="res://Players/player_girl.gd" id="1_o7pha"]
 [ext_resource type="Texture2D" uid="uid://dler30vcqmiku" path="res://sprites/BoyAnims/AnimDownBoyGeared.png" id="2_tb8mc"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://dfakf74pxlesq" path="res://sprites/GirlAnims/Girl.png" id="15_yugin"]
 [ext_resource type="Texture2D" uid="uid://lbn6nckis275" path="res://sprites/GirlAnims/Girl_Left.png" id="16_s3ehv"]
 [ext_resource type="Texture2D" uid="uid://fgtb6mlt7p7o" path="res://sprites/GirlAnims/Girl_Right.png" id="17_dxch2"]
+[ext_resource type="Texture2D" uid="uid://4cto2q4u8dk2" path="res://sprites/GirlAnims/Girl_Up.png" id="18_4wohw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xnb1a"]
 atlas = ExtResource("2_tb8mc")
@@ -788,6 +789,70 @@ region = Rect2(56, 111, 28, 52)
 atlas = ExtResource("17_dxch2")
 region = Rect2(0, 111, 28, 52)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_abca6"]
+atlas = ExtResource("18_4wohw")
+region = Rect2(6, 6, 24, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arn61"]
+atlas = ExtResource("18_4wohw")
+region = Rect2(32, 6, 24, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t36ce"]
+atlas = ExtResource("18_4wohw")
+region = Rect2(58, 6, 24, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asg00"]
+atlas = ExtResource("18_4wohw")
+region = Rect2(32, 6, 24, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nq8k4"]
+atlas = ExtResource("18_4wohw")
+region = Rect2(6, 58, 24, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l17va"]
+atlas = ExtResource("18_4wohw")
+region = Rect2(32, 58, 24, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7tuxf"]
+atlas = ExtResource("18_4wohw")
+region = Rect2(58, 58, 24, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtnss"]
+atlas = ExtResource("18_4wohw")
+region = Rect2(32, 58, 24, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i7njd"]
+atlas = ExtResource("18_4wohw")
+region = Rect2(5, 162, 26, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_likcn"]
+atlas = ExtResource("18_4wohw")
+region = Rect2(31, 162, 26, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l80dn"]
+atlas = ExtResource("18_4wohw")
+region = Rect2(57, 162, 26, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2d8qg"]
+atlas = ExtResource("18_4wohw")
+region = Rect2(31, 162, 26, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rd76"]
+atlas = ExtResource("18_4wohw")
+region = Rect2(5, 110, 26, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f4d6p"]
+atlas = ExtResource("18_4wohw")
+region = Rect2(31, 110, 26, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltjme"]
+atlas = ExtResource("18_4wohw")
+region = Rect2(57, 110, 26, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rgfs"]
+atlas = ExtResource("18_4wohw")
+region = Rect2(31, 110, 26, 52)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_r0lv1"]
 animations = [{
 "frames": [{
@@ -1089,6 +1154,74 @@ animations = [{
 "loop": true,
 "name": &"walk_right_weapon_sheethed",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abca6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arn61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t36ce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asg00")
+}],
+"loop": true,
+"name": &"walk_up_no_gear",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nq8k4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l17va")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7tuxf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtnss")
+}],
+"loop": true,
+"name": &"walk_up_no_weapons",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i7njd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_likcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l80dn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2d8qg")
+}],
+"loop": true,
+"name": &"walk_up_weapon_out",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rd76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f4d6p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltjme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3rgfs")
+}],
+"loop": true,
+"name": &"walk_up_weapon_sheethed",
+"speed": 8.0
 }]
 
 [node name="Player_Girl" type="CharacterBody2D" groups=["Player"]]
@@ -1123,4 +1256,5 @@ shape = SubResource("CapsuleShape2D_dtgh3")
 position = Vector2(0, -18.3195)
 scale = Vector2(0.915973, 0.915973)
 sprite_frames = SubResource("SpriteFrames_r0lv1")
-animation = &"idle_left_weapon_out"
+animation = &"walk_up_no_weapons"
+frame_progress = 0.440923
