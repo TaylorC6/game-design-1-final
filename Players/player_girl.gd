@@ -32,9 +32,16 @@ var test = "test1"
 @onready var player_girl: CharacterBody2D = $"."
 @onready var gear_shelf: TileMapLayer = $"../Interactables/GearShelf_Girl"
 @onready var sign2: TileMapLayer = $"../../Interactables/sign2"
+var e2 = false
 @onready var sign3: TileMapLayer = $"../../Interactables/sign3"
+var e3 = false
 @onready var sign4: TileMapLayer = $"../../Interactables/sign4"
+<<<<<<< HEAD
 @onready var fridge: TileMapLayer = $"../Interactables/Fridge_Girl"
+=======
+var e4 = false
+@onready var fridge: TileMapLayer = $"../Interactables/Fridge"
+>>>>>>> a11ececb3513f76e25576a6bd302339078d8b893
 
 
 #@onready var glow_range: Area2D = $"../Interactables/GearShelf/Area2D"
@@ -42,7 +49,7 @@ var test = "test1"
 #@onready var glow_range2: Area2D = $"../Interactables/range2"
 
 
-#var slash_scene  = preload("res://enitities/attacks/slash.tscn")
+var slash_scene  = preload("res://slash.tscn")
 #var damage_shader = preload("res://assets/shaders/take_damage.tres")
 #var attack_sound = preload("res://Sounds/slash.wav")
 #var coin_sound = preload("res://Sounds/coin.wav")
@@ -90,16 +97,20 @@ func attack():
 		$AnimatedSprite2D.flip_h = 0
 	$AnimatedSprite2D.play("swipe_" + dir_name)
 	attack_direction = look_direction
-	var pi = pine_scene.instantiate()
-	pi.global_position = self.global_position + attack_direction * 10
-	pi.rotation = Vector2().angle_to_point(-attack_direction)
-	self.get_parent().add_child(pi)
-	#self.get_parent().add_child(pi)
-	#self.get_parent().add_child(pi)
+	print("hi")
 	#var slash = slash_scene.instantiate()
-	#slash.position = attack_direction * 20.0
+	#slash.global_position = self.global_position
 	#slash.rotation = Vector2().angle_to_point(-attack_direction)
-	#add_child(slash)
+	#print(slash)
+	#self.add_child(slash)
+	#self.get_parent().add_child(pi)
+	#self.get_parent().add_child(pi)
+	var slash = slash_scene.instantiate()
+	slash.position = attack_direction * 10.0 + Vector2(0, -20.0)
+	if (attack_direction == Vector2(0, 1)):
+		slash.position += Vector2(0, 20.0)
+	slash.rotation = Vector2().angle_to_point(-attack_direction)
+	add_child(slash)
 	#aud_player.stream = attack_sound
 	#aud_player.play()
 	animation_lock = 0.2
@@ -189,6 +200,17 @@ func in_range(player) -> bool:
 
 func _physics_process(delta: float) -> void:
 	if current != true:
+		for entity in get_tree().get_nodes_in_group("Interactables"):
+			test = str(entity)
+			if entity == sign2 && e2:
+				Fpjglobal.message_box_visible = false
+				e2 = false
+			if entity == sign3 && e3:
+				Fpjglobal.message_box_visible = false
+				e3 = false
+			if entity == sign4 && e4:
+				Fpjglobal.message_box_visible = false
+				e4 = false
 		if (Fpjglobal.current == Fpjglobal.player_names.get("Girl")) :
 			current = true
 			Fpjglobal.switchop(self.get_child(2))
@@ -232,6 +254,7 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("ui_interact"):
 			var dooroff = true
 			for entity in get_tree().get_nodes_in_group("Interactables"):
+					test = str(entity)
 					if player_girl.in_range(self):
 						if entity == gear_shelf:
 							noweapons = false
@@ -239,34 +262,39 @@ func _physics_process(delta: float) -> void:
 
 						if entity == sign2:
 							Fpjglobal.message_box_visible = true
-							Fpjglobal.message += Fpjglobal.player_names["Girl"] + " " + Fpjglobal.strings[1]
-							#print("hi")
-						if entity == sign3:
+							Fpjglobal.message = Fpjglobal.player_names["Girl"] + " " + Fpjglobal.strings[1]
+							e2 = true
+						elif entity == sign3:
 							Fpjglobal.message_box_visible = true
-							Fpjglobal.message += Fpjglobal.player_names["Girl"] + " " + Fpjglobal.strings[1]
-						if entity == sign4:
+							Fpjglobal.message = Fpjglobal.strings[2]
+							e3 = true
+						elif entity == sign4:
 							Fpjglobal.message_box_visible = true
-							Fpjglobal.message += Fpjglobal.player_names["Girl"] + " " + Fpjglobal.strings[1]
+							Fpjglobal.message = Fpjglobal.strings[4]
+							e4 = true
 						if entity == fridge:
 							weaponSheethed = true
 							Fpjglobal.fridge2 = true
 		for entity in get_tree().get_nodes_in_group("Interactables"):
-			if entity == sign2:
+			test = str(entity)
+			if entity == sign2 && e2:
 				if player_girl.in_range(self):
 					pass
 				else:
 					Fpjglobal.message_box_visible = false
-			if entity == sign3:
+					e2 = false
+			if entity == sign3 && e3:
 				if player_girl.in_range(self):
 					pass
 				else:
 					Fpjglobal.message_box_visible = false
-			if entity == sign4:
+					e3 = false
+			if entity == sign4 && e4:
 				if player_girl.in_range(self):
 					pass
 				else:
 					Fpjglobal.message_box_visible = false
-					
+					e4 = false
 
 		#if Input.is_action_just_pressed("ui_interact"):
 			#for entity in get_tree().get_nodes_in_group("Interactables"):
@@ -302,7 +330,7 @@ func _physics_process(delta: float) -> void:
 				attack_wait = 2.0
 				#charge_duration = 0.0
 				#data.state = STATES.CHARGING
-			if Input.is_action_just_pressed("ui_accept") && attack_wait <= 0.0:
+			if Input.is_action_just_pressed("ui_accept"):
 				attack()
 				attack_wait = 5.0
 				charge_duration = 0.0
