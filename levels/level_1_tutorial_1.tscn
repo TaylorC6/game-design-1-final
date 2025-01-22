@@ -823,6 +823,29 @@ texture = SubResource("PlaceholderTexture2D_1cq6s")
 position = Vector2(-64, -48)
 shape = SubResource("RectangleShape2D_w30l7")
 
+[node name="Change_lvl_Girl" type="Area2D" parent="Stairs"]
+visible = false
+position = Vector2(-433, -14)
+script = ExtResource("6_7luu7")
+next_level = "level_1_1_2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stairs/Change_lvl_Girl"]
+position = Vector2(-12, -35)
+shape = SubResource("RectangleShape2D_t4lut")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stairs/Change_lvl_Girl"]
+modulate = Color(0.32683, 0.000330177, 0.986005, 1)
+position = Vector2(-12, -35)
+scale = Vector2(26, 30)
+texture = SubResource("PlaceholderTexture2D_1cq6s")
+
+[node name="StairsBarrier_Girl" type="StaticBody2D" parent="Stairs"]
+position = Vector2(-386, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stairs/StairsBarrier_Girl"]
+position = Vector2(-64, -48)
+shape = SubResource("RectangleShape2D_w30l7")
+
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node2D"]
@@ -832,3 +855,4 @@ volume_db = -5.0
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Node2D"]
 
 [connection signal="body_entered" from="Stairs/Change_lvl" to="Stairs/Change_lvl" method="_on_body_entered"]
+[connection signal="body_entered" from="Stairs/Change_lvl_Girl" to="Stairs/Change_lvl_Girl" method="_on_body_entered"]

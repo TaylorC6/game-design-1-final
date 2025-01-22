@@ -18,7 +18,10 @@ var e = ""
 var glow_shader = preload("res://Shaders/Glow.tres")
 var message_box_visible = false
 var message = ""
-var strings = ["Grab your gear to prepare for the challenges ahead!", "lives here!"]
+var strings = ["Grab your gear to prepare for the challenges ahead!", "lives here!", \
+"The Veggie Queen will one day wake from her slumber and this sapling will rise as a glorious monument!", \
+"The Fruit King will one day wake from his slumber and this sapling will rise as a glorious monument!",    \
+"The Cave of Infestation" ]
 @export var area = ""
 enum  STATES { IDLE=0, DEAD, DAMAGED, ATTACKING, CHARGING }
 var data = {
