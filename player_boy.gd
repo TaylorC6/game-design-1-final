@@ -33,8 +33,11 @@ var testvar = ""
 @onready var player_boy: CharacterBody2D = $"."
 @onready var gear_shelf: TileMapLayer = $"../Interactables/GearShelf"
 @onready var sign1: TileMapLayer = $"../../Interactables/sign1"
+var e1 = false
 @onready var sign5: TileMapLayer = $"../../Interactables/sign5"
+var e5 = false
 @onready var sign6: TileMapLayer = $"../../Interactables/sign6"
+var e6 = false
 var ps1 = false
 @onready var fridge: TileMapLayer = $"../Interactables/Fridge"
 
@@ -203,6 +206,17 @@ func in_range(player) -> bool:
 func _physics_process(delta: float) -> void:
 	#print(data.state)
 	if current != true:
+		for entity in get_tree().get_nodes_in_group("Interactables"):
+			test = str(entity)
+			if entity == sign1 && e1:
+				Fpjglobal.message_box_visible = false
+				e1 = false
+			if entity == sign5 && e5:
+				Fpjglobal.message_box_visible = false
+				e5 = false
+			if entity == sign6 && e6:
+				Fpjglobal.message_box_visible = false
+				e6 = false
 		if (Fpjglobal.current == Fpjglobal.player_names.get("Boy")) :
 			current = true
 			Fpjglobal.switchop(self.get_child(2))
@@ -262,13 +276,15 @@ func _physics_process(delta: float) -> void:
 						if entity == sign1:
 							Fpjglobal.message_box_visible = true
 							Fpjglobal.message = Fpjglobal.player_names["Boy"] + " " + Fpjglobal.strings[1]
-							ps1 = true
-						if entity == sign5:
+							e1 = true
+						elif entity == sign5:
 							Fpjglobal.message_box_visible = true
-							Fpjglobal.message += Fpjglobal.player_names["Girl"] + " " + Fpjglobal.strings[1]
-						if entity == sign6:
+							Fpjglobal.message = Fpjglobal.strings[3]
+							e5 = true
+						elif entity == sign6:
 							Fpjglobal.message_box_visible = true
-							Fpjglobal.message += Fpjglobal.player_names["Girl"] + " " + Fpjglobal.strings[1]
+							Fpjglobal.message = Fpjglobal.strings[4]
+							e6 = true
 						if entity == fridge and noweapons == false:
 							noweapons = false
 							nogear = false
@@ -282,24 +298,25 @@ func _physics_process(delta: float) -> void:
 								#$"../../Door/Change_lvl".position.y -= 4
 								#dooroff = false
 		for entity in get_tree().get_nodes_in_group("Interactables"):
-			if entity == sign1:
+			test = str(entity)
+			if entity == sign1 && e1:
 				if player_boy.in_range(self):
 					pass
 				else:
 					Fpjglobal.message_box_visible = false
-					
-					ps1 = false
-			if entity == sign5:
+					e1 = false
+			if entity == sign5 && e5:
 				if player_boy.in_range(self):
 					pass
 				else:
 					Fpjglobal.message_box_visible = false
-			if entity == sign6:
+					e5 = false
+			if entity == sign6 && e6:
 				if player_boy.in_range(self):
 					pass
 				else:
 					Fpjglobal.message_box_visible = false
-					
+					e6 = false
 
 
 		if Input.is_action_just_pressed("ui_interact") && data.state != STATES.DEAD:

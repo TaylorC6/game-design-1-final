@@ -487,7 +487,7 @@ sources/0 = SubResource("TileSetAtlasSource_jyujq")
 sources/2 = SubResource("TileSetAtlasSource_q8nlg")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tq7gm"]
-radius = 14.0
+radius = 15.6525
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_201sw"]
 radius = 14.0
