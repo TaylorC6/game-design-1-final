@@ -207,6 +207,10 @@ func _physics_process(delta: float) -> void:
 			current = true
 			Fpjglobal.switchop(self.get_child(2))
 	else:
+		if Fpjglobal.shelf1 == true and Fpjglobal.shelf2 == true:
+			Fpjglobal.stairsOpen = true
+		if Fpjglobal.fridge1 == true and Fpjglobal.fridge2 == true:
+			Fpjglobal.doorOpen = true
 		animation_lock -= delta
 		damage_lock = clamp(damage_lock - delta, 0, 100)
 		Fpjglobal.player_position = self.global_position
@@ -249,11 +253,12 @@ func _physics_process(delta: float) -> void:
 
 		if Input.is_action_just_pressed("ui_interact") && data.state != STATES.DEAD:
 			for entity in get_tree().get_nodes_in_group("Interactables"):
+					test = str(entity)
 					if player_boy.in_range(self):
 						if entity == gear_shelf:
 							noweapons = false
 							Fpjglobal.nowep()
-							Fpjglobal.stairsOpen = true
+							Fpjglobal.shelf1 = true
 						if entity == sign1:
 							Fpjglobal.message_box_visible = true
 							Fpjglobal.message = Fpjglobal.player_names["Boy"] + " " + Fpjglobal.strings[1]
@@ -269,13 +274,13 @@ func _physics_process(delta: float) -> void:
 							nogear = false
 							Fpjglobal.noger()
 							Fpjglobal.nowep()
-							Fpjglobal.doorOpen = true
+							Fpjglobal.fridge1 = true
 							#print(nogear)
 							#print(noweapons)
 							#print(testvar)
-							if dooroff == true:
-								$"../../Door/Change_lvl".position.y -= 4
-								dooroff = false
+							#if dooroff == true:
+								#$"../../Door/Change_lvl".position.y -= 4
+								#dooroff = false
 		for entity in get_tree().get_nodes_in_group("Interactables"):
 			if entity == sign1:
 				if player_boy.in_range(self):

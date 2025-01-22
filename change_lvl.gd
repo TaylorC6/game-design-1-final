@@ -35,7 +35,6 @@ func _on_body_entered(body: Node2D) -> void:
 			get_tree().change_scene_to_file(level)
 			Fpjglobal.set_cords(coorx, coory)
 			Fpjglobal.set_player(plar)
-			print("hi")
 			#playe.global_position = playe.global_position + Vector2(coorx, coory)
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://dspt1gud8vr4"]
+[gd_scene load_steps=21 format=4 uid="uid://dspt1gud8vr4"]
 
 [ext_resource type="Script" path="res://levels/level_1_1_2.gd" id="1_ha25j"]
 [ext_resource type="Texture2D" uid="uid://nmbild6cyklj" path="res://sprites/Overworld.png" id="1_thg7b"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bln8texdoab4d" path="res://Players/player_boy.tscn" id="3_116w2"]
 [ext_resource type="Texture2D" uid="uid://c0t6xtf1x5wrs" path="res://sprites/New Piskel (2).png" id="4_sfa52"]
 [ext_resource type="Script" path="res://change_lvl.gd" id="6_4t661"]
+[ext_resource type="PackedScene" uid="uid://bonutmhnr5c87" path="res://Players/player_girl.tscn" id="7_s3iiy"]
 [ext_resource type="AudioStream" uid="uid://d2i1u3jwyylgo" path="res://Sounds/Suspense_3.mp3" id="8_rnceb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ghhvy"]
@@ -2249,6 +2250,9 @@ shape = SubResource("CircleShape2D_oqdxe")
 [node name="Player_Boy" parent="y-sort" instance=ExtResource("3_116w2")]
 position = Vector2(77, -11)
 
+[node name="Player_Girl" parent="y-sort" instance=ExtResource("7_s3iiy")]
+position = Vector2(-588, -11)
+
 [node name="Stairs" type="Node" parent="."]
 
 [node name="Change_lvl" type="Area2D" parent="Stairs"]
@@ -2286,11 +2290,11 @@ position = Vector2(29.9999, -9.00019)
 scale = Vector2(26, 30)
 texture = SubResource("PlaceholderTexture2D_vmxs1")
 
-[node name="StairsBarrier" type="StaticBody2D" parent="Door"]
-position = Vector2(0, 30)
+[node name="DoorBarrier" type="StaticBody2D" parent="Door"]
+position = Vector2(0, 27)
 rotation = -1.57079
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/StairsBarrier"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/DoorBarrier"]
 position = Vector2(-64, -48)
 shape = SubResource("RectangleShape2D_w8hx3")
 
@@ -2310,11 +2314,11 @@ position = Vector2(29.9999, -9.00019)
 scale = Vector2(26, 30)
 texture = SubResource("PlaceholderTexture2D_vmxs1")
 
-[node name="StairsBarrier2" type="StaticBody2D" parent="Door"]
-position = Vector2(-417, 30)
+[node name="DoorBarrier2" type="StaticBody2D" parent="Door"]
+position = Vector2(-417, 27)
 rotation = -1.57079
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/StairsBarrier2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/DoorBarrier2"]
 position = Vector2(-64, -48)
 shape = SubResource("RectangleShape2D_w8hx3")
 
@@ -2322,6 +2326,7 @@ shape = SubResource("RectangleShape2D_w8hx3")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node2D"]
 stream = ExtResource("8_rnceb")
+volume_db = -40.05
 
 [connection signal="body_entered" from="Stairs/Change_lvl" to="Stairs/Change_lvl" method="_on_body_entered"]
 [connection signal="body_entered" from="Door/Change_lvl" to="Door/Change_lvl" method="_on_body_entered"]

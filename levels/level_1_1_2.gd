@@ -12,6 +12,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Fpjglobal.doorOpen == true:
-		$Door/StairsBarrier/CollisionShape2D.disabled = true
+	if Fpjglobal.doorOpen == true or Fpjglobal.GirldoorOpen == true:
+		$Door/DoorBarrier/CollisionShape2D.disabled = true
+		$Door/DoorBarrier2/CollisionShape2D.disabled = true
 	pass

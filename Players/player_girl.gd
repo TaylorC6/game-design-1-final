@@ -30,11 +30,11 @@ var pine_scene = preload("res://pineapple.tscn")
 var ba_scene = preload("res://banana.tscn")
 var test = "test1"
 @onready var player_girl: CharacterBody2D = $"."
-@onready var gear_shelf: TileMapLayer = $"../Interactables/GearShelf"
+@onready var gear_shelf: TileMapLayer = $"../Interactables/GearShelf_Girl"
 @onready var sign2: TileMapLayer = $"../../Interactables/sign2"
 @onready var sign3: TileMapLayer = $"../../Interactables/sign3"
 @onready var sign4: TileMapLayer = $"../../Interactables/sign4"
-@onready var fridge: TileMapLayer = $"../Interactables/Fridge"
+@onready var fridge: TileMapLayer = $"../Interactables/Fridge_Girl"
 
 
 #@onready var glow_range: Area2D = $"../Interactables/GearShelf/Area2D"
@@ -193,7 +193,10 @@ func _physics_process(delta: float) -> void:
 			current = true
 			Fpjglobal.switchop(self.get_child(2))
 	else:
-		#print("hi")
+		if Fpjglobal.shelf1 == true and Fpjglobal.shelf2 == true:
+			Fpjglobal.GirlstairsOpen = true
+		if Fpjglobal.fridge1 == true and Fpjglobal.fridge2 == true:
+			Fpjglobal.GirldoorOpen = true
 		Fpjglobal.player_position = self.global_position
 		Fpjglobal.player_direction = attack_direction
 		#Fpjglobal.player = self
@@ -232,7 +235,8 @@ func _physics_process(delta: float) -> void:
 					if player_girl.in_range(self):
 						if entity == gear_shelf:
 							noweapons = false
-							Fpjglobal.stairsOpen = true
+							Fpjglobal.shelf2 = true
+
 						if entity == sign2:
 							Fpjglobal.message_box_visible = true
 							Fpjglobal.message += Fpjglobal.player_names["Girl"] + " " + Fpjglobal.strings[1]
@@ -244,11 +248,8 @@ func _physics_process(delta: float) -> void:
 							Fpjglobal.message_box_visible = true
 							Fpjglobal.message += Fpjglobal.player_names["Girl"] + " " + Fpjglobal.strings[1]
 						if entity == fridge:
-							nogear = false
-							noweapons = false
-							if dooroff == true:
-								$"../../Door/Change_lvl_Door".position.y -= 4
-								dooroff = false
+							weaponSheethed = true
+							Fpjglobal.fridge2 = true
 		for entity in get_tree().get_nodes_in_group("Interactables"):
 			if entity == sign2:
 				if player_girl.in_range(self):
@@ -267,12 +268,11 @@ func _physics_process(delta: float) -> void:
 					Fpjglobal.message_box_visible = false
 					
 
-
-		if Input.is_action_just_pressed("ui_interact"):
-			for entity in get_tree().get_nodes_in_group("Interactables"):
-				if player_girl.in_range(self):
-					noweapons = false
-					Fpjglobal.stairsOpen = true
+		#if Input.is_action_just_pressed("ui_interact"):
+			#for entity in get_tree().get_nodes_in_group("Interactables"):
+				#if player_girl.in_range(self):
+					#noweapons = false
+					#Fpjglobal.GirlstairsOpen = true
 
 
 		if animation_lock == 0.0 and data.state != STATES.DEAD:
@@ -362,12 +362,13 @@ func update_animation(direction):
 		elif weaponOut == true:
 			a_name += "_weapon_out"
 		elif weaponSheethed == true:
-			a_name += "weaponSheethed"
+			a_name += "_weapon_sheethed"
 		else:
 			a_name += "_no_gear"
 
 		$AnimatedSprite2D.animation = a_name
 		$AnimatedSprite2D.play()
+
 		#print(data.state)
 		#print(a_name)
 		#print(look_direction)

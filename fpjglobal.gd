@@ -11,6 +11,8 @@ var current = player_names.get("Boy")
 var glow = false
 var stairsOpen = false
 var doorOpen = false
+var GirlstairsOpen = false
+var GirldoorOpen = false
 var nogear = true
 var noweapons = true
 var firstframe = 1
@@ -36,6 +38,15 @@ var ppp = {
 	"pp1" = false,
 	"pp2" = false
 }
+
+var shelf1 = false
+var shelf2 = false
+var fridge1 = false
+var fridge2 = false
+
+
+
+
 ##get_tree().get_current_scene().get_node("y-sort").get_node("Player_Boy").get("entity").set_visible(true)
 
 # Called when the node enters the scene tree for the first time.
