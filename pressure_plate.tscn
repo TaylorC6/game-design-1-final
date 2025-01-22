@@ -1,21 +1,50 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2xdjxhvlwhy3"]
+[gd_scene load_steps=7 format=3 uid="uid://c2xdjxhvlwhy3"]
 
 [ext_resource type="Script" path="res://pressure_plate.gd" id="1_v1l12"]
+[ext_resource type="Texture2D" uid="uid://dej8v2n0m3ijq" path="res://sprites/match3_sheet.png" id="2_0p0bf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00ykg"]
+atlas = ExtResource("2_0p0bf")
+region = Rect2(208, 36, 33, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htmmr"]
+atlas = ExtResource("2_0p0bf")
+region = Rect2(208, 69, 33, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gpqne"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00ykg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htmmr")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1iaoj"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2eogt"]
+size = Vector2(8.66667, 10.6667)
 
 [node name="pressure_plate" type="Node2D"]
+scale = Vector2(0.375, 0.375)
 script = ExtResource("1_v1l12")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.21212, 1.21212)
+sprite_frames = SubResource("SpriteFrames_gpqne")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_1iaoj")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(20, 20)
-texture = SubResource("PlaceholderTexture2D_2eogt")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

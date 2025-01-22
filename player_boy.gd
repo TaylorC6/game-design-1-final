@@ -182,9 +182,9 @@ func take_damage(dmg):
 			data.state = STATES.DEAD
 			#aud_player.stream = death_sound
 			#aud_player.play()
-			for i in range(15000):
-					var angle = PI/4
-					self.rotate(angle)
+			for i in range(18):
+					var angle =  5
+					self.rotate(deg_to_rad(angle))
 					await get_tree().create_timer(0.01).timeout
 			await get_tree().create_timer(0.5).timeout
 			health_depleted.emit()
@@ -205,10 +205,11 @@ func _physics_process(delta: float) -> void:
 			Fpjglobal.switchop(self.get_child(2))
 	else:
 		animation_lock -= delta
+		damage_lock = clamp(damage_lock - delta, 0, 100)
 		Fpjglobal.player_position = self.global_position
 		if (look_direction != Fpjglobal.player_direction):
 			Fpjglobal.player_direction = look_direction
-		if animation_lock <= 0.0:
+		if animation_lock <= 0.0  && data.state != STATES.DEAD :
 			data.state = STATES.IDLE
 		#Fpjglobal.player = self
 		for t in get_tree().get_nodes_in_group("Glows"):
@@ -216,7 +217,7 @@ func _physics_process(delta: float) -> void:
 
 			#print(test)
 
-			if player_boy.in_range(self):
+			if player_boy.in_range(self) && data.state != STATES.DEAD:
 				t.material = Fpjglobal.glow_shader.duplicate()
 				#t.material.set_shader_parameter("intensity", 0.5)
 				#t.material.set_shader_parameter()
@@ -243,7 +244,7 @@ func _physics_process(delta: float) -> void:
 					
 
 
-		if Input.is_action_just_pressed("ui_interact"):
+		if Input.is_action_just_pressed("ui_interact") && data.state != STATES.DEAD:
 			for entity in get_tree().get_nodes_in_group("Interactables"):
 					if player_boy.in_range(self):
 						if entity == gear_shelf:
@@ -270,7 +271,7 @@ func _physics_process(delta: float) -> void:
 								dooroff = false
 
 
-		if Input.is_action_just_pressed("ui_interact"):
+		if Input.is_action_just_pressed("ui_interact") && data.state != STATES.DEAD:
 			for entity in get_tree().get_nodes_in_group("Interactables"):
 					if player_boy.in_range(self):
 						noweapons = false

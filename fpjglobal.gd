@@ -28,6 +28,11 @@ var data = {
 	"state": STATES.IDLE,
 	"secondaries": [],
 	}
+
+var ppp = {
+	"pp1" = false,
+	"pp2" = false
+}
 ##get_tree().get_current_scene().get_node("y-sort").get_node("Player_Boy").get("entity").set_visible(true)
 
 # Called when the node enters the scene tree for the first time.
@@ -54,11 +59,11 @@ func switch():
 
 
 func switchop(dif):
-	camera.set_enabled(false)
-	dif.set_enabled(true)
 	#camera.set_enabled(false)
+	dif.set_enabled(true)
+	if camera != null:
+		camera.set_enabled(false)
 	camera = dif
-	
 	#camera = dif
 
 func set_cords(coorx, coory):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://c66hbhi128sjl"]
+[gd_scene load_steps=24 format=4 uid="uid://c66hbhi128sjl"]
 
 [ext_resource type="Texture2D" uid="uid://cv78xn0rkae3s" path="res://sprites/Whitening.png" id="1_6776e"]
 [ext_resource type="Script" path="res://levels/level_1_tutorial_2.gd" id="1_mmsga"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://bonutmhnr5c87" path="res://Players/player_girl.tscn" id="6_nk2s8"]
 [ext_resource type="PackedScene" uid="uid://f1mm2ildtc4b" path="res://td_enemy.tscn" id="7_rbp0e"]
 [ext_resource type="Script" path="res://change_lvl.gd" id="8_wry7l"]
+[ext_resource type="PackedScene" uid="uid://b1dqqnlsh1irm" path="res://moving_slime.tscn" id="10_mlcfs"]
+[ext_resource type="PackedScene" uid="uid://c2xdjxhvlwhy3" path="res://pressure_plate.tscn" id="10_qm8ja"]
+[ext_resource type="PackedScene" uid="uid://nl5ub2uk0xgp" path="res://bat.tscn" id="11_atxi4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8w5s"]
 texture = ExtResource("1_6776e")
@@ -524,8 +527,24 @@ tile_set = SubResource("TileSet_x5gua")
 [node name="y-sort" type="Node2D" parent="."]
 y_sort_enabled = true
 
+[node name="MovingSlime" parent="y-sort" groups=["Enemy"] instance=ExtResource("10_mlcfs")]
+position = Vector2(64, 67)
+health = 300
+
+[node name="td_enemy" parent="y-sort" instance=ExtResource("7_rbp0e")]
+position = Vector2(-304, -109)
+
+[node name="td_enemy2" parent="y-sort" instance=ExtResource("7_rbp0e")]
+position = Vector2(305, -108)
+
+[node name="Bat" parent="y-sort" groups=["Enemy"] instance=ExtResource("11_atxi4")]
+position = Vector2(211, 18)
+
 [node name="Interactables" type="Node2D" parent="y-sort"]
 y_sort_enabled = true
+
+[node name="pressure_plate" parent="y-sort/Interactables" instance=ExtResource("10_qm8ja")]
+position = Vector2(463, 39)
 
 [node name="sign1" type="TileMapLayer" parent="y-sort/Interactables" groups=["Glows", "Interactables"]]
 y_sort_enabled = true
@@ -577,17 +596,11 @@ tile_set = SubResource("TileSet_j3eyy")
 [node name="Player_Girl" parent="y-sort/Girl" instance=ExtResource("6_nk2s8")]
 position = Vector2(65, -40)
 
-[node name="td_enemy" parent="y-sort/Girl" instance=ExtResource("7_rbp0e")]
-position = Vector2(272, -109)
-
-[node name="td_enemy2" parent="y-sort/Girl" instance=ExtResource("7_rbp0e")]
-position = Vector2(881, -108)
-
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node2D"]
 stream = ExtResource("6_d1b00")
-volume_db = -30.499
+volume_db = -32.793
 
 [node name="Change_lvl" type="Area2D" parent="Node2D"]
 position = Vector2(512, -92)
