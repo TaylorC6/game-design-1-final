@@ -254,7 +254,7 @@ func _physics_process(delta: float) -> void:
 						if entity == sign1:
 							Fpjglobal.message_box_visible = true
 							Fpjglobal.message += Fpjglobal.player_names["Boy"] + " " + Fpjglobal.strings[1]
-							#print("hi")
+							print("hi")
 						else:
 							Fpjglobal.message_box_visible = false
 						if entity == fridge and noweapons == false:
