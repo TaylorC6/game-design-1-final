@@ -1701,12 +1701,12 @@ position = Vector2(247, 257)
 [node name="fpj_hud" parent="y-sort/Player_Boy" index="3"]
 visible = false
 
+[node name="Boss" parent="y-sort" instance=ExtResource("9_o10m7")]
+position = Vector2(-1, 49)
+
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node2D"]
 stream = ExtResource("10_kwdab")
-
-[node name="Boss" parent="." instance=ExtResource("9_o10m7")]
-position = Vector2(-1, 49)
 
 [editable path="y-sort/Player_Boy"]

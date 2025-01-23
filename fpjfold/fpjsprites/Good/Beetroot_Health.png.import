@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xwd4g4qcncx1"
-valid=false
+uid="uid://dqyoftwg6gd06"
+path="res://.godot/imported/Beetroot_Health.png-dc362d48041896c3199d6a8cb52e970a.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://sprites/Slimes/Slime/Death/._Slime1_Death_shadow.png"
+source_file="res://fpjfold/fpjsprites/Good/Beetroot_Health.png"
+dest_files=["res://.godot/imported/Beetroot_Health.png-dc362d48041896c3199d6a8cb52e970a.ctex"]
 
 [params]
 
