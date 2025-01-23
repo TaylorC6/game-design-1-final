@@ -656,7 +656,7 @@ position = Vector2(512, -71)
 [node name="AnimatedSprite2D" parent="y-sort/Boy/Player_Boy" index="0"]
 animation = &"idle_left"
 
-[node name="Camera2D" parent="y-sort/Boy/Player_Boy" index="2"]
+[node name="Camera2D" parent="y-sort/Boy/Player_Boy" index="3"]
 position_smoothing_speed = 10.0
 
 [node name="Girl" type="Node2D" parent="y-sort"]

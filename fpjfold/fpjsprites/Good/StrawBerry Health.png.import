@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bslvt7ekcc1iv"
-valid=false
+uid="uid://0fqom031eraf"
+path="res://.godot/imported/StrawBerry Health.png-719a5b8e819cf9d62d7710689789b19d.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
-source_file="res://sprites/Slimes/Slime/Run/._Slime1_Run_body.png"
+source_file="res://fpjfold/fpjsprites/Good/StrawBerry Health.png"
+dest_files=["res://.godot/imported/StrawBerry Health.png-719a5b8e819cf9d62d7710689789b19d.ctex"]
 
 [params]
 

@@ -1,9 +1,108 @@
-[gd_scene load_steps=9 format=3 uid="uid://1mobpdtgslyq"]
+[gd_scene load_steps=18 format=3 uid="uid://1mobpdtgslyq"]
 
 [ext_resource type="Script" path="res://fpjfold/fpj_hud.gd" id="1_s62ag"]
 [ext_resource type="PackedScene" uid="uid://cmqb6g14hdare" path="res://MessageBox.tscn" id="2_8ds4r"]
-[ext_resource type="Texture2D" uid="uid://cicbfdjfjptp7" path="res://sprites/fpjfold/fpjsprites/misc/hud-pieces.png" id="2_lf5gu"]
+[ext_resource type="Texture2D" uid="uid://0fqom031eraf" path="res://fpjfold/fpjsprites/Good/StrawBerry Health.png" id="3_apot2"]
 [ext_resource type="Texture2D" uid="uid://ws6hh4bqm57o" path="res://sprites/PinappleSprites.png" id="3_f7ha2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmeek"]
+atlas = ExtResource("3_apot2")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8874"]
+atlas = ExtResource("3_apot2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbg6i"]
+atlas = ExtResource("3_apot2")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7c7ak"]
+atlas = ExtResource("3_apot2")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfioa"]
+atlas = ExtResource("3_apot2")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6c2o2"]
+atlas = ExtResource("3_apot2")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2k58"]
+atlas = ExtResource("3_apot2")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2ut4"]
+atlas = ExtResource("3_apot2")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_157ey"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmeek")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8874")
+}],
+"loop": true,
+"name": &"full",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbg6i")
+}],
+"loop": true,
+"name": &"hit1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7c7ak")
+}],
+"loop": true,
+"name": &"hit2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfioa")
+}],
+"loop": true,
+"name": &"hit3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6c2o2")
+}],
+"loop": true,
+"name": &"hit4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i2k58")
+}],
+"loop": true,
+"name": &"hit5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2ut4")
+}],
+"loop": true,
+"name": &"hit6",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yaulj"]
 
@@ -42,113 +141,11 @@ offset_top = 4.0
 offset_right = 241.0
 offset_bottom = 47.0
 
-[node name="Sprite2D" type="Sprite2D" parent="Health"]
-position = Vector2(27, 10)
-scale = Vector2(1.25, 1)
-texture = ExtResource("2_lf5gu")
-offset = Vector2(0, 5)
-hframes = 19
-vframes = 8
-frame = 51
-
-[node name="Sprite2D11" type="Sprite2D" parent="Health"]
-position = Vector2(17, 10)
-scale = Vector2(1.25, 1)
-texture = ExtResource("2_lf5gu")
-offset = Vector2(0, 5)
-hframes = 19
-vframes = 8
-frame = 50
-
-[node name="Sprite2D2" type="Sprite2D" parent="Health"]
-position = Vector2(37, 10)
-scale = Vector2(1.25, 1)
-texture = ExtResource("2_lf5gu")
-offset = Vector2(0, 5)
-hframes = 19
-vframes = 8
-frame = 51
-
-[node name="Sprite2D3" type="Sprite2D" parent="Health"]
-position = Vector2(47, 10)
-scale = Vector2(1.25, 1)
-texture = ExtResource("2_lf5gu")
-offset = Vector2(0, 5)
-hframes = 19
-vframes = 8
-frame = 51
-
-[node name="Sprite2D4" type="Sprite2D" parent="Health"]
-position = Vector2(57, 10)
-scale = Vector2(1.25, 1)
-texture = ExtResource("2_lf5gu")
-offset = Vector2(0, 5)
-hframes = 19
-vframes = 8
-frame = 51
-
-[node name="Sprite2D5" type="Sprite2D" parent="Health"]
-position = Vector2(67, 10)
-scale = Vector2(1.25, 1)
-texture = ExtResource("2_lf5gu")
-offset = Vector2(0, 5)
-hframes = 19
-vframes = 8
-frame = 51
-
-[node name="Sprite2D6" type="Sprite2D" parent="Health"]
-position = Vector2(77, 10)
-scale = Vector2(1.25, 1)
-texture = ExtResource("2_lf5gu")
-offset = Vector2(0, 5)
-hframes = 19
-vframes = 8
-frame = 51
-
-[node name="Sprite2D7" type="Sprite2D" parent="Health"]
-position = Vector2(87, 10)
-scale = Vector2(1.25, 1)
-texture = ExtResource("2_lf5gu")
-offset = Vector2(0, 5)
-hframes = 19
-vframes = 8
-frame = 51
-
-[node name="Sprite2D8" type="Sprite2D" parent="Health"]
-position = Vector2(97, 10)
-scale = Vector2(1.25, 1)
-texture = ExtResource("2_lf5gu")
-offset = Vector2(0, 5)
-hframes = 19
-vframes = 8
-frame = 51
-
-[node name="Sprite2D9" type="Sprite2D" parent="Health"]
-position = Vector2(107, 10)
-scale = Vector2(1.25, 1)
-texture = ExtResource("2_lf5gu")
-offset = Vector2(0, 5)
-hframes = 19
-vframes = 8
-frame = 51
-
-[node name="Sprite2D10" type="Sprite2D" parent="Health"]
-position = Vector2(117, 10)
-scale = Vector2(1.25, 1)
-texture = ExtResource("2_lf5gu")
-offset = Vector2(0, 5)
-hframes = 19
-vframes = 8
-frame = 51
-
-[node name="Sprite2D12" type="Sprite2D" parent="Health"]
-position = Vector2(127, 10)
-scale = Vector2(1.25, 1)
-texture = ExtResource("2_lf5gu")
-offset = Vector2(0, 5)
-hframes = 19
-vframes = 8
-frame = 52
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Health"]
+position = Vector2(47, 41)
+scale = Vector2(2.35938, 2.35938)
+sprite_frames = SubResource("SpriteFrames_157ey")
+animation = &"full"
 
 [node name="SP" type="Control" parent="."]
 layout_mode = 3
@@ -156,114 +153,6 @@ anchors_preset = 0
 offset_top = 19.0
 offset_right = 233.0
 offset_bottom = 59.0
-
-[node name="Sprite2D11" type="Sprite2D" parent="SP"]
-position = Vector2(34, 13)
-scale = Vector2(1.25, 1)
-texture = ExtResource("2_lf5gu")
-offset = Vector2(0, 5)
-hframes = 19
-vframes = 7
-frame = 89
-
-[node name="Sprite2D21" type="Sprite2D" parent="SP"]
-position = Vector2(24, 13)
-scale = Vector2(1.25, 1)
-texture = ExtResource("2_lf5gu")
-offset = Vector2(0, 5)
-hframes = 19
-vframes = 7
-frame = 88
-
-[node name="Sprite2D12" type="Sprite2D" parent="SP"]
-position = Vector2(44, 13)
-scale = Vector2(1.25, 1)
-texture = ExtResource("2_lf5gu")
-offset = Vector2(0, 5)
-hframes = 19
-vframes = 7
-frame = 89
-
-[node name="Sprite2D13" type="Sprite2D" parent="SP"]
-position = Vector2(54, 13)
-scale = Vector2(1.25, 1)
-texture = ExtResource("2_lf5gu")
-offset = Vector2(0, 5)
-hframes = 19
-vframes = 7
-frame = 89
-
-[node name="Sprite2D14" type="Sprite2D" parent="SP"]
-position = Vector2(64, 13)
-scale = Vector2(1.25, 1)
-texture = ExtResource("2_lf5gu")
-offset = Vector2(0, 5)
-hframes = 19
-vframes = 7
-frame = 89
-
-[node name="Sprite2D15" type="Sprite2D" parent="SP"]
-position = Vector2(74, 13)
-scale = Vector2(1.25, 1)
-texture = ExtResource("2_lf5gu")
-offset = Vector2(0, 5)
-hframes = 19
-vframes = 7
-frame = 89
-
-[node name="Sprite2D16" type="Sprite2D" parent="SP"]
-position = Vector2(84, 13)
-scale = Vector2(1.25, 1)
-texture = ExtResource("2_lf5gu")
-offset = Vector2(0, 5)
-hframes = 19
-vframes = 7
-frame = 89
-
-[node name="Sprite2D17" type="Sprite2D" parent="SP"]
-position = Vector2(94, 13)
-scale = Vector2(1.25, 1)
-texture = ExtResource("2_lf5gu")
-offset = Vector2(0, 5)
-hframes = 19
-vframes = 7
-frame = 89
-
-[node name="Sprite2D18" type="Sprite2D" parent="SP"]
-position = Vector2(104, 13)
-scale = Vector2(1.25, 1)
-texture = ExtResource("2_lf5gu")
-offset = Vector2(0, 5)
-hframes = 19
-vframes = 7
-frame = 89
-
-[node name="Sprite2D19" type="Sprite2D" parent="SP"]
-position = Vector2(114, 13)
-scale = Vector2(1.25, 1)
-texture = ExtResource("2_lf5gu")
-offset = Vector2(0, 5)
-hframes = 19
-vframes = 7
-frame = 89
-
-[node name="Sprite2D20" type="Sprite2D" parent="SP"]
-position = Vector2(124, 13)
-scale = Vector2(1.25, 1)
-texture = ExtResource("2_lf5gu")
-offset = Vector2(0, 5)
-hframes = 19
-vframes = 7
-frame = 89
-
-[node name="Sprite2D22" type="Sprite2D" parent="SP"]
-position = Vector2(134, 13)
-scale = Vector2(1.25, 1)
-texture = ExtResource("2_lf5gu")
-offset = Vector2(0, 5)
-hframes = 19
-vframes = 7
-frame = 90
 
 [node name="Money" type="Control" parent="."]
 layout_mode = 3
