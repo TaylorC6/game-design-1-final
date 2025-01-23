@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c2r5e7p5t8jfe"]
+[gd_scene load_steps=26 format=3 uid="uid://c2r5e7p5t8jfe"]
 
 [ext_resource type="Script" path="res://tenticle.gd" id="1_838fv"]
 [ext_resource type="Texture2D" uid="uid://d26yrp6h1j3x7" path="res://fpjfold/fpjsprites/Good/tentacles-25x90.png" id="2_kk2gb"]
@@ -166,8 +166,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_oot5s"]
-
 [node name="tenticle" type="Area2D"]
 script = ExtResource("1_838fv")
 
@@ -180,8 +178,3 @@ position = Vector2(0.5, -15)
 sprite_frames = SubResource("SpriteFrames_toy2a")
 frame = 15
 frame_progress = 1.0
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-0.999992, -0.999985)
-scale = Vector2(181, 210)
-texture = SubResource("PlaceholderTexture2D_oot5s")

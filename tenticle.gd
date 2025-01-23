@@ -16,12 +16,12 @@ func _process(delta: float) -> void:
 		first = false
 		$AnimatedSprite2D.play("default")
 	else:
-		for player in get_tree().get_nodes_in_group("Enemy"):
+		for player in get_tree().get_nodes_in_group("Player"):
 			if self.overlaps_body(player):
-				#$CollisionShape2D.disabled = true
+				$CollisionShape2D.disabled = true
 				#self.position = Vector2(move_toward(self.position.x, start.x + (50 * player_direction.x), velocity), move_toward(self.position.y, start.y + (30 * player_direction.y), velocity))
 				#$AnimatedSprite2D.play("Pinapple_Explosion")
-				player.take_damage(damage, self)
+				player.take_damage(damage)
 				var dist = (player.global_position-self.global_position)
 				player.inertia = dist.normalized() * knockback
 		if $AnimatedSprite2D.frame_progress == 1:

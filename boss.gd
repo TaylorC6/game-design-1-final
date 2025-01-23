@@ -59,7 +59,9 @@ signal recovered
 @onready var anim_player = $AnimatedSprite2D
 @onready var audio_player = $AudioStreamPlayer2D
 @onready var tenticle = preload("res://tenticle.tscn")
-
+var tentime = 5.0
+@onready var magic_ball = preload("res://magic_ball.tscn")
+var magictime = 20.0
 var drops = ["drop_coin", "drop_heart"]
 #var coin_sc = preload("res://entities/items/coin.tscn")
 #var heart_sc = preload("res://entities/items/mini_heart.tscn")
@@ -106,6 +108,33 @@ func turn_toward_player(location: Vector2):
 			min_angle = angle_dif
 			close_state = STATES.values()[i]
 	AI_STATE = close_state
+
+
+func magic_attack():
+	for g in range(8):
+		for i in range(8):
+			var ball = magic_ball.instantiate()
+			#if i == 0:
+				#ball.dir = Vector2(cos(0 + (g%2 * 22.5)), sin(0 + (g%2 * 22.5)))
+			#elif i == 1:
+				#ball.dir = Vector2(cos(45 + (g%2 * 22.5)), sin(45 + (g%2 * 22.5)))
+			#elif i == 2:
+				#ball.dir = Vector2(cos(90 + (g%2 * 22.5)), sin(90 + (g%2 * 22.5)))
+			#elif i == 3:
+				#ball.dir = Vector2(cos(135 + (g%2 * 22.5)), sin(1355 + (g%2 * 22.5)))
+			#elif i == 4:
+				#ball.dir = Vector2(cos(180 + (g%2 * 22.5)), sin(180 + (g%2 * 22.5)))
+			#elif i == 5:
+				#ball.dir = Vector2(cos(225 + (g%2 * 22.5)), sin(225 + (g%2 * 22.5)))
+			#elif i == 6:
+				#ball.dir = Vector2(cos(270 + (g%2 * 22.5)), sin(270 + (g%2 * 22.5)))
+			#elif i == 7:
+				#ball.dir = Vector2(cos(315 + (g%2 * 22.5)), sin(315 + (g%2 * 22.5)))
+			ball.dir = Vector2(cos(deg_to_rad((i * 45) + (g%2 * 22.5))), sin(deg_to_rad((i * 45) + (g%2 * 22.5))))
+			add_child(ball)
+			#ball.global_position = Vector2((100 * ball.dir.x), (100 * ball.dir.y))
+			#add_child(ball)
+		await get_tree().create_timer(2).timeout
 
 
 func take_damage(dmg, attacker = null):
@@ -157,13 +186,13 @@ func _physics_process(delta: float) -> void:
 			recovered.emit()
 		for player in get_tree().get_nodes_in_group("Player"):
 			if player != null:
-				if (Fpjglobal.camera == player.get_child(2)):
+				if (Fpjglobal.camera == player.get_child(2) && tentime <= 0.0):
 					
 					var pos = player.global_position
 					var tent = tenticle.instantiate()
 					tent.global_position = pos
-					add_child(tent)
-					print(tent.global_position)
+					self.get_parent().add_child(tent)
+					tentime = 5.0
 				#if $attack_box.overlaps_body(player):
 					#if player.damage_lock == 0.0:
 						#var inertia = abs(player.global_position - self.global_position)
@@ -215,8 +244,11 @@ func _physics_process(delta: float) -> void:
 			#await get_tree().create_timer(1).timeout
 		if (wait <= 0.0):
 			interacted = false
-	
-	
+	if magictime <= 0.0:
+		magic_attack()
+		magictime = 20.0
+	magictime -= delta
+	tentime -= delta
 
 	pass
 

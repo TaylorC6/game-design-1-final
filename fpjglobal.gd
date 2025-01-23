@@ -26,6 +26,7 @@ var strings = ["Grab your gear to prepare for the challenges ahead!", "lives her
 "The Cave of Infestation"]
 @export var area = ""
 enum  STATES { IDLE=0, DEAD, DAMAGED, ATTACKING, CHARGING }
+var dead = false
 var data = {
 	"max_health": 100.0,  # 20hp per heart, 5 per fraction
 	"health": 100.0,      # Min 60 Max 400

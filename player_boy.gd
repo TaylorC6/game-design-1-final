@@ -181,11 +181,11 @@ func take_damage(dmg):
 		if data.health > 0:
 			#aud_player.stream = hurt_sound #take damage func
 			#aud_player.play()
-			print("plplplplplplppl")
 			pass
 		else:
 			
 			data.state = STATES.DEAD
+			Fpjglobal.dead = true
 			#aud_player.stream = death_sound
 			#aud_player.play()
 			for i in range(18):
@@ -205,7 +205,7 @@ func in_range(player) -> bool:
 
 func _physics_process(delta: float) -> void:
 	#print(data.state)
-	if current != true:
+	if current != true or Fpjglobal.dead:
 		for entity in get_tree().get_nodes_in_group("Interactables"):
 			test = str(entity)
 			if entity == sign1 && e1:
@@ -221,7 +221,8 @@ func _physics_process(delta: float) -> void:
 			current = true
 			Fpjglobal.switchop(self.get_child(2))
 	else:
-		print(self.global_position, " papapapapapapapapapapapapapapapapa")
+		if damage_lock <= 0.0:
+			data.state = STATES.IDLE
 		if Fpjglobal.shelf1 == true and Fpjglobal.shelf2 == true:
 			Fpjglobal.stairsOpen = true
 		if Fpjglobal.fridge1 == true and Fpjglobal.fridge2 == true:
@@ -371,7 +372,6 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("ui_cancel"):
 			$Camera2D/pause_menu.show()
 			get_tree().paused = true
-		pass
 		#
 		attack_wait -= delta
 		ban_wait -= delta
@@ -433,7 +433,7 @@ func update_animation(direction):
 				#print(a_name.slice(-7)) 
 				#print("hi")
 
-		
+		print(a_name)
 		testvar = a_name
 		$AnimatedSprite2D.animation = a_name
 		$AnimatedSprite2D.play()

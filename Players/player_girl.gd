@@ -165,7 +165,7 @@ func pickup_money(value):
 signal health_depleted
 
 func take_damage(dmg):
-	if damage_lock == 0.0 and data.state != STATES.DEAD:
+	if damage_lock <= 0.0 and data.state != STATES.DEAD:
 		data.health -= dmg
 		data.state = STATES.DAMAGED
 		damage_lock = 0.5
@@ -178,6 +178,7 @@ func take_damage(dmg):
 			pass
 		else:
 			data.state = STATES.DEAD
+			Fpjglobal.dead = true
 			#aud_player.stream = death_sound
 			#aud_player.play()
 			for i in range(15):
@@ -196,7 +197,7 @@ func in_range(player) -> bool:
 #var glow_ranges = {glow_range: gear_shelf, "glow_range2": "sign1"}
 
 func _physics_process(delta: float) -> void:
-	if current != true:
+	if current != true or Fpjglobal.dead:
 		for entity in get_tree().get_nodes_in_group("Interactables"):
 			test = str(entity)
 			if entity == sign2 && e2:
@@ -212,6 +213,8 @@ func _physics_process(delta: float) -> void:
 			current = true
 			Fpjglobal.switchop(self.get_child(2))
 	else:
+		if damage_lock <= 0.0:
+			data.state = STATES.IDLE
 		if Fpjglobal.shelf1 == true and Fpjglobal.shelf2 == true:
 			Fpjglobal.GirlstairsOpen = true
 		if Fpjglobal.fridge1 == true and Fpjglobal.fridge2 == true:
@@ -344,7 +347,7 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("ui_cancel"):
 			$Camera2D/pause_menu.show()
 			get_tree().paused = true
-		pass
+		
 		#
 		attack_wait -= delta
 		if (Input.is_action_just_pressed("switch")):
@@ -362,6 +365,7 @@ func _physics_process(delta: float) -> void:
 				#noweapons = false
 				#Fpjglobal.stairsOpen = true
 		lpos = self.position
+		damage_lock -= delta
 
 
 func update_animation(direction):
