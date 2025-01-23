@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://cftphgehwrr27"]
+[gd_scene load_steps=31 format=4 uid="uid://cftphgehwrr27"]
 
 [ext_resource type="Texture2D" uid="uid://rr7bd0fpj1v8" path="res://sprites/Inner.png" id="1_al5kg"]
 [ext_resource type="Texture2D" uid="uid://bji4v48rv7a2y" path="res://sprites/fpjfold/fpjsprites/Good/32x32_ortho_dungeon_tile_Denzi100418-3.PNG" id="2_a3l4g"]
@@ -21,7 +21,6 @@
 [ext_resource type="Script" path="res://door10.gd" id="15_ypod6"]
 [ext_resource type="Script" path="res://door12.gd" id="16_vpwmt"]
 [ext_resource type="Script" path="res://door11.gd" id="18_xsb7b"]
-[ext_resource type="PackedScene" uid="uid://ba6xhaah8s6jx" path="res://change_lvl.tscn" id="22_icdii"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dc358"]
 texture = ExtResource("1_al5kg")
@@ -1792,28 +1791,6 @@ position = Vector2(0, 171)
 [node name="Player_Girl" parent="y-sort" instance=ExtResource("9_02dhh")]
 position = Vector2(-223, 170)
 
-[node name="Change_lvl_boy" parent="." instance=ExtResource("22_icdii")]
-position = Vector2(-584, -134)
-next_level = "level_3"
-
-[node name="CollisionShape2D" parent="Change_lvl_boy" index="0"]
-position = Vector2(586, -89)
-
-[node name="Sprite2D" parent="Change_lvl_boy" index="1"]
-visible = false
-position = Vector2(-11, 108)
-
-[node name="Change_lvl" parent="." instance=ExtResource("22_icdii")]
-position = Vector2(-556, -117)
-next_level = "level_3"
-
-[node name="CollisionShape2D" parent="Change_lvl" index="0"]
-position = Vector2(334, -102)
-
-[node name="Sprite2D" parent="Change_lvl" index="1"]
-visible = false
-position = Vector2(-46, -134)
-
 [editable path="pressure_plate"]
 [editable path="pressure_plate2"]
 [editable path="pressure_plate3"]
@@ -1840,5 +1817,3 @@ position = Vector2(-46, -134)
 [editable path="pressure_plate24"]
 [editable path="pressure_plate25"]
 [editable path="pressure_plate26"]
-[editable path="Change_lvl_boy"]
-[editable path="Change_lvl"]
