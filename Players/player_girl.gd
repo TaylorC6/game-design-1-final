@@ -36,12 +36,9 @@ var e2 = false
 @onready var sign3: TileMapLayer = $"../../Interactables/sign3"
 var e3 = false
 @onready var sign4: TileMapLayer = $"../../Interactables/sign4"
-<<<<<<< HEAD
-@onready var fridge: TileMapLayer = $"../Interactables/Fridge_Girl"
-=======
+@onready var fridge_girl: TileMapLayer = $"../Interactables/Fridge_Girl"
 var e4 = false
 @onready var fridge: TileMapLayer = $"../Interactables/Fridge"
->>>>>>> a11ececb3513f76e25576a6bd302339078d8b893
 
 
 #@onready var glow_range: Area2D = $"../Interactables/GearShelf/Area2D"

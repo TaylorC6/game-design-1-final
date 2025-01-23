@@ -221,6 +221,7 @@ func _physics_process(delta: float) -> void:
 			current = true
 			Fpjglobal.switchop(self.get_child(2))
 	else:
+		print(self.global_position, " papapapapapapapapapapapapapapapapa")
 		if Fpjglobal.shelf1 == true and Fpjglobal.shelf2 == true:
 			Fpjglobal.stairsOpen = true
 		if Fpjglobal.fridge1 == true and Fpjglobal.fridge2 == true:

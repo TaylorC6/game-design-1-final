@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 	else:
 		for player in get_tree().get_nodes_in_group("Enemy"):
 			if self.overlaps_body(player):
-				$CollisionShape2D.disabled = true
+				#$CollisionShape2D.disabled = true
 				#self.position = Vector2(move_toward(self.position.x, start.x + (50 * player_direction.x), velocity), move_toward(self.position.y, start.y + (30 * player_direction.y), velocity))
 				#$AnimatedSprite2D.play("Pinapple_Explosion")
 				player.take_damage(damage, self)

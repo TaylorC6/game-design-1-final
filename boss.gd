@@ -53,9 +53,9 @@ var money_value = 5
 
 signal recovered
 
-@onready var rcR = $topray
-@onready var rcM = $midray
-@onready var rcL = $bottomray
+#@onready var rcR = $topray
+#@onready var rcM = $midray
+#@onready var rcL = $bottomray
 @onready var anim_player = $AnimatedSprite2D
 @onready var audio_player = $AudioStreamPlayer2D
 @onready var tenticle = preload("res://tenticle.tscn")
@@ -145,11 +145,11 @@ func _physics_process(delta: float) -> void:
 	if damage_time <= 0:
 		$Label.text = ""
 	wait -= delta
-	if int(AI_STATE) >= 1 and int(AI_STATE) <= 8:
-		var raydir = statedirs[int(AI_STATE)]
-		rcM.target_position = raydir * vision_distance
-		rcL.target_position = raydir.rotated(deg_to_rad(-45)).normalized() * vision_distance
-		rcR.target_position = raydir.rotated(deg_to_rad(45)).normalized() * vision_distance
+	#if int(AI_STATE) >= 1 and int(AI_STATE) <= 8:
+		#var raydir = statedirs[int(AI_STATE)]
+		#rcM.target_position = raydir * vision_distance
+		#rcL.target_position = raydir.rotated(deg_to_rad(-45)).normalized() * vision_distance
+		#rcR.target_position = raydir.rotated(deg_to_rad(45)).normalized() * vision_distance
 	if animation_lock == 0.0:
 		if AI_STATE == STATES.DAMAGED:
 			$AnimatedSprite2D.material = null
@@ -157,8 +157,13 @@ func _physics_process(delta: float) -> void:
 			recovered.emit()
 		for player in get_tree().get_nodes_in_group("Player"):
 			if player != null:
-				var pos = player.global_position
-				var tent = 
+				if (Fpjglobal.camera == player.get_child(2)):
+					
+					var pos = player.global_position
+					var tent = tenticle.instantiate()
+					tent.global_position = pos
+					add_child(tent)
+					print(tent.global_position)
 				#if $attack_box.overlaps_body(player):
 					#if player.damage_lock == 0.0:
 						#var inertia = abs(player.global_position - self.global_position)
@@ -168,13 +173,13 @@ func _physics_process(delta: float) -> void:
 						#wait = 5.0
 					#else:
 						#continue
-				if player.data.state != player.STATES.DEAD:
-					if ((rcM.is_colliding() and rcM.get_collider() == player) or \
-					   (rcL.is_colliding() and rcL.get_collider() == player) or \
-					   (rcR.is_colliding() and rcR.get_collider() == player)):
-						turn_toward_player(player.global_position)
-						play = player
-						player_seen = true
+				#if player.data.state != player.STATES.DEAD:
+					#if ((rcM.is_colliding() and rcM.get_collider() == player) or \
+					   #(rcL.is_colliding() and rcL.get_collider() == player) or \
+					   #(rcR.is_colliding() and rcR.get_collider() == player)):
+						#turn_toward_player(player.global_position)
+						#play = player
+						#player_seen = true
 					#if player_seen == true:
 						#turn_toward_player(-player.global_position)
 				pass
@@ -190,7 +195,7 @@ func _physics_process(delta: float) -> void:
 			
 		var direction = statedirs[int(AI_STATE)]
 		velocity = direction * speed
-		var animation = "default"
+		var animation = "stage_1"
 		#if animation and not anim_player.is_playing():
 		anim_player.play(animation)
 		#if AI_STATE == STATES.IDLE and anim_player.is_playing():
@@ -199,15 +204,15 @@ func _physics_process(delta: float) -> void:
 		#velocity += inertia
 		#move_and_slide()
 		#inertia = inertia.move_toward(Vector2(), delta * 1000.0)
-		if !interacted && player_seen && \
-		((self.global_position.x-1 >= play.global_position.x or self.global_position.x+1 <= play.global_position.x) \
-		and (self.global_position.y-1 >= play.global_position.y or self.global_position.y+1 <= play.global_position.y)):
-			self.global_position = Vector2(move_toward(self.global_position.x, play.global_position.x, speed/60), move_toward(self.global_position.y, play.global_position.y, speed/60)) 
-		else: 
-			velocity += inertia
-			move_and_slide()
-			inertia = inertia.move_toward(Vector2(), delta * 1000.0)
-			await get_tree().create_timer(1).timeout
+		#if !interacted && player_seen && \
+		#((self.global_position.x-1 >= play.global_position.x or self.global_position.x+1 <= play.global_position.x) \
+		#and (self.global_position.y-1 >= play.global_position.y or self.global_position.y+1 <= play.global_position.y)):
+			#self.global_position = Vector2(move_toward(self.global_position.x, play.global_position.x, speed/60), move_toward(self.global_position.y, play.global_position.y, speed/60)) 
+		#else: 
+			#velocity += inertia
+			#move_and_slide()
+			#inertia = inertia.move_toward(Vector2(), delta * 1000.0)
+			#await get_tree().create_timer(1).timeout
 		if (wait <= 0.0):
 			interacted = false
 	

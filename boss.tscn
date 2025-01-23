@@ -222,7 +222,7 @@ shape = SubResource("CapsuleShape2D_kqw8n")
 scale = Vector2(0.390805, 0.407273)
 sprite_frames = SubResource("SpriteFrames_udw4c")
 animation = &"stage_1"
-frame_progress = 0.758107
+frame_progress = 0.355836
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 scale = Vector2(0.75, 0.75)
