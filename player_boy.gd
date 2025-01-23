@@ -33,6 +33,7 @@ var testvar = ""
 @onready var player_boy: CharacterBody2D = $"."
 @onready var gear_shelf: TileMapLayer = $"../Interactables/GearShelf"
 @onready var sign1: TileMapLayer = $"../../Interactables/sign1"
+@onready var hud: CanvasLayer = $fpj_hud
 var e1 = false
 @onready var sign5: TileMapLayer = $"../../Interactables/sign5"
 var e5 = false
@@ -191,6 +192,7 @@ func take_damage(dmg):
 		data.state = STATES.DAMAGED
 		damage_lock = 0.5
 		animation_lock = dmg * 0.005
+		hud.hudhealth = data.health
 		#$AnimatedSprite2D.material = damage_shader.duplicate()
 		#$AnimatedSprite2D.material.set_shader_parameter("intensity", 0.5)
 		if data.health > 0:
