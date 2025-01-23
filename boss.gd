@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
-var speed = 40.0
+var speed = 0.0
 var max_health = 200
 @export var health = max_health
 @export var size = self.scale
-var damage = 5
+var damage = 30
 var AI_STATE = STATES.IDLE
 var player_seen = false
 var play = CharacterBody2D
@@ -58,6 +58,7 @@ signal recovered
 @onready var rcL = $bottomray
 @onready var anim_player = $AnimatedSprite2D
 @onready var audio_player = $AudioStreamPlayer2D
+@onready var tenticle = preload("res://tenticle.tscn")
 
 var drops = ["drop_coin", "drop_heart"]
 #var coin_sc = preload("res://entities/items/coin.tscn")
@@ -109,7 +110,6 @@ func turn_toward_player(location: Vector2):
 
 func take_damage(dmg, attacker = null):
 	if damage_lock <= 0.0 :
-		
 		$Label.text = str(int($Label.text) + dmg)
 		AI_STATE = STATES.DAMAGED
 		health -= dmg
@@ -157,15 +157,17 @@ func _physics_process(delta: float) -> void:
 			recovered.emit()
 		for player in get_tree().get_nodes_in_group("Player"):
 			if player != null:
-				if $attack_box.overlaps_body(player):
-					if player.damage_lock == 0.0:
-						var inertia = abs(player.global_position - self.global_position)
-						player.inertia = (inertia.normalized() * Vector2(1, 1)) * knockback
-						player.take_damage(damage)
-						interacted = true
-						wait = 5.0
-					else:
-						continue
+				var pos = player.global_position
+				var tent = 
+				#if $attack_box.overlaps_body(player):
+					#if player.damage_lock == 0.0:
+						#var inertia = abs(player.global_position - self.global_position)
+						#player.inertia = (inertia.normalized() * Vector2(1, 1)) * knockback
+						#player.take_damage(damage)
+						#interacted = true
+						#wait = 5.0
+					#else:
+						#continue
 				if player.data.state != player.STATES.DEAD:
 					if ((rcM.is_colliding() and rcM.get_collider() == player) or \
 					   (rcL.is_colliding() and rcL.get_collider() == player) or \
@@ -188,11 +190,11 @@ func _physics_process(delta: float) -> void:
 			
 		var direction = statedirs[int(AI_STATE)]
 		velocity = direction * speed
-		var animation = state_anims[int(AI_STATE)]
-		if animation and not anim_player.is_playing():
-			anim_player.play(animation)
-		if AI_STATE == STATES.IDLE and anim_player.is_playing():
-			anim_player.stop()
+		var animation = "default"
+		#if animation and not anim_player.is_playing():
+		anim_player.play(animation)
+		#if AI_STATE == STATES.IDLE and anim_player.is_playing():
+			#anim_player.stop()
 		
 		#velocity += inertia
 		#move_and_slide()
