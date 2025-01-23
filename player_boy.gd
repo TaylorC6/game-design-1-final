@@ -140,6 +140,10 @@ func charged_attack():
 func _ready() -> void:
 	#if Fpjglobal.camera == self.get_child(2):
 		#Fpjglobal.switchnowindow()
+	if (Fpjglobal.current == Fpjglobal.player_names.get("Boy")) :
+			current = true
+			Fpjglobal.switchop(self.get_child(2))
+			Fpjglobal.window()
 	var lol = get_tree().get_nodes_in_group("Player")
 	if lol.size() > 1:
 		Fpjglobal.switch()
@@ -150,10 +154,14 @@ func _ready() -> void:
 	data = Fpjglobal.data
 	nogear = Fpjglobal.nogear
 	noweapons = Fpjglobal.noweapons
-	if (Fpjglobal.current == Fpjglobal.player_names.get("Boy")) :
-			current = true
-			Fpjglobal.switchop(self.get_child(2))
-			Fpjglobal.window()
+	#if (Fpjglobal.current == Fpjglobal.player_names.get("Boy")) :
+			#current = true
+			#Fpjglobal.switchop(self.get_child(2))
+			#Fpjglobal.window()
+	if (Fpjglobal.current == Fpjglobal.player_names.get("Girl")) :
+		print("plplplplplpl")
+		current = false
+	Fpjglobal.switchnowindow()
 	p_HUD.show()
 
 func pickup_health(value):
@@ -363,12 +371,12 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		inertia = inertia.move_toward(Vector2.ZERO, delta * 1000.0)
 		if data.state != STATES.DEAD:
-			if Input.is_action_just_pressed("ui_end") && ban_wait <= 0.0:
+			if Input.is_action_just_pressed("Banana") && ban_wait <= 0.0:
 				banana_attack()
 				ban_wait = 2.0
 				#charge_duration = 0.0
 				#data.state = STATES.CHARGING
-			if Input.is_action_just_pressed("ui_accept") && attack_wait <= 0.0:
+			if Input.is_action_just_pressed("Pineapple") && attack_wait <= 0.0:
 				attack()
 				attack_wait = 5.0
 				#data.state = STATES.CHARGING

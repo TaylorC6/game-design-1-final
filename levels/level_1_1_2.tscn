@@ -2275,6 +2275,7 @@ texture = SubResource("PlaceholderTexture2D_vmxs1")
 [node name="Door" type="Node" parent="."]
 
 [node name="Change_lvl" type="Area2D" parent="Door"]
+visible = false
 position = Vector2(-39, 121)
 rotation = -1.57079
 script = ExtResource("6_4t661")
@@ -2299,6 +2300,7 @@ position = Vector2(-64, -48)
 shape = SubResource("RectangleShape2D_w8hx3")
 
 [node name="Change_lvl_Girl" type="Area2D" parent="Door"]
+visible = false
 position = Vector2(-456, 121)
 rotation = -1.57079
 script = ExtResource("6_4t661")
