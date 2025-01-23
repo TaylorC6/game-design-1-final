@@ -70,6 +70,11 @@ var ppp = {
 	"pairp4" : false,
 }
 
+var enemies = {
+	"moving_slime" : false,
+	"bat" : false
+}
+
 var shelf1 = false
 var shelf2 = false
 var fridge1 = false

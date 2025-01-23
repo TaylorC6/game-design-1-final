@@ -123,6 +123,7 @@ func take_damage(dmg, attacker = null):
 		
 		if health <= 0:
 			print("hi")
+			Fpjglobal.enemies[self.name] = true
 			#drop_items()
 			#audio_player.stream = death_sound
 			#audio_player.play()
