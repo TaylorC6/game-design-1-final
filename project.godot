@@ -23,6 +23,7 @@ Fpjglobal="*res://fpjglobal.gd"
 Player=""
 Interactables=""
 Glows=""
+Enemy=""
 
 [input]
 

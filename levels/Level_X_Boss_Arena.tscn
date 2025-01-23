@@ -1651,7 +1651,7 @@ sources/1 = SubResource("TileSetAtlasSource_qqfhx")
 sources/0 = SubResource("TileSetAtlasSource_cg8f4")
 sources/2 = SubResource("TileSetAtlasSource_al5bg")
 
-[node name="Level_X_Boss_Arena" type="Node2D"]
+[node name="level_X_Boss_Arena" type="Node2D"]
 
 [node name="Black" type="TileMapLayer" parent="."]
 modulate = Color(0, 0, 0, 1)
@@ -1706,7 +1706,7 @@ visible = false
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node2D"]
 stream = ExtResource("10_kwdab")
 
-[node name="Boss" parent="." instance=ExtResource("9_o10m7")]
-position = Vector2(-2, 5)
+[node name="Boss" parent="." groups=["Enemy"] instance=ExtResource("9_o10m7")]
+position = Vector2(-1, 49)
 
 [editable path="y-sort/Player_Boy"]

@@ -106,7 +106,7 @@ func switch():
 		
 		#get_tree().get_current_scene().get_node("THE_WINDOW").scale *= -1
 	print(get_tree().get_current_scene())
-	if get_tree().get_current_scene().get_name() == "level_2":
+	if get_tree().get_current_scene().get_name().substr(0, 5) == "level":
 		get_tree().get_current_scene().get_node("THE_WINDOW").scale *= -1
 
 

@@ -200,7 +200,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Boss" type="CharacterBody2D"]
+[node name="Boss" type="CharacterBody2D" groups=["Enemy"]]
 scale = Vector2(5, 5)
 script = ExtResource("1_rflj0")
 
