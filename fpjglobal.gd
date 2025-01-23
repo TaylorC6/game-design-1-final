@@ -134,7 +134,6 @@ func window():
 
 func switchop(dif):
 	#camera.set_enabled(false)
-	print(dif, " lalalalalalalalallalalalalalala")
 	dif.set_enabled(true)
 	if camera != null:
 		camera.set_enabled(false)
