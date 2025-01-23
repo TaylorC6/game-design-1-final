@@ -432,8 +432,6 @@ func update_animation(direction):
 				##a_name = ""
 				#print(a_name.slice(-7)) 
 				#print("hi")
-
-		print(a_name)
 		testvar = a_name
 		$AnimatedSprite2D.animation = a_name
 		$AnimatedSprite2D.play()

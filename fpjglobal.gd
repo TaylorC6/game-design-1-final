@@ -36,15 +36,44 @@ var data = {
 	}
 
 var ppp = {
-	"pp1" = false,
-	"pp2" = false
+	"pressure_plate" : false,
+	"pressure_plate2" : false,
+	"pressure_plate3" : false,
+	"pressure_plate4" : false,
+	"pressure_plate5" : false,
+	"pressure_plate6" : false,
+	"pressure_plate7" : false,
+	"pressure_plate8" : false,
+	"pressure_plate9" : false,
+	"pressure_plate10" : false,
+	"pressure_plate11" : false,
+	"pressure_plate12" : false,
+	"pressure_plate13" : false,
+	"pressure_plate14" : false,
+	"pressure_plate15" : false,
+	"pressure_plate16" : false,
+	"pressure_plate17" : false,
+	"pressure_plate18" : false,
+	"pressure_plate19" : false,
+	"pressure_plate20" : false,
+	"pressure_plate21" : false,
+	"pressure_plate22" : false,
+	"pressure_plate23" : false,
+	"pressure_plate24" : false,
+	"pressure_plate25" : false,
+	"pressure_plate26" : false,
+	"pressure_plate27" : false,
+	"pressure_plate28" : false,
+	"pairp1" : false,
+	"pairp2" : false,
+	"pairp3" : false,
+	"pairp4" : false,
 }
 
 var shelf1 = false
 var shelf2 = false
 var fridge1 = false
 var fridge2 = false
-
 
 
 
@@ -71,9 +100,9 @@ func switch():
 		current = player_names.get("Girl")
 		
 		#get_tree().get_current_scene().get_node("THE_WINDOW").scale *= -1
-		print(get_tree().get_current_scene())
-		if get_tree().get_current_scene().get_name() == "level_2":
-			get_tree().get_current_scene().get_node("THE_WINDOW").scale *= -1
+	print(get_tree().get_current_scene())
+	if get_tree().get_current_scene().get_name() == "level_2":
+		get_tree().get_current_scene().get_node("THE_WINDOW").scale *= -1
 
 
 func switchop(dif):

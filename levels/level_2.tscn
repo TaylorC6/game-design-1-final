@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://cftphgehwrr27"]
+[gd_scene load_steps=31 format=4 uid="uid://cftphgehwrr27"]
 
 [ext_resource type="Texture2D" uid="uid://rr7bd0fpj1v8" path="res://sprites/Inner.png" id="1_al5kg"]
 [ext_resource type="Texture2D" uid="uid://bji4v48rv7a2y" path="res://sprites/fpjfold/fpjsprites/Good/32x32_ortho_dungeon_tile_Denzi100418-3.PNG" id="2_a3l4g"]
@@ -10,7 +10,17 @@
 [ext_resource type="Texture2D" uid="uid://daxqvyarxy02x" path="res://fpjfold/fpjsprites/outdoor_tiles.png" id="7_kercd"]
 [ext_resource type="PackedScene" uid="uid://c2xdjxhvlwhy3" path="res://pressure_plate.tscn" id="8_67rvu"]
 [ext_resource type="PackedScene" uid="uid://bonutmhnr5c87" path="res://Players/player_girl.tscn" id="9_02dhh"]
-[ext_resource type="PackedScene" uid="uid://ehd3xsqsjxig" path="res://door.tscn" id="9_rj6vx"]
+[ext_resource type="PackedScene" uid="uid://drravoqi3pgaw" path="res://door.tscn" id="9_rj6vx"]
+[ext_resource type="Script" path="res://door.gd" id="10_ydrop"]
+[ext_resource type="Script" path="res://door2.gd" id="11_8yaou"]
+[ext_resource type="Script" path="res://door4.gd" id="12_o03k6"]
+[ext_resource type="Script" path="res://door5.gd" id="13_qvkq1"]
+[ext_resource type="Script" path="res://door7.gd" id="14_gk7wi"]
+[ext_resource type="Script" path="res://door9.gd" id="14_iuuxs"]
+[ext_resource type="Script" path="res://door8.gd" id="15_fdhqa"]
+[ext_resource type="Script" path="res://door10.gd" id="15_ypod6"]
+[ext_resource type="Script" path="res://door12.gd" id="16_vpwmt"]
+[ext_resource type="Script" path="res://door11.gd" id="18_xsb7b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dc358"]
 texture = ExtResource("1_al5kg")
@@ -1522,7 +1532,6 @@ tile_map_data = PackedByteArray("AAAWAAwABQAKAAgAAAAXAAAABQAEAAgAAAAHAPD/BQAKAAg
 tile_set = SubResource("TileSet_6uvkf")
 
 [node name="THE_WINDOW" type="TileMapLayer" parent="."]
-visible = false
 modulate = Color(0.258824, 0.478431, 1, 0.290196)
 z_index = 895
 position = Vector2(-112, 0)
@@ -1549,9 +1558,11 @@ animation = &"red_base"
 [node name="Door" parent="y-sort" instance=ExtResource("9_rj6vx")]
 position = Vector2(-159, 96)
 scale = Vector2(-1, 1)
+script = ExtResource("10_ydrop")
 
 [node name="Door2" parent="y-sort" instance=ExtResource("9_rj6vx")]
 position = Vector2(-64, 96)
+script = ExtResource("10_ydrop")
 
 [node name="pressure_plate3" parent="y-sort" instance=ExtResource("8_67rvu")]
 position = Vector2(-193, 64)
@@ -1584,9 +1595,11 @@ animation = &"red_triangle"
 [node name="Door3" parent="y-sort" instance=ExtResource("9_rj6vx")]
 position = Vector2(-160, 32)
 scale = Vector2(-1, 1)
+script = ExtResource("11_8yaou")
 
 [node name="Door4" parent="y-sort" instance=ExtResource("9_rj6vx")]
 position = Vector2(-64, 32)
+script = ExtResource("12_o03k6")
 
 [node name="pressure_plate7" parent="y-sort" instance=ExtResource("8_67rvu")]
 position = Vector2(-96, 2)
@@ -1647,9 +1660,11 @@ animation = &"green_x"
 [node name="Door5" parent="y-sort" instance=ExtResource("9_rj6vx")]
 position = Vector2(-192, -64)
 scale = Vector2(-1, 1)
+script = ExtResource("13_qvkq1")
 
 [node name="Door6" parent="y-sort" instance=ExtResource("9_rj6vx")]
 position = Vector2(-32, -64)
+script = ExtResource("13_qvkq1")
 
 [node name="pressure_plate15" parent="y-sort" instance=ExtResource("8_67rvu")]
 position = Vector2(-256, 64)
@@ -1737,10 +1752,32 @@ animation = &"red_square"
 
 [node name="Door7" parent="y-sort" instance=ExtResource("9_rj6vx")]
 position = Vector2(64, -192)
+script = ExtResource("14_gk7wi")
 
 [node name="Door8" parent="y-sort" instance=ExtResource("9_rj6vx")]
 position = Vector2(-288, -192)
 scale = Vector2(-1, 1)
+script = ExtResource("15_fdhqa")
+
+[node name="Door9" parent="y-sort" instance=ExtResource("9_rj6vx")]
+position = Vector2(-320, -32)
+scale = Vector2(-1, 1)
+script = ExtResource("14_iuuxs")
+
+[node name="Door10" parent="y-sort" instance=ExtResource("9_rj6vx")]
+position = Vector2(-320, -96)
+scale = Vector2(-1, 1)
+script = ExtResource("15_ypod6")
+
+[node name="Door11" parent="y-sort" instance=ExtResource("9_rj6vx")]
+position = Vector2(96, -96)
+scale = Vector2(-1, 1)
+script = ExtResource("18_xsb7b")
+
+[node name="Door12" parent="y-sort" instance=ExtResource("9_rj6vx")]
+position = Vector2(96, -32)
+scale = Vector2(-1, 1)
+script = ExtResource("16_vpwmt")
 
 [node name="Entrance_Exit_Tiles" type="TileMapLayer" parent="y-sort"]
 y_sort_enabled = true
