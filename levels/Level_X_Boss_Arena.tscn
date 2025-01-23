@@ -1706,7 +1706,7 @@ visible = false
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node2D"]
 stream = ExtResource("10_kwdab")
 
-[node name="Boss" parent="." groups=["Enemy"] instance=ExtResource("9_o10m7")]
+[node name="Boss" parent="." instance=ExtResource("9_o10m7")]
 position = Vector2(-1, 49)
 
 [editable path="y-sort/Player_Boy"]

@@ -64,6 +64,12 @@ var ppp = {
 	"pressure_plate26" : false,
 	"pressure_plate27" : false,
 	"pressure_plate28" : false,
+	"pressure_plate29" : false,
+	"pressure_plate30" : false,
+	"pressure_plate31" : false,
+	"pressure_plate32" : false,
+	"pressure_plate33" : false,
+	"pressure_plate34" : false,
 	"pairp1" : false,
 	"pairp2" : false,
 	"pairp3" : false,
@@ -71,8 +77,10 @@ var ppp = {
 }
 
 var enemies = {
-	"moving_slime" : false,
-	"bat" : false
+	"MovingSlime" : false,
+	"Bat" : false,
+	"MovingSlime2" : false,
+	"Bat2" : false
 }
 
 var shelf1 = false

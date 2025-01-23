@@ -61,7 +61,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0jbcp")
 }],
-"loop": true,
+"loop": false,
 "name": &"Desert_Open",
 "speed": 5.0
 }, {
@@ -101,4 +101,4 @@ shape = SubResource("RectangleShape2D_qtqfc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2pyia")
-animation = &"Stone_Open"
+animation = &"Desert_Open"

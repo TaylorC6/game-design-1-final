@@ -165,7 +165,7 @@ func pickup_money(value):
 signal health_depleted
 
 func take_damage(dmg):
-	if damage_lock <= 0.0 and data.state != STATES.DEAD:
+	if damage_lock <= 0.0 and data.state != STATES.DEAD && current:
 		data.health -= dmg
 		data.state = STATES.DAMAGED
 		damage_lock = 0.5

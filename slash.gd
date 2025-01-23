@@ -1,6 +1,6 @@
 extends Area2D
 
-var damage    = 10
+var damage    = 25.0
 var knockback = 64.0
 var anim_life = 0.2
 

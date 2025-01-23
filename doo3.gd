@@ -8,7 +8,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if (Fpjglobal.enemies["moving_slime"]):
+	if (Fpjglobal.enemies["MovingSlime"] && Fpjglobal.enemies["Bat"]):
 		$AnimatedSprite2D.play("Desert_Open")
 		await $AnimatedSprite2D.animation_finished
 		queue_free()

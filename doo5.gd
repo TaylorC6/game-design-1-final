@@ -8,7 +8,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if (Fpjglobal.ppp["pressure_plate5"] && Fpjglobal.ppp["pressure_plate6"]):
+	if (Fpjglobal.ppp["pressure_plate33"] && Fpjglobal.ppp["pressure_plate34"]):
 		$AnimatedSprite2D.play("Desert_Open")
 		await $AnimatedSprite2D.animation_finished
 		queue_free()

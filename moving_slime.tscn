@@ -175,7 +175,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="MovingSlime" type="CharacterBody2D"]
+[node name="MovingSlime" type="CharacterBody2D" groups=["Enemy"]]
 script = ExtResource("1_tem27")
 
 [node name="attack_box" type="Area2D" parent="."]
