@@ -1698,7 +1698,7 @@ position = Vector2(-248, -186)
 [node name="Player_Boy" parent="y-sort" instance=ExtResource("8_os84o")]
 position = Vector2(247, 257)
 
-[node name="fpj_hud" parent="y-sort/Player_Boy" index="3"]
+[node name="fpj_hud" parent="y-sort/Player_Boy" index="4"]
 visible = false
 
 [node name="Boss" parent="y-sort" instance=ExtResource("9_o10m7")]
