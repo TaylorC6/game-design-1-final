@@ -184,7 +184,7 @@ script = ExtResource("1_v1l12")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.21212, 1.21212)
 sprite_frames = SubResource("SpriteFrames_gpqne")
-animation = &"red_triangle_pressed"
+animation = &"red_square_pressed"
 
 [node name="Area2D" type="Area2D" parent="."]
 
