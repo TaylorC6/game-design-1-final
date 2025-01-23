@@ -12,17 +12,20 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	for player in get_tree().get_nodes_in_group("Player"):
 		if $Area2D.overlaps_body(player) && first:
-				$AnimatedSprite2D.animation = "new_animation"
+				if $AnimatedSprite2D.animation.substr(len($AnimatedSprite2D.animation)-8) != "_pressed":
+					$AnimatedSprite2D.animation = $AnimatedSprite2D.animation + "_pressed"
 				Fpjglobal.ppp[self.name] = true
 				play = player
 				first = false
 		if play == player:
 			if $Area2D.overlaps_body(player):
-				$AnimatedSprite2D.animation = "new_animation"
+				if $AnimatedSprite2D.animation.substr(len($AnimatedSprite2D.animation)-8) != "_pressed":
+					$AnimatedSprite2D.animation = $AnimatedSprite2D.animation + "_pressed"
 				Fpjglobal.ppp[self.name] = true
 				play = player
 			else:
-				$AnimatedSprite2D.animation = "default"
+				if $AnimatedSprite2D.animation.substr(len($AnimatedSprite2D.animation)-8) == "_pressed":
+					$AnimatedSprite2D.animation = $AnimatedSprite2D.animation.substr(0, len($AnimatedSprite2D.animation)-8)
 				Fpjglobal.ppp[self.name] = false
 	
 	pass
