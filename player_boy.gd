@@ -363,12 +363,12 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		inertia = inertia.move_toward(Vector2.ZERO, delta * 1000.0)
 		if data.state != STATES.DEAD:
-			if Input.is_action_just_pressed("ui_end") && ban_wait <= 0.0:
+			if Input.is_action_just_pressed("Banana") && ban_wait <= 0.0:
 				banana_attack()
 				ban_wait = 2.0
 				#charge_duration = 0.0
 				#data.state = STATES.CHARGING
-			if Input.is_action_just_pressed("ui_accept") && attack_wait <= 0.0:
+			if Input.is_action_just_pressed("Pineapple") && attack_wait <= 0.0:
 				attack()
 				attack_wait = 5.0
 				#data.state = STATES.CHARGING
