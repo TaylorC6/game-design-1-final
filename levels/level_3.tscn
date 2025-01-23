@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=25 format=4 uid="uid://d1fcgpgl772j2"]
+=======
+[gd_scene load_steps=30 format=4 uid="uid://d1fcgpgl772j2"]
+>>>>>>> 5a484c7639ba2a242cfca69aa0db5e3e9f1a00ea
 
 [ext_resource type="Script" path="res://levels/level_3.gd" id="1_0e60a"]
 [ext_resource type="Texture2D" uid="uid://rr7bd0fpj1v8" path="res://sprites/Inner.png" id="1_onk1f"]
@@ -10,10 +14,20 @@
 [ext_resource type="Texture2D" uid="uid://bnebd6ewf8fi1" path="res://fpjfold/fpjsprites/Good/outdoor_tiles.png" id="7_88i1m"]
 [ext_resource type="Texture2D" uid="uid://daxqvyarxy02x" path="res://fpjfold/fpjsprites/outdoor_tiles.png" id="8_7e27o"]
 [ext_resource type="PackedScene" uid="uid://bln8texdoab4d" path="res://Players/player_boy.tscn" id="9_too1e"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://ehd3xsqsjxig" path="res://door.tscn" id="10_bcgyl"]
 [ext_resource type="PackedScene" uid="uid://c2xdjxhvlwhy3" path="res://pressure_plate.tscn" id="10_dvqxb"]
+=======
+[ext_resource type="PackedScene" uid="uid://drravoqi3pgaw" path="res://door.tscn" id="10_bcgyl"]
+>>>>>>> 5a484c7639ba2a242cfca69aa0db5e3e9f1a00ea
 [ext_resource type="AudioStream" uid="uid://cdgpsxg4vtwd2" path="res://Sounds/Desert_1.mp3" id="11_hc1ve"]
+[ext_resource type="Script" path="res://doo1.gd" id="11_okp1g"]
 [ext_resource type="PackedScene" uid="uid://bonutmhnr5c87" path="res://Players/player_girl.tscn" id="12_7wfw7"]
+[ext_resource type="Script" path="res://doo2.gd" id="12_u5342"]
+[ext_resource type="Script" path="res://doo3.gd" id="13_2mjbq"]
+[ext_resource type="Script" path="res://doo4.gd" id="14_opqrl"]
+[ext_resource type="Script" path="res://doo5.gd" id="15_ouyfy"]
+[ext_resource type="Script" path="res://doo6.gd" id="16_w225v"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_71acj"]
 texture = ExtResource("1_onk1f")
@@ -1670,6 +1684,7 @@ tile_set = SubResource("TileSet_qfmk5")
 [node name="pressure_plate" parent="." instance=ExtResource("10_dvqxb")]
 position = Vector2(241, 305)
 
+<<<<<<< HEAD
 [node name="pressure_plate2" parent="." instance=ExtResource("10_dvqxb")]
 position = Vector2(-80, 177)
 
@@ -1687,10 +1702,36 @@ animation = &"green_x"
 
 [node name="pressure_plate5" parent="." instance=ExtResource("10_dvqxb")]
 position = Vector2(82, -48)
+=======
+[node name="Door" parent="Boy_Doors" instance=ExtResource("10_bcgyl")]
+position = Vector2(144, 80)
+script = ExtResource("11_okp1g")
+
+[node name="Door2" parent="Boy_Doors" instance=ExtResource("10_bcgyl")]
+position = Vector2(176, 80)
+script = ExtResource("11_okp1g")
+
+[node name="Door3" parent="Boy_Doors" instance=ExtResource("10_bcgyl")]
+position = Vector2(144, -80)
+script = ExtResource("12_u5342")
+
+[node name="Door4" parent="Boy_Doors" instance=ExtResource("10_bcgyl")]
+position = Vector2(176, -80)
+script = ExtResource("12_u5342")
+
+[node name="Door5" parent="Boy_Doors" instance=ExtResource("10_bcgyl")]
+position = Vector2(144, -208)
+script = ExtResource("13_2mjbq")
+
+[node name="Door6" parent="Boy_Doors" instance=ExtResource("10_bcgyl")]
+position = Vector2(176, -208)
+script = ExtResource("13_2mjbq")
+>>>>>>> 5a484c7639ba2a242cfca69aa0db5e3e9f1a00ea
 
 [node name="AnimatedSprite2D" parent="pressure_plate5" index="0"]
 animation = &"green_circle"
 
+<<<<<<< HEAD
 [node name="pressure_plate6" parent="." instance=ExtResource("10_dvqxb")]
 position = Vector2(-241, -48)
 
@@ -1708,6 +1749,43 @@ position = Vector2(240, -48)
 
 [node name="AnimatedSprite2D" parent="pressure_plate8" index="0"]
 animation = &"red_base"
+=======
+[node name="Door7" parent="Girl_Doors" instance=ExtResource("10_bcgyl")]
+position = Vector2(-352, 288)
+rotation = 3.14159
+scale = Vector2(1, -1)
+script = ExtResource("14_opqrl")
+
+[node name="Door8" parent="Girl_Doors" instance=ExtResource("10_bcgyl")]
+position = Vector2(-320, 288)
+rotation = 3.14159
+scale = Vector2(1, -1)
+script = ExtResource("14_opqrl")
+
+[node name="Door9" parent="Girl_Doors" instance=ExtResource("10_bcgyl")]
+position = Vector2(-352, 128)
+rotation = 3.14159
+scale = Vector2(1, -1)
+script = ExtResource("15_ouyfy")
+
+[node name="Door10" parent="Girl_Doors" instance=ExtResource("10_bcgyl")]
+position = Vector2(-320, 128)
+rotation = 3.14159
+scale = Vector2(1, -1)
+script = ExtResource("15_ouyfy")
+
+[node name="Door11" parent="Girl_Doors" instance=ExtResource("10_bcgyl")]
+position = Vector2(-352, 0)
+rotation = 3.14159
+scale = Vector2(1, -1)
+script = ExtResource("16_w225v")
+
+[node name="Door12" parent="Girl_Doors" instance=ExtResource("10_bcgyl")]
+position = Vector2(-320, 0)
+rotation = 3.14159
+scale = Vector2(1, -1)
+script = ExtResource("16_w225v")
+>>>>>>> 5a484c7639ba2a242cfca69aa0db5e3e9f1a00ea
 
 [node name="y-sort" type="Node2D" parent="."]
 y_sort_enabled = true
