@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c2xdjxhvlwhy3" path="res://pressure_plate.tscn" id="5_v857q"]
 [ext_resource type="AudioStream" uid="uid://dfkd7k7dhq0uj" path="res://Sounds/Inspirational_1.mp3" id="6_d1b00"]
 [ext_resource type="PackedScene" uid="uid://bonutmhnr5c87" path="res://Players/player_girl.tscn" id="6_nk2s8"]
-[ext_resource type="PackedScene" path="res://td_enemy.tscn" id="7_rbp0e"]
+[ext_resource type="PackedScene" uid="uid://f1mm2ildtc4b" path="res://td_enemy.tscn" id="7_rbp0e"]
 [ext_resource type="Script" path="res://change_lvl.gd" id="8_wry7l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8w5s"]

@@ -3,6 +3,7 @@ extends CanvasLayer
 
 @onready var player = get_tree().get_first_node_in_group("Player")
 @onready var health: Control = $Health
+var hudhealth = 7.0
 @onready var coins = $Money
 
 const HEART_ROW_SIZE = 10
@@ -35,6 +36,7 @@ func create_heart():
 
 
 func _process(_delta: float) -> void:
+	var health_sprite = ""
 	#var ph = player.data.health
 	#var fh = floor(ph/20)
 	#var rh = int(ph)%20
@@ -44,6 +46,22 @@ func _process(_delta: float) -> void:
 		@warning_ignore("integer_division")
 		var y = (index/HEART_ROW_SIZE) * HEART_OFFSET
 		heart.position = Vector2(x, y)
+		if hudhealth >= 7:
+			health_sprite = "full"
+		elif hudhealth == 6:
+			health_sprite = "hit1"
+		elif hudhealth == 5:
+			health_sprite = "hit2"
+		elif hudhealth == 4:
+			health_sprite = "hit3"
+		elif hudhealth == 3:
+			health_sprite = "hit4"
+		elif hudhealth == 2:
+			health_sprite = "hit5"
+		elif hudhealth == 1:
+			health_sprite = "hit6"
+		elif hudhealth <= 0:
+			health_sprite = "dead"
 		
 		# frames 8 = empty, 7 1/4, 6 1/2, 3 3/4, 4 full
 		#if index > fh:
