@@ -1771,12 +1771,10 @@ script = ExtResource("15_ypod6")
 
 [node name="Door11" parent="y-sort" instance=ExtResource("9_rj6vx")]
 position = Vector2(96, -96)
-scale = Vector2(-1, 1)
 script = ExtResource("18_xsb7b")
 
 [node name="Door12" parent="y-sort" instance=ExtResource("9_rj6vx")]
 position = Vector2(96, -32)
-scale = Vector2(-1, 1)
 script = ExtResource("16_vpwmt")
 
 [node name="Entrance_Exit_Tiles" type="TileMapLayer" parent="y-sort"]
