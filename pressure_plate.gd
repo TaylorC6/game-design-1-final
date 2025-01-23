@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 				play = player
 			else:
 				$AnimatedSprite2D.animation = "default"
-				
+				Fpjglobal.ppp[self.name] = false
 	
 	pass
 

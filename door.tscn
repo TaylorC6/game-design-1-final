@@ -1,7 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://ehd3xsqsjxig"]
+[gd_scene load_steps=14 format=3 uid="uid://drravoqi3pgaw"]
 
 [ext_resource type="Texture2D" uid="uid://bji4v48rv7a2y" path="res://sprites/fpjfold/fpjsprites/Good/32x32_ortho_dungeon_tile_Denzi100418-3.PNG" id="1_4mm8h"]
 [ext_resource type="Texture2D" uid="uid://cvs7r3hb6i5p4" path="res://sprites/fpjfold/fpjsprites/Good/32x32_ortho_dungeon_tile_Denzi110515-1.png" id="1_udamy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0vo5"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qtqfc"]
+size = Vector2(30, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1x1on"]
 atlas = ExtResource("1_4mm8h")
@@ -68,31 +74,31 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 3.0,
 "texture": SubResource("AtlasTexture_3ocdj")
 }, {
-"duration": 1.0,
+"duration": 3.0,
 "texture": SubResource("AtlasTexture_kkmfq")
 }, {
-"duration": 1.0,
+"duration": 3.0,
 "texture": SubResource("AtlasTexture_lvpa8")
 }],
-"loop": true,
+"loop": false,
 "name": &"Stone_Open",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0vo5"]
-size = Vector2(32, 32)
+[node name="Door" type="StaticBody2D"]
 
-[node name="Door" type="Node2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_t0vo5")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_qtqfc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2pyia")
-animation = &"Desert_Closed"
-
-[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
-visible = false
-shape = SubResource("RectangleShape2D_t0vo5")
+animation = &"Stone_Open"
