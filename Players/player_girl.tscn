@@ -708,7 +708,7 @@ script = ExtResource("1_o7pha")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_r0lv1")
-animation = &"idle_down_no_gear"
+animation = &"idle_down_weapon_sheethed"
 offset = Vector2(0, -21)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

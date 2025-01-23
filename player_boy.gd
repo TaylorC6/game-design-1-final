@@ -140,6 +140,10 @@ func charged_attack():
 func _ready() -> void:
 	#if Fpjglobal.camera == self.get_child(2):
 		#Fpjglobal.switchnowindow()
+	if (Fpjglobal.current == Fpjglobal.player_names.get("Boy")) :
+			current = true
+			Fpjglobal.switchop(self.get_child(2))
+			Fpjglobal.window()
 	var lol = get_tree().get_nodes_in_group("Player")
 	if lol.size() > 1:
 		Fpjglobal.switch()
@@ -150,10 +154,14 @@ func _ready() -> void:
 	data = Fpjglobal.data
 	nogear = Fpjglobal.nogear
 	noweapons = Fpjglobal.noweapons
-	if (Fpjglobal.current == Fpjglobal.player_names.get("Boy")) :
-			current = true
-			Fpjglobal.switchop(self.get_child(2))
-			Fpjglobal.window()
+	#if (Fpjglobal.current == Fpjglobal.player_names.get("Boy")) :
+			#current = true
+			#Fpjglobal.switchop(self.get_child(2))
+			#Fpjglobal.window()
+	if (Fpjglobal.current == Fpjglobal.player_names.get("Girl")) :
+		print("plplplplplpl")
+		current = false
+	Fpjglobal.switchnowindow()
 	p_HUD.show()
 
 func pickup_health(value):
