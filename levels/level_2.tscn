@@ -1539,189 +1539,21 @@ scale = Vector2(-1, 1)
 tile_map_data = PackedByteArray("AAAAAO3/AAAAAAMAAAAAAO7/AAAAAAEAAAAAAO//AAAAAAIAAAAAAPD/AAAAAAMAAAAAAPH/AAAAAAAAAAAAAPL/AAAAAAEAAAAAAPP/AAAAAAIAAAAAAPT/AAAAAAMAAAAAAPX/AAAAAAAAAAAAAPb/AAAAAAEAAAAAAPf/AAAAAAIAAAAAAPj/AAAAAAAAAAAAAPn/AAAAAAAAAAAAAPr/AAAAAAEAAAAAAPv/AAAAAAIAAAAAAPz/AAAAAAMAAAAAAP3/AAAAAAAAAAAAAP7/AAAAAAEAAAAAAP//AAAAAAIAAAAAAAAAAAAAAAMAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAEAAAAAAAMAAAAAAAIAAAAAAAQAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAYAAAAAAAEAAAAAAAcAAAAAAAIAAAAAAAgAAAAAAAMAAAAAAAkAAAAAAAAAAAAAAAoAAAAAAAEAAAAAAAsAAAAAAAIAAAAAAAwAAAAAAAMAAAAAAA0AAAAAAAAAAAAAAA4AAAAAAAEAAAAAAA8AAAAAAAIAAAAAABAAAAAAAAAAAAABAO3/AAABAAMAAAABAO7/AAABAAEAAAABAO//AAABAAIAAAABAPD/AAABAAMAAAABAPH/AAABAAAAAAABAPL/AAABAAEAAAABAPP/AAABAAIAAAABAPT/AAABAAMAAAABAPX/AAAAAAAAAAABAPb/AAAAAAAAAAABAPf/AAAAAAAAAAABAPj/AAAAAAAAAAABAPn/AAABAAAAAAABAPr/AAABAAEAAAABAPv/AAABAAIAAAABAPz/AAABAAMAAAABAP3/AAABAAAAAAABAP7/AAABAAEAAAABAP//AAABAAIAAAABAAAAAAABAAMAAAABAAEAAAAAAAAAAAABAAIAAAAAAAEAAAABAAMAAAAAAAIAAAABAAQAAAAAAAMAAAABAAUAAAAAAAAAAAABAAYAAAAAAAEAAAABAAcAAAAAAAIAAAABAAgAAAAAAAMAAAABAAkAAAAAAAAAAAABAAoAAAAAAAEAAAABAAsAAAAAAAIAAAABAAwAAAAAAAAAAAABAA0AAAAAAAAAAAABAA4AAAAAAAAAAAABAA8AAAAAAAAAAAABABAAAAAAAAAAAAACAO3/AAACAAMAAAACAO7/AAACAAEAAAACAO//AAACAAIAAAACAPD/AAACAAMAAAACAPH/AAACAAAAAAACAPL/AAACAAEAAAACAPP/AAACAAIAAAACAPT/AAACAAMAAAACAPX/AAACAAAAAAACAPb/AAAAAAAAAAACAPf/AAACAAIAAAACAPj/AAAAAAAAAAACAPn/AAACAAAAAAACAPr/AAACAAEAAAACAPv/AAACAAIAAAACAPz/AAACAAMAAAACAP3/AAACAAAAAAACAP7/AAACAAEAAAACAP//AAACAAIAAAACAAAAAAACAAMAAAACAAEAAAABAAAAAAACAAIAAAABAAEAAAACAAMAAAABAAIAAAACAAQAAAABAAMAAAACAAUAAAABAAAAAAACAAYAAAABAAEAAAACAAcAAAABAAIAAAACAAgAAAABAAMAAAACAAkAAAAAAAAAAAACAAoAAAAAAAAAAAACAAsAAAAAAAAAAAACAAwAAAAAAAAAAAACAA0AAAACAAAAAAACAA4AAAAAAAAAAAACAA8AAAACAAIAAAACABAAAAAAAAAAAAADAO3/AAADAAMAAAADAO7/AAADAAEAAAADAO//AAADAAIAAAADAPD/AAADAAMAAAADAPH/AAADAAAAAAADAPL/AAADAAEAAAADAPP/AAADAAIAAAADAPT/AAADAAMAAAADAPX/AAADAAAAAAADAPb/AAAAAAAAAAADAPf/AAAAAAAAAAADAPj/AAAAAAAAAAADAPn/AAADAAAAAAADAPr/AAADAAEAAAADAPv/AAADAAIAAAADAPz/AAADAAMAAAADAP3/AAADAAAAAAADAP7/AAADAAEAAAADAP//AAADAAIAAAADAAAAAAADAAMAAAADAAEAAAACAAAAAAADAAIAAAACAAEAAAADAAMAAAACAAIAAAADAAQAAAACAAMAAAADAAUAAAACAAAAAAADAAYAAAACAAEAAAADAAcAAAACAAIAAAADAAgAAAACAAMAAAADAAkAAAACAAAAAAADAAoAAAAAAAAAAAADAAsAAAACAAIAAAADAAwAAAAAAAAAAAADAA0AAAADAAAAAAADAA4AAAAAAAAAAAADAA8AAAAAAAAAAAADABAAAAAAAAAAAAAEAO3/AAACAAMAAAAEAO7/AAAAAAEAAAAEAO//AAAAAAIAAAAEAPD/AAAAAAMAAAAEAPH/AAAAAAAAAAAEAPL/AAAAAAEAAAAEAPP/AAAAAAIAAAAEAPT/AAAAAAMAAAAEAPX/AAAAAAAAAAAEAPb/AAAAAAEAAAAEAPf/AAAAAAAAAAAEAPj/AAAAAAAAAAAEAPn/AAAAAAAAAAAEAPr/AAAAAAEAAAAEAPv/AAAAAAIAAAAEAPz/AAAAAAMAAAAEAP3/AAAAAAAAAAAEAP7/AAAAAAEAAAAEAP//AAAAAAIAAAAEAAAAAAAAAAMAAAAEAAEAAAADAAAAAAAEAAIAAAADAAEAAAAEAAMAAAADAAIAAAAEAAQAAAADAAMAAAAEAAUAAAADAAAAAAAEAAYAAAADAAEAAAAEAAcAAAADAAIAAAAEAAgAAAADAAMAAAAEAAkAAAADAAAAAAAEAAoAAAAAAAAAAAAEAAsAAAAAAAAAAAAEAAwAAAAAAAAAAAAEAA0AAAAAAAAAAAAEAA4AAAAAAAEAAAAEAA8AAAAAAAAAAAAEABAAAAAAAAAAAAAFAO3/AAADAAMAAAAFAO7/AAABAAEAAAAFAO//AAABAAIAAAAFAPD/AAABAAMAAAAFAPH/AAABAAAAAAAFAPL/AAABAAEAAAAFAPP/AAABAAIAAAAFAPT/AAABAAMAAAAFAPX/AAABAAAAAAAFAPb/AAABAAEAAAAFAPf/AAAAAAAAAAAFAPj/AAAAAAAAAAAFAPn/AAABAAAAAAAFAPr/AAABAAEAAAAFAPv/AAABAAIAAAAFAPz/AAABAAMAAAAFAP3/AAABAAAAAAAFAP7/AAABAAEAAAAFAP//AAABAAIAAAAFAAAAAAABAAMAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAEAAAAFAAMAAAAAAAIAAAAFAAQAAAAAAAMAAAAFAAUAAAAAAAAAAAAFAAYAAAAAAAEAAAAFAAcAAAAAAAIAAAAFAAgAAAAAAAMAAAAFAAkAAAAAAAAAAAAFAAoAAAAAAAEAAAAFAAsAAAAAAAAAAAAFAAwAAAAAAAAAAAAFAA0AAAABAAAAAAAFAA4AAAABAAEAAAAFAA8AAAAAAAAAAAAFABAAAAAAAAAAAAAGAO3/AAAAAAMAAAAGAO7/AAACAAEAAAAGAO//AAACAAIAAAAGAPD/AAACAAMAAAAGAPH/AAACAAAAAAAGAPL/AAACAAEAAAAGAPP/AAACAAIAAAAGAPT/AAACAAMAAAAGAPX/AAACAAAAAAAGAPb/AAACAAEAAAAGAPf/AAAAAAAAAAAGAPj/AAAAAAAAAAAGAPn/AAACAAAAAAAGAPr/AAACAAEAAAAGAPv/AAACAAIAAAAGAPz/AAACAAMAAAAGAP3/AAACAAAAAAAGAP7/AAACAAEAAAAGAP//AAACAAIAAAAGAAAAAAACAAMAAAAGAAEAAAABAAAAAAAGAAIAAAABAAEAAAAGAAMAAAABAAIAAAAGAAQAAAABAAMAAAAGAAUAAAABAAAAAAAGAAYAAAABAAEAAAAGAAcAAAABAAIAAAAGAAgAAAABAAMAAAAGAAkAAAABAAAAAAAGAAoAAAABAAEAAAAGAAsAAAAAAAAAAAAGAAwAAAAAAAAAAAAGAA0AAAACAAAAAAAGAA4AAAACAAEAAAAGAA8AAAAAAAAAAAAGABAAAAAAAAAAAAAHAO3/AAABAAMAAAAHAO7/AAADAAEAAAAHAO//AAADAAIAAAAHAPD/AAADAAMAAAAHAPH/AAADAAAAAAAHAPL/AAADAAEAAAAHAPP/AAADAAIAAAAHAPT/AAADAAMAAAAHAPX/AAADAAAAAAAHAPb/AAADAAEAAAAHAPf/AAAAAAAAAAAHAPj/AAAAAAAAAAAHAPn/AAADAAAAAAAHAPr/AAADAAEAAAAHAPv/AAADAAIAAAAHAPz/AAADAAMAAAAHAP3/AAADAAAAAAAHAP7/AAADAAEAAAAHAP//AAADAAIAAAAHAAAAAAADAAMAAAAHAAEAAAACAAAAAAAHAAIAAAACAAEAAAAHAAMAAAACAAIAAAAHAAQAAAACAAMAAAAHAAUAAAACAAAAAAAHAAYAAAACAAEAAAAHAAcAAAACAAIAAAAHAAgAAAACAAMAAAAHAAkAAAACAAAAAAAHAAoAAAACAAEAAAAHAAsAAAAAAAAAAAAHAAwAAAAAAAAAAAAHAA0AAAADAAAAAAAHAA4AAAADAAEAAAAHAA8AAAAAAAAAAAAHABAAAAAAAAAAAAAIAO3/AAACAAMAAAAIAO7/AAAAAAEAAAAIAO//AAAAAAIAAAAIAPD/AAAAAAMAAAAIAPH/AAAAAAAAAAAIAPL/AAAAAAEAAAAIAPP/AAAAAAIAAAAIAPT/AAAAAAMAAAAIAPX/AAAAAAAAAAAIAPb/AAAAAAEAAAAIAPf/AAAAAAAAAAAIAPj/AAAAAAAAAAAIAPn/AAAAAAAAAAAIAPr/AAAAAAEAAAAIAPv/AAAAAAIAAAAIAPz/AAAAAAMAAAAIAP3/AAAAAAAAAAAIAP7/AAAAAAEAAAAIAP//AAAAAAIAAAAIAAAAAAAAAAMAAAAIAAEAAAADAAAAAAAIAAIAAAADAAEAAAAIAAMAAAADAAIAAAAIAAQAAAADAAMAAAAIAAUAAAADAAAAAAAIAAYAAAADAAEAAAAIAAcAAAADAAIAAAAIAAgAAAADAAMAAAAIAAkAAAADAAAAAAAIAAoAAAADAAEAAAAIAAsAAAAAAAAAAAAIAAwAAAAAAAAAAAAIAA0AAAAAAAAAAAAIAA4AAAAAAAEAAAAIAA8AAAAAAAAAAAAIABAAAAAAAAAAAAAJAO3/AAADAAMAAAAJAO7/AAABAAEAAAAJAO//AAABAAIAAAAJAPD/AAABAAMAAAAJAPH/AAABAAAAAAAJAPL/AAABAAEAAAAJAPP/AAABAAIAAAAJAPT/AAABAAMAAAAJAPX/AAABAAAAAAAJAPb/AAABAAEAAAAJAPf/AAAAAAAAAAAJAPj/AAAAAAAAAAAJAPn/AAABAAAAAAAJAPr/AAABAAEAAAAJAPv/AAABAAIAAAAJAPz/AAABAAMAAAAJAP3/AAABAAAAAAAJAP7/AAABAAEAAAAJAP//AAABAAIAAAAJAAAAAAABAAMAAAAJAAEAAAAAAAAAAAAJAAIAAAAAAAEAAAAJAAMAAAAAAAIAAAAJAAQAAAAAAAMAAAAJAAUAAAAAAAAAAAAJAAYAAAAAAAEAAAAJAAcAAAAAAAIAAAAJAAgAAAAAAAMAAAAJAAkAAAAAAAAAAAAJAAoAAAAAAAEAAAAJAAsAAAAAAAAAAAAJAAwAAAAAAAAAAAAJAA0AAAABAAAAAAAJAA4AAAABAAEAAAAJAA8AAAAAAAAAAAAJABAAAAAAAAAAAAAGABEAAAAAAAAAAAAGABIAAAAAAAEAAAAHABEAAAABAAAAAAAHABIAAAABAAEAAAAIABEAAAACAAAAAAAIABIAAAACAAEAAAAJABEAAAADAAAAAAAJABIAAAADAAEAAAACABEAAAACAAAAAAACABIAAAACAAEAAAADABEAAAADAAAAAAADABIAAAADAAEAAAAEABEAAAACAAAAAAAEABIAAAACAAEAAAAFABEAAAADAAAAAAAFABIAAAADAAEAAAAAABEAAAAAAAAAAAAAABIAAAAAAAEAAAABABEAAAABAAAAAAABABIAAAABAAEAAAAGAOr/AAAAAAAAAAAGAOv/AAAAAAEAAAAGAOz/AAAAAAIAAAAHAOr/AAABAAAAAAAHAOv/AAABAAEAAAAHAOz/AAABAAIAAAAIAOr/AAACAAAAAAAIAOv/AAACAAEAAAAIAOz/AAACAAIAAAAJAOr/AAADAAAAAAAJAOv/AAADAAEAAAAJAOz/AAADAAIAAAACAOr/AAACAAAAAAACAOv/AAACAAEAAAACAOz/AAACAAIAAAADAOr/AAADAAAAAAADAOv/AAADAAEAAAADAOz/AAADAAIAAAAEAOr/AAACAAAAAAAEAOv/AAACAAEAAAAEAOz/AAACAAIAAAAFAOr/AAADAAAAAAAFAOv/AAADAAEAAAAFAOz/AAADAAIAAAAAAOr/AAAAAAAAAAAAAOv/AAAAAAEAAAAAAOz/AAAAAAIAAAABAOr/AAABAAAAAAABAOv/AAABAAEAAAABAOz/AAABAAIAAAA=")
 tile_set = SubResource("TileSet_g2p6o")
 
-[node name="pressure_plate" parent="." instance=ExtResource("8_67rvu")]
-position = Vector2(95, 161)
-
-[node name="AnimatedSprite2D" parent="pressure_plate" index="0"]
-animation = &"red_base"
-
-[node name="pressure_plate2" parent="." instance=ExtResource("8_67rvu")]
-position = Vector2(-320, 162)
-
-[node name="AnimatedSprite2D" parent="pressure_plate2" index="0"]
-position = Vector2(2.66663, -2.66666)
-animation = &"red_base"
-
-[node name="pressure_plate3" parent="." instance=ExtResource("8_67rvu")]
-position = Vector2(-193, 64)
-
-[node name="AnimatedSprite2D" parent="pressure_plate3" index="0"]
-position = Vector2(2.66663, -2.66666)
-animation = &"red_square"
-
-[node name="pressure_plate4" parent="." instance=ExtResource("8_67rvu")]
-position = Vector2(-95, 64)
-
-[node name="AnimatedSprite2D" parent="pressure_plate4" index="0"]
-position = Vector2(2.66663, -2.66666)
-animation = &"red_square"
-
-[node name="pressure_plate5" parent="." instance=ExtResource("8_67rvu")]
-position = Vector2(-127, 64)
-
-[node name="AnimatedSprite2D" parent="pressure_plate5" index="0"]
-position = Vector2(2.66663, -2.66666)
-animation = &"red_triangle"
-
-[node name="pressure_plate6" parent="." instance=ExtResource("8_67rvu")]
-position = Vector2(-33, 64)
-
-[node name="AnimatedSprite2D" parent="pressure_plate6" index="0"]
-position = Vector2(2.66663, -2.66666)
-animation = &"red_triangle"
-
-[node name="pressure_plate7" parent="." instance=ExtResource("8_67rvu")]
-position = Vector2(-96, 2)
-
-[node name="AnimatedSprite2D" parent="pressure_plate7" index="0"]
-position = Vector2(2.66663, -2.66666)
-animation = &"green_base"
-
-[node name="pressure_plate8" parent="." instance=ExtResource("8_67rvu")]
-position = Vector2(-130, -97)
-
-[node name="AnimatedSprite2D" parent="pressure_plate8" index="0"]
-position = Vector2(2.66663, -2.66666)
-animation = &"green_base"
-
-[node name="pressure_plate9" parent="." instance=ExtResource("8_67rvu")]
-position = Vector2(-130, -63)
-
-[node name="AnimatedSprite2D" parent="pressure_plate9" index="0"]
-position = Vector2(2.66663, -2.66666)
-animation = &"green_circle"
-
-[node name="pressure_plate10" parent="." instance=ExtResource("8_67rvu")]
-position = Vector2(-96, -31)
-
-[node name="AnimatedSprite2D" parent="pressure_plate10" index="0"]
-position = Vector2(2.66663, -2.66666)
-animation = &"green_circle"
-
-[node name="pressure_plate11" parent="." instance=ExtResource("8_67rvu")]
-position = Vector2(-130, -31)
-
-[node name="AnimatedSprite2D" parent="pressure_plate11" index="0"]
-position = Vector2(2.66663, -2.66667)
-animation = &"green_star"
-
-[node name="pressure_plate12" parent="." instance=ExtResource("8_67rvu")]
-position = Vector2(-96, -63)
-
-[node name="AnimatedSprite2D" parent="pressure_plate12" index="0"]
-position = Vector2(2.66663, -2.66667)
-animation = &"green_star"
-
-[node name="pressure_plate13" parent="." instance=ExtResource("8_67rvu")]
-position = Vector2(-96, -97)
-
-[node name="AnimatedSprite2D" parent="pressure_plate13" index="0"]
-position = Vector2(2.66663, -2.66667)
-animation = &"green_x"
-
-[node name="pressure_plate14" parent="." instance=ExtResource("8_67rvu")]
-position = Vector2(-130, 2)
-
-[node name="AnimatedSprite2D" parent="pressure_plate14" index="0"]
-position = Vector2(2.66663, -2.66667)
-animation = &"green_x"
-
-[node name="pressure_plate15" parent="." instance=ExtResource("8_67rvu")]
-position = Vector2(-256, 64)
-
-[node name="AnimatedSprite2D" parent="pressure_plate15" index="0"]
-position = Vector2(2.66663, -2.66667)
-animation = &"green_x"
-
-[node name="pressure_plate16" parent="." instance=ExtResource("8_67rvu")]
-position = Vector2(-321, 64)
-
-[node name="AnimatedSprite2D" parent="pressure_plate16" index="0"]
-position = Vector2(2.66663, -2.66667)
-animation = &"red_base"
-
-[node name="pressure_plate17" parent="." instance=ExtResource("8_67rvu")]
-position = Vector2(-288, -63)
-
-[node name="AnimatedSprite2D" parent="pressure_plate17" index="0"]
-position = Vector2(2.66663, -2.66667)
-animation = &"red_triangle"
-
-[node name="pressure_plate18" parent="." instance=ExtResource("8_67rvu")]
-position = Vector2(-257, -127)
-
-[node name="AnimatedSprite2D" parent="pressure_plate18" index="0"]
-position = Vector2(2.66663, -2.66667)
-animation = &"green_circle"
-
-[node name="pressure_plate19" parent="." instance=ExtResource("8_67rvu")]
-position = Vector2(-289, 34)
-
-[node name="AnimatedSprite2D" parent="pressure_plate19" index="0"]
-position = Vector2(2.66663, -2.66667)
-animation = &"green_base"
-
-[node name="pressure_plate20" parent="." instance=ExtResource("8_67rvu")]
-position = Vector2(-290, -127)
-
-[node name="AnimatedSprite2D" parent="pressure_plate20" index="0"]
-position = Vector2(2.66663, -2.66667)
-animation = &"red_square"
-
-[node name="pressure_plate21" parent="." instance=ExtResource("8_67rvu")]
-position = Vector2(63, -62)
-
-[node name="AnimatedSprite2D" parent="pressure_plate21" index="0"]
-position = Vector2(2.66663, -2.66667)
-animation = &"green_x"
-
-[node name="pressure_plate22" parent="." instance=ExtResource("8_67rvu")]
-position = Vector2(62, -127)
-
-[node name="AnimatedSprite2D" parent="pressure_plate22" index="0"]
-position = Vector2(2.66663, -2.66667)
-animation = &"red_base"
-
-[node name="pressure_plate23" parent="." instance=ExtResource("8_67rvu")]
-position = Vector2(96, 64)
-
-[node name="AnimatedSprite2D" parent="pressure_plate23" index="0"]
-position = Vector2(2.66663, -2.66667)
-animation = &"red_triangle"
-
-[node name="pressure_plate24" parent="." instance=ExtResource("8_67rvu")]
-position = Vector2(63, 35)
-
-[node name="AnimatedSprite2D" parent="pressure_plate24" index="0"]
-position = Vector2(2.66663, -2.66667)
-animation = &"green_circle"
-
-[node name="pressure_plate25" parent="." instance=ExtResource("8_67rvu")]
-position = Vector2(31, 64)
-
-[node name="AnimatedSprite2D" parent="pressure_plate25" index="0"]
-position = Vector2(2.66663, -2.66667)
-animation = &"green_base"
-
-[node name="pressure_plate26" parent="." instance=ExtResource("8_67rvu")]
-position = Vector2(32, -127)
-
-[node name="AnimatedSprite2D" parent="pressure_plate26" index="0"]
-position = Vector2(2.66663, -2.66667)
-animation = &"red_square"
-
 [node name="y-sort" type="Node2D" parent="."]
 y_sort_enabled = true
+
+[node name="pressure_plate" parent="y-sort" instance=ExtResource("8_67rvu")]
+position = Vector2(95, 161)
+
+[node name="AnimatedSprite2D" parent="y-sort/pressure_plate" index="0"]
+animation = &"red_base"
+
+[node name="pressure_plate2" parent="y-sort" instance=ExtResource("8_67rvu")]
+position = Vector2(-320, 162)
+
+[node name="AnimatedSprite2D" parent="y-sort/pressure_plate2" index="0"]
+position = Vector2(2.66663, -2.66666)
+animation = &"red_base"
 
 [node name="Door" parent="y-sort" instance=ExtResource("9_rj6vx")]
 position = Vector2(-159, 96)
@@ -1732,6 +1564,34 @@ script = ExtResource("10_ydrop")
 position = Vector2(-64, 96)
 script = ExtResource("10_ydrop")
 
+[node name="pressure_plate3" parent="y-sort" instance=ExtResource("8_67rvu")]
+position = Vector2(-193, 64)
+
+[node name="AnimatedSprite2D" parent="y-sort/pressure_plate3" index="0"]
+position = Vector2(2.66663, -2.66666)
+animation = &"red_square"
+
+[node name="pressure_plate4" parent="y-sort" instance=ExtResource("8_67rvu")]
+position = Vector2(-95, 64)
+
+[node name="AnimatedSprite2D" parent="y-sort/pressure_plate4" index="0"]
+position = Vector2(2.66663, -2.66666)
+animation = &"red_square"
+
+[node name="pressure_plate5" parent="y-sort" instance=ExtResource("8_67rvu")]
+position = Vector2(-127, 64)
+
+[node name="AnimatedSprite2D" parent="y-sort/pressure_plate5" index="0"]
+position = Vector2(2.66663, -2.66666)
+animation = &"red_triangle"
+
+[node name="pressure_plate6" parent="y-sort" instance=ExtResource("8_67rvu")]
+position = Vector2(-33, 64)
+
+[node name="AnimatedSprite2D" parent="y-sort/pressure_plate6" index="0"]
+position = Vector2(2.66663, -2.66666)
+animation = &"red_triangle"
+
 [node name="Door3" parent="y-sort" instance=ExtResource("9_rj6vx")]
 position = Vector2(-160, 32)
 scale = Vector2(-1, 1)
@@ -1741,6 +1601,62 @@ script = ExtResource("11_8yaou")
 position = Vector2(-64, 32)
 script = ExtResource("12_o03k6")
 
+[node name="pressure_plate7" parent="y-sort" instance=ExtResource("8_67rvu")]
+position = Vector2(-96, 2)
+
+[node name="AnimatedSprite2D" parent="y-sort/pressure_plate7" index="0"]
+position = Vector2(2.66663, -2.66666)
+animation = &"green_base"
+
+[node name="pressure_plate8" parent="y-sort" instance=ExtResource("8_67rvu")]
+position = Vector2(-130, -97)
+
+[node name="AnimatedSprite2D" parent="y-sort/pressure_plate8" index="0"]
+position = Vector2(2.66663, -2.66666)
+animation = &"green_base"
+
+[node name="pressure_plate9" parent="y-sort" instance=ExtResource("8_67rvu")]
+position = Vector2(-130, -63)
+
+[node name="AnimatedSprite2D" parent="y-sort/pressure_plate9" index="0"]
+position = Vector2(2.66663, -2.66666)
+animation = &"green_circle"
+
+[node name="pressure_plate10" parent="y-sort" instance=ExtResource("8_67rvu")]
+position = Vector2(-96, -31)
+
+[node name="AnimatedSprite2D" parent="y-sort/pressure_plate10" index="0"]
+position = Vector2(2.66663, -2.66666)
+animation = &"green_circle"
+
+[node name="pressure_plate11" parent="y-sort" instance=ExtResource("8_67rvu")]
+position = Vector2(-130, -31)
+
+[node name="AnimatedSprite2D" parent="y-sort/pressure_plate11" index="0"]
+position = Vector2(2.66663, -2.66667)
+animation = &"green_star"
+
+[node name="pressure_plate12" parent="y-sort" instance=ExtResource("8_67rvu")]
+position = Vector2(-96, -63)
+
+[node name="AnimatedSprite2D" parent="y-sort/pressure_plate12" index="0"]
+position = Vector2(2.66663, -2.66667)
+animation = &"green_star"
+
+[node name="pressure_plate13" parent="y-sort" instance=ExtResource("8_67rvu")]
+position = Vector2(-96, -97)
+
+[node name="AnimatedSprite2D" parent="y-sort/pressure_plate13" index="0"]
+position = Vector2(2.66663, -2.66667)
+animation = &"green_x"
+
+[node name="pressure_plate14" parent="y-sort" instance=ExtResource("8_67rvu")]
+position = Vector2(-130, 2)
+
+[node name="AnimatedSprite2D" parent="y-sort/pressure_plate14" index="0"]
+position = Vector2(2.66663, -2.66667)
+animation = &"green_x"
+
 [node name="Door5" parent="y-sort" instance=ExtResource("9_rj6vx")]
 position = Vector2(-192, -64)
 scale = Vector2(-1, 1)
@@ -1749,6 +1665,90 @@ script = ExtResource("13_qvkq1")
 [node name="Door6" parent="y-sort" instance=ExtResource("9_rj6vx")]
 position = Vector2(-32, -64)
 script = ExtResource("13_qvkq1")
+
+[node name="pressure_plate15" parent="y-sort" instance=ExtResource("8_67rvu")]
+position = Vector2(-256, 64)
+
+[node name="AnimatedSprite2D" parent="y-sort/pressure_plate15" index="0"]
+position = Vector2(2.66663, -2.66667)
+animation = &"green_x"
+
+[node name="pressure_plate16" parent="y-sort" instance=ExtResource("8_67rvu")]
+position = Vector2(-321, 64)
+
+[node name="AnimatedSprite2D" parent="y-sort/pressure_plate16" index="0"]
+position = Vector2(2.66663, -2.66667)
+animation = &"red_base"
+
+[node name="pressure_plate17" parent="y-sort" instance=ExtResource("8_67rvu")]
+position = Vector2(-288, -63)
+
+[node name="AnimatedSprite2D" parent="y-sort/pressure_plate17" index="0"]
+position = Vector2(2.66663, -2.66667)
+animation = &"red_triangle"
+
+[node name="pressure_plate18" parent="y-sort" instance=ExtResource("8_67rvu")]
+position = Vector2(-257, -127)
+
+[node name="AnimatedSprite2D" parent="y-sort/pressure_plate18" index="0"]
+position = Vector2(2.66663, -2.66667)
+animation = &"green_circle"
+
+[node name="pressure_plate19" parent="y-sort" instance=ExtResource("8_67rvu")]
+position = Vector2(-289, 34)
+
+[node name="AnimatedSprite2D" parent="y-sort/pressure_plate19" index="0"]
+position = Vector2(2.66663, -2.66667)
+animation = &"green_base"
+
+[node name="pressure_plate20" parent="y-sort" instance=ExtResource("8_67rvu")]
+position = Vector2(-290, -127)
+
+[node name="AnimatedSprite2D" parent="y-sort/pressure_plate20" index="0"]
+position = Vector2(2.66663, -2.66667)
+animation = &"red_square"
+
+[node name="pressure_plate21" parent="y-sort" instance=ExtResource("8_67rvu")]
+position = Vector2(63, -62)
+
+[node name="AnimatedSprite2D" parent="y-sort/pressure_plate21" index="0"]
+position = Vector2(2.66663, -2.66667)
+animation = &"green_x"
+
+[node name="pressure_plate22" parent="y-sort" instance=ExtResource("8_67rvu")]
+position = Vector2(62, -127)
+
+[node name="AnimatedSprite2D" parent="y-sort/pressure_plate22" index="0"]
+position = Vector2(2.66663, -2.66667)
+animation = &"red_base"
+
+[node name="pressure_plate23" parent="y-sort" instance=ExtResource("8_67rvu")]
+position = Vector2(96, 64)
+
+[node name="AnimatedSprite2D" parent="y-sort/pressure_plate23" index="0"]
+position = Vector2(2.66663, -2.66667)
+animation = &"red_triangle"
+
+[node name="pressure_plate24" parent="y-sort" instance=ExtResource("8_67rvu")]
+position = Vector2(63, 35)
+
+[node name="AnimatedSprite2D" parent="y-sort/pressure_plate24" index="0"]
+position = Vector2(2.66663, -2.66667)
+animation = &"green_circle"
+
+[node name="pressure_plate25" parent="y-sort" instance=ExtResource("8_67rvu")]
+position = Vector2(31, 64)
+
+[node name="AnimatedSprite2D" parent="y-sort/pressure_plate25" index="0"]
+position = Vector2(2.66663, -2.66667)
+animation = &"green_base"
+
+[node name="pressure_plate26" parent="y-sort" instance=ExtResource("8_67rvu")]
+position = Vector2(32, -127)
+
+[node name="AnimatedSprite2D" parent="y-sort/pressure_plate26" index="0"]
+position = Vector2(2.66663, -2.66667)
+animation = &"red_square"
 
 [node name="Door7" parent="y-sort" instance=ExtResource("9_rj6vx")]
 position = Vector2(64, -192)
@@ -1771,10 +1771,12 @@ script = ExtResource("15_ypod6")
 
 [node name="Door11" parent="y-sort" instance=ExtResource("9_rj6vx")]
 position = Vector2(96, -96)
+scale = Vector2(-1, 1)
 script = ExtResource("18_xsb7b")
 
 [node name="Door12" parent="y-sort" instance=ExtResource("9_rj6vx")]
 position = Vector2(96, -32)
+scale = Vector2(-1, 1)
 script = ExtResource("16_vpwmt")
 
 [node name="Entrance_Exit_Tiles" type="TileMapLayer" parent="y-sort"]
@@ -1789,29 +1791,29 @@ position = Vector2(0, 171)
 [node name="Player_Girl" parent="y-sort" instance=ExtResource("9_02dhh")]
 position = Vector2(-223, 170)
 
-[editable path="pressure_plate"]
-[editable path="pressure_plate2"]
-[editable path="pressure_plate3"]
-[editable path="pressure_plate4"]
-[editable path="pressure_plate5"]
-[editable path="pressure_plate6"]
-[editable path="pressure_plate7"]
-[editable path="pressure_plate8"]
-[editable path="pressure_plate9"]
-[editable path="pressure_plate10"]
-[editable path="pressure_plate11"]
-[editable path="pressure_plate12"]
-[editable path="pressure_plate13"]
-[editable path="pressure_plate14"]
-[editable path="pressure_plate15"]
-[editable path="pressure_plate16"]
-[editable path="pressure_plate17"]
-[editable path="pressure_plate18"]
-[editable path="pressure_plate19"]
-[editable path="pressure_plate20"]
-[editable path="pressure_plate21"]
-[editable path="pressure_plate22"]
-[editable path="pressure_plate23"]
-[editable path="pressure_plate24"]
-[editable path="pressure_plate25"]
-[editable path="pressure_plate26"]
+[editable path="y-sort/pressure_plate"]
+[editable path="y-sort/pressure_plate2"]
+[editable path="y-sort/pressure_plate3"]
+[editable path="y-sort/pressure_plate4"]
+[editable path="y-sort/pressure_plate5"]
+[editable path="y-sort/pressure_plate6"]
+[editable path="y-sort/pressure_plate7"]
+[editable path="y-sort/pressure_plate8"]
+[editable path="y-sort/pressure_plate9"]
+[editable path="y-sort/pressure_plate10"]
+[editable path="y-sort/pressure_plate11"]
+[editable path="y-sort/pressure_plate12"]
+[editable path="y-sort/pressure_plate13"]
+[editable path="y-sort/pressure_plate14"]
+[editable path="y-sort/pressure_plate15"]
+[editable path="y-sort/pressure_plate16"]
+[editable path="y-sort/pressure_plate17"]
+[editable path="y-sort/pressure_plate18"]
+[editable path="y-sort/pressure_plate19"]
+[editable path="y-sort/pressure_plate20"]
+[editable path="y-sort/pressure_plate21"]
+[editable path="y-sort/pressure_plate22"]
+[editable path="y-sort/pressure_plate23"]
+[editable path="y-sort/pressure_plate24"]
+[editable path="y-sort/pressure_plate25"]
+[editable path="y-sort/pressure_plate26"]
