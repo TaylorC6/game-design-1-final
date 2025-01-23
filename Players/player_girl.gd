@@ -136,10 +136,15 @@ func charged_attack():
 	data.state = STATES.IDLE
 
 func _ready() -> void:
+	
 	var lol = get_tree().get_nodes_in_group("Player")
 	if lol.size() > 1:
 		Fpjglobal.switch()
 		current = false
+	
+	if (Fpjglobal.current == Fpjglobal.player_names.get("Girl")) :
+			current = true
+			Fpjglobal.switchop(self.get_child(2))
 	p_HUD.show()
 
 func pickup_health(value):
@@ -272,7 +277,7 @@ func _physics_process(delta: float) -> void:
 							Fpjglobal.message_box_visible = true
 							Fpjglobal.message = Fpjglobal.strings[4]
 							e4 = true
-						if entity == fridge:
+						if entity == fridge_girl:
 							weaponSheethed = true
 							Fpjglobal.fridge2 = true
 		for entity in get_tree().get_nodes_in_group("Interactables"):

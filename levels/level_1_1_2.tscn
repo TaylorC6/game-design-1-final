@@ -2150,7 +2150,7 @@ size = Vector2(26, 30)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8hx3"]
 size = Vector2(34, 34)
 
-[node name="level_1_1-2" type="Node2D"]
+[node name="1_1-2" type="Node2D"]
 script = ExtResource("1_ha25j")
 
 [node name="Black" type="TileMapLayer" parent="."]

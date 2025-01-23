@@ -138,14 +138,22 @@ func charged_attack():
 	data.state = STATES.IDLE
 
 func _ready() -> void:
+	#if Fpjglobal.camera == self.get_child(2):
+		#Fpjglobal.switchnowindow()
 	var lol = get_tree().get_nodes_in_group("Player")
 	if lol.size() > 1:
 		Fpjglobal.switch()
 		current = false
+	#if (Fpjglobal.current == Fpjglobal.player_names.get("Girl")) :
+		#Fpjglobal.window()
 	self.global_position += Fpjglobal.get_cords()
 	data = Fpjglobal.data
 	nogear = Fpjglobal.nogear
 	noweapons = Fpjglobal.noweapons
+	if (Fpjglobal.current == Fpjglobal.player_names.get("Boy")) :
+			current = true
+			Fpjglobal.switchop(self.get_child(2))
+			Fpjglobal.window()
 	p_HUD.show()
 
 func pickup_health(value):
@@ -204,7 +212,9 @@ func in_range(player) -> bool:
 #var glow_ranges = {glow_range: gear_shelf, "glow_range2": "sign1"}
 
 func _physics_process(delta: float) -> void:
+	
 	#print(data.state)
+	#print(current , "   ", Fpjglobal.current)
 	if current != true or Fpjglobal.dead:
 		for entity in get_tree().get_nodes_in_group("Interactables"):
 			test = str(entity)
@@ -218,8 +228,10 @@ func _physics_process(delta: float) -> void:
 				Fpjglobal.message_box_visible = false
 				e6 = false
 		if (Fpjglobal.current == Fpjglobal.player_names.get("Boy")) :
-			current = true
+			print( "da fu")
 			Fpjglobal.switchop(self.get_child(2))
+			current = true
+			#Fpjglobal.switchop(self.get_child(2))
 	else:
 		if damage_lock <= 0.0:
 			data.state = STATES.IDLE

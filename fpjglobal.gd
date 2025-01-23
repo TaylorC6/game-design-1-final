@@ -104,9 +104,16 @@ func _ready() -> void:
 func glow_area(use_area: Area2D):
 	return use_area.overlaps_body(get_tree().get_current_scene().get_node("y-sort").get_node("Player_Boy"))
 
+func switchnowindow():
+	if (current == player_names.get("Girl")):
+		current = player_names.get("Boy")
+		
+	elif (current == player_names.get("Boy")) :
+		current = player_names.get("Girl")
 
 func switch():
 	if (current == player_names.get("Girl")):
+		print("what da hel")
 		current = player_names.get("Boy")
 		
 	elif (current == player_names.get("Boy")) :
@@ -117,9 +124,13 @@ func switch():
 	if get_tree().get_current_scene().get_name().substr(0, 5) == "level":
 		get_tree().get_current_scene().get_node("THE_WINDOW").scale *= -1
 
+func window():
+	if get_tree().get_current_scene().get_name().substr(0, 5) == "level":
+		get_tree().get_current_scene().get_node("THE_WINDOW").scale *= -1
 
 func switchop(dif):
 	#camera.set_enabled(false)
+	print(dif, " lalalalalalalalallalalalalalala")
 	dif.set_enabled(true)
 	if camera != null:
 		camera.set_enabled(false)
