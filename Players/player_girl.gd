@@ -92,7 +92,7 @@ func attack():
 	var dir_name = get_direction_name()
 	if dir_name == "left":
 		$AnimatedSprite2D.flip_h = 0
-	$AnimatedSprite2D.play("swipe_" + dir_name)
+	$AnimatedSprite2D.play("idle_down_weapon_out")
 	attack_direction = look_direction
 	print("hi")
 	#var slash = slash_scene.instantiate()
@@ -141,7 +141,9 @@ func _ready() -> void:
 	if lol.size() > 1:
 		Fpjglobal.switch()
 		current = false
-	
+	nogear = Fpjglobal.gnoger
+	noweapons = Fpjglobal.gnowep
+	weaponSheethed = Fpjglobal.weps
 	if (Fpjglobal.current == Fpjglobal.player_names.get("Girl")) :
 			current = true
 			Fpjglobal.switchop(self.get_child(2))
@@ -262,7 +264,8 @@ func _physics_process(delta: float) -> void:
 					test = str(entity)
 					if player_girl.in_range(self):
 						if entity == gear_shelf:
-							noweapons = false
+							nogear = false
+							Fpjglobal.gnoger = false
 							Fpjglobal.shelf2 = true
 
 						if entity == sign2:
@@ -278,7 +281,11 @@ func _physics_process(delta: float) -> void:
 							Fpjglobal.message = Fpjglobal.strings[4]
 							e4 = true
 						if entity == fridge_girl:
+							print("hihihihihihie")
+							noweapons = false
+							Fpjglobal.gnowep = false
 							weaponSheethed = true
+							Fpjglobal.weps = true
 							Fpjglobal.fridge2 = true
 		for entity in get_tree().get_nodes_in_group("Interactables"):
 			test = str(entity)
@@ -389,9 +396,10 @@ func update_animation(direction):
  
 		var _wak = a_name.substr(0, 5)
 		
-		if nogear == false:
+		if nogear == true:
+			print("why", nogear)
 			a_name += "_no_gear"
-		elif noweapons == false:
+		elif noweapons == true:
 			a_name += "_no_weapons"
 		elif weaponOut == true:
 			a_name += "_weapon_out"
@@ -399,7 +407,7 @@ func update_animation(direction):
 			a_name += "_weapon_sheethed"
 		else:
 			a_name += "_no_gear"
-
+		print(a_name)
 		$AnimatedSprite2D.animation = a_name
 		$AnimatedSprite2D.play()
 
