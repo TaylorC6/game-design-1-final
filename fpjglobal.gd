@@ -117,14 +117,12 @@ func switchnowindow():
 
 func switch():
 	if (current == player_names.get("Girl")):
-		print("what da hel")
 		current = player_names.get("Boy")
 		
 	elif (current == player_names.get("Boy")) :
 		current = player_names.get("Girl")
 		
 		#get_tree().get_current_scene().get_node("THE_WINDOW").scale *= -1
-	print(get_tree().get_current_scene())
 	if get_tree().get_current_scene().get_name().substr(0, 5) == "level":
 		get_tree().get_current_scene().get_node("THE_WINDOW").scale *= -1
 
@@ -134,7 +132,6 @@ func window():
 
 func switchop(dif):
 	#camera.set_enabled(false)
-	print(dif, " lalalalalalalalallalalalalalala")
 	dif.set_enabled(true)
 	if camera != null:
 		camera.set_enabled(false)

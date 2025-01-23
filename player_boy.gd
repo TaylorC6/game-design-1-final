@@ -160,7 +160,6 @@ func _ready() -> void:
 			#Fpjglobal.switchop(self.get_child(2))
 			#Fpjglobal.window()
 	if (Fpjglobal.current == Fpjglobal.player_names.get("Girl")) :
-		print("plplplplplpl")
 		current = false
 	Fpjglobal.switchnowindow()
 	p_HUD.show()
@@ -238,7 +237,6 @@ func _physics_process(delta: float) -> void:
 				Fpjglobal.message_box_visible = false
 				e6 = false
 		if (Fpjglobal.current == Fpjglobal.player_names.get("Boy")) :
-			print( "da fu")
 			Fpjglobal.switchop(self.get_child(2))
 			current = true
 			#Fpjglobal.switchop(self.get_child(2))
