@@ -1699,8 +1699,13 @@ position = Vector2(247, 257)
 visible = false
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [node name="Boss" parent="y-sort" instance=ExtResource("9_o10m7")]
 position = Vector2(-1, 49)
+=======
+[node name="Player_Girl" parent="y-sort" instance=ExtResource("9_idgmf")]
+position = Vector2(-248, -186)
+>>>>>>> Stashed changes
 =======
 [node name="Player_Girl" parent="y-sort" instance=ExtResource("9_idgmf")]
 position = Vector2(-248, -186)
