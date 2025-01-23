@@ -281,7 +281,6 @@ func _physics_process(delta: float) -> void:
 							Fpjglobal.message = Fpjglobal.strings[4]
 							e4 = true
 						if entity == fridge_girl:
-							print("hihihihihihie")
 							noweapons = false
 							Fpjglobal.gnowep = false
 							weaponSheethed = true
@@ -397,7 +396,6 @@ func update_animation(direction):
 		var _wak = a_name.substr(0, 5)
 		
 		if nogear == true:
-			print("why", nogear)
 			a_name += "_no_gear"
 		elif noweapons == true:
 			a_name += "_no_weapons"
@@ -407,7 +405,6 @@ func update_animation(direction):
 			a_name += "_weapon_sheethed"
 		else:
 			a_name += "_no_gear"
-		print(a_name)
 		$AnimatedSprite2D.animation = a_name
 		$AnimatedSprite2D.play()
 

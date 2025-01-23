@@ -1695,14 +1695,16 @@ tile_set = SubResource("TileSet_aiv1g")
 [node name="Player_Boy" parent="y-sort" instance=ExtResource("8_os84o")]
 position = Vector2(247, 257)
 
-[node name="fpj_hud" parent="y-sort/Player_Boy" index="4"]
+[node name="fpj_hud" parent="y-sort/Player_Boy" index="3"]
 visible = false
 
+<<<<<<< HEAD
 [node name="Player_Girl" parent="y-sort" instance=ExtResource("9_idgmf")]
 position = Vector2(-248, -186)
-
+=======
 [node name="Boss" parent="y-sort" instance=ExtResource("9_o10m7")]
 position = Vector2(-1, 49)
+>>>>>>> b0e19c50ebf901c36df3ab7c257df475b21cb559
 
 [node name="Node2D" type="Node2D" parent="."]
 
