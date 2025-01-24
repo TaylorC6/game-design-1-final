@@ -36,7 +36,7 @@ func create_heart():
 
 
 func _process(_delta: float) -> void:
-	var health_sprite = ""
+	var health_sprite = "full"
 	#var ph = player.data.health
 	#var fh = floor(ph/20)
 	#var rh = int(ph)%20
@@ -63,6 +63,8 @@ func _process(_delta: float) -> void:
 		elif hudhealth <= 0:
 			health_sprite = "dead"
 		
+		$Health/AnimatedSprite2D.animation = health_sprite
+		$Health/AnimatedSprite2D.play()
 		# frames 8 = empty, 7 1/4, 6 1/2, 3 3/4, 4 full
 		#if index > fh:
 			#heart.frame = 8

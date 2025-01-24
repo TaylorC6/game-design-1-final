@@ -1700,6 +1700,7 @@ visible = false
 
 [node name="Player_Girl" parent="y-sort" instance=ExtResource("9_idgmf")]
 position = Vector2(-248, -186)
+
 [node name="Boss" parent="y-sort" instance=ExtResource("9_o10m7")]
 position = Vector2(-1, 49)
 
@@ -1707,5 +1708,6 @@ position = Vector2(-1, 49)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node2D"]
 stream = ExtResource("10_kwdab")
+autoplay = true
 
 [editable path="y-sort/Player_Boy"]

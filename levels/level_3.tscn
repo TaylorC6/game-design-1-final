@@ -1820,35 +1820,35 @@ rotation = 3.14159
 scale = Vector2(1, -1)
 script = ExtResource("16_w225v")
 
+[node name="Bat" parent="y-sort" instance=ExtResource("21_vaou1")]
+position = Vector2(-255, -126)
+
+[node name="Bat2" parent="y-sort" instance=ExtResource("21_vaou1")]
+position = Vector2(258, -124)
+
+[node name="MovingSlime" parent="y-sort" instance=ExtResource("22_3v1fk")]
+position = Vector2(-64, -129)
+
+[node name="MovingSlime2" parent="y-sort" instance=ExtResource("22_3v1fk")]
+position = Vector2(67, -127)
+
+[node name="MovingSlime3" parent="y-sort" instance=ExtResource("22_3v1fk")]
+position = Vector2(-163, 130)
+
+[node name="MovingSlime4" parent="y-sort" instance=ExtResource("22_3v1fk")]
+position = Vector2(160, 128)
+
+[node name="Bat3" parent="y-sort" instance=ExtResource("21_vaou1")]
+position = Vector2(-159, -30)
+
+[node name="Bat4" parent="y-sort" instance=ExtResource("21_vaou1")]
+position = Vector2(161, -25)
+
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node2D"]
 stream = ExtResource("11_hc1ve")
 volume_db = -25.455
-
-[node name="Bat" parent="." instance=ExtResource("21_vaou1")]
-position = Vector2(-255, -126)
-
-[node name="Bat2" parent="." instance=ExtResource("21_vaou1")]
-position = Vector2(258, -124)
-
-[node name="MovingSlime" parent="." instance=ExtResource("22_3v1fk")]
-position = Vector2(-64, -129)
-
-[node name="MovingSlime2" parent="." instance=ExtResource("22_3v1fk")]
-position = Vector2(67, -127)
-
-[node name="MovingSlime3" parent="." instance=ExtResource("22_3v1fk")]
-position = Vector2(-163, 130)
-
-[node name="MovingSlime4" parent="." instance=ExtResource("22_3v1fk")]
-position = Vector2(160, 128)
-
-[node name="Bat3" parent="." instance=ExtResource("21_vaou1")]
-position = Vector2(-159, -30)
-
-[node name="Bat4" parent="." instance=ExtResource("21_vaou1")]
-position = Vector2(161, -25)
 
 [node name="Change_lvl_B" parent="." instance=ExtResource("23_rcxjt")]
 position = Vector2(547, -185)
