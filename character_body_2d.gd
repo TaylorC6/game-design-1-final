@@ -15,6 +15,8 @@ func _input(event):
 		
 		startPos = self.global_position
 		print(time)
+		print(startPos)
+		print(mousePos)
 
  
 func _physics_process(_delta):
@@ -32,7 +34,7 @@ func _physics_process(_delta):
 			# distanceto 1.0 end 0.0 multiplier of speed currently
 			# 
 			#velocity = Vector2.ZERO
-		if position.distance_to(mousePos) < 30: # don't move it the mouse pointer if it was too close to the player
+		if position.distance_to(mousePos) < 10: # don't move it the mouse pointer if it was too close to the player
 			velocity = Vector2.ZERO
 		move_and_slide()
 	
