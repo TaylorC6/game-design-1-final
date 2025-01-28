@@ -1692,14 +1692,14 @@ scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAIAAgAAQAAAAQAAAD3//n/AQAAAAQAAAA=")
 tile_set = SubResource("TileSet_aiv1g")
 
-[node name="Player_Girl" parent="y-sort" instance=ExtResource("9_idgmf")]
-position = Vector2(-248, -186)
-
 [node name="Player_Boy" parent="y-sort" instance=ExtResource("8_os84o")]
 position = Vector2(247, 257)
 
 [node name="fpj_hud" parent="y-sort/Player_Boy" index="4"]
 visible = false
+
+[node name="Player_Girl" parent="y-sort" instance=ExtResource("9_idgmf")]
+position = Vector2(-248, -186)
 
 [node name="Boss" parent="y-sort" instance=ExtResource("9_o10m7")]
 position = Vector2(-1, 49)
@@ -1708,5 +1708,6 @@ position = Vector2(-1, 49)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node2D"]
 stream = ExtResource("10_kwdab")
+autoplay = true
 
 [editable path="y-sort/Player_Boy"]

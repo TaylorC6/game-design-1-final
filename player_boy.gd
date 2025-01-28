@@ -373,7 +373,7 @@ func _physics_process(delta: float) -> void:
 		if data.state != STATES.DEAD:
 			if Input.is_action_just_pressed("ui_end") && ban_wait <= 0.0:
 				banana_attack()
-				ban_wait = 2.0
+				ban_wait = 0.6
 				#charge_duration = 0.0
 				#data.state = STATES.CHARGING
 			if Input.is_action_just_pressed("ui_accept") && attack_wait <= 0.0:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://d1fcgpgl772j2"]
+[gd_scene load_steps=34 format=4 uid="uid://d1fcgpgl772j2"]
 
 [ext_resource type="Script" path="res://levels/level_3.gd" id="1_0e60a"]
 [ext_resource type="Texture2D" uid="uid://rr7bd0fpj1v8" path="res://sprites/Inner.png" id="1_onk1f"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://c2xdjxhvlwhy3" path="res://pressure_plate.tscn" id="20_ux08o"]
 [ext_resource type="PackedScene" uid="uid://nl5ub2uk0xgp" path="res://bat.tscn" id="21_vaou1"]
 [ext_resource type="PackedScene" uid="uid://b1dqqnlsh1irm" path="res://moving_slime.tscn" id="22_3v1fk"]
+[ext_resource type="PackedScene" uid="uid://ba6xhaah8s6jx" path="res://change_lvl.tscn" id="23_rcxjt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_71acj"]
 texture = ExtResource("1_onk1f")
@@ -1408,21 +1409,37 @@ sources/1 = SubResource("TileSetAtlasSource_gn72a")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ogpiw"]
 texture = ExtResource("6_f3bwt")
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:3/0 = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:3/0 = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_m38op"]
 texture = ExtResource("7_88i1m")
@@ -1803,35 +1820,56 @@ rotation = 3.14159
 scale = Vector2(1, -1)
 script = ExtResource("16_w225v")
 
+[node name="Bat" parent="y-sort" instance=ExtResource("21_vaou1")]
+position = Vector2(-255, -126)
+
+[node name="Bat2" parent="y-sort" instance=ExtResource("21_vaou1")]
+position = Vector2(258, -124)
+
+[node name="MovingSlime" parent="y-sort" instance=ExtResource("22_3v1fk")]
+position = Vector2(-64, -129)
+
+[node name="MovingSlime2" parent="y-sort" instance=ExtResource("22_3v1fk")]
+position = Vector2(67, -127)
+
+[node name="MovingSlime3" parent="y-sort" instance=ExtResource("22_3v1fk")]
+position = Vector2(-163, 130)
+
+[node name="MovingSlime4" parent="y-sort" instance=ExtResource("22_3v1fk")]
+position = Vector2(160, 128)
+
+[node name="Bat3" parent="y-sort" instance=ExtResource("21_vaou1")]
+position = Vector2(-159, -30)
+
+[node name="Bat4" parent="y-sort" instance=ExtResource("21_vaou1")]
+position = Vector2(161, -25)
+
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Node2D"]
 stream = ExtResource("11_hc1ve")
 volume_db = -25.455
 
-[node name="Bat" parent="." instance=ExtResource("21_vaou1")]
-position = Vector2(-255, -126)
+[node name="Change_lvl_B" parent="." instance=ExtResource("23_rcxjt")]
+position = Vector2(547, -185)
+next_level = "Level_X_Boss_Arena"
 
-[node name="Bat2" parent="." instance=ExtResource("21_vaou1")]
-position = Vector2(258, -124)
+[node name="CollisionShape2D" parent="Change_lvl_B" index="0"]
+position = Vector2(-386, -80)
 
-[node name="MovingSlime" parent="." instance=ExtResource("22_3v1fk")]
-position = Vector2(-64, -129)
+[node name="Sprite2D" parent="Change_lvl_B" index="1"]
+visible = false
+position = Vector2(130, -54)
 
-[node name="MovingSlime2" parent="." instance=ExtResource("22_3v1fk")]
-position = Vector2(67, -127)
+[node name="Change_lvl_G" parent="." instance=ExtResource("23_rcxjt")]
+position = Vector2(-504, -265)
+next_level = "Level_X_Boss_Arena"
 
-[node name="MovingSlime3" parent="." instance=ExtResource("22_3v1fk")]
-position = Vector2(-163, 130)
+[node name="CollisionShape2D" parent="Change_lvl_G" index="0"]
+position = Vector2(346, -3)
 
-[node name="MovingSlime4" parent="." instance=ExtResource("22_3v1fk")]
-position = Vector2(160, 128)
-
-[node name="Bat3" parent="." instance=ExtResource("21_vaou1")]
-position = Vector2(-159, -30)
-
-[node name="Bat4" parent="." instance=ExtResource("21_vaou1")]
-position = Vector2(161, -25)
+[node name="Sprite2D" parent="Change_lvl_G" index="1"]
+visible = false
 
 [editable path="pressure_plate27"]
 [editable path="pressure_plate28"]
@@ -1841,3 +1879,5 @@ position = Vector2(161, -25)
 [editable path="pressure_plate32"]
 [editable path="pressure_plate33"]
 [editable path="pressure_plate34"]
+[editable path="Change_lvl_B"]
+[editable path="Change_lvl_G"]
