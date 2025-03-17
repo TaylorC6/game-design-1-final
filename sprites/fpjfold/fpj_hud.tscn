@@ -142,7 +142,7 @@ offset_right = 241.0
 offset_bottom = 47.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Health"]
-position = Vector2(69, 73)
+position = Vector2(52, 40)
 scale = Vector2(2.35938, 2.35938)
 sprite_frames = SubResource("SpriteFrames_157ey")
 animation = &"full"

@@ -40,28 +40,22 @@ func _process(_delta: float) -> void:
 	#var ph = player.data.health
 	#var fh = floor(ph/20)
 	#var rh = int(ph)%20
-	for heart in health.get_children():
-		var index = heart.get_index()
-		var x = (index%HEART_ROW_SIZE) * HEART_OFFSET
-		@warning_ignore("integer_division")
-		var y = (index/HEART_ROW_SIZE) * HEART_OFFSET
-		heart.position = Vector2(x, y)
-		if hudhealth >= 7:
-			health_sprite = "full"
-		elif hudhealth == 6:
-			health_sprite = "hit1"
-		elif hudhealth == 5:
-			health_sprite = "hit2"
-		elif hudhealth == 4:
-			health_sprite = "hit3"
-		elif hudhealth == 3:
-			health_sprite = "hit4"
-		elif hudhealth == 2:
-			health_sprite = "hit5"
-		elif hudhealth == 1:
-			health_sprite = "hit6"
-		elif hudhealth <= 0:
-			health_sprite = "dead"
+	if hudhealth >= 7:
+		health_sprite = "full"
+	elif hudhealth == 6:
+		health_sprite = "hit1"
+	elif hudhealth == 5:
+		health_sprite = "hit2"
+	elif hudhealth == 4:
+		health_sprite = "hit3"
+	elif hudhealth == 3:
+		health_sprite = "hit4"
+	elif hudhealth == 2:
+		health_sprite = "hit5"
+	elif hudhealth == 1:
+		health_sprite = "hit6"
+	elif hudhealth <= 0:
+		health_sprite = "dead"
 		
 		$Health/AnimatedSprite2D.animation = health_sprite
 		$Health/AnimatedSprite2D.play()
