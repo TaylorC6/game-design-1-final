@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://bln8texdoab4d"]
+[gd_scene load_steps=79 format=3 uid="uid://bln8texdoab4d"]
 
 [ext_resource type="Script" path="res://player_boy.gd" id="1_8q00g"]
 [ext_resource type="Texture2D" uid="uid://dhs7ub706idtx" path="res://sprites/BoyAnims/AnimLeftBoyGeared.png" id="4_trwvd"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dbxgx8ssv7rwo" path="res://sprites/BoyAnims/AnimUpBoyNoGear.png" id="13_o5h04"]
 [ext_resource type="Texture2D" uid="uid://ss15mnqo55cl" path="res://sprites/BoyAnims/AnimUpBoyNoWeapons.png" id="14_blhe4"]
 [ext_resource type="PackedScene" uid="uid://1mobpdtgslyq" path="res://sprites/fpjfold/fpj_hud.tscn" id="14_p22q4"]
+[ext_resource type="PackedScene" uid="uid://ydruh7eoqphf" path="res://Bananarang.tscn" id="15_kissg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xnb1a"]
 atlas = ExtResource("6_h0o7v")
@@ -585,6 +586,9 @@ shape = SubResource("CapsuleShape2D_ti6rq")
 zoom = Vector2(4, 4)
 
 [node name="fpj_hud" parent="." instance=ExtResource("14_p22q4")]
+
+[node name="Bananarang" parent="." instance=ExtResource("15_kissg")]
+position = Vector2(0, -18.3195)
 
 [node name="Area2D" type="Area2D" parent="."]
 

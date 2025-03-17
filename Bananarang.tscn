@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://ydruh7eoqphf"]
+
+[ext_resource type="Script" path="res://character_body_2d.gd" id="1_wgdlb"]
+[ext_resource type="Texture2D" uid="uid://f7s0hrvbgbsa" path="res://sprites/BoyAnims/Bananarang.png" id="2_f6fbt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rj6hg"]
+atlas = ExtResource("2_f6fbt")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qnw6"]
+atlas = ExtResource("2_f6fbt")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6e6i"]
+atlas = ExtResource("2_f6fbt")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtg07"]
+atlas = ExtResource("2_f6fbt")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b2ftm"]
+atlas = ExtResource("2_f6fbt")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6whf1"]
+atlas = ExtResource("2_f6fbt")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emcni"]
+atlas = ExtResource("2_f6fbt")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpmip"]
+atlas = ExtResource("2_f6fbt")
+region = Rect2(64, 128, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5c2x3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rj6hg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qnw6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6e6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtg07")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b2ftm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6whf1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_emcni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpmip")
+}],
+"loop": true,
+"name": &"default",
+"speed": 21.0
+}]
+
+[node name="Bananarang" type="Node2D"]
+
+[node name="Bananaranger" type="CharacterBody2D" parent="."]
+script = ExtResource("1_wgdlb")
+
+[node name="Mid" type="Node2D" parent="Bananaranger"]
+
+[node name="Banana" type="AnimatedSprite2D" parent="Bananaranger/Mid"]
+sprite_frames = SubResource("SpriteFrames_5c2x3")

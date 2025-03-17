@@ -1,9 +1,9 @@
 [gd_scene load_steps=32 format=4 uid="uid://cftphgehwrr27"]
 
 [ext_resource type="Texture2D" uid="uid://rr7bd0fpj1v8" path="res://sprites/Inner.png" id="1_al5kg"]
-[ext_resource type="Texture2D" uid="uid://bji4v48rv7a2y" path="res://sprites/fpjfold/fpjsprites/Good/32x32_ortho_dungeon_tile_Denzi100418-3.PNG" id="2_a3l4g"]
+[ext_resource type="Texture2D" uid="uid://bji4v48rv7a2y" path="res://fpjfold/fpjsprites/Good/32x32_ortho_dungeon_tile_Denzi100418-3.PNG" id="2_a3l4g"]
 [ext_resource type="Texture2D" uid="uid://dpyykm083nr4b" path="res://sprites/fpjfold/fpjsprites/Good/cave.png" id="2_k3cac"]
-[ext_resource type="Texture2D" uid="uid://cvs7r3hb6i5p4" path="res://sprites/fpjfold/fpjsprites/Good/32x32_ortho_dungeon_tile_Denzi110515-1.png" id="3_vcbin"]
+[ext_resource type="Texture2D" uid="uid://cvs7r3hb6i5p4" path="res://fpjfold/fpjsprites/Good/32x32_ortho_dungeon_tile_Denzi110515-1.png" id="3_vcbin"]
 [ext_resource type="PackedScene" uid="uid://bln8texdoab4d" path="res://Players/player_boy.tscn" id="5_nh7hk"]
 [ext_resource type="Texture2D" uid="uid://cv78xn0rkae3s" path="res://sprites/Whitening.png" id="5_t4pyk"]
 [ext_resource type="Texture2D" uid="uid://bnebd6ewf8fi1" path="res://fpjfold/fpjsprites/Good/outdoor_tiles.png" id="6_8ex25"]
