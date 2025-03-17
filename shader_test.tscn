@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=3 uid="uid://nea38pvbn2ug"]
 
 [ext_resource type="Texture2D" uid="uid://cu03r1vbcnuuu" path="res://sprites/Slimes/Idle/Slime1_Idle_body.png" id="1_211x6"]
-[ext_resource type="Shader" path="res://test1.gdshader" id="2_0wb75"]
-[ext_resource type="Shader" path="res://test2.gdshader" id="3_prgc2"]
-[ext_resource type="Shader" path="res://test3.gdshader" id="4_m3710"]
-[ext_resource type="Shader" path="res://test4.gdshader" id="5_154na"]
+[ext_resource type="Shader" uid="uid://cao53mt7qjpxt" path="res://test1.gdshader" id="2_0wb75"]
+[ext_resource type="Shader" uid="uid://drmgv8rry87je" path="res://test2.gdshader" id="3_prgc2"]
+[ext_resource type="Shader" uid="uid://b52wkiom8j5xt" path="res://test3.gdshader" id="4_m3710"]
+[ext_resource type="Shader" uid="uid://dl571yagh35w5" path="res://test4.gdshader" id="5_154na"]
 [ext_resource type="Material" uid="uid://ccnmvjte1lxfw" path="res://Shaders/Glow.tres" id="6_pbufk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_les2y"]

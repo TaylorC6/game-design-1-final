@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://c2xdjxhvlwhy3"]
 
-[ext_resource type="Script" path="res://pressure_plate.gd" id="1_v1l12"]
+[ext_resource type="Script" uid="uid://cxrg3nsva7xr4" path="res://pressure_plate.gd" id="1_v1l12"]
 [ext_resource type="Texture2D" uid="uid://dej8v2n0m3ijq" path="res://sprites/match3_sheet.png" id="2_0p0bf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fusfu"]

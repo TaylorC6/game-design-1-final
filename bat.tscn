@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://nl5ub2uk0xgp"]
 
-[ext_resource type="Script" path="res://bat.gd" id="1_2l41p"]
+[ext_resource type="Script" uid="uid://djiv82sqkxnqk" path="res://bat.gd" id="1_2l41p"]
 [ext_resource type="Texture2D" uid="uid://bu0lfs7x7583b" path="res://fpjfold/fpjsprites/Good/32x32-bat-sprite.png" id="2_gmiv4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_safmh"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://b0112xavwf20a"]
 
-[ext_resource type="Script" path="res://pineapple.gd" id="1_1pbls"]
+[ext_resource type="Script" uid="uid://dpid1xjss1mcr" path="res://pineapple.gd" id="1_1pbls"]
 [ext_resource type="Texture2D" uid="uid://ws6hh4bqm57o" path="res://sprites/PinappleSprites.png" id="2_hmtyq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xc7pc"]

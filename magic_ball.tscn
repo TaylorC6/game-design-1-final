@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://b7se2qma4k872"]
 
-[ext_resource type="Script" path="res://magic_ball.gd" id="1_cn7un"]
+[ext_resource type="Script" uid="uid://crbevdwsj0pbd" path="res://magic_ball.gd" id="1_cn7un"]
 [ext_resource type="Texture2D" uid="uid://bt01tptt2dlvs" path="res://fpjfold/fpjsprites/Good/mage-bullet-13x13.png" id="2_ieym1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_awqri"]

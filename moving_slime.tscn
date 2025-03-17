@@ -1,6 +1,6 @@
 [gd_scene load_steps=28 format=3 uid="uid://b1dqqnlsh1irm"]
 
-[ext_resource type="Script" path="res://moving_slime.gd" id="1_tem27"]
+[ext_resource type="Script" uid="uid://cm8okyi2tnrbm" path="res://moving_slime.gd" id="1_tem27"]
 [ext_resource type="Texture2D" uid="uid://cu03r1vbcnuuu" path="res://sprites/Slimes/Idle/Slime1_Idle_body.png" id="2_qh1ji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y3l5j"]

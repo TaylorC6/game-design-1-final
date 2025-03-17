@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=3 uid="uid://cae2pju6g7j21"]
 
-[ext_resource type="Script" path="res://boss.gd" id="1_rflj0"]
+[ext_resource type="Script" uid="uid://csb57x473dufg" path="res://boss.gd" id="1_rflj0"]
 [ext_resource type="Texture2D" uid="uid://b0uo5awxlsegr" path="res://fpjfold/fpjsprites/Good/mage-1-85x94.png" id="2_x5vtr"]
 [ext_resource type="Texture2D" uid="uid://dbvcjfitwdnpm" path="res://fpjfold/fpjsprites/Good/mage-3-87x110.png" id="3_gsgh8"]
 

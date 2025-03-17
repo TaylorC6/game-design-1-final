@@ -1,7 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://band7onwt1ey4"]
 
-[ext_resource type="Texture2D" uid="uid://7ww3ss2pkqgr" path="res://assets/Sprites/objects.png" id="1_3urw0"]
-[ext_resource type="Script" path="res://enitities/objects/small_chest.gd" id="1_56tmp"]
+[sub_resource type="Resource" id="Resource_mlndt"]
+metadata/__load_path__ = "res://enitities/objects/small_chest.gd"
+
+[sub_resource type="Resource" id="Resource_1tqcn"]
+metadata/__load_path__ = "res://assets/Sprites/objects.png"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sa8mf"]
 radius = 18.0
@@ -10,10 +13,10 @@ radius = 18.0
 size = Vector2(16, 16)
 
 [node name="SmallChest" type="Node2D" groups=["Interactables"]]
-script = ExtResource("1_56tmp")
+script = SubResource("Resource_mlndt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_3urw0")
+texture = SubResource("Resource_1tqcn")
 hframes = 35
 vframes = 20
 

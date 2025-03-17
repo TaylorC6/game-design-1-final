@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://ydruh7eoqphf"]
 
-[ext_resource type="Script" path="res://character_body_2d.gd" id="1_wgdlb"]
+[ext_resource type="Script" uid="uid://cfodbvtv42iec" path="res://character_body_2d.gd" id="1_wgdlb"]
 [ext_resource type="Texture2D" uid="uid://f7s0hrvbgbsa" path="res://sprites/BoyAnims/Bananarang.png" id="2_f6fbt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rj6hg"]
@@ -64,7 +64,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 21.0
+"speed": 20.0
 }]
 
 [node name="Bananarang" type="Node2D"]
@@ -76,3 +76,6 @@ script = ExtResource("1_wgdlb")
 
 [node name="Banana" type="AnimatedSprite2D" parent="Bananaranger/Mid"]
 sprite_frames = SubResource("SpriteFrames_5c2x3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)

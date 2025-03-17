@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=4 uid="uid://c66hbhi128sjl"]
 
 [ext_resource type="Texture2D" uid="uid://cv78xn0rkae3s" path="res://sprites/Whitening.png" id="1_6776e"]
-[ext_resource type="Script" path="res://levels/level_1_tutorial_2.gd" id="1_mmsga"]
+[ext_resource type="Script" uid="uid://cwuw16bk4uwdy" path="res://levels/level_1_tutorial_2.gd" id="1_mmsga"]
 [ext_resource type="Texture2D" uid="uid://bnebd6ewf8fi1" path="res://fpjfold/fpjsprites/Good/outdoor_tiles.png" id="2_to3w3"]
 [ext_resource type="Texture2D" uid="uid://daxqvyarxy02x" path="res://fpjfold/fpjsprites/outdoor_tiles.png" id="3_gofva"]
 [ext_resource type="PackedScene" uid="uid://bln8texdoab4d" path="res://Players/player_boy.tscn" id="4_2vhtr"]
@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://dfkd7k7dhq0uj" path="res://Sounds/Inspirational_1.mp3" id="6_d1b00"]
 [ext_resource type="PackedScene" uid="uid://bonutmhnr5c87" path="res://Players/player_girl.tscn" id="6_nk2s8"]
 [ext_resource type="PackedScene" uid="uid://f1mm2ildtc4b" path="res://td_enemy.tscn" id="7_rbp0e"]
-[ext_resource type="Script" path="res://change_lvl.gd" id="8_wry7l"]
+[ext_resource type="Script" uid="uid://brcim5f43ddv4" path="res://change_lvl.gd" id="8_wry7l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8w5s"]
 texture = ExtResource("1_6776e")

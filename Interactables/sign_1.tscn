@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bab70dni0qry8"]
 
 [ext_resource type="Texture2D" uid="uid://rr7bd0fpj1v8" path="res://sprites/Inner.png" id="1_my0qn"]
-[ext_resource type="Script" path="res://Interactables/sign_1.gd" id="1_tcxtg"]
+[ext_resource type="Script" uid="uid://u1ymvtymvc7d" path="res://Interactables/sign_1.gd" id="1_tcxtg"]
 [ext_resource type="Texture2D" uid="uid://bst44rslu20rb" path="res://sprites/objects.png" id="2_htdr6"]
 [ext_resource type="Texture2D" uid="uid://n56dmiabq8qh" path="res://sprites/fpjfold/fpjsprites/Good/outdoor_tiles.png" id="3_ll76e"]
 

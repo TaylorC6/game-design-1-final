@@ -20,7 +20,6 @@ var has_completed_revolution := false
 
 func _ready() -> void:
 	#Mid.global_position = self.global_position
-	self.global_position = self.get_parent().global_position
 	Banana.global_position = self.global_position
 	Banana.visible = false
 	has_completed_revolution = true
@@ -33,14 +32,15 @@ func boom(event):
 	if event.is_action_pressed("fire"): # detects if the mouse was left-clicked
 		Banana.visible = true
 		Banana.play()
-		mousePos = get_parent().get_local_mouse_position()
-		StartDistance = get_parent().position.distance_to(mousePos) # Distance from original point to mouse click
+		mousePos = get_local_mouse_position()
+		StartDistance = position.distance_to(mousePos) # Distance from original point to mouse click
 		midpoint = get_local_mouse_position() / 2
-		rotation_angle = get_parent().get_global_mouse_position().angle_to_point(position) # angle when mouse clicked
+		rotation_angle = get_global_mouse_position().angle_to_point(position) # angle when mouse clicked
 		angle = 0 # Player angle
 		radius_x = StartDistance / 2.0
 		radius_y = StartDistance / 4.0
 		has_completed_revolution = false
+		
 
 func _physics_process(delta):
 	# Parametric equations for an ellipse

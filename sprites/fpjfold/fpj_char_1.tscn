@@ -1,7 +1,7 @@
 [gd_scene load_steps=38 format=3 uid="uid://bkxrd7qh2soey"]
 
-[ext_resource type="Script" path="res://fpjfold/fpj_char_1.gd" id="1_cgpia"]
-[ext_resource type="Texture2D" uid="uid://dx2pmmhgko5pw" path="res://fpjfold/fpjsprites/player/redone charset by antifarea 3 sides.png" id="1_sybm8"]
+[ext_resource type="Script" uid="uid://bw67og7yrnrn" path="res://fpjfold/fpj_char_1.gd" id="1_cgpia"]
+[ext_resource type="Texture2D" uid="uid://dx2pmmhgko5pw" path="res://sprites/fpjfold/fpjsprites/player/redone charset by antifarea 3 sides.png" id="1_sybm8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1pbvo"]
 radius = 7.0
