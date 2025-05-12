@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://c75cka7vrpsdh"]
 
-[ext_resource type="Script" path="res://banana.gd" id="1_lh78g"]
+[ext_resource type="Script" uid="uid://bk485cuhu0xm0" path="res://banana.gd" id="1_lh78g"]
 [ext_resource type="Texture2D" uid="uid://f7s0hrvbgbsa" path="res://sprites/BoyAnims/Bananarang.png" id="2_kiw3j"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_biooh"]

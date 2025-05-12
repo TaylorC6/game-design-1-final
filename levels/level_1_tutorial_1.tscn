@@ -1,12 +1,12 @@
 [gd_scene load_steps=15 format=4 uid="uid://cs3dn85o3q8wf"]
 
 [ext_resource type="Texture2D" uid="uid://rr7bd0fpj1v8" path="res://sprites/Inner.png" id="1_8hg5n"]
-[ext_resource type="Script" path="res://levels/level_1_tutorial_1.gd" id="1_u3ova"]
+[ext_resource type="Script" uid="uid://rbhfjhwk0dfh" path="res://levels/level_1_tutorial_1.gd" id="1_u3ova"]
 [ext_resource type="Texture2D" uid="uid://bst44rslu20rb" path="res://sprites/objects.png" id="2_5plx8"]
 [ext_resource type="PackedScene" uid="uid://bln8texdoab4d" path="res://Players/player_boy.tscn" id="3_nm4m0"]
 [ext_resource type="PackedScene" uid="uid://bonutmhnr5c87" path="res://Players/player_girl.tscn" id="5_242wd"]
 [ext_resource type="AudioStream" uid="uid://d2i1u3jwyylgo" path="res://Sounds/Suspense_3.mp3" id="6_3fj27"]
-[ext_resource type="Script" path="res://change_lvl.gd" id="6_7luu7"]
+[ext_resource type="Script" uid="uid://c4un3s1sghki4" path="res://change_lvl.gd" id="6_7luu7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nncds"]
 texture = ExtResource("1_8hg5n")

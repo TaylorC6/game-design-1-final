@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://rr7bd0fpj1v8" path="res://sprites/Inner.png" id="1_i0g5y"]
 [ext_resource type="Texture2D" uid="uid://dpyykm083nr4b" path="res://sprites/fpjfold/fpjsprites/Good/cave.png" id="2_00uwy"]
 [ext_resource type="Texture2D" uid="uid://bnny8whrxj7he" path="res://sprites/cave.png" id="2_xn0mj"]
-[ext_resource type="Texture2D" uid="uid://bji4v48rv7a2y" path="res://sprites/fpjfold/fpjsprites/Good/32x32_ortho_dungeon_tile_Denzi100418-3.PNG" id="3_5mcvm"]
-[ext_resource type="Texture2D" uid="uid://cvs7r3hb6i5p4" path="res://sprites/fpjfold/fpjsprites/Good/32x32_ortho_dungeon_tile_Denzi110515-1.png" id="4_m0cvm"]
+[ext_resource type="Texture2D" uid="uid://bji4v48rv7a2y" path="res://fpjfold/fpjsprites/Good/32x32_ortho_dungeon_tile_Denzi100418-3.PNG" id="3_5mcvm"]
+[ext_resource type="Texture2D" uid="uid://cvs7r3hb6i5p4" path="res://fpjfold/fpjsprites/Good/32x32_ortho_dungeon_tile_Denzi110515-1.png" id="4_m0cvm"]
 [ext_resource type="Texture2D" uid="uid://cv78xn0rkae3s" path="res://sprites/Whitening.png" id="5_rvrpu"]
 [ext_resource type="Texture2D" uid="uid://bnebd6ewf8fi1" path="res://fpjfold/fpjsprites/Good/outdoor_tiles.png" id="6_lhgln"]
 [ext_resource type="Texture2D" uid="uid://daxqvyarxy02x" path="res://fpjfold/fpjsprites/outdoor_tiles.png" id="7_5xtly"]
@@ -1695,7 +1695,7 @@ tile_set = SubResource("TileSet_aiv1g")
 [node name="Player_Boy" parent="y-sort" instance=ExtResource("8_os84o")]
 position = Vector2(247, 257)
 
-[node name="fpj_hud" parent="y-sort/Player_Boy" index="4"]
+[node name="fpj_hud" parent="y-sort/Player_Boy" index="3"]
 visible = false
 
 [node name="Player_Girl" parent="y-sort" instance=ExtResource("9_idgmf")]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=81 format=3 uid="uid://bonutmhnr5c87"]
 
-[ext_resource type="Script" path="res://Players/player_girl.gd" id="1_o7pha"]
+[ext_resource type="Script" uid="uid://bglh23lqvihw2" path="res://Players/player_girl.gd" id="1_o7pha"]
 [ext_resource type="PackedScene" uid="uid://1mobpdtgslyq" path="res://sprites/fpjfold/fpj_hud.tscn" id="14_xyr7d"]
 [ext_resource type="Texture2D" uid="uid://dfakf74pxlesq" path="res://sprites/GirlAnims/Girl.png" id="15_yugin"]
 [ext_resource type="Texture2D" uid="uid://lbn6nckis275" path="res://sprites/GirlAnims/Girl_Left.png" id="16_s3ehv"]
